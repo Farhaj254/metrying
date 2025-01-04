@@ -101,14 +101,16 @@ function toggleMenu() {
 function toggleSearchBar() {
     const searchContainer = document.querySelector('.search-container');
     const searchBar = document.getElementById('search-bar');
-    
-    // Toggle the 'active' class
+
+    // Toggle 'active' class to show or hide the search bar
     searchContainer.classList.toggle('active');
 
-    // Focus on the search bar when it appears
+    // Focus on the search bar when it's visible
     if (searchContainer.classList.contains('active')) {
+        searchBar.style.display = 'block'; // Show search bar
         searchBar.focus();
+    } else {
+        searchBar.style.display = 'none'; // Hide search bar
     }
 }
-
 

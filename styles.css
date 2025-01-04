@@ -350,13 +350,7 @@ header {
         justify-content: center; /* Center content */
     }
 
-    /* Hamburger Menu */
-    .hamburger-menu {
-        display: block; /* Show on mobile */
-        position: absolute;
-        left: 10px; /* Align to left corner */
-    }
-
+   
     /* Logo */
     .logo {
         flex-grow: 1;

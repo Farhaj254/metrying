@@ -77,8 +77,15 @@ body {
         }
 
        /* Iframe Container */
-#iframe-container {
+.iframe-wrapper {
     grid-column: 2 / 3; /* Center column */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align contents */
+    gap: 10px; /* Add space between iframe and buttons */
+}
+
+#iframe-container {
     width: 100%;
     height: 700px; /* Fixed height */
     background-color: #fff;
@@ -92,49 +99,23 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
-    object-fit: contain; /* Keeps scaling inside iframe */
+    object-fit: contain; /* Maintain aspect ratio */
 }
 
-
-
-
-
-/* Game Wrapper for Scaling */
-.game-wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.game-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-
-
-  .game-info {
-    grid-column: 2 / 3; /* Align in the center column */
+.game-info {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     align-items: center;
     padding: 10px 20px;
     background-color: #f4f4f4;
-    border-top: 1px solid #ddd; /* Subtle separator */
+    border-top: 1px solid #ddd;
 }
 
 #game-title {
     font-size: 20px;
     font-weight: bold;
     color: #333;
-}
-
-body.dark-mode #game-title {
-    color: #fff;
 }
 
 .button-container {
@@ -151,6 +132,7 @@ body.dark-mode #game-title {
     cursor: pointer;
     font-size: 16px;
 }
+
 
 .button-container button:hover {
     background-color: #444;

@@ -302,151 +302,36 @@ body {
         display: block; /* Show hamburger button */
     }
 }
-/* HEADER */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #1a1a3d;
-    color: white;
-    position: relative;
-    z-index: 10; /* Ensure header is above everything */
-}
-
-/* LOGO */
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* HAMBURGER MENU */
-.hamburger-menu {
-    display: none; /* Hide on desktop */
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    color: white;
-    position: absolute;
-    left: 10px; /* Align to left */
-    z-index: 200; /* Ensure visibility */
-}
-
-/* SEARCH CONTAINER */
+/* Default styles for the search container */
 .search-container {
     display: flex;
     align-items: center;
     gap: 10px;
-    position: relative; /* Maintain flow */
-    z-index: 150; /* Ensure above other elements */
 }
 
-/* SEARCH BAR */
-#search-bar {
-    display: none; /* Hidden by default */
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    z-index: 200; /* Ensure it appears above other elements */
-}
-
-/* SHOW SEARCH BAR */
-#search-bar.active {
-    display: block; /* Show when toggled */
-}
-
-/* SEARCH ICON */
-.search-icon {
-    display: none; /* Hidden by default for desktop */
-    cursor: pointer;
-    font-size: 18px;
-    color: white;
-    background: none;
-    border: none;
-}
-
-/* DARK MODE BUTTON */
-.dark-mode-toggle {
-    background-color: #333;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-    z-index: 150; /* Ensure above other elements */
-}
-
-/* MOBILE STYLES */
+/* Hide search bar by default on mobile */
 @media (max-width: 768px) {
-    header {
-        position: relative;
-        justify-content: center; /* Center everything */
-    }
-
-    /* HAMBURGER MENU */
-    .hamburger-menu {
-        display: block; /* Show hamburger */
-        position: absolute;
-        left: 10px;
-        z-index: 200; /* Ensure visibility */
-    }
-
-    /* LOGO */
-    .logo {
-        flex-grow: 1;
-        justify-content: center; /* Center logo */
-    }
-
-    /* SEARCH CONTAINER */
-    .search-container {
-        position: absolute;
-        right: 50px; /* Avoid overlap */
-        top: 10px;
-        z-index: 150; /* Keep above others */
-    }
-
-    /* SEARCH ICON */
-    .search-icon {
-        display: block; /* Show icon */
-    }
-
-    /* SEARCH BAR */
     #search-bar {
-        display: none; /* Hide by default */
-        position: absolute;
-        right: 0;
-        top: 30px;
-        width: 150px;
-        z-index: 200; /* Above other elements */
+        display: none; /* Hidden by default */
     }
 
-    #search-bar.active {
-        display: block; /* Toggle visibility */
+    .search-container.active #search-bar {
+        display: block; /* Show when the 'active' class is toggled */
     }
 
-    /* DARK MODE BUTTON */
-    .dark-mode-toggle {
-        display: block;
-        position: absolute;
-        right: 10px; /* Align to right */
-        z-index: 200; /* Ensure visibility */
+    /* Style for search icon */
+    .search-icon {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: white; /* Adjust the color as per your design */
     }
 
-    /* NAVIGATION MENU */
-    #nav-menu {
-        display: none; /* Hide in mobile */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #1a1a3d;
-        padding: 10px;
-        z-index: 1000;
-    }
-
-    #nav-menu.show {
-        display: flex; /* Show menu when toggled */
+    .search-container input {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        width: 150px; /* Adjust the size of input field */
     }
 }

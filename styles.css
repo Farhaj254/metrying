@@ -283,21 +283,26 @@ body.dark-mode #iframe-container {
             }
         }
 
-        @media (max-width: 768px) {
-            .grid-section {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
+       @media (max-width: 768px) {
+    #iframe-container {
+        height: 500px;
+    }
 
-            .ad-container {
-                height: 150px;
-                font-size: 14px;
-            }
+    iframe {
+        height: 100%;
+    }
+}
 
-            iframe {
-                height: 400px;
-            }
-        }
+@media (max-width: 480px) {
+    #iframe-container {
+        height: 400px;
+    }
+
+    iframe {
+        height: 100%;
+    }
+}
+
 
         @media (max-width: 480px) {
             body {

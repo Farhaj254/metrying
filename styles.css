@@ -335,3 +335,51 @@ body {
         width: 150px; /* Adjust the size of input field */
     }
 }
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none; /* Hidden by default for larger screens */
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    color: white;
+}
+
+/* Default Navigation for Larger Screens */
+#nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* Hide Navigation in Mobile View */
+@media (max-width: 768px) {
+    #nav-menu {
+        display: none; /* Hide by default */
+        flex-direction: column;
+        background-color: #1a1a3d;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    #nav-menu.show {
+        display: flex; /* Show when 'show' class is toggled */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    #nav-menu a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    #nav-menu a:hover {
+        background-color: #444;
+    }
+}

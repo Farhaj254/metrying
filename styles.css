@@ -78,32 +78,23 @@ body {
 
        /* Iframe Container */
 #iframe-container {
-    grid-column: 2 / 3; /* Stay in the center column */
     width: 100%;
-    height: 700px; /* Fixed height like original design */
+    height: 700px; /* Fixed height */
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    grid-column: 2 / 3; /* Center column */
 }
 
-body.dark-mode #iframe-container {
-    background-color: #2c2c2c;
-}
-
-
-/* Full Height Handling */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-/* Iframe Styling */
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    object-fit: contain; /* Ensures the game scales inside the iframe */
+    object-fit: contain; /* Keeps scaling inside iframe */
 }
+
 
 
 /* Game Wrapper for Scaling */

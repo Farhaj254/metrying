@@ -1,6 +1,8 @@
+/* General Styles */
 body {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr; /* Layout for left, center, and right sections */
+    grid-template-columns: 1fr 3fr 1fr; /* Left, Center, Right */
+    grid-template-rows: auto;
     gap: 0;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -11,18 +13,17 @@ body {
 header {
     grid-column: 1 / -1;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
     background-color: #1a1a3d;
     color: white;
 }
 
-/* Game Sections */
+/* Game Section */
 .game-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     padding: 20px;
+    background-color: #f4f4f4;
     height: 100vh;
     overflow-y: auto;
 }
@@ -33,18 +34,21 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    padding: 20px;
 }
 
 #iframe-container {
     width: 100%;
     height: 700px;
     box-sizing: border-box;
+    background-color: #fff;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
+    object-fit: contain;
 }
 
 /* Game Info */
@@ -52,8 +56,9 @@ iframe {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
     width: 100%;
-    padding: 10px 20px;
+    box-sizing: border-box;
     background-color: #f4f4f4;
 }
 
@@ -66,6 +71,35 @@ iframe {
 button {
     padding: 8px 12px;
     cursor: pointer;
+}
+
+/* Game Cards */
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    aspect-ratio: 1;
+}
+
+.game-card img {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 /* Responsive Adjustments */
@@ -83,4 +117,10 @@ button {
     #iframe-container {
         height: 300px;
     }
+
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
+

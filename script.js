@@ -98,10 +98,20 @@ function toggleMenu() {
     navMenu.classList.toggle('show'); // Toggle visibility
 }
 
-// Search Bar Toggle
 function toggleSearchBar() {
+    const searchContainer = document.querySelector('.search-container');
     const searchBar = document.getElementById('search-bar');
-    searchBar.classList.toggle('active'); // Toggle visibility
+
+    // Toggle 'active' class to show or hide the search bar
+    searchContainer.classList.toggle('active');
+
+    // Focus on the search bar when it's visible
+    if (searchContainer.classList.contains('active')) {
+        searchBar.style.display = 'block'; // Show search bar
+        searchBar.focus();
+    } else {
+        searchBar.style.display = 'none'; // Hide search bar
+    }
 }
 
 

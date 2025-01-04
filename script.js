@@ -93,10 +93,23 @@ window.onload = function () {
             document.querySelector('header').classList.toggle('dark-mode');
         }
 // Hamburger Menu Toggle
+// Toggle Hamburger Menu Visibility
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show'); // Toggle visibility
+
+    // Toggle 'show' class for visibility
+    navMenu.classList.toggle('show');
+
+    // Close other menus when toggling
+    const searchBar = document.getElementById('search-bar');
+    const searchContainer = document.querySelector('.search-container');
+
+    if (navMenu.classList.contains('show')) {
+        searchBar.style.display = 'none'; // Hide search bar
+        searchContainer.classList.remove('active'); // Remove search container active state
+    }
 }
+
 
 function toggleSearchBar() {
     const searchBar = document.getElementById('search-bar');

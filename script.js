@@ -98,5 +98,17 @@ function toggleMenu() {
     navMenu.classList.toggle('show'); // Toggle the 'show' class
 }
 
+function toggleSearchBar() {
+    const searchContainer = document.querySelector('.search-container');
+    const searchBar = document.getElementById('search-bar');
+    
+    // Toggle the 'active' class
+    searchContainer.classList.toggle('active');
+
+    // Focus on the search bar when it appears
+    if (searchContainer.classList.contains('active')) {
+        searchBar.focus();
+    }
+}
 
 

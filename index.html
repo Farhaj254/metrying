@@ -68,16 +68,17 @@
         </div>
     </div>
 <div id="iframe-container">
-    <iframe src="game.html" allowfullscreen></iframe>
-    <div class="game-info">
-        <div id="game-title">Select a Game</div>
-        <div class="button-container">
-            <button onclick="toggleFullscreen()">&#x26F6;</button>
-            <button id="like-button" onclick="toggleLike()">👍 <span id="like-count">0</span></button>
-            <button id="dislike-button" onclick="toggleDislike()">👎 <span id="dislike-count">0</span></button>
-        </div>
+    <iframe id="game-frame" src="game.html" allowfullscreen></iframe>
+</div>
+<div class="game-info">
+    <div id="game-title">Select a Game</div>
+    <div class="button-container">
+        <button onclick="toggleFullscreen()">&#x26F6;</button>
+        <button id="like-button" onclick="toggleLike()">👍 <span id="like-count">0</span></button>
+        <button id="dislike-button" onclick="toggleDislike()">👎 <span id="dislike-count">0</span></button>
     </div>
 </div>
+
 
 
 

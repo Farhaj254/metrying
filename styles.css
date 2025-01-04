@@ -350,7 +350,13 @@ header {
         justify-content: center; /* Center content */
     }
 
-   
+    /* Hamburger Menu */
+    .hamburger-menu {
+        display: block; /* Show on mobile */
+        position: absolute;
+        left: 10px; /* Align to left corner */
+    }
+
     /* Logo */
     .logo {
         flex-grow: 1;
@@ -384,6 +390,7 @@ header {
         display: none; /* Hide dark mode toggle in mobile */
     }
 }
+
 /* Hamburger Menu Button */
 .hamburger-menu {
     display: none; /* Hidden on larger screens */

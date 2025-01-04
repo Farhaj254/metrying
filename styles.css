@@ -195,7 +195,7 @@ body {
         }
 
         .game-card img {
-            width: 60%;
+            width: 80%;
             height: auto;
             object-fit: cover;
             border-radius: 4px;

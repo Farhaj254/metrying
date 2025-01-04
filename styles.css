@@ -75,25 +75,43 @@
             color: white;
         }
 
-        #iframe-container {
-            position: relative;
-            padding: 20px;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
+       #iframe-container {
+    position: relative;
+    width: 100%;
+    height: 700px; /* Set a fixed height or adjust based on your requirement */
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents scrollbars */
+}
 
-        body.dark-mode #iframe-container {
-            background-color: #2c2c2c;
-        }
+body.dark-mode #iframe-container {
+    background-color: #2c2c2c;
+}
 
-        iframe {
-            width: 100%;
-            height: 700px;
-            border: none;
-        }
+       iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.game-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.game-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 
         .game-info {
             display: flex;

@@ -312,104 +312,42 @@ body {
     color: white;
 }
 
-/* Default Navigation for Larger Screens */
+/* General Header Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Default for larger screens */
+    padding: 10px 20px;
+    background-color: #1a1a3d;
+    color: white;
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none; /* Hidden by default for larger screens */
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Navigation for Larger Screens */
 #nav-menu {
     display: flex;
     gap: 20px;
 }
 
-/* Hide Navigation in Mobile View */
-@media (max-width: 768px) {
-    #nav-menu {
-        display: none; /* Hide by default */
-        flex-direction: column;
-        background-color: #1a1a3d;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-    }
-
-    #nav-menu.show {
-        display: flex; /* Show when 'show' class is toggled */
-    }
-
-    .hamburger-menu {
-        display: block; /* Show hamburger on mobile */
-    }
-
-    #nav-menu a {
-        padding: 10px;
-        color: white;
-        text-decoration: none;
-    }
-
-    #nav-menu a:hover {
-        background-color: #444;
-    }
-}
-
-
-    .show {
-        display: flex;
-    }
-}
-/* Default styles for the search container */
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Hide search bar by default on mobile */
-@media (max-width: 768px) {
-    #search-bar {
-        display: none; /* Hidden by default */
-    }
-
-    .search-container.active #search-bar {
-        display: block; /* Show when the 'active' class is toggled */
-    }
-
-    /* Style for search icon */
-    .search-icon {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: white; /* Adjust the color as per your design */
-    }
-
-    .search-container input {
-        padding: 5px 10px;
-        border: none;
-        border-radius: 4px;
-        width: 150px; /* Adjust the size of input field */
-    }
-}
-/* Default header layout */
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space out items for PC */
-    padding: 10px 20px;
-}
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-    display: none; /* Hidden by default on larger screens */
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Logo Styles */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Navigation Links */
+#nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 /* Search Container */
@@ -419,37 +357,69 @@ header {
     gap: 10px;
 }
 
-/* MOBILE STYLES */
+/* Search Icon */
+.search-icon {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Hide Search Bar by Default */
+#search-bar {
+    display: none; /* Hidden initially */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 150px;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
     header {
+        justify-content: center; /* Center logo in mobile view */
         position: relative;
-        justify-content: center; /* Center content */
     }
 
-    /* Hamburger Menu - Mobile */
+    /* Hamburger Menu */
     .hamburger-menu {
-        display: block; /* Show on mobile */
+        display: block; /* Show hamburger on mobile */
         position: absolute;
-        left: 10px; /* Align to the left corner */
+        left: 10px; /* Move it to the left corner */
     }
 
-    /* Logo - Mobile */
+    /* Logo - Centered */
     .logo {
         flex-grow: 1;
-        justify-content: center; /* Center logo */
+        justify-content: center;
     }
 
-    /* Search Container - Mobile */
+    /* Navigation Menu for Mobile */
+    #nav-menu {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: #1a1a3d;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    #nav-menu.show {
+        display: flex; /* Toggle display when 'show' is active */
+    }
+
+    /* Mobile Search Bar */
     .search-container {
         position: absolute;
-        right: 10px; /* Keep search on the right */
-    }
-
-    #search-bar {
-        display: none; /* Hide by default */
+        right: 10px;
     }
 
     #search-bar.active {
-        display: block; /* Show when toggled */
+        display: block; /* Show search bar when toggled */
     }
 }

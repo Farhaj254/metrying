@@ -4,11 +4,31 @@
         let isDisliked = false;
 
         function loadGame(gameTitle, gameUrl) {
-            const iframe = document.querySelector("iframe");
-            const gameTitleElement = document.getElementById("game-title");
-            gameTitleElement.textContent = gameTitle;
-            iframe.src = gameUrl;
-        }
+    const iframe = document.querySelector("iframe");
+    const gameTitleElement = document.getElementById("game-title");
+
+    // Update the iframe source and title
+    gameTitleElement.textContent = gameTitle;
+    iframe.src = gameUrl;
+
+    // Update the URL without reloading the page
+    window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}`);
+}
+
+// Load game based on URL when the page loads or reloads
+window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+    const gameUrl = params.get("game");
+
+    if (gameUrl) {
+        const iframe = document.querySelector("iframe");
+        iframe.src = gameUrl;
+
+        const gameTitleElement = document.getElementById("game-title");
+        gameTitleElement.textContent = "Game"; // Optional default name
+    }
+};
+
 
         function toggleLike() {
             const likeButton = document.getElementById("like-button");

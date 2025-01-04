@@ -92,3 +92,7 @@ window.onload = function () {
             document.body.classList.toggle('dark-mode');
             document.querySelector('header').classList.toggle('dark-mode');
         }
+function toggleMenu() {
+    const menu = document.getElementById('mobile-nav');
+    menu.classList.toggle('hidden'); // Show/Hide menu
+}

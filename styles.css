@@ -115,12 +115,22 @@ iframe {
 
 
 
-      .game-info {
+    .game-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 10px;
+    width: 100%;
+}
+
+#game-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+body.dark-mode #game-title {
+    color: #fff;
 }
 
 .button-container {
@@ -128,42 +138,23 @@ iframe {
     gap: 10px;
 }
 
+.button-container button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-        #game-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            text-align: left;
-        }
+.button-container button:hover {
+    background-color: #444;
+}
 
-        body.dark-mode #game-title {
-            color: #fff;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .button-container button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .button-container button:hover {
-            background-color: #444;
-        }
-
-        body.dark-mode .button-container button {
-            background-color: #555;
-        }
+body.dark-mode .button-container button {
+    background-color: #555;
+}
 
         .game-section {
             display: flex;

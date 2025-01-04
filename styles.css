@@ -303,7 +303,7 @@ body {
     }
 }
 
-/* Header Styles */
+/* Header */
 header {
     display: flex;
     align-items: center;
@@ -311,6 +311,13 @@ header {
     padding: 10px 20px;
     background-color: #1a1a3d;
     color: white;
+}
+
+/* Logo */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Hamburger Menu */
@@ -327,13 +334,13 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    position: relative; /* Keeps it in flow */
-    z-index: 10; /* Ensures it appears above other elements */
+    position: relative; /* Maintain flow */
+    z-index: 10;
 }
 
 /* Search Bar */
 #search-bar {
-    display: none; /* Hidden by default */
+    display: none; /* Hide by default on mobile */
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
@@ -341,10 +348,10 @@ header {
 
 /* Show Search Bar when Active */
 #search-bar.active {
-    display: block; /* Toggle visibility when active */
+    display: block; /* Show when toggled */
 }
 
-/* Search Icon - Mobile */
+/* Search Icon */
 .search-icon {
     display: none; /* Hidden by default for desktop */
     cursor: pointer;
@@ -354,28 +361,7 @@ header {
     border: none;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .search-container {
-        position: absolute;
-        right: 50px; /* Adjust position */
-        top: 10px; /* Align properly */
-        z-index: 100; /* Above other elements */
-    }
-
-    .search-icon {
-        display: block; /* Show icon on mobile */
-    }
-
-    #search-bar {
-        position: absolute;
-        right: 0; /* Align to the right */
-        top: 30px; /* Dropdown effect */
-        width: 150px;
-        z-index: 101; /* Higher than other elements */
-    }
-}
-/* Dark Mode Toggle Button */
+/* Dark Mode Toggle */
 .dark-mode-toggle {
     background-color: #333;
     border: none;
@@ -383,33 +369,24 @@ header {
     border-radius: 4px;
     cursor: pointer;
     color: white;
-    z-index: 10; /* Ensure visibility above other elements */
+    z-index: 10;
 }
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .dark-mode-toggle {
-        display: block; /* Ensure visibility on mobile */
-        position: absolute;
-        right: 10px; /* Align to the right corner */
-        z-index: 10; /* Above other elements */
-    }
-}
-/* Mobile Styles */
+/* MOBILE STYLES */
 @media (max-width: 768px) {
     header {
         position: relative;
-        justify-content: center; /* Center content */
+        justify-content: center; /* Center everything */
     }
 
-    /* Hamburger Menu - Mobile */
+    /* Hamburger Menu */
     .hamburger-menu {
         display: block;
         position: absolute;
-        left: 10px; /* Align to left */
+        left: 10px; /* Stick to the left */
+        z-index: 100;
     }
 
-    /* Logo - Mobile */
+    /* Logo */
     .logo {
         flex-grow: 1;
         justify-content: center; /* Center logo */
@@ -418,24 +395,34 @@ header {
     /* Search Container */
     .search-container {
         position: absolute;
-        right: 50px; /* Align to right */
-        z-index: 100;
+        right: 50px; /* Avoid overlap */
+        top: 10px;
+        z-index: 100; /* Keep it above others */
     }
 
     .search-icon {
-        display: block; /* Show search icon */
+        display: block; /* Show icon */
     }
 
     #search-bar {
         display: none; /* Hide by default */
+        position: absolute;
+        right: 0;
+        top: 30px;
+        width: 150px;
+        z-index: 101; /* Above other elements */
     }
 
-    /* Dark Mode Toggle - Mobile */
+    #search-bar.active {
+        display: block; /* Toggle visibility */
+    }
+
+    /* Dark Mode Toggle */
     .dark-mode-toggle {
         display: block;
         position: absolute;
         right: 10px; /* Align to right */
-        z-index: 10; /* Ensure visibility */
+        z-index: 10;
     }
 
     /* Navigation Menu */

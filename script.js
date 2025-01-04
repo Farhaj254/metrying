@@ -13,24 +13,7 @@ function loadGame(gameTitle, gameUrl) {
     iframe.src = gameUrl;
 
     // Update the URL in the browser without reloading the page
-    const newUrl = `${window.location.origin}${window.location.pathname}?game=${encodeURIComponent(gameUrl)}`;
-    window.history.pushState({ path: newUrl }, '', newUrl);
-}
-
-// Function to load the game based on the URL parameter
-function loadGameFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const gameUrl = urlParams.get('game');
-
-    if (gameUrl) {
-        // Find the corresponding game title
-        const gameTitle = document.querySelector(`.game-card[onclick*="${gameUrl}"]`)
-            ?.querySelector(".game-title").textContent;
-
-        if (gameTitle) {
-            loadGame(gameTitle, gameUrl);
-        }
-    }
+    window.history.pushState(null, "", `?game=${gameUrl}`);
 }
 
 // Like button functionality
@@ -73,6 +56,3 @@ function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     document.querySelector('header').classList.toggle('dark-mode');
 }
-
-// Load the game from the URL if specified
-window.onload = loadGameFromUrl;

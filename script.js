@@ -87,7 +87,10 @@ window.onload = function () {
                 iframe.msRequestFullscreen();
             }
         }
-
+ function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('header').classList.toggle('dark-mode');
+        }
  // Hamburger Menu Toggle
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
@@ -102,21 +105,18 @@ function toggleMenu() {
 
 // Search Bar Toggle
 function toggleSearchBar() {
+    const searchContainer = document.querySelector('.search-container');
     const searchBar = document.getElementById('search-bar');
-    const navMenu = document.getElementById('nav-menu');
 
-    // Close hamburger menu if search bar opens
-    if (navMenu.classList.contains('show')) {
-        navMenu.classList.remove('show'); // Hide menu
-    }
+    // Toggle 'active' class to show or hide the search bar
+    searchContainer.classList.toggle('active');
 
-    // Toggle search bar visibility
-    searchBar.classList.toggle('active');
-    if (searchBar.classList.contains('active')) {
-        searchBar.style.display = 'block';
+    // Focus on the search bar when it's visible
+    if (searchContainer.classList.contains('active')) {
+        searchBar.style.display = 'block'; // Show search bar
         searchBar.focus();
     } else {
-        searchBar.style.display = 'none';
+        searchBar.style.display = 'none'; // Hide search bar
     }
 }
 

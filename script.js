@@ -95,7 +95,8 @@ window.onload = function () {
 // Toggle the navigation menu
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('active'); // Toggle the 'active' class
+    navMenu.classList.toggle('show'); // Toggle the 'show' class
 }
+
 
 

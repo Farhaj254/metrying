@@ -302,7 +302,6 @@ body {
         display: block; /* Show hamburger button */
     }
 }
-
 /* Header */
 header {
     display: flex;
@@ -311,6 +310,7 @@ header {
     padding: 10px 20px;
     background-color: #1a1a3d;
     color: white;
+    position: relative; /* Makes child elements position relative to header */
 }
 
 /* Logo */
@@ -334,7 +334,7 @@ header .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    position: relative; /* Maintain flow */
+    position: relative; /* Avoid overlaps */
     z-index: 10;
 }
 
@@ -371,6 +371,7 @@ header .logo {
     color: white;
     z-index: 10;
 }
+
 /* MOBILE STYLES */
 @media (max-width: 768px) {
     header {

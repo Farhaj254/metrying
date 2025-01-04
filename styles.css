@@ -303,123 +303,90 @@ body {
     }
 }
 
-/* Hamburger Menu Button */
-.hamburger-menu {
-    display: none; /* Hidden by default for larger screens */
-    cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
-    color: white;
-}
-
-/* General Header Styles */
+/* Desktop Header Styles */
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Default for larger screens */
+    justify-content: space-between;
     padding: 10px 20px;
     background-color: #1a1a3d;
     color: white;
 }
 
-/* Hamburger Menu Button */
-.hamburger-menu {
-    display: none; /* Hidden by default for larger screens */
-    cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
-}
-
-/* Logo */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Navigation for Larger Screens */
-#nav-menu {
-    display: flex;
-    gap: 20px;
-}
-
-/* Navigation Links */
-#nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* Search Container */
+/* Search Container - Desktop */
 .search-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Search Icon */
-.search-icon {
-    background: none;
+/* Search Bar - Desktop */
+#search-bar {
+    display: block; /* Always visible on desktop */
+    padding: 5px 10px;
     border: none;
-    font-size: 20px;
+    border-radius: 4px;
+}
+
+/* Search Icon - Mobile */
+.search-icon {
+    display: none; /* Hide icon on desktop */
+}
+
+/* Dark Mode Button */
+.dark-mode-toggle {
+    background-color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
     color: white;
 }
 
-/* Hide Search Bar by Default */
-#search-bar {
-    display: none; /* Hidden initially */
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    width: 150px;
-}
-
-/* Mobile Styles */
+/* MOBILE STYLES */
 @media (max-width: 768px) {
     header {
-        justify-content: center; /* Center logo in mobile view */
         position: relative;
+        justify-content: center; /* Center content */
     }
 
     /* Hamburger Menu */
     .hamburger-menu {
-        display: block; /* Show hamburger on mobile */
+        display: block; /* Show on mobile */
         position: absolute;
-        left: 10px; /* Move it to the left corner */
+        left: 10px; /* Align to left corner */
     }
 
-    /* Logo - Centered */
+    /* Logo */
     .logo {
         flex-grow: 1;
         justify-content: center;
     }
 
-    /* Navigation Menu for Mobile */
-    #nav-menu {
-        display: none; /* Hidden by default */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        background-color: #1a1a3d;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-    }
-
-    #nav-menu.show {
-        display: flex; /* Toggle display when 'show' is active */
-    }
-
-    /* Mobile Search Bar */
+    /* Search Container - Mobile */
     .search-container {
         position: absolute;
-        right: 10px;
+        right: 10px; /* Right aligned */
+    }
+
+    #search-bar {
+        display: none; /* Hidden by default */
     }
 
     #search-bar.active {
-        display: block; /* Show search bar when toggled */
+        display: block; /* Show when toggled */
+    }
+
+    .search-icon {
+        display: block; /* Show only in mobile */
+        cursor: pointer;
+        font-size: 18px;
+        color: white;
+        background: none;
+        border: none;
+    }
+
+    .dark-mode-toggle {
+        display: none; /* Hide dark mode toggle in mobile */
     }
 }

@@ -94,13 +94,9 @@ window.onload = function () {
  // Hamburger Menu Toggle
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show');
-
-    // Hide search bar if hamburger menu opens
-    const searchBar = document.getElementById('search-bar');
-    searchBar.classList.remove('active');
-    searchBar.style.display = 'none'; // Ensure search bar hides
+    navMenu.classList.toggle('show'); // Toggle the 'show' class
 }
+
 
 
 // Search Bar Toggle

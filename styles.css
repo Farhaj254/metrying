@@ -329,8 +329,9 @@ header {
     gap: 10px;
 }
 
+/* Search Icon - Desktop View */
 .search-icon {
-    display: none; /* Hide on desktop */
+    display: none; /* Hidden by default for desktop */
     cursor: pointer;
     font-size: 18px;
     color: white;
@@ -338,12 +339,32 @@ header {
     border: none;
 }
 
+/* Search Bar - Desktop */
 #search-bar {
+    display: block; /* Visible by default on desktop */
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
-    display: block; /* Always visible on desktop */
 }
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+    /* Search Icon - Mobile */
+    .search-icon {
+        display: block; /* Show icon in mobile */
+    }
+
+    /* Hide Search Bar by Default in Mobile */
+    #search-bar {
+        display: none; /* Hidden initially */
+    }
+
+    /* Active Search Bar State */
+    #search-bar.active {
+        display: block; /* Show when toggled */
+    }
+}
+
 
 /* Dark Mode Toggle */
 .dark-mode-toggle {

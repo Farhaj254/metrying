@@ -94,5 +94,6 @@ window.onload = function () {
         }
 function toggleMenu() {
     const menu = document.getElementById('mobile-nav');
-    menu.classList.toggle('hidden'); // Show/Hide menu
+    menu.classList.toggle('hidden'); // Toggle the 'hidden' class
 }
+

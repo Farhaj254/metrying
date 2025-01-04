@@ -104,12 +104,13 @@ iframe {
 
 .game-info {
     display: flex;
+    flex-direction: row; /* Keep buttons and title in a row */
     justify-content: space-between;
-    width: 100%;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f4f4f4;
-    border-top: 1px solid #ddd;
+    width: 100%; /* Match iframe width */
+    height: auto; /* Adapt to content */
+    padding: 10px 0; /* Add padding to balance spacing */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
 #game-title {

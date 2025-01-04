@@ -88,10 +88,11 @@ window.onload = function () {
             }
         }
 
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-        }
+       // Dark Mode Toggle
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('header').classList.toggle('dark-mode');
+}
 // Hamburger Menu Toggle
 // Toggle Hamburger Menu Visibility
 function toggleMenu() {
@@ -113,11 +114,17 @@ function toggleMenu() {
 
 function toggleSearchBar() {
     const searchBar = document.getElementById('search-bar');
+    const isMobile = window.innerWidth <= 768;
 
-    // Toggle active class only for mobile
-    if (window.innerWidth <= 768) {
-        searchBar.classList.toggle('active'); // Toggle visibility
-        searchBar.focus(); // Focus on input
+    if (isMobile) {
+        // Mobile: Toggle visibility
+        searchBar.classList.toggle('active'); 
+        if (searchBar.classList.contains('active')) {
+            searchBar.focus(); // Focus on input
+        }
+    } else {
+        // Desktop: Always visible
+        searchBar.style.display = 'block';
     }
 }
 

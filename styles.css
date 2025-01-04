@@ -117,7 +117,7 @@ iframe {
 
 
 
-    .game-info {
+  .game-info {
     grid-column: 2 / 3; /* Align in the center column */
     display: flex;
     justify-content: space-between;
@@ -159,6 +159,7 @@ body.dark-mode #game-title {
 body.dark-mode .button-container button {
     background-color: #555;
 }
+
 
 
 
@@ -295,6 +296,11 @@ body.dark-mode .button-container button {
         height: 400px;
     }
 
+@media (max-width: 768px) {
+    #iframe-container {
+        height: 400px; /* Adjust for tablets */
+    }
+
     .game-info {
         flex-direction: column;
         gap: 10px;
@@ -303,7 +309,7 @@ body.dark-mode .button-container button {
 
 @media (max-width: 480px) {
     #iframe-container {
-        height: 300px;
+        height: 300px; /* Adjust for mobile */
     }
 
     #game-title {
@@ -314,6 +320,7 @@ body.dark-mode .button-container button {
         flex-direction: row;
     }
 }
+
 
 
         @media (max-width: 480px) {

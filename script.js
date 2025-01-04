@@ -88,45 +88,35 @@ window.onload = function () {
             }
         }
 
-       // Dark Mode Toggle
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    document.querySelector('header').classList.toggle('dark-mode');
-}
-// Hamburger Menu Toggle
-// Toggle Hamburger Menu Visibility
-function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-
-    // Toggle 'show' class for visibility
-    navMenu.classList.toggle('show');
-
-    // Close other menus when toggling
-    const searchBar = document.getElementById('search-bar');
-    const searchContainer = document.querySelector('.search-container');
-
-    if (navMenu.classList.contains('show')) {
-        searchBar.style.display = 'none'; // Hide search bar
-        searchContainer.classList.remove('active'); // Remove search container active state
-    }
-}
-
-
-function toggleSearchBar() {
+      function toggleSearchBar() {
     const searchBar = document.getElementById('search-bar');
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
-        // Mobile: Toggle visibility
-        searchBar.classList.toggle('active'); 
+        // Toggle 'active' state for mobile
+        searchBar.classList.toggle('active');
         if (searchBar.classList.contains('active')) {
-            searchBar.focus(); // Focus on input
+            searchBar.focus(); // Focus input when visible
         }
-    } else {
-        // Desktop: Always visible
-        searchBar.style.display = 'block';
     }
 }
 
+// Fix Hamburger Menu and Search Bar Conflict
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    const searchBar = document.getElementById('search-bar');
 
+    // Toggle menu visibility
+    navMenu.classList.toggle('show');
 
+    // Close search bar if hamburger menu is opened
+    if (navMenu.classList.contains('show')) {
+        searchBar.classList.remove('active'); // Hide search bar
+    }
+}
+
+// Dark Mode Toggle
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('header').classList.toggle('dark-mode');
+}

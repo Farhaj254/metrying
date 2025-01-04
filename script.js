@@ -88,12 +88,12 @@ window.onload = function () {
             }
         }
 
-  // Hamburger Menu Toggle
+ // Hamburger Menu Toggle
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
     navMenu.classList.toggle('show');
 
-    // Close search bar if hamburger menu opens
+    // Hide search bar if hamburger menu opens
     const searchBar = document.getElementById('search-bar');
     searchBar.classList.remove('active');
     searchBar.style.display = 'none';
@@ -104,7 +104,7 @@ function toggleSearchBar() {
     const searchBar = document.getElementById('search-bar');
     const navMenu = document.getElementById('nav-menu');
 
-    // Close menu if search bar opens
+    // Close hamburger menu if search bar opens
     if (navMenu.classList.contains('show')) {
         navMenu.classList.remove('show'); // Hide menu
     }

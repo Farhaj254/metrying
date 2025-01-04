@@ -320,7 +320,7 @@ header {
     gap: 10px;
 }
 
-/* Search Bar - Desktop */
+/* Desktop Search Bar */
 #search-bar {
     display: block; /* Always visible on desktop */
     padding: 5px 10px;
@@ -328,12 +328,28 @@ header {
     border-radius: 4px;
 }
 
-/* Search Icon - Mobile */
-.search-icon {
-    display: none; /* Hide icon on desktop */
+/* Mobile Search Bar */
+@media (max-width: 768px) {
+    #search-bar {
+        display: none; /* Hidden by default on mobile */
+    }
+
+    #search-bar.active {
+        display: block; /* Show when toggled */
+    }
+
+    .search-icon {
+        display: block; /* Show search icon only in mobile view */
+        cursor: pointer;
+        font-size: 18px;
+        color: white;
+        background: none;
+        border: none;
+    }
 }
 
-/* Dark Mode Button */
+
+/* Dark Mode Button - Desktop */
 .dark-mode-toggle {
     background-color: #333;
     border: none;
@@ -342,6 +358,17 @@ header {
     cursor: pointer;
     color: white;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .dark-mode-toggle {
+        display: block; /* Show button on mobile */
+        position: absolute;
+        right: 10px; /* Position it on the right corner */
+        top: 10px;
+    }
+}
+
 
 /* MOBILE STYLES */
 @media (max-width: 768px) {
@@ -380,9 +407,7 @@ header {
         border: none;
     }
 
-    .dark-mode-toggle {
-        display: none; /* Hide dark mode toggle in mobile */
-    }
+
 }
 
 /* Hamburger Menu Button */

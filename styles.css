@@ -350,7 +350,41 @@ header {
         justify-content: center; /* Center content */
     }
 
-   /* Hamburger Menu Button */
+   
+    /* Logo */
+    .logo {
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    /* Search Container - Mobile */
+    .search-container {
+        position: absolute;
+        right: 10px; /* Right aligned */
+    }
+
+    #search-bar {
+        display: none; /* Hidden by default */
+    }
+
+    #search-bar.active {
+        display: block; /* Show when toggled */
+    }
+
+    .search-icon {
+        display: block; /* Show only in mobile */
+        cursor: pointer;
+        font-size: 18px;
+        color: white;
+        background: none;
+        border: none;
+    }
+
+    .dark-mode-toggle {
+        display: none; /* Hide dark mode toggle in mobile */
+    }
+}
+/* Hamburger Menu Button */
 .hamburger-menu {
     display: none; /* Hidden on larger screens */
     cursor: pointer;
@@ -405,36 +439,3 @@ header {
 }
 
 
-    /* Logo */
-    .logo {
-        flex-grow: 1;
-        justify-content: center;
-    }
-
-    /* Search Container - Mobile */
-    .search-container {
-        position: absolute;
-        right: 10px; /* Right aligned */
-    }
-
-    #search-bar {
-        display: none; /* Hidden by default */
-    }
-
-    #search-bar.active {
-        display: block; /* Show when toggled */
-    }
-
-    .search-icon {
-        display: block; /* Show only in mobile */
-        cursor: pointer;
-        font-size: 18px;
-        color: white;
-        background: none;
-        border: none;
-    }
-
-    .dark-mode-toggle {
-        display: none; /* Hide dark mode toggle in mobile */
-    }
-}

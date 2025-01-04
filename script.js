@@ -88,30 +88,36 @@ window.onload = function () {
             }
         }
 
-      function toggleSearchBar() {
-    const searchBar = document.getElementById('search-bar');
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-        // Toggle 'active' state for mobile
-        searchBar.classList.toggle('active');
-        if (searchBar.classList.contains('active')) {
-            searchBar.focus(); // Focus input when visible
-        }
-    }
-}
-
-// Fix Hamburger Menu and Search Bar Conflict
+      // Hamburger Menu Toggle
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
     const searchBar = document.getElementById('search-bar');
 
-    // Toggle menu visibility
+    // Toggle Menu Visibility
     navMenu.classList.toggle('show');
 
-    // Close search bar if hamburger menu is opened
+    // Close Search Bar if Open
+    if (searchBar.classList.contains('active')) {
+        toggleSearchBar(); // Close search bar
+    }
+}
+
+// Search Bar Toggle
+function toggleSearchBar() {
+    const searchBar = document.getElementById('search-bar');
+    const navMenu = document.getElementById('nav-menu');
+
+    // Hide Menu if Open
     if (navMenu.classList.contains('show')) {
-        searchBar.classList.remove('active'); // Hide search bar
+        toggleMenu(); // Close menu
+    }
+
+    // Toggle Search Bar Visibility
+    searchBar.classList.toggle('active');
+
+    // Focus on Search Bar if Active
+    if (searchBar.classList.contains('active')) {
+        searchBar.focus();
     }
 }
 

@@ -96,8 +96,9 @@ function toggleMenu() {
     // Hide search bar if hamburger menu opens
     const searchBar = document.getElementById('search-bar');
     searchBar.classList.remove('active');
-    searchBar.style.display = 'none';
+    searchBar.style.display = 'none'; // Ensure search bar hides
 }
+
 
 // Search Bar Toggle
 function toggleSearchBar() {
@@ -118,3 +119,5 @@ function toggleSearchBar() {
         searchBar.style.display = 'none';
     }
 }
+
+

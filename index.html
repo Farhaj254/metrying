@@ -8,14 +8,22 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    
-    <header>
+   <header>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+
+    <!-- Logo -->
     <div class="logo">
         <img src="logo.png" alt="Eggy Car Logo">
         <span>Eggy Car</span>
     </div>
-    <!-- Hamburger menu button -->
-    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+
+    <!-- Search Container -->
+    <div class="search-container">
+        <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
+        <input type="text" id="search-bar" placeholder="Search">
+    </div>
+
     <!-- Navigation Menu -->
     <nav id="nav-menu">
         <a href="#">Home</a>
@@ -26,14 +34,6 @@
         <a href="#">Sport</a>
         <a href="#">Idle</a>
     </nav>
-    <div class="search-container">
-    <!-- Search Icon -->
-    <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
-    <!-- Search Input (Initially Hidden on Mobile) -->
-    <input type="text" id="search-bar" placeholder="Search">
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-</div>
-
 </header>
 
 

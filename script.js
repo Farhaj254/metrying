@@ -88,41 +88,37 @@ window.onload = function () {
             }
         }
 
-      // Hamburger Menu Toggle
+     // Hamburger Menu Toggle
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
-    const searchBar = document.getElementById('search-bar');
-
-    // Toggle Menu Visibility
     navMenu.classList.toggle('show');
 
-    // Close Search Bar if Open
-    if (searchBar.classList.contains('active')) {
-        toggleSearchBar(); // Close search bar
+    // Close search bar if menu opens
+    const searchBar = document.getElementById('search-bar');
+    const searchContainer = document.querySelector('.search-container');
+
+    if (navMenu.classList.contains('show')) {
+        searchBar.classList.remove('active'); // Hide search bar
+        searchBar.style.display = 'none'; // Ensure hidden
     }
 }
 
-// Search Bar Toggle
+// Toggle Search Bar
 function toggleSearchBar() {
     const searchBar = document.getElementById('search-bar');
     const navMenu = document.getElementById('nav-menu');
 
-    // Close Hamburger Menu if Open
+    // Close menu if search bar opens
     if (navMenu.classList.contains('show')) {
-        toggleMenu(); // Close menu
+        navMenu.classList.remove('show'); // Hide menu
     }
 
-    // Toggle Search Bar Visibility
+    // Toggle search bar visibility
     searchBar.classList.toggle('active');
-
-    // Focus on Search Bar if Active
     if (searchBar.classList.contains('active')) {
+        searchBar.style.display = 'block'; // Show search bar
         searchBar.focus();
+    } else {
+        searchBar.style.display = 'none'; // Hide search bar
     }
-}
-
-// Dark Mode Toggle
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    document.querySelector('header').classList.toggle('dark-mode');
 }

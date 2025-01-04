@@ -107,7 +107,7 @@ function toggleSearchBar() {
     const searchBar = document.getElementById('search-bar');
     const navMenu = document.getElementById('nav-menu');
 
-    // Hide Menu if Open
+    // Close Hamburger Menu if Open
     if (navMenu.classList.contains('show')) {
         toggleMenu(); // Close menu
     }

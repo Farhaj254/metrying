@@ -88,22 +88,18 @@ window.onload = function () {
             }
         }
 
-     // Hamburger Menu Toggle
+  // Hamburger Menu Toggle
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
     navMenu.classList.toggle('show');
 
-    // Close search bar if menu opens
+    // Close search bar if hamburger menu opens
     const searchBar = document.getElementById('search-bar');
-    const searchContainer = document.querySelector('.search-container');
-
-    if (navMenu.classList.contains('show')) {
-        searchBar.classList.remove('active'); // Hide search bar
-        searchBar.style.display = 'none'; // Ensure hidden
-    }
+    searchBar.classList.remove('active');
+    searchBar.style.display = 'none';
 }
 
-// Toggle Search Bar
+// Search Bar Toggle
 function toggleSearchBar() {
     const searchBar = document.getElementById('search-bar');
     const navMenu = document.getElementById('nav-menu');
@@ -116,9 +112,9 @@ function toggleSearchBar() {
     // Toggle search bar visibility
     searchBar.classList.toggle('active');
     if (searchBar.classList.contains('active')) {
-        searchBar.style.display = 'block'; // Show search bar
+        searchBar.style.display = 'block';
         searchBar.focus();
     } else {
-        searchBar.style.display = 'none'; // Hide search bar
+        searchBar.style.display = 'none';
     }
 }

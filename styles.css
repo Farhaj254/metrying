@@ -390,3 +390,66 @@ body {
         width: 150px; /* Adjust the size of input field */
     }
 }
+/* Default header layout */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out items for PC */
+    padding: 10px 20px;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none; /* Hidden by default on larger screens */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Logo Styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Container */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+    header {
+        position: relative;
+        justify-content: center; /* Center content */
+    }
+
+    /* Hamburger Menu - Mobile */
+    .hamburger-menu {
+        display: block; /* Show on mobile */
+        position: absolute;
+        left: 10px; /* Align to the left corner */
+    }
+
+    /* Logo - Mobile */
+    .logo {
+        flex-grow: 1;
+        justify-content: center; /* Center logo */
+    }
+
+    /* Search Container - Mobile */
+    .search-container {
+        position: absolute;
+        right: 10px; /* Keep search on the right */
+    }
+
+    #search-bar {
+        display: none; /* Hide by default */
+    }
+
+    #search-bar.active {
+        display: block; /* Show when toggled */
+    }
+}

@@ -13,15 +13,18 @@
             <img src="logo.png" alt="Eggy Car Logo">
             <span>Eggy Car</span>
         </div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Car</a>
-            <a href="#">Skill</a>
-            <a href="#">Action</a>
-            <a href="#">Shooting</a>
-            <a href="#">Sport</a>
-            <a href="#">Idle</a>
-        </nav>
+        <div class="hamburger-menu">
+    <button id="hamburger-btn" onclick="toggleMenu()">☰</button>
+    <nav id="mobile-nav" class="hidden">
+        <a href="#">Home</a>
+        <a href="#">Car</a>
+        <a href="#">Skill</a>
+        <a href="#">Action</a>
+        <a href="#">Shooting</a>
+        <a href="#">Sport</a>
+        <a href="#">Idle</a>
+    </nav>
+</div>
         <div class="search-container">
             <input type="text" placeholder="Search">
             <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>

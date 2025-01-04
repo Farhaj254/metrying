@@ -357,3 +357,33 @@ body {
         display: flex;
     }
 }
+/* Default styles for desktop */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container input {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Hide Search Bar on Mobile */
+@media (max-width: 768px) {
+    #search-bar {
+        display: none; /* Hide search bar initially */
+    }
+
+    .search-container.active #search-bar {
+        display: block; /* Show the search bar when 'active' class is toggled */
+    }
+
+    .search-icon {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}

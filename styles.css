@@ -350,12 +350,60 @@ header {
         justify-content: center; /* Center content */
     }
 
-    /* Hamburger Menu */
-    .hamburger-menu {
-        display: block; /* Show on mobile */
+   /* Hamburger Menu Button */
+.hamburger-menu {
+    display: none; /* Hidden on larger screens */
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    color: white;
+}
+
+/* Navigation Menu */
+#nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    /* Hide Navigation Menu by Default */
+    #nav-menu {
+        display: none; /* Hide in mobile */
+        flex-direction: column;
         position: absolute;
-        left: 10px; /* Align to left corner */
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a3d;
+        padding: 10px;
+        z-index: 1000;
     }
+
+    /* Show Navigation Menu When 'show' Class is Added */
+    #nav-menu.show {
+        display: flex; /* Make visible */
+    }
+
+    /* Hamburger Menu - Visible on Mobile */
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+        position: absolute;
+        left: 10px; /* Left corner */
+        z-index: 1100; /* Ensure it appears above other elements */
+    }
+
+    #nav-menu a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    #nav-menu a:hover {
+        background-color: #444;
+    }
+}
+
 
     /* Logo */
     .logo {

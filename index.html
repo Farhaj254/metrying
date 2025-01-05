@@ -8,37 +8,21 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-   <header>
-    <!-- Hamburger Menu -->
-    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+   <div id="header-placeholder"></div>
+    <script>
+        // Load the header dynamically
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
 
-    <!-- Logo -->
-    <div class="logo">
-        <img src="logo.png" alt="Eggy Car Logo">
-        <span>Eggy Car</span>
-    </div>
-
-    <!-- Search Container -->
-<div class="search-container">
-    <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
-    <input type="text" id="search-bar" placeholder="Search">
-    <!-- Dark Mode Button -->
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-</div>
-
-
-    <!-- Navigation Menu -->
-    <nav id="nav-menu">
-        <a href="#">Home</a>
-        <a href="#">Car</a>
-        <a href="#">Skill</a>
-        <a href="#">Action</a>
-        <a href="#">Shooting</a>
-        <a href="#">Sport</a>
-        <a href="#">Idle</a>
-    </nav>
-</header>
-
+                // Attach event listeners after loading header
+                document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
+                document.querySelector('.dark-mode-toggle').addEventListener('click', toggleDarkMode);
+                document.querySelector('.search-icon').addEventListener('click', toggleSearchBar);
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
 
 
 

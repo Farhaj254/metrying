@@ -87,18 +87,17 @@ window.onload = function () {
                 iframe.msRequestFullscreen();
             }
         }
- function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-        }
- // Hamburger Menu Toggle
-
-// Toggle Sidebar Menu
-function toggleMenu() {
-    const sidebar = document.getElementById('sidebar-menu');
-    sidebar.classList.toggle('show'); // Toggle visibility
+ // Toggle Dropdown Menu (for nav-menu)
+function toggleDropdownMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('show'); // Toggle dropdown visibility
 }
 
+// Toggle Sidebar Menu (for sliding sidebar)
+function toggleSidebarMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    sidebar.classList.toggle('show'); // Toggle sidebar visibility
+}
 
 // Search Bar Toggle
 function toggleSearchBar() {
@@ -117,4 +116,8 @@ function toggleSearchBar() {
     }
 }
 
-
+// Toggle Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('header').classList.toggle('dark-mode');
+}

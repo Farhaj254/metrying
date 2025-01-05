@@ -98,20 +98,28 @@ function toggleMenu() {
 }
 
 // Search Bar Toggle
-function toggleSearchBar() {
-    const searchContainer = document.querySelector('.search-container');
-    const searchBar = document.getElementById('search-bar');
+function toggleSearchOverlay() {
+    const overlay = document.getElementById('search-overlay');
+    const input = document.getElementById('search-input');
 
-    // Toggle 'active' class to show or hide the search bar
-    searchContainer.classList.toggle('active');
+    // Toggle 'active' class
+    overlay.classList.toggle('active');
 
-    // Focus on the search bar when it's visible
-    if (searchContainer.classList.contains('active')) {
-        searchBar.style.display = 'block'; // Show search bar
-        searchBar.focus();
+    // Focus input field if active
+    if (overlay.classList.contains('active')) {
+        input.focus();
     } else {
-        searchBar.style.display = 'none'; // Hide search bar
+        input.value = ''; // Clear input when closing
     }
 }
 
+// Event listener to close overlay when Escape is pressed
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        const overlay = document.getElementById('search-overlay');
+        if (overlay.classList.contains('active')) {
+            toggleSearchOverlay();
+        }
+    }
+});
 

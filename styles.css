@@ -383,3 +383,69 @@ body {
         background-color: #444;
     }
 }
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Hidden initially */
+    width: 300px;
+    height: 100%;
+    background-color: #000;
+    color: white;
+    overflow-y: auto;
+    transition: left 0.3s ease; /* Smooth slide-in effect */
+    z-index: 1000;
+}
+
+.sidebar.show {
+    left: 0; /* Slide in */
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.sidebar-content a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar-content a:hover {
+    color: #00ff99;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+}

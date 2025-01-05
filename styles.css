@@ -349,7 +349,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px; /* Ensure top-right position */
-    font-size: 40px;
+    font-size: 36px;
     border: none;
     background: none;
     color: white;
@@ -445,7 +445,7 @@ body {
 /* Close Button Styling */
 #close-search {
     color: purple; /* Purple color */
-    font-size: 20px;
+    font-size: 36px;
     cursor: pointer;
     background: none;
     border: none;

@@ -94,9 +94,13 @@ function toggleDropdownMenu() {
 }
 
 // Toggle Sidebar Menu (for sliding sidebar)
-function toggleMenu() {
-    const sidebar = document.querySelector('.sidebar'); // Select the sidebar
-    sidebar.classList.toggle('show'); // Toggle 'show' class
+function toggleSidebarMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    const isMobile = window.innerWidth <= 768; // Check if it's mobile view
+
+    if (isMobile) {
+        sidebar.classList.toggle('show'); // Toggle sidebar visibility
+    }
 }
 
 

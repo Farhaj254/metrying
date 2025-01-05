@@ -456,7 +456,7 @@ body {
 #close-search {
     color: white; /* Makes the cross button purple */
     font-size: 40px; /* Adjusts size for better visibility */
-    cursor:none; /* Ensures it looks clickable */
+    cursor:pointer; /* Ensures it looks clickable */
     background: none; /* Removes any background */
     border: none; /* Removes borders */
     padding: 5px; /* Adds padding for touch targets */

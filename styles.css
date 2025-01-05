@@ -14,7 +14,8 @@ body {
             color: white;
         }
 
-        header {
+       /* Header Configuration */
+header {
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
@@ -24,7 +25,7 @@ body {
     padding: 10px 20px;
 }
 
-/* Logo Section (Left) */
+/* Logo (Left) */
 header .logo {
     display: flex;
     align-items: center;
@@ -33,24 +34,23 @@ header .logo {
 
 /* Navigation Menu (Center) */
 header nav {
-    flex-grow: 1; /* Takes remaining space */
+    flex-grow: 1; /* Take remaining space */
     display: flex;
-    justify-content: center; /* Centers the navigation */
+    justify-content: center; /* Center the navigation menu */
     gap: 20px;
 }
 
-/* Search and Dark Mode Container (Right) */
+/* Right Container (Search + Dark Mode) */
 header .right-container {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px; /* Gap between search and dark mode buttons */
 }
 
-/* Search Container */
+/* Search Button */
 header .search-container {
     display: flex;
     align-items: center;
-    gap: 5px; /* Small gap between buttons */
 }
 
 /* Dark Mode Button */
@@ -66,11 +66,11 @@ header .dark-mode-toggle {
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
     header nav {
-        display: none; /* Hide navigation in mobile */
+        display: none; /* Hide navigation on small screens */
     }
 
     header .right-container {
-        justify-content: flex-end; /* Align search and dark mode to the right */
+        justify-content: flex-end; /* Right-align buttons on mobile */
     }
 }
 

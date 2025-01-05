@@ -14,15 +14,37 @@ body {
             color: white;
         }
 
-        header {
-            grid-column: 1 / -1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #1a1a3d;
-            color: white;
-            padding: 10px 20px;
-        }
+       header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a3d;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Align navigation in the center for PC view only */
+@media (min-width: 769px) {
+    header {
+        justify-content: space-between; /* Ensure spacing between items */
+    }
+
+    header nav {
+        flex-grow: 1; /* Allows nav to grow in the middle */
+        display: flex;
+        justify-content: center; /* Center nav links */
+    }
+
+    header .search-container {
+        margin-left: auto; /* Push search container to the right */
+    }
+
+    header .dark-mode-toggle {
+        margin-left: 10px; /* Keep spacing between buttons */
+    }
+}
+
 
         header.dark-mode {
             background-color: #333;
@@ -54,11 +76,15 @@ body {
             color: #f4a261;
         }
 
-        header .search-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+       @media (min-width: 769px) {
+    header .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: auto; /* Push it to the right corner */
+    }
+}
+
 
         header .search-container input {
             padding: 5px 10px;
@@ -66,14 +92,12 @@ body {
             border-radius: 4px;
         }
 
-        header .dark-mode-toggle {
-            background-color: #333;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            color: white;
-        }
+       @media (min-width: 769px) {
+    header .dark-mode-toggle {
+        margin-left: 10px; /* Ensure it's next to the search bar */
+    }
+}
+
 
         #iframe-container {
             position: relative;

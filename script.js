@@ -91,12 +91,11 @@ window.onload = function () {
             document.body.classList.toggle('dark-mode');
             document.querySelector('header').classList.toggle('dark-mode');
         }
- // Hamburger Menu Toggle
+// Toggle Hamburger Menu
 function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show'); // Toggle the 'show' class
+    const menuOverlay = document.getElementById('menu-overlay');
+    menuOverlay.classList.toggle('show');
 }
-
 
 
 // Search Bar Toggle

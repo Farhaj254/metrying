@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>@media (max-width: 768px) {
+    header nav {
+        display: none; /* Hide desktop nav */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger button */
+    }
+}
+/* Default styles for the search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hide search bar by default on mobile */
+@media (max-width: 768px) {
+    #search-bar {
+        display: none; /* Hidden by default */
+    }
+
+    .search-container.active #search-bar {
+        display: block; /* Show when the 'active' class is toggled */
+    }
+
+    /* Style for search icon */
+    .search-icon {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: white; /* Adjust the color as per your design */
+    }
+
+    .search-container input {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        width: 150px; /* Adjust the size of input field */
+    }
+}
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none; /* Hidden by default for larger screens */
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    color: white;
+}
+
+/* Default Navigation for Larger Screens */
+#nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* Hide Navigation in Mobile View */
+@media (max-width: 768px) {
+    #nav-menu {
+        display: none; /* Hide by default */
+        flex-direction: column;
+        background-color: #1a1a3d;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    #nav-menu.show {
+        display: flex; /* Show when 'show' class is toggled */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    #nav-menu a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+
+    #nav-menu a:hover {
+        background-color: #444;
+    }
+}
+</style>
+    <script> function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('header').classList.toggle('dark-mode');
+        }
+ // Hamburger Menu Toggle
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('show'); // Toggle the 'show' class
+}
+
+
+
+// Search Bar Toggle
+function toggleSearchBar() {
+    const searchContainer = document.querySelector('.search-container');
+    const searchBar = document.getElementById('search-bar');
+
+    // Toggle 'active' class to show or hide the search bar
+    searchContainer.classList.toggle('active');
+
+    // Focus on the search bar when it's visible
+    if (searchContainer.classList.contains('active')) {
+        searchBar.style.display = 'block'; // Show search bar
+        searchBar.focus();
+    } else {
+        searchBar.style.display = 'none'; // Hide search bar
+    }
+}
+</script>
+</head>
+<body>
+  <header>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="logo.png" alt="Eggy Car Logo">
+        <span>Eggy Car</span>
+    </div>
+
+    <!-- Centered Navigation -->
+    <nav id="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">Car</a>
+        <a href="#">Skill</a>
+        <a href="#">Action</a>
+        <a href="#">Shooting</a>
+        <a href="#">Sport</a>
+        <a href="#">Idle</a>
+    </nav>
+
+    <!-- Right Controls (Search and Dark Mode) -->
+    <div class="right-controls">
+        <div class="search-container">
+            <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
+            <input type="text" id="search-bar" placeholder="Search">
+        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+</header>
+
+</body>
+</html>

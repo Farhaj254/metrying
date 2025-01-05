@@ -302,87 +302,105 @@ body {
         display: block; /* Show hamburger button */
     }
 }
-/* Default styles for the search container */
+/* Header Layout */
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out items */
+    background-color: #1a1a3d;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Navigation Menu - Centered */
+header nav {
+    flex-grow: 1; /* Take up the center space */
+    display: flex;
+    justify-content: center; /* Align navigation links to the center */
+    gap: 20px; /* Spacing between links */
+}
+
+/* Links Styling */
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: #f4a261;
+}
+
+/* Right Section for Search Bar and Dark Mode */
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Container */
 .search-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Hide search bar by default on mobile */
-@media (max-width: 768px) {
-    #search-bar {
-        display: none; /* Hidden by default */
-    }
-
-    .search-container.active #search-bar {
-        display: block; /* Show when the 'active' class is toggled */
-    }
-
-    /* Style for search icon */
-    .search-icon {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: white; /* Adjust the color as per your design */
-    }
-
-    .search-container input {
-        padding: 5px 10px;
-        border: none;
-        border-radius: 4px;
-        width: 150px; /* Adjust the size of input field */
-    }
+/* Search Bar */
+#search-bar {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
 }
-/* Hamburger Menu Button */
-.hamburger-menu {
-    display: none; /* Hidden by default for larger screens */
+
+/* Dark Mode Button */
+.dark-mode-toggle {
+    background-color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
     color: white;
 }
 
-/* Default Navigation for Larger Screens */
-#nav-menu {
-    display: flex;
-    gap: 20px;
-}
-
-/* Hide Navigation in Mobile View */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    #nav-menu {
-        display: none; /* Hide by default */
-        flex-direction: column;
-        background-color: #1a1a3d;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-    }
-
-    #nav-menu.show {
-        display: flex; /* Show when 'show' class is toggled */
+    header {
+        flex-direction: row; /* Ensure row layout for header */
+        align-items: center;
     }
 
     .hamburger-menu {
-        display: block; /* Show hamburger on mobile */
+        display: block; /* Show hamburger menu on mobile */
     }
 
-    #nav-menu a {
-        padding: 10px;
-        color: white;
-        text-decoration: none;
+    header nav {
+        display: none; /* Hide nav links */
     }
 
-    #nav-menu a:hover {
-        background-color: #444;
+    header nav.show {
+        display: flex; /* Show on toggle */
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .right-controls {
+        position: absolute;
+        right: 10px; /* Move controls to the right */
+        top: 10px;
+    }
+
+    .search-container input {
+        display: none; /* Hide input field initially */
+    }
+
+    .search-container input.active {
+        display: block; /* Show input field when active */
     }
 }
+
 /* Sidebar Styles */
 .sidebar {
     position: fixed;

@@ -18,7 +18,7 @@ body {
             grid-column: 1 / -1;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             background-color: #1a1a3d;
             color: white;
             padding: 10px 20px;
@@ -459,6 +459,7 @@ body {
 }
 @media (max-width: 768px) {
     header .search-container {
-        gap: 5px; /* Ensure the same spacing on mobile */
+        gap: 5px !important; /* Consistent on mobile too */
     }
 }
+

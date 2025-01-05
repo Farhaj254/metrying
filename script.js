@@ -97,7 +97,6 @@ function toggleMenu() {
     menuOverlay.classList.toggle('show');
 }
 
-
 // Search Bar Toggle
 function toggleSearchBar() {
     const searchContainer = document.querySelector('.search-container');

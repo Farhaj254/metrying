@@ -3,129 +3,146 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>@media (max-width: 768px) {
-    header nav {
-        display: none; /* Hide desktop nav */
-    }
-
-    .hamburger-menu {
-        display: block; /* Show hamburger button */
-    }
+    <style>/* Header Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a3d;
+    color: white;
+    padding: 10px 20px;
 }
-/* Default styles for the search container */
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f4a261;
+}
+
+/* Right Controls */
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Bar */
 .search-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Hide search bar by default on mobile */
-@media (max-width: 768px) {
-    #search-bar {
-        display: none; /* Hidden by default */
-    }
-
-    .search-container.active #search-bar {
-        display: block; /* Show when the 'active' class is toggled */
-    }
-
-    /* Style for search icon */
-    .search-icon {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: white; /* Adjust the color as per your design */
-    }
-
-    .search-container input {
-        padding: 5px 10px;
-        border: none;
-        border-radius: 4px;
-        width: 150px; /* Adjust the size of input field */
-    }
+#search-bar {
+    display: none; /* Hidden by default */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
 }
-/* Hamburger Menu Button */
-.hamburger-menu {
-    display: none; /* Hidden by default for larger screens */
+
+.search-container.active #search-bar {
+    display: block; /* Show when active */
+}
+
+/* Dark Mode Button */
+.dark-mode-toggle {
+    background-color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
+    color: white;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
     font-size: 24px;
+    cursor: pointer;
     padding: 10px;
     color: white;
 }
 
-/* Default Navigation for Larger Screens */
-#nav-menu {
-    display: flex;
-    gap: 20px;
-}
-
-/* Hide Navigation in Mobile View */
+/* Mobile View */
 @media (max-width: 768px) {
-    #nav-menu {
-        display: none; /* Hide by default */
+    .hamburger-menu {
+        display: block;
+    }
+
+    nav {
+        display: none; /* Hide navigation */
+    }
+
+    nav.show {
+        display: flex;
         flex-direction: column;
-        background-color: #1a1a3d;
         position: absolute;
         top: 60px;
         right: 10px;
+        background-color: #1a1a3d;
         padding: 10px;
         border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         z-index: 1000;
     }
 
-    #nav-menu.show {
-        display: flex; /* Show when 'show' class is toggled */
+    #search-bar {
+        width: 150px;
     }
 
-    .hamburger-menu {
-        display: block; /* Show hamburger on mobile */
-    }
-
-    #nav-menu a {
-        padding: 10px;
-        color: white;
-        text-decoration: none;
-    }
-
-    #nav-menu a:hover {
-        background-color: #444;
+    .logo {
+        margin-left: 10px; /* Add spacing */
     }
 }
+
 </style>
-    <script> function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-        }
- // Hamburger Menu Toggle
+    // Toggle Hamburger Menu
 function toggleMenu() {
     const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show'); // Toggle the 'show' class
+    navMenu.classList.toggle('show'); // Toggle visibility
 }
 
-
-
-// Search Bar Toggle
+// Toggle Search Bar
 function toggleSearchBar() {
     const searchContainer = document.querySelector('.search-container');
     const searchBar = document.getElementById('search-bar');
 
-    // Toggle 'active' class to show or hide the search bar
+    // Toggle visibility
     searchContainer.classList.toggle('active');
-
-    // Focus on the search bar when it's visible
-    if (searchContainer.classList.contains('active')) {
-        searchBar.style.display = 'block'; // Show search bar
-        searchBar.focus();
-    } else {
-        searchBar.style.display = 'none'; // Hide search bar
-    }
+    searchBar.focus();
 }
+
+// Toggle Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('header').classList.toggle('dark-mode');
+}
+
 </script>
 </head>
 <body>
-  <header>
+<header>
     <!-- Hamburger Menu -->
     <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
 
@@ -155,6 +172,7 @@ function toggleSearchBar() {
         <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
     </div>
 </header>
+
 
 </body>
 </html>

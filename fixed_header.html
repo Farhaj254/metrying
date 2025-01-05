@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>/* Header Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a3d;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Navigation Menu */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f4a261;
+}
+
+/* Right Controls */
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#search-bar {
+    display: none; /* Hidden by default */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-container.active #search-bar {
+    display: block; /* Show when active */
+}
+
+/* Dark Mode Button */
+.dark-mode-toggle {
+    background-color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    nav {
+        display: none; /* Hide navigation */
+    }
+
+    nav.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: #1a1a3d;
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 1000;
+    }
+
+    #search-bar {
+        width: 150px;
+    }
+
+    .logo {
+        margin-left: 10px; /* Add spacing */
+    }
+}
+
+</style>
+<script>
+    // Toggle Hamburger Menu
+function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('show'); // Toggle visibility
+}
+
+// Toggle Search Bar
+function toggleSearchBar() {
+    const searchContainer = document.querySelector('.search-container');
+    const searchBar = document.getElementById('search-bar');
+
+    // Toggle visibility
+    searchContainer.classList.toggle('active');
+    searchBar.focus();
+}
+
+// Toggle Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('header').classList.toggle('dark-mode');
+}
+
+</script>
+</head>
+<body>
+<header>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
+
+    <!-- Logo -->
+    <div class="logo">
+        <img src="logo.png" alt="Eggy Car Logo">
+        <span>Eggy Car</span>
+    </div>
+
+    <!-- Centered Navigation -->
+    <nav id="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">Car</a>
+        <a href="#">Skill</a>
+        <a href="#">Action</a>
+        <a href="#">Shooting</a>
+        <a href="#">Sport</a>
+        <a href="#">Idle</a>
+    </nav>
+
+    <!-- Right Controls (Search and Dark Mode) -->
+    <div class="right-controls">
+        <div class="search-container">
+            <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
+            <input type="text" id="search-bar" placeholder="Search">
+        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+</header>
+
+
+</body>
+</html>

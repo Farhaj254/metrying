@@ -487,7 +487,7 @@ header .dark-mode-toggle {
 }
 @media (max-width: 768px) {
     .search-box {
-        width: 60%; /* Make it take more width on mobile */
+        width: 88%; /* Make it take more width on mobile */
     }
 
     #close-search {

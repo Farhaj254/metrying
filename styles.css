@@ -37,8 +37,48 @@ header nav {
     flex-grow: 1; /* Take remaining space */
     display: flex;
     justify-content: center; /* Center the navigation menu */
-    gap: 20px;
+    gap: 20px; /* Space between links */
 }
+
+/* Navigation Links */
+header nav a {
+    color: white; /* Bright white text for visibility */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Slightly larger font size */
+    font-weight: 600; /* Bold text for emphasis */
+    padding: 8px 12px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for effects */
+}
+
+/* Hover Effect */
+header nav a:hover {
+    background-color: #f4a261; /* Highlight color for hover */
+    color: #1a1a3d; /* Dark text color on hover */
+}
+
+/* Active Link Style (Optional) */
+header nav a.active {
+    background-color: #f4a261; /* Highlight active link */
+    color: #1a1a3d; /* Text color for active link */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Hide desktop nav for mobile */
+    }
+
+    header .hamburger-menu {
+        display: block; /* Show hamburger menu for mobile */
+    }
+
+    .menu-overlay nav a {
+        padding: 15px; /* Larger padding for easier touch targets */
+        color: white; /* Maintain visibility in overlay */
+    }
+}
+
 
 /* Right Container (Search + Dark Mode) */
 header .right-container {

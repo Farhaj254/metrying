@@ -94,10 +94,11 @@ function toggleDropdownMenu() {
 }
 
 // Toggle Sidebar Menu (for sliding sidebar)
-function toggleSidebarMenu() {
-    const sidebar = document.getElementById('sidebar-menu');
-    sidebar.classList.toggle('show'); // Toggle sidebar visibility
+function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar'); // Select the sidebar
+    sidebar.classList.toggle('show'); // Toggle 'show' class
 }
+
 
 // Search Bar Toggle
 function toggleSearchBar() {

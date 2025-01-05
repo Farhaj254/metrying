@@ -88,4 +88,15 @@ window.onload = function () {
             }
         }
 
+// Load Header Dynamically
+async function loadHeader() {
+    const response = await fetch('header.html'); // Fetch header.html file
+    const data = await response.text(); // Get its content as text
+    document.getElementById('header-placeholder').innerHTML = data; // Insert into placeholder
+}
+
+// Call the function to load header
+window.onload = () => {
+    loadHeader(); // Load the header when the page loads
+};
 

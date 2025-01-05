@@ -97,6 +97,11 @@ function toggleMenu() {
     navMenu.classList.toggle('show'); // Toggle the 'show' class
 }
 
+// Toggle Sidebar Menu
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar-menu');
+    sidebar.classList.toggle('show'); // Toggle visibility
+}
 
 
 // Search Bar Toggle

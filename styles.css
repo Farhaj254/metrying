@@ -54,11 +54,11 @@ body {
             color: #f4a261;
         }
 
-        header .search-container {
-            display: flex;
-            align-items: center;
-            gap: 1px;
-        }
+       header .search-container {
+    display: flex;
+    align-items: center;
+    gap: 5px !important; /* Force the smaller gap */
+}
 
         header .search-container input {
             padding: 5px 10px;
@@ -465,6 +465,6 @@ body {
 }
 @media (max-width: 768px) {
     header .search-container {
-        gap: 1px; /* Ensure the same spacing on mobile */
+        gap: 5px; /* Ensure the same spacing on mobile */
     }
 }

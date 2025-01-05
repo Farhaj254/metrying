@@ -92,10 +92,6 @@ window.onload = function () {
             document.querySelector('header').classList.toggle('dark-mode');
         }
  // Hamburger Menu Toggle
-function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show'); // Toggle the 'show' class
-}
 
 // Toggle Sidebar Menu
 function toggleMenu() {

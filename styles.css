@@ -422,15 +422,18 @@ body {
     visibility: visible;
 }
 
+/* Search Box Styling */
 .search-box {
     display: flex;
     align-items: center;
     background: white;
     padding: 10px 20px;
     border-radius: 5px;
-    width: 50%;
+    width: 80%; /* Adjust width for mobile */
+    position: relative; /* Required for proper button positioning */
 }
 
+/* Input Field */
 .search-box input {
     flex: 1;
     padding: 10px;
@@ -439,34 +442,22 @@ body {
     font-size: 18px;
 }
 
-.search-box button {
+/* Close Button Styling */
+#close-search {
+    color: purple; /* Purple color */
+    font-size: 20px;
+    cursor: pointer;
     background: none;
     border: none;
-    font-size: 24px;
-    cursor: pointer;
+    position: absolute; /* Absolute position relative to the search-box */
+    right: 10px; /* Aligns button to the right */
 }
-/* Close button adjustments for mobile view */
 @media (max-width: 768px) {
-    .search-box button {
-        font-size: 20px; /* Slightly smaller font size for mobile */
-        padding: 5px;    /* Adjust padding for better alignment */
-        color: #333;     /* Ensure visibility against light background */
+    .search-box {
+        width: 90%; /* Make it take more width on mobile */
     }
-}
-#close-search {
-    color: white; /* Makes the cross button purple */
-    font-size: 40px; /* Adjusts size for better visibility */
-    cursor:pointer; /* Ensures it looks clickable */
-    background: none; /* Removes any background */
-    border: none; /* Removes borders */
-    padding: 5px; /* Adds padding for touch targets */
-}
 
-#close-search:hover {
-    color: #800080; /* Slightly darker purple on hover */
-}
-@media (max-width: 768px) {
     #close-search {
-        font-size: 20px; /* Smaller size for mobile */
+        font-size: 18px; /* Slightly smaller icon for mobile */
     }
 }

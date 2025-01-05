@@ -1,23 +1,70 @@
-/* General Styles */
 body {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    gap: 0;
+    grid-template-columns: 1fr 3fr 1fr; /* 3 Columns for layout */
+    grid-template-rows: auto 1fr; /* Header and content rows */
+    grid-template-areas:
+        "header header header" /* Header spans all columns */
+        "left center right";  /* Left, Center, Right sections */
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    transition: background-color 0.3s, color 0.3s;
+    height: 100vh; /* Full viewport height */
 }
 
-body.dark-mode {
-    background-color: #1a1a3d;
-    color: white;
-}
-
-/* Header Styles */
+/* Grid Area Assignments */
 header {
-    grid-column: 1 / -1;
+    grid-area: header;
+}
+
+#left-game-section {
+    grid-area: left;
+}
+
+#iframe-wrapper {
+    grid-area: center;
+}
+
+#right-game-section {
+    grid-area: right;
+}
+.game-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+body.dark-mode .game-section {
+    background-color: #333;
+}
+
+/* Grid Layout for Cards */
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px;
+}
+.ad-container {
+    height: 250px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+    border-radius: 8px;
+}
+
+body.dark-mode .ad-container {
+    background-color: #555;
+    color: #ddd;
+}
+header {
+    grid-area: header;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,131 +73,26 @@ header {
     color: white;
 }
 
-header.dark-mode {
-    background-color: #333;
-}
-
-/* Logo */
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-header .logo img {
-    height: 40px;
-}
-
-/* Navigation */
 header nav {
     display: flex;
     gap: 20px;
+    justify-content: center; /* Center-align navigation */
     flex-grow: 1;
-    justify-content: center;
 }
-
-header nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: #f4a261;
-}
-
-/* Search Bar */
-header .search-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-header .search-container input {
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    display: none; /* Hide initially */
-}
-
-header .search-container.active input {
-    display: block; /* Show when active */
-}
-
-/* Dark Mode Toggle */
-header .dark-mode-toggle {
-    background-color: #333;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
-}
-
-/* Mobile Styles */
 @media (max-width: 768px) {
     header nav {
-        display: none; /* Hide desktop nav in mobile */
+        display: none; /* Hide main nav */
     }
 
     .hamburger-menu {
         display: block; /* Show hamburger button */
-        font-size: 24px;
-        padding: 10px;
-        color: white;
-        cursor: pointer;
     }
 
-    /* Search Bar on Mobile */
-    #search-bar {
-        display: none; /* Hidden by default */
+    .grid-section {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
     }
 
-    .search-container.active #search-bar {
-        display: block; /* Show when toggled */
-    }
-
-    /* Mobile Overlay Menu */
-    .menu-overlay {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 75%;
-        height: 100%;
-        background-color: #1a1a3d;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
-    }
-
-    .menu-overlay.show {
-        left: 0; /* Slide in */
-    }
-
-    .mobile-nav {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .mobile-nav a {
-        padding: 15px;
-        color: white;
-        text-decoration: none;
-    }
-
-    .mobile-nav a:hover {
-        background-color: #444;
-    }
-
-    .close-menu {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 24px;
-        border: none;
-        background: none;
-        color: white;
-        cursor: pointer;
+    #iframe-container {
+        height: 400px;
     }
 }

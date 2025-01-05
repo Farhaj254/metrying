@@ -428,8 +428,8 @@ body {
     align-items: center;
     background: white;
     padding: 10px 20px;
-    border-radius: 5px;
-    width: 10%; /* Adjust width for mobile */
+    border-radius: 60px;
+    width: 60%; /* Adjust width for mobile */
     position: relative; /* Required for proper button positioning */
 }
 

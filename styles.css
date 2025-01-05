@@ -234,10 +234,38 @@ body {
         }
 
         @media (max-width: 768px) {
-            .grid-section {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .nav-container {
+        display: none; /* Hide desktop nav completely in mobile */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger icon for mobile menu */
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #search-bar {
+        display: none; /* Hide search bar initially */
+    }
+
+    .search-container.active #search-bar {
+        display: block; /* Show search bar when active */
+    }
+}
 
             .ad-container {
                 height: 150px;

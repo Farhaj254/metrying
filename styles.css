@@ -142,8 +142,8 @@ body {
         .game-section {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            padding: 20px;
+            gap: 40px;
+            padding: 40px;
             background-color: #f4f4f4;
             overflow-y: auto;
             height: 100vh;

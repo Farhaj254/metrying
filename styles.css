@@ -26,13 +26,18 @@ body {
 /* Center navigation and push search + dark mode toggle to the right */
 @media (min-width: 769px) {
     header {
-        justify-content: space-between; /* Ensures space between elements */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #1a1a3d;
+        color: white;
     }
 
     .nav-container {
-        flex-grow: 1; /* Makes navigation container occupy available space */
+        flex-grow: 1;
         display: flex;
-        justify-content: center; /* Center-aligns the navigation links */
+        justify-content: center; /* Center-align navigation in PC */
     }
 
     .search-container {
@@ -42,7 +47,11 @@ body {
     }
 
     .dark-mode-toggle {
-        margin-left: 10px; /* Spacing between search and dark mode button */
+        margin-left: 10px;
+    }
+
+    .hamburger-menu { 
+        display: none; /* Hide hamburger menu on PC */
     }
 }
 

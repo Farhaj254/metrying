@@ -429,7 +429,7 @@ body {
     background: white;
     padding: 10px 20px;
     border-radius: 5px;
-    width: 80%; /* Adjust width for mobile */
+    width: 60%; /* Adjust width for mobile */
     position: relative; /* Required for proper button positioning */
 }
 

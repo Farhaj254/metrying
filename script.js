@@ -87,41 +87,36 @@ window.onload = function () {
                 iframe.msRequestFullscreen();
             }
         }
- // Toggle Dropdown Menu (for nav-menu)
-function toggleDropdownMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show'); // Toggle dropdown visibility
-}
-
-// Toggle Sidebar Menu (for sliding sidebar)
+// Sidebar toggle function
 function toggleSidebarMenu() {
     const sidebar = document.getElementById('sidebar-menu');
-    const isMobile = window.innerWidth <= 768; // Check if it's mobile view
-
+    const isMobile = window.innerWidth <= 768; // Check if mobile view
     if (isMobile) {
-        sidebar.classList.toggle('show'); // Toggle sidebar visibility
+        sidebar.classList.toggle('show');
     }
 }
 
+// Dropdown toggle for mobile navigation
+function toggleDropdownMenu() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('show'); // Toggle visibility
+}
 
-// Search Bar Toggle
+// Search Bar toggle
 function toggleSearchBar() {
     const searchContainer = document.querySelector('.search-container');
     const searchBar = document.getElementById('search-bar');
-
-    // Toggle 'active' class to show or hide the search bar
     searchContainer.classList.toggle('active');
 
-    // Focus on the search bar when it's visible
     if (searchContainer.classList.contains('active')) {
-        searchBar.style.display = 'block'; // Show search bar
+        searchBar.style.display = 'block'; // Show input
         searchBar.focus();
     } else {
-        searchBar.style.display = 'none'; // Hide search bar
+        searchBar.style.display = 'none'; // Hide input
     }
 }
 
-// Toggle Dark Mode
+// Dark mode toggle
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     document.querySelector('header').classList.toggle('dark-mode');

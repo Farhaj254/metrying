@@ -15,67 +15,64 @@ body {
         }
 
         header {
-            grid-column: 1 / -1;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            background-color: #1a1a3d;
-            color: white;
-            padding: 10px 20px;
-        }
-
-        header.dark-mode {
-            background-color: #333;
-        }
-
-        header .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        header .logo img {
-            height: 40px;
-        }
-
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        header nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        header nav a:hover {
-            color: #f4a261;
-        }
-
-       header .search-container {
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
-    gap: 5px !important; /* Force the smaller gap */
+    justify-content: space-between; /* Space out elements */
+    background-color: #1a1a3d;
+    color: white;
+    padding: 10px 20px;
 }
 
-        header .search-container input {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 4px;
-        }
+/* Logo Section (Left) */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+/* Navigation Menu (Center) */
+header nav {
+    flex-grow: 1; /* Takes remaining space */
+    display: flex;
+    justify-content: center; /* Centers the navigation */
+    gap: 20px;
+}
 
+/* Search and Dark Mode Container (Right) */
+header .right-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-        header .dark-mode-toggle {
-            background-color: #333;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            color: white;
-        }
+/* Search Container */
+header .search-container {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Small gap between buttons */
+}
+
+/* Dark Mode Button */
+header .dark-mode-toggle {
+    background-color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Hide navigation in mobile */
+    }
+
+    header .right-container {
+        justify-content: flex-end; /* Align search and dark mode to the right */
+    }
+}
 
         #iframe-container {
             position: relative;

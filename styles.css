@@ -57,7 +57,7 @@ body {
         header .search-container {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 1px;
         }
 
         header .search-container input {
@@ -65,11 +65,7 @@ body {
             border: none;
             border-radius: 4px;
         }
-@media (max-width: 768px) {
-    header .search-container {
-        gap: 5px; /* Ensure the same spacing on mobile */
-    }
-}
+
 
 
         header .dark-mode-toggle {
@@ -465,5 +461,10 @@ body {
 
     #close-search {
         font-size: 18px; /* Slightly smaller icon for mobile */
+    }
+}
+@media (max-width: 768px) {
+    header .search-container {
+        gap: 1px; /* Ensure the same spacing on mobile */
     }
 }

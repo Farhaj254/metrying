@@ -302,26 +302,57 @@ body {
         display: block; /* Show hamburger button */
     }
 }
-/* Header Layout */
-header {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space out items */
+/* Body and general styles */
+body {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode styles */
+body.dark-mode {
     background-color: #1a1a3d;
     color: white;
-    padding: 10px 20px;
 }
 
-/* Navigation Menu - Centered */
-header nav {
-    flex-grow: 1; /* Take up the center space */
+/* Header styles */
+header {
     display: flex;
-    justify-content: center; /* Align navigation links to the center */
-    gap: 20px; /* Spacing between links */
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1a1a3d;
+    color: white;
+    padding: 15px 20px; /* More padding */
 }
 
-/* Links Styling */
+/* Dark mode for header */
+header.dark-mode {
+    background-color: #333;
+}
+
+/* Logo styles */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px; /* Margin added */
+}
+
+header .logo img {
+    height: 35px; /* Adjust size */
+}
+
+/* Navigation styles */
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
 header nav a {
     color: white;
     text-decoration: none;
@@ -333,11 +364,37 @@ header nav a:hover {
     color: #f4a261;
 }
 
-/* Right Section for Search Bar and Dark Mode */
-.right-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+}
+
+/* Mobile view for Hamburger Menu */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Show in mobile */
+    }
+
+    #nav-menu {
+        display: none; /* Hide nav menu by default */
+    }
+
+    #nav-menu.show {
+        display: flex; /* Show dropdown on toggle */
+        flex-direction: column;
+        background: #1a1a3d;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 100%;
+        z-index: 1000;
+    }
 }
 
 /* Search Container */
@@ -347,128 +404,40 @@ header nav a:hover {
     gap: 10px;
 }
 
-/* Search Bar */
 #search-bar {
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
+    display: none; /* Hidden by default */
 }
 
-/* Dark Mode Button */
-.dark-mode-toggle {
-    background-color: #333;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: white;
+/* Show search bar */
+.search-container.active #search-bar {
+    display: block;
 }
 
-/* Mobile Header Layout */
-@media (max-width: 768px) {
-    header {
-        flex-direction: row; /* Ensure row layout */
-        align-items: center;
-        padding: 10px; /* Add padding for better spacing */
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 5px; /* Space between logo and text */
-    }
-
-    .logo img {
-        height: 35px; /* Adjust logo size */
-    }
-
-    .right-controls {
-        display: flex;
-        gap: 10px; /* Adjust spacing between controls */
-        position: absolute;
-        right: 10px; /* Keep controls aligned to the right */
-    }
-
-    .search-container {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-}
-
-
-/* Sidebar Styles */
+/* Sidebar styles */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -300px; /* Initially hidden */
+    left: -300px;
     width: 300px;
     height: 100%;
     background-color: #000;
     color: white;
-    overflow-y: auto;
-    transition: left 0.3s ease; /* Slide-in effect */
+    transition: left 0.3s ease;
     z-index: 1000;
 }
 
 .sidebar.show {
-    left: 0; /* Slide in */
+    left: 0;
 }
 
 .sidebar .close-btn {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: none;
-    border: none;
     font-size: 24px;
     color: white;
     cursor: pointer;
-}
-
-.sidebar-content {
-    padding: 20px;
-}
-
-.sidebar-content a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px 0;
-    font-size: 16px;
-    border-bottom: 1px solid #444;
-}
-
-.sidebar-content a:hover {
-    color: #00ff99;
-}
-
-/* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    padding: 20px 0;
-}
-
-.social-icons a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-/* Hamburger Menu Button */
-.hamburger-menu {
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    color: white;
-}
-header {
-    padding: 15px 20px; /* Increase padding for cleaner layout */
-}
-@media (max-width: 768px) {
-    .logo {
-        margin-left: 10px; /* Add margin to push logo away from edge */
-    }
 }

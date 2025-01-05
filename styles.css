@@ -293,3 +293,64 @@ body {
                 height: 300px;
             }
         }
+/* Header Fixes */
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out items */
+    background-color: #1a1a3d;
+    color: white;
+    padding: 10px 20px;
+}
+
+header .logo img {
+    height: 40px;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger */
+        font-size: 24px;
+        padding: 10px;
+        color: white;
+    }
+
+    #nav-menu {
+        display: none; /* Hide nav links by default */
+    }
+
+    #nav-menu.show {
+        display: flex; /* Show menu when toggled */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a3d;
+    }
+
+    .logo {
+        margin-left: 10px; /* Add spacing to logo */
+    }
+
+    .right-controls {
+        position: absolute;
+        right: 10px;
+        display: flex;
+        gap: 10px;
+    }
+}
+

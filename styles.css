@@ -364,42 +364,38 @@ header nav a:hover {
     color: white;
 }
 
-/* Mobile Styles */
+/* Mobile Header Layout */
 @media (max-width: 768px) {
     header {
-        flex-direction: row; /* Ensure row layout for header */
+        flex-direction: row; /* Ensure row layout */
         align-items: center;
+        padding: 10px; /* Add padding for better spacing */
     }
 
-    .hamburger-menu {
-        display: block; /* Show hamburger menu on mobile */
-    }
-
-    header nav {
-        display: none; /* Hide nav links */
-    }
-
-    header nav.show {
-        display: flex; /* Show on toggle */
-        flex-direction: column;
+    .logo {
+        display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 5px; /* Space between logo and text */
+    }
+
+    .logo img {
+        height: 35px; /* Adjust logo size */
     }
 
     .right-controls {
+        display: flex;
+        gap: 10px; /* Adjust spacing between controls */
         position: absolute;
-        right: 10px; /* Move controls to the right */
-        top: 10px;
+        right: 10px; /* Keep controls aligned to the right */
     }
 
-    .search-container input {
-        display: none; /* Hide input field initially */
-    }
-
-    .search-container input.active {
-        display: block; /* Show input field when active */
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 }
+
 
 /* Sidebar Styles */
 .sidebar {
@@ -467,4 +463,12 @@ header nav a:hover {
     cursor: pointer;
     padding: 10px;
     color: white;
+}
+header {
+    padding: 15px 20px; /* Increase padding for cleaner layout */
+}
+@media (max-width: 768px) {
+    .logo {
+        margin-left: 10px; /* Add margin to push logo away from edge */
+    }
 }

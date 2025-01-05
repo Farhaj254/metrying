@@ -88,19 +88,19 @@ window.onload = function () {
             }
         }
  function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-        }
+    document.body.classList.toggle('dark-mode');
+}
+
 // Toggle Hamburger Menu
 function toggleMenu() {
     const menuOverlay = document.getElementById('menu-overlay');
     menuOverlay.classList.toggle('show');
 }
-
 // Search Bar Toggle
 function toggleSearchBar() {
     const searchContainer = document.querySelector('.search-container');
-    const searchBar = document.getElementById('search-bar');
+    searchContainer.classList.toggle('active');
+}
 
     // Toggle 'active' class to show or hide the search bar
     searchContainer.classList.toggle('active');

@@ -441,3 +441,158 @@ header nav a:hover {
     color: white;
     cursor: pointer;
 }
+/* Mobile View Fixes */
+
+/* Header Adjustment */
+header {
+    padding: 10px 15px; /* Adjust padding for mobile */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 5px; /* Push logo away from edges */
+}
+
+.logo img {
+    height: 35px; /* Adjust size */
+}
+
+/* Right Controls */
+.right-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 10px;
+}
+
+/* Sidebar Menu */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Hide off-screen initially */
+    width: 80%; /* Adjust width for mobile view */
+    height: 100%;
+    background-color: #000;
+    color: white;
+    overflow-y: auto;
+    transition: left 0.3s ease; /* Slide-in effect */
+    z-index: 1000;
+}
+
+.sidebar.show {
+    left: 0; /* Slide in */
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.sidebar-content a {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar-content a:hover {
+    color: #00ff99;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Close Button for Sidebar */
+.sidebar .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Game Cards */
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 10px;
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Advertisement Box */
+.ad-container {
+    height: 120px;
+    margin: 10px;
+    text-align: center;
+    line-height: 120px;
+    background-color: #ddd;
+}
+
+/* Iframe Container */
+#iframe-container {
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 300px; /* Adjust iframe height for mobile */
+}
+
+/* Buttons (like/dislike) */
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button-container button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Scrollbar Styling */
+.game-section::-webkit-scrollbar {
+    width: 6px;
+}
+
+.game-section::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger-menu {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    color: white;
+}
+
+/* Hide Desktop Nav Menu in Mobile */
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+}

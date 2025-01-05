@@ -19,16 +19,13 @@
     <!-- Hamburger Menu -->
     <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
 
-    <!-- Logo -->
+    <!-- Logo (Left) -->
     <div class="logo">
         <img src="logo.png" alt="Eggy Car Logo">
-        <span></span>
+        <span>Eggy Car</span>
     </div>
 
-   
-
-
-    <!-- Navigation Menu -->
+    <!-- Navigation Menu (Center) -->
     <nav id="nav-menu">
         <a href="#">Home</a>
         <a href="#">Car</a>
@@ -39,13 +36,13 @@
         <a href="#">Idle</a>
     </nav>
 
-         <!-- Search Container -->
-<div class="search-container">
-    <button class="search-icon" onclick="toggleSearchOverlay()">🔍</button>
-</div>
-    <!-- Dark Mode Button -->
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-</div>
+    <!-- Right Container (Search + Dark Mode) -->
+    <div class="right-container">
+        <div class="search-container">
+            <button class="search-icon" onclick="toggleSearchOverlay()">🔍</button>
+        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
 </header>
 
 <div class="menu-overlay" id="menu-overlay">

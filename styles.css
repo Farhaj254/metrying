@@ -348,7 +348,7 @@ body {
 .close-menu {
     position: absolute;
     top: 10px;
-    left: 10px; /* Moved to top-left corner */
+    right: 10px; /* Moved to top-right corner */
     font-size: 24px;
     border: none;
     background: none;

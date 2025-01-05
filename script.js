@@ -87,34 +87,29 @@ window.onload = function () {
                 iframe.msRequestFullscreen();
             }
         }
-// Sidebar toggle function
+// Sidebar Toggle for Mobile
 function toggleSidebarMenu() {
     const sidebar = document.getElementById('sidebar-menu');
-    const isMobile = window.innerWidth <= 768; // Check if mobile view
-    if (isMobile) {
-        sidebar.classList.toggle('show');
-    }
+    sidebar.classList.toggle('show'); // Toggle sidebar visibility
 }
 
-// Dropdown toggle for mobile navigation
-function toggleDropdownMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('show'); // Toggle visibility
-}
+// Close Sidebar on Click
+document.querySelector('.close-btn').addEventListener('click', () => {
+    document.getElementById('sidebar-menu').classList.remove('show');
+});
 
-// Search Bar toggle
+// Search Bar Toggle
 function toggleSearchBar() {
-    const searchContainer = document.querySelector('.search-container');
     const searchBar = document.getElementById('search-bar');
-    searchContainer.classList.toggle('active');
-
-    if (searchContainer.classList.contains('active')) {
-        searchBar.style.display = 'block'; // Show input
+    searchBar.classList.toggle('active');
+    if (searchBar.classList.contains('active')) {
+        searchBar.style.display = 'block';
         searchBar.focus();
     } else {
-        searchBar.style.display = 'none'; // Hide input
+        searchBar.style.display = 'none';
     }
 }
+
 
 // Dark mode toggle
 function toggleDarkMode() {

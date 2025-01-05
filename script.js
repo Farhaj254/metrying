@@ -99,4 +99,3 @@ async function loadHeader() {
 window.onload = () => {
     loadHeader(); // Load the header when the page loads
 };
-

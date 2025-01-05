@@ -344,6 +344,18 @@ body {
     color: white;
 }
 
+/* Close Menu Button */
+.close-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
 /* Mobile Navigation Overlay */
 .menu-overlay {
     position: fixed;

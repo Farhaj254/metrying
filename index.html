@@ -9,6 +9,13 @@
 </head>
 <body>
     <header>
+        <div id="search-overlay" class="search-overlay">
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="close-search" onclick="toggleSearchOverlay()">✖</button>
+    </div>
+</div>
+
     <!-- Hamburger Menu -->
     <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
 
@@ -20,8 +27,8 @@
 
     <!-- Search Container -->
 <div class="search-container">
-    <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
-    <input type="text" id="search-bar" placeholder="Search">
+    <button class="search-icon" onclick="toggleSearchOverlay()">🔍</button>
+</div>
     <!-- Dark Mode Button -->
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
 </div>

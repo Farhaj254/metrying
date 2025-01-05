@@ -445,3 +445,11 @@ body {
     font-size: 24px;
     cursor: pointer;
 }
+/* Close button adjustments for mobile view */
+@media (max-width: 768px) {
+    .search-box button {
+        font-size: 20px; /* Slightly smaller font size for mobile */
+        padding: 5px;    /* Adjust padding for better alignment */
+        color: #333;     /* Ensure visibility against light background */
+    }
+}

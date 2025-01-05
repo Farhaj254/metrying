@@ -14,87 +14,36 @@ body {
             color: white;
         }
 
-       header {
+      header {
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    padding: 10px 20px;
     background-color: #1a1a3d;
     color: white;
-    padding: 10px 20px;
 }
 
-/* Align navigation in the center for PC view only */
+/* Center navigation and push buttons to the right for PC view only */
 @media (min-width: 769px) {
     header {
-        justify-content: space-between; /* Ensure spacing between items */
+        justify-content: space-between; /* Main layout for spacing */
     }
 
     header nav {
-        flex-grow: 1; /* Allows nav to grow in the middle */
+        flex-grow: 1; /* Allows it to stretch and center */
         display: flex;
-        justify-content: center; /* Center nav links */
+        justify-content: center; /* Center align navigation */
     }
 
-    header .search-container {
-        margin-left: auto; /* Push search container to the right */
-    }
-
-    header .dark-mode-toggle {
-        margin-left: 10px; /* Keep spacing between buttons */
-    }
-}
-
-
-        header.dark-mode {
-            background-color: #333;
-        }
-
-        header .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        header .logo img {
-            height: 40px;
-        }
-
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        header nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        header nav a:hover {
-            color: #f4a261;
-        }
-
-       @media (min-width: 769px) {
-    header .search-container {
+    .search-container {
         display: flex;
         align-items: center;
         gap: 10px;
-        margin-left: auto; /* Push it to the right corner */
+        margin-left: auto; /* Push to right corner */
     }
-}
 
-
-        header .search-container input {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 4px;
-        }
-
-       @media (min-width: 769px) {
-    header .dark-mode-toggle {
-        margin-left: 10px; /* Ensure it's next to the search bar */
+    .dark-mode-toggle {
+        margin-left: 10px; /* Space between search and dark mode button */
     }
 }
 

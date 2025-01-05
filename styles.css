@@ -142,8 +142,8 @@ body {
         .game-section {
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            padding: 40px;
+            gap: 20px;
+            padding: 20px;
             background-color: #f4f4f4;
             overflow-y: auto;
             height: 100vh;
@@ -429,7 +429,7 @@ body {
     background: white;
     padding: 10px 20px;
     border-radius: 5px;
-    width: 60%; /* Adjust width for mobile */
+    width: 30%; /* Adjust width for mobile */
     position: relative; /* Required for proper button positioning */
 }
 

@@ -18,23 +18,16 @@ header {
     grid-column: 1 / -1;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #1a1a3d;
     color: white;
     padding: 10px 20px;
-}
-
-header.dark-mode {
-    background-color: #333;
 }
 
 header .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-}
-
-header .logo img {
-    height: 40px;
 }
 
 header nav {
@@ -44,23 +37,13 @@ header nav {
     justify-content: center; /* Center the navigation menu */
 }
 
-header nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: #f4a261;
-}
-
 header .right-controls {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: auto; /* Pushes the controls to the far-right */
+    flex-grow: 0; /* Prevent growth and keep it right-aligned */
 }
+
 
 header .search-container {
     display: flex;

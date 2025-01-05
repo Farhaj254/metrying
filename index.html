@@ -8,28 +8,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-   <header>
-   
-<!-- Hamburger Menu -->
-<div class="hamburger-menu" onclick="toggleSidebarMenu()">☰</div>
-
-<!-- Sidebar Menu -->
-<div id="sidebar-menu" class="sidebar">
-    <button class="close-btn" onclick="toggleSidebarMenu()">✖</button>
-    <div class="sidebar-content">
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Mobiles</a>
-        <a href="#">Technology</a>
-        <a href="#">Politics</a>
-        <a href="#">Buy Theme</a>
-        <div class="social-icons">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-times"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-        </div>
-    </div>
-</div>
+  <header>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleSidebarMenu()">☰</div>
 
     <!-- Logo -->
     <div class="logo">
@@ -37,16 +18,7 @@
         <span>Eggy Car</span>
     </div>
 
-    <!-- Search Container -->
-<div class="search-container">
-    <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
-    <input type="text" id="search-bar" placeholder="Search">
-    <!-- Dark Mode Button -->
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
-</div>
-
-
-    <!-- Navigation Menu -->
+    <!-- Centered Navigation -->
     <nav id="nav-menu">
         <a href="#">Home</a>
         <a href="#">Car</a>
@@ -56,6 +28,15 @@
         <a href="#">Sport</a>
         <a href="#">Idle</a>
     </nav>
+
+    <!-- Right Controls (Search and Dark Mode) -->
+    <div class="right-controls">
+        <div class="search-container">
+            <button class="search-icon" onclick="toggleSearchBar()">🔍</button>
+            <input type="text" id="search-bar" placeholder="Search">
+        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
 </header>
 
 

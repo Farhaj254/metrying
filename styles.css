@@ -57,7 +57,7 @@ body {
         header .search-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 5px;
         }
 
         header .search-container input {
@@ -65,6 +65,12 @@ body {
             border: none;
             border-radius: 4px;
         }
+@media (max-width: 768px) {
+    header .search-container {
+        gap: 5px; /* Ensure the same spacing on mobile */
+    }
+}
+
 
         header .dark-mode-toggle {
             background-color: #333;

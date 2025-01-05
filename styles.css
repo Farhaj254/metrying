@@ -304,12 +304,6 @@ body {
         display: block; /* Show hamburger button */
     }
 }
-/* Default styles for the search container */
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 /* Hide search bar by default on mobile */
 @media (max-width: 768px) {

@@ -504,20 +504,24 @@ header .dark-mode-toggle {
 .scrolling-games {
     overflow: hidden;
     white-space: nowrap;
-    width: 100%;
-    background-color: #1a1a3d;
-    padding: 10px 0;
+    width: 100%; /* Full width */
+    background-color: #1a1a3d; /* Consistent dark background */
+    padding: 10px 0; /* Adds padding for spacing */
+    box-sizing: border-box;
 }
 
+/* Wrapper for scroll effect */
 .scrolling-wrapper {
     display: flex;
-    animation: scroll 20s linear infinite;
+    animation: scroll 20s linear infinite; /* Continuous scrolling */
+    width: fit-content; /* Fit only the content width */
 }
 
+/* Individual Game Cards */
 .scrolling-game-card {
     flex: 0 0 auto;
-    margin-right: 20px;
-    width: 120px;
+    margin-right: 20px; /* Spacing between cards */
+    width: 120px; /* Fixed width for consistency */
     text-align: center;
     background-color: #333;
     padding: 10px;
@@ -531,18 +535,21 @@ header .dark-mode-toggle {
     transform: scale(1.1);
 }
 
+/* Images in Cards */
 .scrolling-game-card img {
-    width: 100%;
+    width: 100%; /* Ensure images scale properly */
+    height: auto;
     border-radius: 4px;
 }
 
+/* Titles in Cards */
 .scrolling-game-title {
     color: white;
     margin-top: 8px;
     font-size: 12px;
 }
 
-/* Animation for scrolling effect */
+/* Animation for scrolling */
 @keyframes scroll {
     0% {
         transform: translateX(100%);
@@ -551,16 +558,17 @@ header .dark-mode-toggle {
         transform: translateX(-100%);
     }
 }
+@media (min-width: 1024px) {
+    .scrolling-games {
+        padding: 15px 0; /* Slightly larger padding for larger screens */
+    }
 
-/* Dark mode adjustments */
-body.dark-mode .scrolling-games {
-    background-color: #333;
-}
+    .scrolling-game-card {
+        width: 150px; /* Increase size for PC */
+        margin-right: 30px; /* Larger gap for PC view */
+    }
 
-body.dark-mode .scrolling-game-card {
-    background-color: #555;
-}
-
-body.dark-mode .scrolling-game-title {
-    color: #ddd;
+    .scrolling-game-title {
+        font-size: 14px; /* Slightly larger text for visibility */
+    }
 }

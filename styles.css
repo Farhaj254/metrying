@@ -33,16 +33,17 @@ body.dark-mode {
 .scrolling-wrapper {
     display: flex;
     animation: scroll 20s linear infinite; /* Continuous scrolling */
-    align-items: center; /* Center items vertically */
-    gap: 30px; /* Increased spacing between items */
+    align-items: center;
+    gap: 15px; /* Adjust spacing between cards */
 }
+
 
 
 /* Individual Game Cards */
 .scrolling-game-card {
     flex: 0 0 auto;
-    width: 120px; /* Fixed width */
-    height: 120px; /* Set height equal to width for square shape */
+    width: 100px; /* Smaller size */
+    height: 100px; /* Equal width and height for square shape */
     text-align: center;
     background-color: #333;
     padding: 10px;
@@ -50,11 +51,12 @@ body.dark-mode {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.2s;
-    display: flex; /* Flexbox for centering */
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    display: flex; /* Flexbox layout for centering content */
+    flex-direction: column;
+    align-items: center; /* Horizontal center */
+    justify-content: center; /* Vertical center */
 }
+
 
 
 .scrolling-game-card:hover {
@@ -63,9 +65,9 @@ body.dark-mode {
 
 /* Images in Cards */
 .scrolling-game-card img {
-    width: 70%; /* Adjust width relative to the card size */
-    height: 70%; /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure images don't stretch */
+    width: 80%; /* Slightly smaller to fit within padding */
+    height: 80%; /* Maintain square aspect ratio */
+    object-fit: contain; /* Prevent distortion */
     border-radius: 4px;
 }
 
@@ -90,15 +92,14 @@ body.dark-mode {
 /* Adjust Padding for Larger Screens */
 @media (min-width: 1024px) {
     .scrolling-game-card {
-        width: 150px; /* Larger size */
-        height: 150px; /* Keep it square */
+        width: 120px; /* Larger size for PC */
+        height: 120px; /* Keep square */
     }
 
     .scrolling-wrapper {
-        gap: 40px; /* Increase spacing further on larger screens */
+        gap: 20px; /* Increase spacing for larger screens */
     }
 }
-
 
     .scrolling-game-title {
         font-size: 14px; /* Larger text for visibility */

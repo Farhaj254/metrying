@@ -500,3 +500,67 @@ header .dark-mode-toggle {
     }
 }
 
+/* Scrolling Games Section */
+.scrolling-games {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background-color: #1a1a3d;
+    padding: 10px 0;
+}
+
+.scrolling-wrapper {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+
+.scrolling-game-card {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    width: 120px;
+    text-align: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.scrolling-game-card:hover {
+    transform: scale(1.1);
+}
+
+.scrolling-game-card img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.scrolling-game-title {
+    color: white;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+/* Animation for scrolling effect */
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Dark mode adjustments */
+body.dark-mode .scrolling-games {
+    background-color: #333;
+}
+
+body.dark-mode .scrolling-game-card {
+    background-color: #555;
+}
+
+body.dark-mode .scrolling-game-title {
+    color: #ddd;
+}

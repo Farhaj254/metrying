@@ -1,0 +1,582 @@
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* Add extra row for scrolling games */
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode support */
+body.dark-mode {
+    background-color: #1a1a3d;
+    color: white;
+}
+
+/* Scrolling Games Section */
+.scrolling-games {
+    grid-column: 1 / -1; /* Spanning across all columns */
+    overflow: hidden;
+    width: 100%; /* Full width to match parent */
+    background-color: #1a1a3d; /* Consistent dark background */
+    padding: 10px 0; /* Adds padding for spacing */
+    box-sizing: border-box;
+    display: flex; /* Aligns within flex layout */
+    justify-content: center; /* Centers content */
+    position: relative; /* Aligns with parent grid */
+}
+
+/* Wrapper for scroll effect */
+.scrolling-wrapper {
+    display: flex;
+    animation: scroll 20s linear infinite; /* Continuous scrolling */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Adds spacing between items */
+}
+
+/* Individual Game Cards */
+.scrolling-game-card {
+    flex: 0 0 auto;
+    width: 120px; /* Consistent size for all cards */
+    text-align: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.scrolling-game-card:hover {
+    transform: scale(1.1); /* Hover effect */
+}
+
+/* Images in Cards */
+.scrolling-game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Titles in Cards */
+.scrolling-game-title {
+    color: white;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+/* Animation for scrolling */
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Adjust Padding for Larger Screens */
+@media (min-width: 1024px) {
+    .scrolling-games {
+        padding: 15px 0; /* Larger padding for PC */
+    }
+
+    .scrolling-game-card {
+        width: 150px; /* Increase size */
+        margin-right: 30px; /* Larger gap for PC */
+    }
+
+    .scrolling-game-title {
+        font-size: 14px; /* Larger text for visibility */
+    }
+}
+
+       /* Header Configuration */
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out elements */
+    background-color: #1a1a3d;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Logo (Left) */
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Navigation Menu (Center) */
+header nav {
+    flex-grow: 1; /* Take remaining space */
+    display: flex;
+    justify-content: center; /* Center the navigation menu */
+    gap: 20px; /* Space between links */
+}
+
+/* Navigation Links */
+header nav a {
+    color: white; /* Bright white text for visibility */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Slightly larger font size */
+    font-weight: 600; /* Bold text for emphasis */
+    padding: 8px 12px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for effects */
+}
+
+/* Hover Effect */
+header nav a:hover {
+    background-color: #f4a261; /* Highlight color for hover */
+    color: #1a1a3d; /* Dark text color on hover */
+}
+
+/* Active Link Style (Optional) */
+header nav a.active {
+    background-color: #f4a261; /* Highlight active link */
+    color: #1a1a3d; /* Text color for active link */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Hide desktop nav for mobile */
+    }
+
+    header .hamburger-menu {
+        display: block; /* Show hamburger menu for mobile */
+    }
+
+    .menu-overlay nav a {
+        padding: 15px; /* Larger padding for easier touch targets */
+        color: white; /* Maintain visibility in overlay */
+    }
+}
+
+
+/* Right Container (Search + Dark Mode) */
+header .right-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Gap between search and dark mode buttons */
+}
+
+/* Search Button */
+header .search-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Dark Mode Button */
+header .dark-mode-toggle {
+    background-color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Hide navigation on small screens */
+    }
+
+    header .right-container {
+        justify-content: flex-end; /* Right-align buttons on mobile */
+    }
+}
+
+        #iframe-container {
+            position: relative;
+            padding: 20px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        body.dark-mode #iframe-container {
+            background-color: #2c2c2c;
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        #game-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+
+        body.dark-mode #game-title {
+            color: #fff;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .button-container button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button-container button:hover {
+            background-color: #444;
+        }
+
+        body.dark-mode .button-container button {
+            background-color: #555;
+        }
+
+        .game-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        body.dark-mode .game-section {
+            background-color: #333;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .ad-container {
+            height: 250px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #555;
+            border-radius: 8px;
+        }
+
+        body.dark-mode .ad-container {
+            background-color: #555;
+            color: #ddd;
+        }
+
+        .game-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            aspect-ratio: 1;
+        }
+
+        body.dark-mode .game-card {
+            background-color: #444;
+        }
+
+        .game-card img {
+            width: 80%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-title {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        body.dark-mode .game-title {
+            color: #ddd;
+        }
+
+        /* Scrollbar styling */
+        .game-section::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .game-section::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        .game-section::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            #iframe-container {
+                order: 2;
+            }
+
+            .game-section {
+                order: 1;
+                height: auto;
+                padding: 15px;
+            }
+
+            iframe {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .ad-container {
+                height: 150px;
+                font-size: 14px;
+            }
+
+            iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .game-section {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .grid-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .ad-container {
+                height: 120px;
+                font-size: 12px;
+            }
+
+            iframe {
+                height: 300px;
+            }
+        }
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Hide desktop nav */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger button */
+    }
+}
+
+/* Hide search bar by default on mobile */
+@media (max-width: 768px) {
+    #search-bar {
+        display: none; /* Hidden by default */
+    }
+
+    .search-container.active #search-bar {
+        display: block; /* Show when the 'active' class is toggled */
+    }
+
+    /* Style for search icon */
+    .search-icon {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: white; /* Adjust the color as per your design */
+    }
+
+    .search-container input {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+        width: 150px; /* Adjust the size of input field */
+    }
+}
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    color: white;
+}
+
+/* Close Menu Button */
+.close-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Ensure top-right position */
+    font-size: 36px;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Mobile Navigation Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Initially hidden */
+    width: 75%;
+    height: 100%;
+    padding: 0; /* Ensure no padding */
+    background-color: #1a1a3d;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.menu-overlay.show {
+    left: 0; /* Slide-in effect */
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-nav a {
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.mobile-nav a:hover {
+    background-color: #444;
+}
+
+/* Show Hamburger Button for Mobile */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    header nav {
+        display: none; /* Hide main nav */
+    }
+}
+/* Search Overlay Styles */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Search Box Styling */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 60px;
+    width: 60%; /* Adjust width for mobile */
+    position: relative; /* Required for proper button positioning */
+}
+
+/* Input Field */
+.search-box input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+/* Close Button Styling */
+#close-search {
+    color: purple; /* Purple color */
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: absolute; /* Absolute position relative to the search-box */
+    right: 10px; /* Aligns button to the right */
+}
+@media (max-width: 768px) {
+    .search-box {
+        width: 80%; /* Make it take more width on mobile */
+    }
+
+    #close-search {
+        font-size: 24px; /* Slightly smaller icon for mobile */
+    }
+}
+@media (max-width: 768px) {
+    header .search-container {
+        gap: 5px !important; /* Consistent on mobile too */
+    }
+}
+

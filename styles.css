@@ -1,18 +1,98 @@
 body {
-            display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
-            gap: 0;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    display: grid;
+    grid-template-rows: auto auto 1fr; /* Add extra row for scrolling games */
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        body.dark-mode {
-            background-color: #1a1a3d;
-            color: white;
-        }
+/* Dark mode support */
+body.dark-mode {
+    background-color: #1a1a3d;
+    color: white;
+}
+
+/* Scrolling Games Section */
+.scrolling-games {
+    grid-column: 1 / -1; /* Spanning across all columns */
+    overflow: hidden;
+    width: 100%; /* Full width to match parent */
+    background-color: #1a1a3d; /* Consistent dark background */
+    padding: 10px 0; /* Adds padding for spacing */
+    box-sizing: border-box;
+    display: flex; /* Aligns within flex layout */
+    justify-content: center; /* Centers content */
+    position: relative; /* Aligns with parent grid */
+}
+
+/* Wrapper for scroll effect */
+.scrolling-wrapper {
+    display: flex;
+    animation: scroll 20s linear infinite; /* Continuous scrolling */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Adds spacing between items */
+}
+
+/* Individual Game Cards */
+.scrolling-game-card {
+    flex: 0 0 auto;
+    width: 120px; /* Consistent size for all cards */
+    text-align: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.scrolling-game-card:hover {
+    transform: scale(1.1); /* Hover effect */
+}
+
+/* Images in Cards */
+.scrolling-game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Titles in Cards */
+.scrolling-game-title {
+    color: white;
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+/* Animation for scrolling */
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Adjust Padding for Larger Screens */
+@media (min-width: 1024px) {
+    .scrolling-games {
+        padding: 15px 0; /* Larger padding for PC */
+    }
+
+    .scrolling-game-card {
+        width: 150px; /* Increase size */
+        margin-right: 30px; /* Larger gap for PC */
+    }
+
+    .scrolling-game-title {
+        font-size: 14px; /* Larger text for visibility */
+    }
+}
 
        /* Header Configuration */
 header {

@@ -617,12 +617,10 @@ body.dark-mode #game-info-section p {
     color: #ddd;
 }
 .fifty-games-section {
-    width: 100vw; /* Full viewport width */
-    margin: 0; /* Remove margin */
+    grid-column: 1 / -1; /* Span the entire grid width */
     padding: 20px;
     background-color: #f4f4f4;
     border-top: 1px solid #ddd;
-    display: block; /* Ensure it behaves as a block-level element */
 }
 
 .fifty-games-section h2 {
@@ -634,7 +632,7 @@ body.dark-mode #game-info-section p {
 
 .fifty-games-section .grid-section {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
     gap: 15px;
 }
 

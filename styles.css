@@ -655,3 +655,22 @@ body.dark-mode #game-info-section p {
 #fifty-games-section .game-card:hover {
     transform: scale(1.05);
 }
+.full-width-section {
+    grid-column: 1 / -1; /* Makes the section span all columns */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+}
+
+.full-width-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.full-width-section .grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+}

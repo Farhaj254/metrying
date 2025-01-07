@@ -588,19 +588,21 @@ header .dark-mode-toggle {
 .additional-games-section {
     padding: 20px;
     background-color: #f4f4f4;
-    margin-top: 20px;
+    margin-top: 10px; /* Adds slight gap under buttons */
 }
 
 body.dark-mode .additional-games-section {
     background-color: #333;
 }
 
+/* Grid for the Games Section */
 .additional-games-section .grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Flexible grid */
-    gap: 20px; /* Increased gap */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Gap between cards */
 }
 
+/* Game Card Style */
 .additional-games-section .game-card {
     display: flex;
     flex-direction: column;

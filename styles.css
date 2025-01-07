@@ -41,8 +41,8 @@ body.dark-mode {
 /* Individual Game Cards */
 .scrolling-game-card {
     flex: 0 0 auto;
-    width: 120px; /* Consistent width */
-    height: 120px; /* Set height equal to width to make it square */
+    width: 80px; /* Consistent width */
+    height: 80px; /* Set height equal to width to make it square */
     text-align: center;
     background-color: #333;
     padding: 10px;

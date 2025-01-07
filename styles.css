@@ -641,8 +641,9 @@ body.dark-mode #game-info-section p {
 
 .fifty-games-section .grid-section {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns layout */
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamic columns */
+    gap: 15px; /* Consistent gap */
+    padding: 10px; /* Add padding for spacing */
 }
 
 .fifty-games-section .game-card {
@@ -653,8 +654,28 @@ body.dark-mode #game-info-section p {
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
+    height: 180px; /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    justify-content: center;
+    align-items: center;
 }
 
 .fifty-games-section .game-card:hover {
     transform: scale(1.05);
+}
+
+/* Image inside card */
+.fifty-games-section .game-card img {
+    width: 100px; /* Fixed image size */
+    height: 100px;
+    object-fit: cover; /* Maintain aspect ratio without distortion */
+    border-radius: 4px;
+}
+
+/* Title inside card */
+.fifty-games-section .game-card .game-title {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
 }

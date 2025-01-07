@@ -619,12 +619,13 @@ body.dark-mode #game-info-section p {
 }
 /* New Games Section */
 #new-games-section {
-    grid-column: 1 / -1; /* Span across all columns */
-    margin-top: 20px; /* Add spacing from the previous section */
+    width: 100%; /* Full width */
+    margin-top: 20px; /* Spacing from the previous section */
     padding: 20px;
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Include padding in width */
 }
 
 body.dark-mode #new-games-section {

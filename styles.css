@@ -34,13 +34,14 @@ body.dark-mode {
     display: flex;
     animation: scroll 20s linear infinite; /* Continuous scrolling */
     align-items: center; /* Center items vertically */
-    gap: 20px; /* Adds spacing between items */
+    gap: 30px; /* Increase the gap between items */
 }
 
 /* Individual Game Cards */
 .scrolling-game-card {
     flex: 0 0 auto;
-    width: 120px; /* Consistent size for all cards */
+    width: 80px; /* Consistent width */
+    height: 80px; /* Set height equal to width to make it square */
     text-align: center;
     background-color: #333;
     padding: 10px;
@@ -56,17 +57,20 @@ body.dark-mode {
 
 /* Images in Cards */
 .scrolling-game-card img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Full width of container */
+    height: 80%; /* Adjust height to maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the space properly */
     border-radius: 4px;
 }
 
 /* Titles in Cards */
 .scrolling-game-title {
     color: white;
-    margin-top: 8px;
+    margin-top: 5px; /* Adjust spacing from image */
     font-size: 12px;
 }
+
+
 
 /* Animation for scrolling */
 @keyframes scroll {

@@ -617,3 +617,41 @@ body.dark-mode #game-info-section p {
     color: #ddd;
 }
 
+#fifty-games-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+}
+
+#fifty-games-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+#fifty-games-section .grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+#fifty-games-section .game-card {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#fifty-games-section .game-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+#fifty-games-section .game-card:hover {
+    transform: scale(1.05);
+}

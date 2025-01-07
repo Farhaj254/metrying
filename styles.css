@@ -586,11 +586,12 @@ header .dark-mode-toggle {
 
 /* Game Info Section */
 #game-info-section {
-    padding: 20px;
+    margin-top: 15px; /* Add spacing from buttons */
+    padding: 15px;
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    margin-top: 10px;
+    width: 100%; /* Full width of the iframe-wrapper */
 }
 
 body.dark-mode #game-info-section {

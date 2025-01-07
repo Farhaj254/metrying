@@ -644,7 +644,7 @@ body.dark-mode #game-info-section p {
 .fifty-games-section .grid-section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible columns */
-    gap: 60px; /* Increased gap between cards */
+    gap: 30px; /* Increased gap between cards */
     padding: 20px; /* Added padding around the grid */
 }
 

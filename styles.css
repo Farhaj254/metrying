@@ -619,7 +619,8 @@ body.dark-mode #game-info-section p {
 }
 /* New Games Section */
 #new-games-section {
-    margin-top: 20px; /* Add spacing from previous section */
+    grid-column: 1 / -1; /* Span across all columns */
+    margin-top: 20px; /* Add spacing from the previous section */
     padding: 20px;
     background-color: #f4f4f4;
     border-radius: 8px;
@@ -663,7 +664,7 @@ body.dark-mode #new-games-section h3 {
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
-    aspect-ratio: 1;
+    aspect-ratio: 1; /* Make square cards */
 }
 
 body.dark-mode .new-games-grid .game-card {

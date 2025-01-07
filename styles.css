@@ -650,7 +650,7 @@ body.dark-mode #game-info-section p {
 
 /* Individual Game Cards */
 .fifty-games-section .game-card {
-    padding: 10px;
+    padding: 30px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);

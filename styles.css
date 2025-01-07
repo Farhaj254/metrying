@@ -662,14 +662,21 @@ body.dark-mode #game-info-section h3 {
 body.dark-mode #game-info-section p {
     color: #ddd;
 }
+/* 50 Fifty Games Section */
 .fifty-games-section {
     display: block;
-    width: 100%; /* Full width of the section */
+    width: 100%;
     padding: 20px;
     margin: 0 auto;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Light mode background */
     border-top: 1px solid #ddd;
-    box-sizing: border-box; /* Prevents overflow */
+    box-sizing: border-box;
+}
+
+/* Dark Mode Background */
+body.dark-mode .fifty-games-section {
+    background-color: #333; /* Match dark mode background */
+    border-top: 1px solid #555; /* Softer border */
 }
 
 /* Title Styling */
@@ -680,18 +687,23 @@ body.dark-mode #game-info-section p {
     color: #333;
 }
 
+/* Dark Mode Title Styling */
+body.dark-mode .fifty-games-section h2 {
+    color: white; /* Adjust title color */
+}
+
 /* Grid Layout for Cards */
 .fifty-games-section .grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible columns */
-    gap: 30px; /* Increased gap between cards */
-    padding: 20px; /* Added padding around the grid */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 30px;
+    padding: 20px;
 }
 
 /* Individual Game Cards */
 .fifty-games-section .game-card {
-    padding: 5px; /* Add padding inside each card */
-    background-color: #fff;
+    padding: 15px;
+    background-color: #fff; /* Light mode card background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -704,34 +716,26 @@ body.dark-mode #game-info-section p {
     justify-content: center;
 }
 
+/* Dark Mode Game Cards */
+body.dark-mode .fifty-games-section .game-card {
+    background-color: #444; /* Dark mode card background */
+    color: white; /* Dark mode text color */
+}
+
 /* Hover Effect */
 .fifty-games-section .game-card:hover {
     transform: scale(1.05);
 }
 
-
 /* Image Styling */
 .fifty-games-section .game-card img {
-    width: 50px; /* Fixed size for consistency */
+    width: 50px;
     height: 50px;
-    object-fit: cover; /* Ensure image scales properly */
+    object-fit: cover;
     border-radius: 4px;
 }
 
-/* Game Title */
-.fifty-games-section .game-card .game-title {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
-}
-
-/* Responsive Design for Smaller Screens */
-@media (max-width: 768px) {
-    .fifty-games-section .grid-section {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller columns for mobile */
-    }
-
-    .fifty-games-section .game-card {
-        height: 150px; /* Smaller height for mobile view */
-    }
+/* Dark Mode Text Adjustments */
+body.dark-mode .fifty-games-section .game-card .game-title {
+    color: #ddd; /* Light text for dark mode */
 }

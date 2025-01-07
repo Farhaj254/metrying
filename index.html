@@ -8,7 +8,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Main Grid Container -->
     <div id="grid-container">
+         <!-- Header Section -->
     <header>
         <div id="search-overlay" class="search-overlay">
     <div class="search-box">
@@ -16,16 +18,16 @@
         <button id="close-search" onclick="toggleSearchOverlay()">✖</button>
     </div>
 </div>
-
+<!-- Hamburger Menu -->
     <!-- Hamburger Menu -->
     <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
-
+<!-- Logo -->
     <!-- Logo (Left) -->
     <div class="logo">
         <img src="logo.png" alt="Eggy Car Logo">
         <span>Eggy Car</span>
     </div>
-
+   <!-- Navigation Menu -->
     <!-- Navigation Menu (Center) -->
     <nav id="nav-menu">
         <a href="#">Home</a>
@@ -146,7 +148,7 @@
     <p id="game-description">Select a game to see its description and instructions here.</p>
     <h3>Instructions</h3>
     <p id="game-instructions">Instructions will appear once a game is selected.</p>
-</div>
+        </div>
     </div>
 
 
@@ -190,29 +192,22 @@
         </div>
      </div>
   </div>
-</div>
-         <!-- New Games Section -->
-<div id="new-games-section">
-    <h3>New Games</h3>
-    <div class="new-games-grid">
-        <!-- Example Game Cards -->
-        <div class="game-card" onclick="loadGame('Game 1', 'game1.html')">
-            <img src="game1-thumbnail.jpg" alt="Game 1">
-            <div class="game-title">Game 1</div>
-        </div>
-        <div class="game-card" onclick="loadGame('Game 2', 'game2.html')">
-            <img src="game2-thumbnail.jpg" alt="Game 2">
-            <div class="game-title">Game 2</div>
-        </div>
-        <!-- Add more games up to Game 20 -->
-        <div class="game-card" onclick="loadGame('Game 20', 'game20.html')">
-            <img src="game20-thumbnail.jpg" alt="Game 20">
-            <div class="game-title">Game 20</div>
+</div> <!-- END GRID-CONTAINER -->
+        !-- New Games Section (Outside Main Grid) -->
+    <div id="new-games-section">
+        <h3>New Games</h3>
+        <div class="new-games-grid">
+            <!-- Example Games -->
+            <div class="game-card" onclick="loadGame('Game 1', 'game1.html')">
+                <img src="game1-thumbnail.jpg" alt="Game 1">
+                <div class="game-title">Game 1</div>
+            </div>
+            <div class="game-card" onclick="loadGame('Game 20', 'game20.html')">
+                <img src="game20-thumbnail.jpg" alt="Game 20">
+                <div class="game-title">Game 20</div>
+            </div>
         </div>
     </div>
-</div>
 </body>
-   
-
 </html>
 

@@ -123,3 +123,17 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+// Populate 50 Games Section
+const fiftyGamesSection = document.querySelector("#fifty-games-section .grid-section");
+
+// Generate 50 games dynamically
+for (let i = 1; i <= 50; i++) {
+    const gameCard = document.createElement('div');
+    gameCard.classList.add('game-card');
+    gameCard.innerHTML = `
+        <img src="game${i}-thumbnail.jpg" alt="Game ${i}">
+        <div class="game-title">Game ${i}</div>
+    `;
+    gameCard.onclick = () => loadGame(`Game ${i}`, `game${i}.html`);
+    fiftyGamesSection.appendChild(gameCard);
+}

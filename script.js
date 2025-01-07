@@ -123,3 +123,12 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+function loadGame(title, url, description, instructions) {
+    // Update iframe source and title
+    document.getElementById('game-frame').src = url;
+    document.getElementById('game-title').textContent = title;
+
+    // Update description and instructions
+    document.getElementById('game-description').textContent = description;
+    document.getElementById('game-instructions').textContent = instructions;
+}

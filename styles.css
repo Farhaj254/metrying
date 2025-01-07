@@ -623,15 +623,16 @@ body.dark-mode #game-info-section p {
     color: #ddd;
 }
 .fifty-games-section {
-    display: block; /* Treat as a standalone block */
-    width: 100%; /* Ensure full width */
+    display: block;
+    width: 100%; /* Full width of the section */
     padding: 20px;
-    margin: 0 auto; /* Center it horizontally */
+    margin: 0 auto;
     background-color: #f4f4f4;
     border-top: 1px solid #ddd;
     box-sizing: border-box; /* Prevents overflow */
 }
 
+/* Title Styling */
 .fifty-games-section h2 {
     margin-bottom: 15px;
     text-align: center;
@@ -639,13 +640,15 @@ body.dark-mode #game-info-section p {
     color: #333;
 }
 
+/* Grid Layout for Cards */
 .fifty-games-section .grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Dynamic columns */
-    gap: 15px; /* Consistent gap */
-    padding: 10px; /* Add padding for spacing */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible columns */
+    gap: 15px; /* Space between cards */
+    padding: 10px;
 }
 
+/* Individual Game Cards */
 .fifty-games-section .game-card {
     padding: 10px;
     background-color: #fff;
@@ -654,28 +657,40 @@ body.dark-mode #game-info-section p {
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
-    height: 180px; /* Fixed height for consistency */
+    height: 200px; /* Fixed height for uniform size */
     display: flex;
-    flex-direction: column; /* Stack image and text vertically */
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
+/* Hover Effect */
 .fifty-games-section .game-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
-/* Image inside card */
+/* Image Styling */
 .fifty-games-section .game-card img {
-    width: 100px; /* Fixed image size */
-    height: 100px;
-    object-fit: cover; /* Maintain aspect ratio without distortion */
+    width: 80px; /* Fixed size for consistency */
+    height: 80px;
+    object-fit: cover; /* Ensure image scales properly */
     border-radius: 4px;
 }
 
-/* Title inside card */
+/* Game Title */
 .fifty-games-section .game-card .game-title {
     margin-top: 10px;
     font-size: 14px;
     color: #333;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .fifty-games-section .grid-section {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller columns for mobile */
+    }
+
+    .fifty-games-section .game-card {
+        height: 150px; /* Smaller height for mobile view */
+    }
 }

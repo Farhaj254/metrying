@@ -619,10 +619,10 @@ body.dark-mode #game-info-section p {
 
 /* 50 Fifty Games Section */
 .fifty-games-section {
-    grid-column: 1 / -1; /* Span the full width */
+    width: 100%; /* Ensure it spans full width */
     padding: 20px;
     background-color: #f4f4f4;
-    border-top: 1px solid #ddd; /* Separate it visually */
+    border-top: 1px solid #ddd;
 }
 
 .fifty-games-section h2 {

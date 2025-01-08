@@ -9,11 +9,13 @@ body {
 }
 .main-container {
     display: grid;
-    grid-template-rows: auto 1fr; /* Header + Content */
-    grid-template-columns: 1fr 3fr 1fr; /* Desktop: Left - Center - Right */
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     gap: 0;
-    flex-grow: 1;
+    height: 100vh; /* Fill viewport height */
+    overflow: hidden; /* Prevent scrolling issues */
 }
+
 
 /* Responsive Grid for Mobile */
 @media (max-width: 768px) {
@@ -21,18 +23,21 @@ body {
         grid-template-columns: 1fr; /* Single column layout */
         grid-template-rows: auto auto auto; /* Stack rows vertically */
     }
-
-    .game-section {
-        height: auto;
-        padding: 15px; /* Reduce padding for smaller screens */
-    }
+.game-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow-y: auto; /* Allow vertical scrolling for overflow */
+    height: calc(100vh - 60px); /* Account for header height */
 }
 
-/* Dark mode support */
-body.dark-mode {
-    background-color: #0d1117; /* Match home page background */
-    color: #c9d1d9; /* Match text color */
+/* Dark Mode */
+body.dark-mode .game-section {
+    background-color: #161b22;
 }
+
 
 
 /* Scrolling Games Section */
@@ -316,33 +321,38 @@ body.dark-mode .button-container button:hover {
 
         .grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive columns */
-    gap: 15px; /* Consistent spacing */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid */
+    gap: 15px;
+    padding: 20px;
 }
 
-/* Adjust layout for smaller screens */
+/* Mobile Layout */
 @media (max-width: 768px) {
     .grid-section {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Smaller cards for mobile */
+        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+        gap: 10px;
     }
 }
 
 
-        .ad-container {
-            height: 250px;
-            background-color: #ddd;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            color: #555;
-            border-radius: 8px;
-        }
 
-       body.dark-mode .ad-container {
-    background-color: #161b22; /* Match dark mode */
+      .ad-container {
+    min-height: 250px; /* Use min-height instead of fixed height */
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+    border-radius: 8px;
+}
+
+/* Dark Mode */
+body.dark-mode .ad-container {
+    background-color: #161b22;
     color: #c9d1d9;
 }
+
 
        .game-card {
     padding: 10px;

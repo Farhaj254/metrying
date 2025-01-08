@@ -30,9 +30,10 @@ body {
 
 /* Dark mode support */
 body.dark-mode {
-    background-color: #1a1a3d;
-    color: white;
+    background-color: #0d1117; /* Match home page background */
+    color: #c9d1d9; /* Match text color */
 }
+
 
 /* Scrolling Games Section */
 .scrolling-games {
@@ -122,11 +123,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Space out elements */
-    background-color: #1a1a3d;
-    color: white;
+    background-color:  #0d1117;
+    color: #c9d1d9;
     padding: 10px 20px;
 }
-
+/* Dark Mode Header */
+body.dark-mode header {
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
 /* Logo (Left) */
 header .logo {
     display: flex;
@@ -144,7 +149,7 @@ header nav {
 
 /* Navigation Links */
 header nav a {
-    color: white; /* Bright white text for visibility */
+    color: #c9d1d9; /* Bright white text for visibility */
     text-decoration: none; /* Remove underline */
     font-size: 16px; /* Slightly larger font size */
     font-weight: 600; /* Bold text for emphasis */
@@ -155,14 +160,14 @@ header nav a {
 
 /* Hover Effect */
 header nav a:hover {
-    background-color: #f4a261; /* Highlight color for hover */
-    color: #1a1a3d; /* Dark text color on hover */
+    background-color: #58a6ff;
+    color: #0d1117; /* Hover matches home page */
 }
 
 /* Active Link Style (Optional) */
 header nav a.active {
-    background-color: #f4a261; /* Highlight active link */
-    color: #1a1a3d; /* Text color for active link */
+    background-color: #58a6ff;
+    color: #0d1117;
 }
 
 /* Mobile View */
@@ -197,13 +202,22 @@ header .search-container {
 
 /* Dark Mode Button */
 header .dark-mode-toggle {
-    background-color: #333;
+    background-color: #58a6ff; /* Match home theme button color */
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
-    color: white;
+    color: #0d1117; /* Text color to match theme */
+    font-weight: 600; /* Slightly bold text for emphasis */
+    transition: all 0.3s ease; /* Smooth transitions */
 }
+
+/* Hover Effect */
+header .dark-mode-toggle:hover {
+    background-color: #1f6feb; /* Darker blue for hover effect */
+    color: #ffffff; /* White text for better visibility */
+}
+
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
@@ -276,9 +290,15 @@ header .dark-mode-toggle {
             background-color: #444;
         }
 
-        body.dark-mode .button-container button {
-            background-color: #555;
-        }
+      body.dark-mode .button-container button {
+    background-color: #58a6ff; /* Highlight button */
+    color: #0d1117;
+}
+
+body.dark-mode .button-container button:hover {
+    background-color: #1f6feb; /* Slightly darker hover */
+    color: #ffffff;
+}
 
         .game-section {
             display: flex;
@@ -319,10 +339,10 @@ header .dark-mode-toggle {
             border-radius: 8px;
         }
 
-        body.dark-mode .ad-container {
-            background-color: #555;
-            color: #ddd;
-        }
+       body.dark-mode .ad-container {
+    background-color: #161b22; /* Match dark mode */
+    color: #c9d1d9;
+}
 
        .game-card {
     padding: 10px;
@@ -364,10 +384,16 @@ header .dark-mode-toggle {
     }
 }
 
+body.dark-mode .game-card {
+    background-color: #161b22; /* Dark card background */
+    color: #c9d1d9; /* Light text color */
+}
 
-        body.dark-mode .game-card {
-            background-color: #444;
-        }
+/* Hover Effect */
+body.dark-mode .game-card:hover {
+    background-color: #58a6ff; /* Highlight effect */
+    color: #0d1117;
+}
 
 
         .game-card:hover {
@@ -640,9 +666,18 @@ header .dark-mode-toggle {
 }
 
 body.dark-mode #game-info-section {
-    background-color: #333;
-    color: white;
+    background-color: #161b22; /* Match dark card color */
+    color: #c9d1d9;
 }
+
+body.dark-mode #game-info-section h3 {
+    color: #58a6ff; /* Highlighted headings */
+}
+
+body.dark-mode #game-info-section p {
+    color: #c9d1d9; /* Light text */
+}
+
 
 #game-info-section h3 {
     margin-bottom: 10px;
@@ -675,9 +710,26 @@ body.dark-mode #game-info-section p {
 
 /* Dark Mode Background */
 body.dark-mode .fifty-games-section {
-    background-color: #333; /* Match dark mode background */
-    border-top: 1px solid #555; /* Softer border */
+    background-color: #0d1117; /* Match home dark theme */
+    border-top: 1px solid #21262d; /* Softer border */
 }
+
+body.dark-mode .fifty-games-section h2 {
+    color: #c9d1d9; /* Match heading text */
+}
+
+/* Game Cards in Fifty Section */
+body.dark-mode .fifty-games-section .game-card {
+    background-color: #161b22; /* Dark card background */
+    color: #c9d1d9;
+}
+
+/* Hover Effect */
+body.dark-mode .fifty-games-section .game-card:hover {
+    background-color: #58a6ff;
+    color: #0d1117;
+}
+
 
 /* Title Styling */
 .fifty-games-section h2 {

@@ -358,6 +358,29 @@ body.dark-mode .button-container button:hover {
     align-items: center;
     justify-content: center;
 }
+.game-card {
+    position: relative; /* Enable positioning for hover effects */
+    overflow: hidden; /* Hide anything outside the card */
+}
+
+.game-card::after {
+    content: attr(data-name); /* Display the game name using data-name attribute */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    color: white; /* White text for contrast */
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+.game-card:hover::after {
+    opacity: 1; /* Show the name on hover */
+}
 
 /* Hover Effect */
 .game-card:hover {
@@ -366,11 +389,13 @@ body.dark-mode .button-container button:hover {
 
 /* Image Styling */
 .game-card img {
-    width: 60px; /* Adjust image size */
-    height: 60px;
-    object-fit: cover;
-    border-radius: 4px;
+    width: 80%; /* Make the image cover 80% of the card */
+    height: 80%; /* Maintain aspect ratio within 80% */
+    object-fit: contain; /* Ensure it fits without cropping */
+    border-radius: 4px; /* Rounded corners */
+    transition: transform 0.2s ease; /* Smooth scaling on hover */
 }
+
 
 /* Responsive Card for Smaller Screens */
 @media (max-width: 768px) {

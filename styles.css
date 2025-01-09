@@ -381,11 +381,12 @@ body.dark-mode .button-container button:hover {
     bottom: 0; /* Align to the bottom of the card */
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, var(--hover-bg-opacity)); /* Semi-transparent black */
-    color: white; /* Set text color to white */
-    font-size: 14px; /* Standard font size */
-    padding: 5px; /* Add some padding around text */
+    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for better contrast */
+    color: white; /* Bright white text for visibility */
+    font-size: 16px; /* Slightly larger font size for readability */
+    padding: 8px; /* Add more padding for better spacing */
     text-align: center; /* Center-align text */
+    font-weight: bold; /* Make text bold to stand out */
     transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth fade effect */
     opacity: 0; /* Hidden by default */
 }
@@ -394,6 +395,7 @@ body.dark-mode .button-container button:hover {
 .game-card:hover .game-title {
     opacity: 1; /* Display title on hover */
 }
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

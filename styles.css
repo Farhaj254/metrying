@@ -56,40 +56,53 @@ body.dark-mode {
     gap: 30px; /* Increase the gap between items */
 }
 
-/* Individual Game Cards */
+/* Scrolling Game Cards - Updated Hover Effect */
 .scrolling-game-card {
-    flex: 0 0 auto;
-    width: 80px; /* Consistent width */
-    height: 80px; /* Set height equal to width to make it square */
-    text-align: center;
+    position: relative; /* Enables positioning for hover effects */
+    overflow: hidden; /* Prevents overflow */
+    padding: 0;
     background-color: #333;
-    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
+    width: 80px; /* Adjust width for consistency */
+    height: 80px; /* Adjust height for consistency */
 }
 
-.scrolling-game-card:hover {
-    transform: scale(1.1); /* Hover effect */
-}
-
-/* Images in Cards */
+/* Image Styling - Full Size */
 .scrolling-game-card img {
-    width: 100%; /* Full width of container */
-    height: 80%; /* Adjust height to maintain aspect ratio */
-    object-fit: cover; /* Ensures the image covers the space properly */
-    border-radius: 4px;
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Full height of the card */
+    object-fit: cover; /* Maintain aspect ratio while covering space */
+    border-radius: 8px;
 }
 
-/* Titles in Cards */
-.scrolling-game-title {
+/* Hover Effect for Game Title */
+.scrolling-game-card .scrolling-game-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     color: white;
-    margin-top: 5px; /* Adjust spacing from image */
     font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
 }
 
+/* Show Game Title on Hover */
+.scrolling-game-card:hover .scrolling-game-title {
+    opacity: 1; /* Make visible on hover */
+}
 
+/* Hover Effect - Slight Scale */
+.scrolling-game-card:hover {
+    transform: scale(1.05);
+}
 
 /* Animation for scrolling */
 @keyframes scroll {

@@ -343,6 +343,12 @@ body.dark-mode .button-container button:hover {
     background-color: #161b22; /* Match dark mode */
     color: #c9d1d9;
 }
+:root {
+    /* Define custom properties for hover effects */
+    --hover-bg-opacity: 0.7; /* Opacity of the background bar */
+    --hover-text-opacity: 1; /* Opacity of the title text */
+}
+
 /* Game Card Styling */
 .game-card {
     position: relative; /* Position title relative to card */
@@ -375,12 +381,12 @@ body.dark-mode .button-container button:hover {
     bottom: 0; /* Align to the bottom of the card */
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
-    color: #fff; /* White text for visibility */
+    background-color: rgba(0, 0, 0, var(--hover-bg-opacity)); /* Semi-transparent black */
+    color: rgba(255, 255, 255, var(--hover-text-opacity)); /* Control text opacity */
     font-size: 14px; /* Standard font size */
     padding: 5px; /* Add some padding around text */
     text-align: center; /* Center-align text */
-    transition: opacity 0.3s ease; /* Smooth fade effect */
+    transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth fade effect */
     opacity: 0; /* Hidden by default */
 }
 

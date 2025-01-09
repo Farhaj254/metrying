@@ -344,33 +344,48 @@ body.dark-mode .button-container button:hover {
     color: #c9d1d9;
 }
 
-       .game-card {
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-    height: 150px; /* Fixed height for consistency */
+     /* Game Card Styling */
+.game-card {
+    position: relative; /* Relative to place the title over the card */
+    overflow: hidden; /* Ensure content doesn’t overflow */
+    border-radius: 8px; /* Smooth edges */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer; /* Pointer cursor */
+    width: 150px; /* Fixed card size */
+    height: 150px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end; /* Title at the bottom */
     align-items: center;
-    justify-content: center;
+    background-color: #333;
+    transition: transform 0.3s ease; /* Smooth scaling */
 }
 
-/* Hover Effect */
+/* Title Styling */
+.game-card .game-title {
+    position: absolute; /* Overlays at the bottom of the card */
+    bottom: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    color: white; /* Text color for contrast */
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center; /* Center-align text */
+    padding: 5px;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    z-index: 2; /* Ensure it appears above the image */
+}
+
+/* Card Hover Effect */
 .game-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Zoom on hover */
 }
 
-/* Image Styling */
-.game-card img {
-    width: 60px; /* Adjust image size */
-    height: 60px;
-    object-fit: cover;
-    border-radius: 4px;
+.game-card:hover .game-title {
+    opacity: 1; /* Show title on hover */
 }
+
 
 /* Responsive Card for Smaller Screens */
 @media (max-width: 768px) {

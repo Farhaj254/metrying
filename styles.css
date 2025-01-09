@@ -374,41 +374,43 @@ body.dark-mode .button-container button:hover {
 }
 
      /* Game Card Styling */
+/* General Game Card Styling */
 .game-card {
     position: relative; /* Enables positioning for hover effects */
-    overflow: hidden; /* Ensures image does not overflow */
+    overflow: hidden; /* Prevents overflow of content */
     padding: 0;
-    background-color: #fff; /* Background color for light mode */
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s ease;
-    width: 100%; /* Ensure card width fits its parent */
+    width: 100%; /* Ensure the card fits its parent */
     height: 150px; /* Set a consistent height for cards */
 }
 
-/* Ensure game images fully cover the card */
+/* Game Card Images */
 .game-card img {
     width: 100%; /* Full width of the card */
     height: 100%; /* Full height of the card */
-    object-fit: cover; /* Ensures image covers card without distortion */
+    object-fit: cover; /* Ensure image covers the card without distortion */
     border-radius: 8px; /* Matches card's border radius */
 }
 
-/* Responsive Styling for Mobile View */
+/* Responsive Game Cards for Mobile */
 @media (max-width: 768px) {
     .game-card {
-        height: 100px; /* Reduce card height for mobile */
-        width: 90px; /* Adjust card width for mobile */
+        width: 100%; /* Take full width on mobile */
+        height: 120px; /* Reduce height slightly for mobile */
     }
 
     .game-card img {
-        width: 100%; /* Full width of the card */
-        height: 100%; /* Full height of the card */
-        object-fit: cover; /* Ensure image covers the card */
+        width: 100%; /* Ensure the image covers full width */
+        height: 100%; /* Ensure the image covers full height */
+        object-fit: cover; /* Prevent distortion of the image */
     }
 }
+
 
 /* Hover Effect for Game Title */
 .game-card .game-title {

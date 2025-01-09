@@ -344,33 +344,54 @@ body.dark-mode .button-container button:hover {
     color: #c9d1d9;
 }
 
-       .game-card {
-    padding: 10px;
+      /* Game Card Container */
+.game-card {
+    position: relative; /* Enables positioning for hover effects */
+    overflow: hidden; /* Prevents overflow */
+    padding: 0;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
-    height: 150px; /* Fixed height for consistency */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 150px; /* Adjust width for consistency */
+    height: 150px; /* Adjust height for consistency */
 }
 
-/* Hover Effect */
+/* Image Styling - Full Size */
+.game-card img {
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Full height of the card */
+    object-fit: cover; /* Maintain aspect ratio while covering space */
+    border-radius: 8px;
+}
+
+/* Hover Effect for Game Title */
+.game-card .game-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* Show Game Title on Hover */
+.game-card:hover .game-title {
+    opacity: 1; /* Make visible on hover */
+}
+
+/* Hover Effect - Slight Scale */
 .game-card:hover {
     transform: scale(1.05);
 }
 
-/* Image Styling */
-.game-card img {
-    width: 60px; /* Adjust image size */
-    height: 60px;
-    object-fit: cover;
-    border-radius: 4px;
-}
 
 /* Responsive Card for Smaller Screens */
 @media (max-width: 768px) {

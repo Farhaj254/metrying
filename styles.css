@@ -345,7 +345,7 @@ body.dark-mode .button-container button:hover {
 }
 :root {
     /* Define custom properties for hover effects */
-    --hover-bg-opacity: 0.7; /* Opacity of the background bar */
+    --hover-bg-opacity: 0.2; /* Opacity of the background bar */
     --hover-text-opacity: 1; /* Opacity of the title text */
 }
 

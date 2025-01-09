@@ -373,51 +373,41 @@ body.dark-mode .button-container button:hover {
     color: #c9d1d9;
 }
 
-      /* Game Card Container */
-/* Game Card Container */
+     /* Game Card Styling */
 .game-card {
     position: relative; /* Enables positioning for hover effects */
-    overflow: hidden; /* Prevents overflow */
+    overflow: hidden; /* Ensures image does not overflow */
     padding: 0;
-    background-color: #fff;
+    background-color: #fff; /* Background color for light mode */
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s;
-    width: 150px; /* Adjust width for consistency */
-    height: 150px; /* Adjust height for consistency */
+    transition: transform 0.2s ease;
+    width: 100%; /* Ensure card width fits its parent */
+    height: 150px; /* Set a consistent height for cards */
 }
 
-/* Game Card Container */
-@media (max-width: 768px) {
-    .game-card {
-        width: 90px; /* Reduce size for mobile */
-        height: 90px; /* Maintain aspect ratio */
-        margin: 5px; /* Add spacing between cards */
-    }
-
-    .game-card img {
-        width: 100%; /* Ensure full width */
-        height: 100%; /* Maintain aspect ratio */
-    }
-}
-
-/* Grid Layout for Game Section */
-@media (max-width: 768px) {
-    .grid-section {
-        grid-template-columns: repeat(2, 1fr); /* Two cards per row */
-        gap: 10px; /* Add spacing */
-    }
-}
-
-
-/* Image Styling - Full Size */
+/* Ensure game images fully cover the card */
 .game-card img {
     width: 100%; /* Full width of the card */
     height: 100%; /* Full height of the card */
-    object-fit: cover; /* Maintain aspect ratio while covering space */
-    border-radius: 8px;
+    object-fit: cover; /* Ensures image covers card without distortion */
+    border-radius: 8px; /* Matches card's border radius */
+}
+
+/* Responsive Styling for Mobile View */
+@media (max-width: 768px) {
+    .game-card {
+        height: 100px; /* Reduce card height for mobile */
+        width: 90px; /* Adjust card width for mobile */
+    }
+
+    .game-card img {
+        width: 100%; /* Full width of the card */
+        height: 100%; /* Full height of the card */
+        object-fit: cover; /* Ensure image covers the card */
+    }
 }
 
 /* Hover Effect for Game Title */
@@ -440,9 +430,9 @@ body.dark-mode .button-container button:hover {
     opacity: 1; /* Make visible on hover */
 }
 
-/* Hover Effect - Slight Scale */
+/* Hover Effect for Card */
 .game-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
 

@@ -382,8 +382,28 @@ body.dark-mode .button-container button:hover {
 }
 
 /* On hover, show title clearly */
+/* Hover Effect for the Entire Card */
+.game-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+}
+
+/* Show Game Title on Hover */
 .game-card:hover .game-title {
-    opacity: 1;
+    opacity: 1; /* Make the title visible */
+    transition: opacity 0.3s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Ensure the Game Title Starts as Hidden */
+.game-title {
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Ensure the Hover Works in Dark Mode as Well */
+body.dark-mode .game-card:hover {
+    background-color: #58a6ff; /* Change background color on hover */
+    color: #0d1117; /* Adjust text color for visibility */
 }
 
 /* Mobile Adjustments */

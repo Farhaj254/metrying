@@ -786,42 +786,50 @@ body.dark-mode .fifty-games-section h2 {
     padding: 20px;
 }
 
-/* Individual Game Cards */
+/* Fifty Games Section Cards - Updated Hover Effect */
 .fifty-games-section .game-card {
-    padding: 15px;
-    background-color: #fff; /* Light mode card background */
+    position: relative; /* Enables positioning for hover effects */
+    overflow: hidden; /* Prevents overflow */
+    padding: 0;
+    background-color: #fff; /* Match section background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
     cursor: pointer;
     transition: transform 0.2s;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 150px; /* Adjust width for consistency */
+    height: 150px; /* Adjust height for consistency */
 }
 
-/* Dark Mode Game Cards */
-body.dark-mode .fifty-games-section .game-card {
-    background-color: #444; /* Dark mode card background */
-    color: white; /* Dark mode text color */
+/* Image Styling - Full Size */
+.fifty-games-section .game-card img {
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Full height of the card */
+    object-fit: cover; /* Maintain aspect ratio while covering space */
+    border-radius: 8px;
 }
 
-/* Hover Effect */
+/* Hover Effect for Game Title */
+.fifty-games-section .game-card .game-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+/* Show Game Title on Hover */
+.fifty-games-section .game-card:hover .game-title {
+    opacity: 1; /* Make visible on hover */
+}
+
+/* Hover Effect - Slight Scale */
 .fifty-games-section .game-card:hover {
     transform: scale(1.05);
-}
-
-/* Image Styling */
-.fifty-games-section .game-card img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-/* Dark Mode Text Adjustments */
-body.dark-mode .fifty-games-section .game-card .game-title {
-    color: #ddd; /* Light text for dark mode */
 }

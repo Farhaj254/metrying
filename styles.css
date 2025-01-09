@@ -344,16 +344,10 @@ body.dark-mode .button-container button:hover {
     color: #c9d1d9;
 }
 :root {
-    /* Define custom properties for hover effects */
-    --hover-bg-opacity: 0.2; /* Opacity of the background bar */
-    --hover-text-opacity: 1; /* Opacity of the title text */
-}
-
-/* Game Card Styling */
 /* Game Card Styling */
 .game-card {
-    position: relative; /* Position title relative to card */
-    overflow: hidden; /* Hide overflow content */
+    position: relative; /* Required for title positioning */
+    overflow: hidden; /* Prevent overflow content */
     background-color: #fff; /* Light mode background */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
@@ -365,38 +359,37 @@ body.dark-mode .button-container button:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    transition: transform 0.3s ease; /* Smooth scale effect */
+    transition: transform 0.3s ease; /* Smooth scaling effect */
 }
 
-/* Ensure the image fits properly */
+/* Image Styling */
 .game-card img {
-    width: 100%; /* Take full width of the card */
-    height: 100%; /* Occupy the card height */
+    width: 100%; /* Occupy full width */
+    height: 100%; /* Occupy full height */
     object-fit: cover; /* Maintain aspect ratio */
-    border-radius: 8px; /* Match the card's rounded corners */
-    z-index: 1; /* Ensure it doesn't overlap the title */
+    border-radius: 8px; /* Match the card's corners */
+    z-index: 1; /* Below title layer */
 }
 
-/* Title Overlay */
+/* Title Styling */
 .game-title {
-    position: absolute; /* Place title over the image */
+    position: absolute; /* Place title on top of the image */
     bottom: 0; /* Align to the bottom of the card */
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker background for contrast */
-    color: #ffffff; /* Bright white text for visibility */
-    font-size: 14px; /* Readable font size */
-    font-weight: bold; /* Bold text for emphasis */
-    padding: 8px 0; /* Padding for spacing */
+    left: 0; /* Start from left */
+    right: 0; /* Extend to right */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white; /* Bright text for visibility */
+    font-size: 14px; /* Adjust font size */
+    font-weight: bold; /* Bold for emphasis */
+    padding: 8px; /* Add spacing */
     text-align: center; /* Center-align text */
-    transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
-    z-index: 2; /* Ensure it's above the image */
-    opacity: 1; /* Always visible */
+    z-index: 2; /* Above the image */
+    opacity: 1; /* Ensure visibility */
 }
 
 /* Hover Effect */
 .game-card:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
 .game-card:hover .game-title {
@@ -406,13 +399,13 @@ body.dark-mode .button-container button:hover {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .game-card {
-        height: 120px; /* Adjust card height for smaller screens */
-        width: 120px; /* Adjust card width for smaller screens */
+        height: 120px; /* Smaller height for mobile */
+        width: 120px; /* Smaller width for mobile */
     }
 
     .game-title {
         font-size: 12px; /* Smaller font for mobile */
-        padding: 6px; /* Adjust padding for smaller cards */
+        padding: 6px; /* Adjust padding */
     }
 }
 

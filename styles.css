@@ -343,46 +343,65 @@ body.dark-mode .button-container button:hover {
     background-color: #161b22; /* Match dark mode */
     color: #c9d1d9;
 }
-
-       .game-card {
-    padding: 10px;
-    background-color: #fff;
+/* Game Card Styling for Consistency Across Views */
+.game-card {
+    position: relative; /* For the title hover effect */
+    overflow: hidden; /* Ensure content doesn't spill out */
+    background-color: #fff; /* Light mode background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
     cursor: pointer;
-    transition: transform 0.2s;
-    height: 150px; /* Fixed height for consistency */
+    text-align: center;
+    height: 150px; /* Default height for desktop */
+    width: 150px; /* Default width for desktop */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start; /* Keep image and title aligned */
     align-items: center;
-    justify-content: center;
+    transition: transform 0.2s;
 }
 
-/* Hover Effect */
-.game-card:hover {
-    transform: scale(1.05);
-}
-
-/* Image Styling */
 .game-card img {
-    width: 60px; /* Adjust image size */
-    height: 60px;
-    object-fit: cover;
-    border-radius: 4px;
+    width: 100%; /* Image takes the full width of the card */
+    height: 70%; /* Maintain aspect ratio and consistent height */
+    object-fit: cover; /* Ensures no distortion */
+    border-radius: 8px 8px 0 0; /* Round the top corners */
 }
 
-/* Responsive Card for Smaller Screens */
+/* Game title styling */
+.game-card .game-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+    color: #fff;
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+/* On hover, show title clearly */
+.game-card:hover .game-title {
+    opacity: 1;
+}
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .game-card {
-        height: 120px; /* Reduce card height */
+        height: 120px; /* Adjust height for mobile */
+        width: 120px; /* Adjust width for mobile */
     }
 
     .game-card img {
-        width: 50px;
-        height: 50px;
+        height: 60%; /* Smaller image on mobile */
+    }
+
+    .game-card .game-title {
+        font-size: 12px; /* Smaller text for mobile */
     }
 }
+
 
 body.dark-mode .game-card {
     background-color: #161b22; /* Dark card background */

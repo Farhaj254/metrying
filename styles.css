@@ -381,15 +381,16 @@ body.dark-mode .button-container button:hover {
     bottom: 0; /* Align to the bottom of the card */
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Darker semi-transparent background for better contrast */
-    color: white; /* Bright white text for visibility */
-    font-size: 16px; /* Slightly larger font size for readability */
-    padding: 8px; /* Add more padding for better spacing */
+    background-color: rgba(0, 0, 0, 0.9); /* Increase opacity for better contrast */
+    color: #ffffff; /* Bright white text for maximum visibility */
+    font-size: 14px; /* Adjust font size for readability */
+    font-weight: bold; /* Bold text for better emphasis */
+    padding: 10px; /* Add padding for spacing */
     text-align: center; /* Center-align text */
-    font-weight: bold; /* Make text bold to stand out */
     transition: opacity 0.3s ease, background-color 0.3s ease; /* Smooth fade effect */
-    opacity: 0; /* Hidden by default */
+    opacity: 1; /* Ensure visibility */
 }
+
 
 /* Show Title on Hover */
 .game-card:hover .game-title {
@@ -405,10 +406,10 @@ body.dark-mode .button-container button:hover {
     }
 
     .game-title {
-        font-size: 12px; /* Smaller font size for mobile */
+        font-size: 12px; /* Slightly smaller font for mobile */
+        padding: 8px; /* Adjust padding for smaller cards */
     }
 }
-
 /* Hover Effect for the Card */
 .game-card:hover {
     transform: scale(1.05); /* Slight zoom effect on hover */

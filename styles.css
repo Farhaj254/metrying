@@ -382,7 +382,7 @@ body.dark-mode .button-container button:hover {
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, var(--hover-bg-opacity)); /* Semi-transparent black */
-    color: rgba(255, 255, 255, var(--hover-text-opacity)); /* Control text opacity */
+    color: white; /* Set text color to white */
     font-size: 14px; /* Standard font size */
     padding: 5px; /* Add some padding around text */
     text-align: center; /* Center-align text */

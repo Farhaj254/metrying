@@ -57,6 +57,7 @@ body.dark-mode {
 }
 
 /* Scrolling Game Cards - Updated Hover Effect */
+/* Scrolling Game Cards - Updated Hover Effect */
 .scrolling-game-card {
     position: relative; /* Enables positioning for hover effects */
     overflow: hidden; /* Prevents overflow */
@@ -70,6 +71,15 @@ body.dark-mode {
     width: 80px; /* Adjust width for consistency */
     height: 80px; /* Adjust height for consistency */
 }
+
+/* Responsive Scrolling Game Card for Mobile */
+@media (max-width: 768px) {
+    .scrolling-game-card {
+        width: 70px; /* Reduce size for mobile */
+        height: 70px;
+    }
+}
+
 
 /* Image Styling - Full Size */
 .scrolling-game-card img {
@@ -358,6 +368,7 @@ body.dark-mode .button-container button:hover {
 }
 
       /* Game Card Container */
+/* Game Card Container */
 .game-card {
     position: relative; /* Enables positioning for hover effects */
     overflow: hidden; /* Prevents overflow */
@@ -370,6 +381,14 @@ body.dark-mode .button-container button:hover {
     transition: transform 0.2s;
     width: 150px; /* Adjust width for consistency */
     height: 150px; /* Adjust height for consistency */
+}
+
+/* Responsive Game Card */
+@media (max-width: 768px) {
+    .game-card {
+        width: 100px; /* Adjust width for mobile */
+        height: 100px;
+    }
 }
 
 /* Image Styling - Full Size */
@@ -799,6 +818,14 @@ body.dark-mode .fifty-games-section h2 {
     transition: transform 0.2s;
     width: 150px; /* Adjust width for consistency */
     height: 150px; /* Adjust height for consistency */
+}
+
+/* Responsive Game Card */
+@media (max-width: 768px) {
+    .fifty-games-section .game-card {
+        width: 100px; /* Match size with other sections */
+        height: 100px;
+    }
 }
 
 /* Image Styling - Full Size */

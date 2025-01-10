@@ -56,40 +56,74 @@ body.dark-mode {
     gap: 30px; /* Increase the gap between items */
 }
 
-/* Individual Game Cards */
-.scrolling-game-card {
-    flex: 0 0 auto;
-    width: 80px; /* Consistent width */
-    height: 80px; /* Set height equal to width to make it square */
-    text-align: center;
-    background-color: #333;
+.scrolling-games {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px; /* Space between cards */
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.2s;
+    background-color: #1a1a3d; /* Dark background for scrolling section */
+    align-items: center; /* Center items vertically */
 }
 
-.scrolling-game-card:hover {
-    transform: scale(1.1); /* Hover effect */
+.scrolling-games::-webkit-scrollbar {
+    height: 8px;
 }
 
-/* Images in Cards */
-.scrolling-game-card img {
-    width: 100%; /* Full width of container */
-    height: 80%; /* Adjust height to maintain aspect ratio */
-    object-fit: cover; /* Ensures the image covers the space properly */
+.scrolling-games::-webkit-scrollbar-thumb {
+    background-color: #888;
     border-radius: 4px;
 }
 
-/* Titles in Cards */
-.scrolling-game-title {
-    color: white;
-    margin-top: 5px; /* Adjust spacing from image */
-    font-size: 12px;
+.scrolling-games::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
 }
 
+/* Individual Game Cards in Scrolling Section */
+.scrolling-game-card {
+    position: relative; /* Allows title overlay */
+    overflow: hidden; /* Prevents overflow */
+    border-radius: 8px; /* Smooth rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer; /* Pointer cursor */
+    width: 150px; /* Fixed dimensions */
+    height: 150px;
+    flex-shrink: 0; /* Prevent shrinking in scrolling layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align title to the bottom */
+    align-items: center;
+    background-color: #333; /* Default card background */
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
 
+.scrolling-game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+.scrolling-game-card .game-title {
+    position: absolute; /* Overlay title at the bottom */
+    bottom: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Fade-in on hover */
+}
+
+.scrolling-game-card:hover {
+    transform: scale(1.05); /* Slight zoom */
+}
+
+.scrolling-game-card:hover .game-title {
+    opacity: 1; /* Show title */
+}
 
 /* Animation for scrolling */
 @keyframes scroll {
@@ -735,75 +769,162 @@ body.dark-mode .fifty-games-section h2 {
 }
 
 /* Game Cards in Fifty Section */
-body.dark-mode .fifty-games-section .game-card {
-    background-color: #161b22; /* Dark card background */
-    color: #c9d1d9;
-}
-
-/* Hover Effect */
-body.dark-mode .fifty-games-section .game-card:hover {
-    background-color: #58a6ff;
-    color: #0d1117;
-}
-
-
-/* Title Styling */
-.fifty-games-section h2 {
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 24px;
-    color: #333;
-}
-
-/* Dark Mode Title Styling */
-body.dark-mode .fifty-games-section h2 {
-    color: white; /* Adjust title color */
-}
-
-/* Grid Layout for Cards */
-.fifty-games-section .grid-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 30px;
-    padding: 20px;
-}
-
-/* Individual Game Cards */
-.fifty-games-section .game-card {
-    padding: 15px;
-    background-color: #fff; /* Light mode card background */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-    height: 150px;
+/* Scrolling Games Section */
+.scrolling-games {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 15px; /* Space between cards */
+    padding: 10px;
+    background-color: #1a1a3d; /* Dark background for scrolling section */
+    align-items: center; /* Center items vertically */
 }
 
-/* Dark Mode Game Cards */
-body.dark-mode .fifty-games-section .game-card {
-    background-color: #444; /* Dark mode card background */
-    color: white; /* Dark mode text color */
+.scrolling-games::-webkit-scrollbar {
+    height: 8px;
 }
 
-/* Hover Effect */
-.fifty-games-section .game-card:hover {
-    transform: scale(1.05);
-}
-
-/* Image Styling */
-.fifty-games-section .game-card img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+.scrolling-games::-webkit-scrollbar-thumb {
+    background-color: #888;
     border-radius: 4px;
 }
 
-/* Dark Mode Text Adjustments */
+.scrolling-games::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* Individual Game Cards in Scrolling Section */
+.scrolling-game-card {
+    position: relative; /* Allows title overlay */
+    overflow: hidden; /* Prevents overflow */
+    border-radius: 8px; /* Smooth rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer; /* Pointer cursor */
+    width: 150px; /* Fixed dimensions */
+    height: 150px;
+    flex-shrink: 0; /* Prevent shrinking in scrolling layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align title to the bottom */
+    align-items: center;
+    background-color: #333; /* Default card background */
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.scrolling-game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+.scrolling-game-card .game-title {
+    position: absolute; /* Overlay title at the bottom */
+    bottom: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Fade-in on hover */
+}
+
+.scrolling-game-card:hover {
+    transform: scale(1.05); /* Slight zoom */
+}
+
+.scrolling-game-card:hover .game-title {
+    opacity: 1; /* Show title */
+}
+
+/* Fifty Games Section */
+.fifty-games-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.fifty-games-section .game-card {
+    position: relative; /* Allows title overlay */
+    overflow: hidden; /* Prevents overflow */
+    border-radius: 8px; /* Smooth rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    cursor: pointer; /* Pointer cursor */
+    width: 100%; /* Take available space */
+    height: 150px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align title to the bottom */
+    align-items: center;
+    background-color: #fff; /* Default card background */
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.fifty-games-section .game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+.fifty-games-section .game-card .game-title {
+    position: absolute; /* Overlay title at the bottom */
+    bottom: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Fade-in on hover */
+}
+
+.fifty-games-section .game-card:hover {
+    transform: scale(1.05); /* Slight zoom */
+}
+
+.fifty-games-section .game-card:hover .game-title {
+    opacity: 1; /* Show title */
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .scrolling-games,
+body.dark-mode .fifty-games-section {
+    background-color: #0d1117; /* Match dark theme */
+}
+
+body.dark-mode .scrolling-game-card,
+body.dark-mode .fifty-games-section .game-card {
+    background-color: #161b22; /* Dark card background */
+}
+
+body.dark-mode .scrolling-game-card .game-title,
 body.dark-mode .fifty-games-section .game-card .game-title {
-    color: #ddd; /* Light text for dark mode */
+    background-color: rgba(255, 255, 255, 0.2); /* Light semi-transparent background */
+    color: #ffffff; /* Bright text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .scrolling-game-card,
+    .fifty-games-section .game-card {
+        width: 120px;
+        height: 120px; /* Smaller dimensions */
+    }
+
+    .scrolling-game-card .game-title,
+    .fifty-games-section .game-card .game-title {
+        font-size: 12px; /* Adjust text size */
+    }
+
+    .fifty-games-section {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller grid for mobile */
+        gap: 15px;
+    }
 }

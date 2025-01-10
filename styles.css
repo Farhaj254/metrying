@@ -37,58 +37,81 @@ body.dark-mode {
 
 /* Scrolling Games Section */
 .scrolling-games {
-    grid-column: 1 / -1; /* Spanning across all columns */
-    overflow: hidden;
-    width: 100%; /* Full width to match parent */
+    display: flex;
+    overflow-x: auto; /* Horizontal scrolling */
+    padding: 10px 0;
     background-color: #1a1a3d; /* Consistent dark background */
-    padding: 10px 0; /* Adds padding for spacing */
-    box-sizing: border-box;
-    display: flex; /* Aligns within flex layout */
-    justify-content: center; /* Centers content */
-    position: relative; /* Aligns with parent grid */
+    gap: 15px; /* Space between cards */
+    align-items: center; /* Vertical alignment */
 }
 
-/* Wrapper for scroll effect */
-.scrolling-wrapper {
-    display: flex;
-    animation: scroll 20s linear infinite; /* Continuous scrolling */
-    align-items: center; /* Center items vertically */
-    gap: 30px; /* Increase the gap between items */
+.scrolling-games::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scrolling-games::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.scrolling-games::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
 }
 
 /* Individual Game Cards */
 .scrolling-game-card {
-    flex: 0 0 auto;
-    width: 80px; /* Consistent width */
-    height: 80px; /* Set height equal to width to make it square */
+    flex-shrink: 0;
+    width: 150px; /* Fixed size for scrolling cards */
+    height: 150px;
     text-align: center;
     background-color: #333;
-    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    transition: transform 0.2s;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.scrolling-game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.scrolling-game-card .scrolling-game-title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
 }
 
 .scrolling-game-card:hover {
-    transform: scale(1.1); /* Hover effect */
+    transform: scale(1.1);
 }
 
-/* Images in Cards */
-.scrolling-game-card img {
-    width: 100%; /* Full width of container */
-    height: 80%; /* Adjust height to maintain aspect ratio */
-    object-fit: cover; /* Ensures the image covers the space properly */
-    border-radius: 4px;
+.scrolling-game-card:hover .scrolling-game-title {
+    opacity: 1; /* Show title on hover */
 }
 
-/* Titles in Cards */
-.scrolling-game-title {
-    color: white;
-    margin-top: 5px; /* Adjust spacing from image */
-    font-size: 12px;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .scrolling-game-card {
+        width: 120px;
+        height: 120px;
+    }
+    .scrolling-game-card .scrolling-game-title {
+        font-size: 12px;
+    }
 }
-
 
 
 /* Animation for scrolling */

@@ -40,10 +40,10 @@ body.dark-mode {
     display: flex;
     overflow-x: auto; /* Allow horizontal scrolling */
     padding: 10px;
-    gap: 15px; /* Add spacing between game cards */
-    background-color: #1a1a3d;
+    gap: 15px; /* Spacing between cards */
+    background-color: #1a1a3d; /* Dark background */
     align-items: center;
-    scrollbar-width: thin; /* For Firefox */
+    scrollbar-width: thin; /* Firefox support */
 }
 
 .scrolling-games::-webkit-scrollbar {
@@ -56,8 +56,8 @@ body.dark-mode {
 }
 
 .scrolling-game-card {
-    flex-shrink: 0; /* Prevent shrinking */
-    width: 100px;
+    flex-shrink: 0;
+    width: 100px; /* Adjust card size */
     height: 100px;
     background-color: #333;
     border-radius: 8px;
@@ -74,7 +74,7 @@ body.dark-mode {
 }
 
 .scrolling-game-card:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Add hover effect */
 }
 
 /* Titles in Cards */

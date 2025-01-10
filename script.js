@@ -15,19 +15,47 @@
     window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}`);
 }
 
-// Load game based on URL when the page loads or reloads
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", () => {
+    const iframe = document.querySelector("iframe");
+    const gameTitleElement = document.getElementById("game-title");
+    const gameCards = document.querySelectorAll(".game-card");
+
+    // Function to load a game
+    function loadGame(gameTitle, gameUrl) {
+        iframe.src = gameUrl;
+        gameTitleElement.textContent = gameTitle;
+
+        // Update the URL without a page reload
+        window.history.pushState({ title: gameTitle, url: gameUrl }, gameTitle, `?game=${encodeURIComponent(gameUrl)}`);
+    }
+
+    // Load the game if a URL parameter is present
     const params = new URLSearchParams(window.location.search);
     const gameUrl = params.get("game");
-
     if (gameUrl) {
-        const iframe = document.querySelector("iframe");
-        iframe.src = gameUrl;
-
-        const gameTitleElement = document.getElementById("game-title");
-        gameTitleElement.textContent = "Game"; // Optional default name
+        const gameTitle = params.get("title") || "Game";
+        loadGame(gameTitle, gameUrl);
     }
-};
+
+    // Add click event listeners to game cards
+    gameCards.forEach(card => {
+        card.addEventListener("click", () => {
+            const gameUrl = card.getAttribute("data-url");
+            const gameTitle = card.getAttribute("data-title");
+            loadGame(gameTitle, gameUrl);
+        });
+    });
+
+    // Handle browser navigation (back/forward buttons)
+    window.addEventListener("popstate", (event) => {
+        const state = event.state;
+        if (state) {
+            iframe.src = state.url;
+            gameTitleElement.textContent = state.title;
+        }
+    });
+});
+
 
 
         function toggleLike() {

@@ -87,10 +87,35 @@ window.onload = function () {
                 iframe.msRequestFullscreen();
             }
         }
- function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            document.querySelector('header').classList.toggle('dark-mode');
-        }
+// Update toggleDarkMode function
+function toggleDarkMode() {
+    const body = document.body;
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+
+    // Toggle dark mode class
+    body.classList.toggle('dark-mode');
+
+    // Update button icon
+    if (body.classList.contains('dark-mode')) {
+        darkModeToggle.textContent = "☀️"; // Sun for dark mode
+    } else {
+        darkModeToggle.textContent = "🌙"; // Moon for light mode
+    }
+}
+
+// Set initial state on load
+window.onload = function () {
+    const body = document.body;
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+
+    // Set icon based on current mode
+    if (body.classList.contains('dark-mode')) {
+        darkModeToggle.textContent = "☀️"; // Sun
+    } else {
+        darkModeToggle.textContent = "🌙"; // Moon
+    }
+};
+
 // Toggle Hamburger Menu
 function toggleMenu() {
     const menuOverlay = document.getElementById('menu-overlay');

@@ -87,38 +87,29 @@ window.onload = function () {
                 iframe.msRequestFullscreen();
             }
         }
-// Adjust toggleDarkMode function
+// Dark Mode Toggle Function
 function toggleDarkMode() {
     const body = document.body;
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
 
-    // Toggle dark mode class
+    // Toggle dark mode class on body
     body.classList.toggle('dark-mode');
 
-    // Update button icon
+    // Update button icon dynamically
     darkModeToggle.textContent = body.classList.contains('dark-mode') ? "☀️" : "🌙"; // Sun/Moon toggle
 }
 
-// Adjusted window.onload to avoid overriding
+// Initialize Dark Mode on Page Load
 document.addEventListener('DOMContentLoaded', function () {
-    const body = document.body;
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    
+    // Set initial icon based on mode
+    darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
 
-    // Initialize dark mode button
-    darkModeToggle.textContent = body.classList.contains('dark-mode') ? "☀️" : "🌙"; // Sun/Moon toggle
-
-    // Reapply the loadGame logic
-    const params = new URLSearchParams(window.location.search);
-    const gameUrl = params.get("game");
-
-    if (gameUrl) {
-        const iframe = document.querySelector("iframe");
-        iframe.src = gameUrl;
-
-        const gameTitleElement = document.getElementById("game-title");
-        gameTitleElement.textContent = "Game"; // Optional default name
-    }
+    // Add event listener to the button
+    darkModeToggle.addEventListener('click', toggleDarkMode);
 });
+
 
 
 // Toggle Hamburger Menu

@@ -807,3 +807,59 @@ body.dark-mode .fifty-games-section .game-card {
 body.dark-mode .fifty-games-section .game-card .game-title {
     color: #ddd; /* Light text for dark mode */
 }
+
+/* Hover Effect for Scrolling Games */
+.scrolling-game-card {
+    position: relative; /* Ensure title positioning works */
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.scrolling-game-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.scrolling-game-card .scrolling-game-title {
+    position: absolute; /* Overlay the image */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white; /* Text color */
+    text-align: center;
+    padding: 5px 0; /* Padding inside the title box */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth fade-in */
+}
+
+.scrolling-game-card:hover .scrolling-game-title {
+    opacity: 1; /* Show title on hover */
+}
+
+/* Hover Effect for Fifty Games */
+.fifty-games-section .game-card {
+    position: relative; /* Ensure title positioning works */
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.fifty-games-section .game-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.fifty-games-section .game-card .game-title {
+    position: absolute; /* Overlay the image */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white; /* Text color */
+    text-align: center;
+    padding: 5px 0; /* Padding inside the title box */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth fade-in */
+}
+
+.fifty-games-section .game-card:hover .game-title {
+    opacity: 1; /* Show title on hover */
+}

@@ -5,7 +5,9 @@
 
         function loadGame(gameTitle, gameUrl) {
     const iframe = document.querySelector("iframe");
-    const gameTitleElement = document.getElementById("game-title");
+    iframe.src = gameUrl; // Set the iframe source
+    window.history.pushState(null, "", gameUrl); // Use clean URL
+}
 
     // Update the iframe source and title
     gameTitleElement.textContent = gameTitle;

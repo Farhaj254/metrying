@@ -87,7 +87,7 @@ window.onload = function () {
                 iframe.msRequestFullscreen();
             }
         }
-// Update toggleDarkMode function
+// Adjust toggleDarkMode function
 function toggleDarkMode() {
     const body = document.body;
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
@@ -96,25 +96,30 @@ function toggleDarkMode() {
     body.classList.toggle('dark-mode');
 
     // Update button icon
-    if (body.classList.contains('dark-mode')) {
-        darkModeToggle.textContent = "☀️"; // Sun for dark mode
-    } else {
-        darkModeToggle.textContent = "🌙"; // Moon for light mode
-    }
+    darkModeToggle.textContent = body.classList.contains('dark-mode') ? "☀️" : "🌙"; // Sun/Moon toggle
 }
 
-// Set initial state on load
-window.onload = function () {
+// Adjusted window.onload to avoid overriding
+document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
 
-    // Set icon based on current mode
-    if (body.classList.contains('dark-mode')) {
-        darkModeToggle.textContent = "☀️"; // Sun
-    } else {
-        darkModeToggle.textContent = "🌙"; // Moon
+    // Initialize dark mode button
+    darkModeToggle.textContent = body.classList.contains('dark-mode') ? "☀️" : "🌙"; // Sun/Moon toggle
+
+    // Reapply the loadGame logic
+    const params = new URLSearchParams(window.location.search);
+    const gameUrl = params.get("game");
+
+    if (gameUrl) {
+        const iframe = document.querySelector("iframe");
+        iframe.src = gameUrl;
+
+        const gameTitleElement = document.getElementById("game-title");
+        gameTitleElement.textContent = "Game"; // Optional default name
     }
-};
+});
+
 
 // Toggle Hamburger Menu
 function toggleMenu() {

@@ -6,6 +6,9 @@
     <title>Game Website</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
         <div class="main-container"> <!-- Start of grid container -->
@@ -40,7 +43,11 @@
     <!-- Right Container (Search + Dark Mode) -->
     <div class="right-container">
         <div class="search-container">
-            <button class="search-icon" onclick="toggleSearchOverlay()">🔍</button>
+           <!-- Search Icon Button -->
+<button class="search-icon" onclick="toggleSearchOverlay()">
+    <i class="fas fa-search"></i>
+</button>
+
         </div>
         <button class="dark-mode-toggle">🌙</button>
 

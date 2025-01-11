@@ -3,10 +3,10 @@
         let isLiked = false;
         let isDisliked = false;
 
-        function loadGame(gameTitle, gameUrl) {
+       function loadGame(gameTitle, gameUrl) {
     const iframe = document.querySelector("iframe");
-    iframe.src = gameUrl; // Set the iframe source
-    window.history.pushState(null, "", gameUrl); // Use clean URL
+    iframe.src = `/play/${gameUrl}.html`; // Use clean path
+    window.history.pushState(null, "", `/play/${gameUrl}`);
 }
 
     // Update the iframe source and title

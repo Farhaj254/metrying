@@ -28,10 +28,10 @@ body {
     }
 }
 
-/* Dark mode support */
+/* Dark Mode Body */
 body.dark-mode {
-    background-color: #0d1117; /* Match home page background */
-    color: #c9d1d9; /* Match text color */
+    background-color: #0d1117; /* Dark gray background */
+    color: #c9d1d9; /* Lighter text color for readability */
 }
 
 
@@ -129,8 +129,8 @@ header {
 }
 /* Dark Mode Header */
 body.dark-mode header {
-    background-color: #0d1117;
-    color: #c9d1d9;
+    background-color: #0d1117; /* Match body background */
+    color: white; /* White text for contrast */
 }
 /* Logo (Left) */
 header .logo {
@@ -199,24 +199,24 @@ header .search-container {
     display: flex;
     align-items: center;
 }
-
 /* Dark Mode Button */
 header .dark-mode-toggle {
-    background-color: #58a6ff; /* Match home theme button color */
-    border: none;
+    background: none; /* Remove visible background */
+    border: none; /* Remove borders */
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 4px; /* Rounded corners for consistency */
     cursor: pointer;
-    color: #0d1117; /* Text color to match theme */
-    font-weight: 600; /* Slightly bold text for emphasis */
-    transition: all 0.3s ease; /* Smooth transitions */
+    color: white; /* White text for light/dark compatibility */
+    font-weight: bold;
+    font-size: 20px; /* Adjust font/icon size */
+    transition: color 0.3s ease; /* Smooth transition on hover */
 }
 
 /* Hover Effect */
 header .dark-mode-toggle:hover {
-    background-color: #1f6feb; /* Darker blue for hover effect */
-    color: #ffffff; /* White text for better visibility */
+    color: #ffcc00; /* Add a golden glow on hover */
 }
+
 
 
 /* Responsive Design for Mobile */
@@ -524,24 +524,24 @@ body.dark-mode .game-card .game-title {
         display: block; /* Show when the 'active' class is toggled */
     }
 
-    /* Style for search icon */
-  /* Style for search icon */
+   /* Search Icon */
 .search-icon {
-    background: none; /* Remove background */
-    border: none; /* Remove border */
-    font-size: 20px; /* Icon size */
+    background: none; /* Remove the white background */
+    border: none; /* Remove borders */
+    font-size: 20px; /* Adjust size for better appearance */
     cursor: pointer;
-    color: white; /* Adjust color for dark mode */
+    color: white; /* Ensure it looks good in dark mode */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 8px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    border-radius: 4px; /* Optional: for a smooth appearance */
+    transition: background-color 0.3s ease; /* Subtle hover transition */
 }
 
+/* Hover Effect */
 .search-icon:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+    background-color: rgba(255, 255, 255, 0.1); /* Add subtle hover effect */
 }
 
 

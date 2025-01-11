@@ -524,25 +524,33 @@ body.dark-mode .game-card .game-title {
         display: block; /* Show when the 'active' class is toggled */
     }
 
-   /* Search Icon */
+  /* General Search Icon Styles */
 .search-icon {
-    background: none; /* Remove the white background */
-    border: none; /* Remove borders */
-    font-size: 20px; /* Adjust size for better appearance */
+    background: none; /* Remove all background */
+    border: none; /* Remove border */
+    font-size: 20px; /* Icon size */
     cursor: pointer;
-    color: white; /* Ensure it looks good in dark mode */
+    color: white; /* Icon color */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
-    border-radius: 4px; /* Optional: for a smooth appearance */
-    transition: background-color 0.3s ease; /* Subtle hover transition */
+    padding: 8px; /* Padding around the icon */
+    border-radius: 4px; /* Optional: smooth edges */
+    transition: background-color 0.3s; /* Smooth hover */
 }
 
 /* Hover Effect */
 .search-icon:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Add subtle hover effect */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
 }
+
+/* Ensure consistency across views */
+@media (min-width: 768px) {
+    .search-icon {
+        background: none !important; /* Ensure background stays removed on PC view */
+    }
+}
+
 
 
     .search-container input {

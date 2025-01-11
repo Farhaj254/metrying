@@ -525,13 +525,25 @@ body.dark-mode .game-card .game-title {
     }
 
     /* Style for search icon */
-    .search-icon {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        color: white; /* Adjust the color as per your design */
-    }
+  /* Style for search icon */
+.search-icon {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    font-size: 20px; /* Icon size */
+    cursor: pointer;
+    color: white; /* Adjust color for dark mode */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.search-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
 
     .search-container input {
         padding: 5px 10px;

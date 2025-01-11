@@ -3,11 +3,12 @@
         let isLiked = false;
         let isDisliked = false;
 
-       function loadGame(gameTitle, gameUrl) {
+     function loadGame(gameTitle, gameUrl) {
     const iframe = document.querySelector("iframe");
-    iframe.src = `/play/${gameUrl}.html`; // Use clean path
-    window.history.pushState(null, "", `/play/${gameUrl}`);
+    iframe.src = gameUrl;
+    window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}`);
 }
+
 
     // Update the iframe source and title
     gameTitleElement.textContent = gameTitle;

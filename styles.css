@@ -316,9 +316,12 @@ body.dark-mode .button-container button:hover {
 
         .grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive columns */
-    gap: 15px; /* Consistent spacing */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    padding: 20px; /* Add some padding to the section */
+    justify-items: center; /* Center cards within each column */
 }
+
 
 /* Adjust layout for smaller screens */
 @media (max-width: 768px) {
@@ -347,12 +350,13 @@ body.dark-mode .button-container button:hover {
    /* Game Card Styling */
 .game-card {
     position: relative; /* Allows absolute positioning of the title */
-    overflow: hidden; /* Ensures the image doesn't overflow */
+    overflow: hidden; /* Prevent overflow of content */
     border-radius: 8px; /* Smooth rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
     cursor: pointer;
-    width: 150px; /* Fixed dimensions */
-    height: 150px;
+    width: 100%; /* Dynamic width based on grid column */
+    max-width: 200px; /* Limit card width */
+    height: 300px; /* Fixed height */
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Align title at the bottom */
@@ -360,6 +364,7 @@ body.dark-mode .button-container button:hover {
     background-color: #333; /* Default card background */
     transition: transform 0.3s ease; /* Smooth scaling on hover */
 }
+
 
 /* Title Styling */
 .game-card .game-title {
@@ -379,10 +384,11 @@ body.dark-mode .button-container button:hover {
 /* Card Image Styling */
 .game-card img {
     width: 100%; /* Full width of the card */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Ensure proper scaling without distortion */
-    border-radius: 8px; /* Match the card's rounded corners */
+    height: 80%; /* Ensure image occupies a proportional space */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px 8px 0 0; /* Rounded corners for the top */
 }
+
 
 /* Hover Effects */
 .game-card:hover {
@@ -406,20 +412,26 @@ body.dark-mode .game-card .game-title {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .grid-section {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller columns */
+        gap: 10px; /* Reduce spacing */
+    }
+
     .game-card {
-        width: 120px; /* Smaller card size for mobile */
-        height: 120px;
+        max-width: 150px; /* Smaller width for mobile */
+        height: 250px; /* Adjust height */
     }
 
     .game-card img {
-        width: 100%;
-        height: 100%;
+        height: 70%; /* Adjust image height */
     }
 
-    .game-title {
-        font-size: 12px; /* Smaller title font */
+    .game-card .game-title {
+        font-size: 12px; /* Smaller font size */
+        padding: 5px; /* Adjust padding */
     }
 }
+
 
 
         body.dark-mode .game-title {

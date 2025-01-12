@@ -174,3 +174,8 @@ document.getElementById("search-input").addEventListener("keypress", function (e
         searchGames();
     }
 });
+
+ console.log("Search Input:", searchInput);
+console.log("Game Cards Found:", gameCards.length);
+
+});

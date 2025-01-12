@@ -19,15 +19,17 @@
 window.onload = function () {
     const params = new URLSearchParams(window.location.search);
     const gameUrl = params.get("game");
+    const gameTitle = params.get("title");
 
     if (gameUrl) {
         const iframe = document.querySelector("iframe");
         iframe.src = gameUrl;
 
         const gameTitleElement = document.getElementById("game-title");
-        gameTitleElement.textContent = "Game"; // Optional default name
+        gameTitleElement.textContent = gameTitle || "Playing Game";
     }
 };
+
 
 
         function toggleLike() {

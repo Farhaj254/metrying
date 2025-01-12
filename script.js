@@ -134,15 +134,17 @@ function toggleSearchOverlay() {
     }
 }
 
+
 // Event listener to close overlay when Escape is pressed
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-        const overlay = document.getElementById('search-overlay');
-        if (overlay.classList.contains('active')) {
-            toggleSearchOverlay();
-        }
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    const searchIcon = document.querySelector('.search-icon');
+    const closeSearchButton = document.getElementById('close-search');
+
+    // Attach event listeners
+    searchIcon.addEventListener('click', toggleSearchOverlay);
+    closeSearchButton.addEventListener('click', toggleSearchOverlay);
 });
+
 
 // Search functionality
 function searchGames() {

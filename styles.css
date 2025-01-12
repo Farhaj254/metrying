@@ -353,7 +353,7 @@ body.dark-mode .button-container button:hover {
     cursor: pointer;
     width: 150px; /* Fixed dimensions */
     height: 150px;
-    display: flex;
+   display: block;
     flex-direction: column;
     justify-content: flex-end; /* Align title at the bottom */
     align-items: center;

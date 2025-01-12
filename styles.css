@@ -884,14 +884,13 @@ body.dark-mode .fifty-games-section .game-card .game-title {
 .fifty-games-section .game-card:hover .game-title {
     opacity: 1; /* Show title on hover */
 }
-/* Category Game Section Styling */
+/* Category Game Section */
 .category-game-section {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between header and grid */
+    gap: 20px; /* Space between heading and grid */
     padding: 20px;
     background-color: #f4f4f4;
-    overflow-y: auto; /* Enable scrolling if content overflows */
     height: auto; /* Adjust height dynamically */
 }
 
@@ -899,72 +898,63 @@ body.dark-mode .fifty-games-section .game-card .game-title {
 .category-grid-section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
-    gap: 15px; /* Space between cards */
-    justify-content: center; /* Center align grid */
-    padding: 10px; /* Padding around grid */
+    gap: 20px; /* Space between game cards */
+    justify-items: center; /* Center-align cards */
+    padding: 10px;
 }
 
-/* Individual Game Card Styling */
+/* Game Cards */
 .category-game-card {
-    position: relative;
-    width: 150px; /* Fixed width for game cards */
-    height: 150px; /* Fixed height for game cards */
-    overflow: hidden; /* Prevent content overflow */
-    border-radius: 8px; /* Smooth rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow */
-    display: flex;
-    align-items: flex-end; /* Align title at the bottom */
-    justify-content: center;
+    width: 100%; /* Full width of grid column */
+    max-width: 150px; /* Maintain consistent size */
+    aspect-ratio: 1; /* Ensures card is square */
     background-color: #333;
-    cursor: pointer;
-    transition: transform 0.3s ease; /* Smooth hover effect */
-}
-
-/* Image within Game Card */
-.category-game-card img {
-    width: 100%; /* Fit width of card */
-    height: 100%; /* Fit height of card */
-    object-fit: cover; /* Maintain aspect ratio */
     border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align title at the bottom */
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-/* Title Overlay for Game Card */
-.category-game-card .game-title {
-    position: absolute; /* Overlay the image */
-    bottom: 0;
-    width: 100%; /* Full width of card */
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    color: white;
-    font-size: 14px; /* Font size for title */
-    font-weight: bold;
-    text-align: center;
-    padding: 5px 0;
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease; /* Fade in on hover */
-}
-
-/* Hover Effects for Game Card */
+/* Hover Effect */
 .category-game-card:hover {
     transform: scale(1.05); /* Slight zoom effect */
 }
 
-.category-game-card:hover .game-title {
-    opacity: 1; /* Show title on hover */
+/* Card Image */
+.category-game-card img {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px;
+}
+
+/* Card Title */
+.category-game-card .game-title {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: auto; /* Push title to the bottom */
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .category-grid-section {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller cards for mobile */
-        gap: 10px; /* Reduce gap */
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller columns */
+        gap: 15px;
     }
 
     .category-game-card {
-        width: 120px; /* Smaller card size for mobile */
-        height: 120px;
+        max-width: 120px; /* Adjust size for mobile */
     }
 
     .category-game-card .game-title {
-        font-size: 12px; /* Adjust title font size */
+        font-size: 12px; /* Smaller text for mobile */
     }
 }

@@ -144,3 +144,30 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+// Search functionality
+function searchGames() {
+    const searchInput = document.getElementById("search-input").value.toLowerCase();
+    const gameCards = document.querySelectorAll(".game-card");
+    const noResults = document.getElementById("no-results");
+    let hasResults = false;
+
+    gameCards.forEach(card => {
+        const title = card.getAttribute("data-title").toLowerCase();
+        if (title.includes(searchInput)) {
+            card.style.display = "block"; // Show matching games
+            hasResults = true;
+        } else {
+            card.style.display = "none"; // Hide non-matching games
+        }
+    });
+
+    // Display or hide the "No Results" message
+    noResults.style.display = hasResults ? "none" : "block";
+}
+
+// Debounce function
+let debounceTimer;
+function debounceSearch(callback, delay) {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(callback, delay);
+}

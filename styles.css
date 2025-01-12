@@ -34,85 +34,101 @@ body.dark-mode {
 
 /* Scrolling Games Section */
 .scrolling-games {
-    grid-column: 1 / -1; /* Spanning across all columns */
+    grid-column: 1 / -1; /* Spanning all columns */
     overflow: hidden;
-    width: 100%; /* Full width to match parent */
-    background-color: #1a1a3d; /* Consistent dark background */
-    padding: 10px 0; /* Adds padding for spacing */
+    width: 100%; /* Full width */
+    background-color: #1a1a3d; /* Consistent background */
+    padding: 10px 0; /* Add spacing around */
     box-sizing: border-box;
-    display: flex; /* Aligns within flex layout */
-    justify-content: center; /* Centers content */
-    position: relative; /* Aligns with parent grid */
+    display: flex; /* Align items within */
+    justify-content: center; /* Center align */
+    position: relative; /* For alignment */
+    height: 120px; /* Ensure consistent height */
+}
+
+body.dark-mode .scrolling-games {
+    background-color: #0d1117; /* Dark mode background */
 }
 
 /* Wrapper for scroll effect */
 .scrolling-wrapper {
     display: flex;
+    align-items: center; /* Vertically center items */
     animation: scroll 20s linear infinite; /* Continuous scrolling */
-    align-items: center; /* Center items vertically */
-    gap: 30px; /* Increase the gap between items */
+    gap: 20px; /* Spacing between cards */
 }
 
-/* Individual Game Cards */
+/* Individual Scrolling Game Cards */
 .scrolling-game-card {
-    flex: 0 0 auto;
-    width: 80px; /* Consistent width */
-    height: 80px; /* Set height equal to width to make it square */
-    text-align: center;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.2s;
+    flex: 0 0 auto; /* Prevent shrinking/growing */
+    width: 100px; /* Square size */
+    height: 100px;
+    background-color: #333; /* Card background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    overflow: hidden; /* Hide overflow */
+    cursor: pointer; /* Indicate interactivity */
+    transition: transform 0.2s ease; /* Smooth hover */
 }
 
+body.dark-mode .scrolling-game-card {
+    background-color: #161b22; /* Dark mode card */
+}
+
+/* Hover Effect for Scrolling Cards */
 .scrolling-game-card:hover {
-    transform: scale(1.1); /* Hover effect */
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
-/* Images in Cards */
+/* Images Inside Cards */
 .scrolling-game-card img {
-    width: 100%; /* Full width of container */
-    height: 80%; /* Adjust height to maintain aspect ratio */
-    object-fit: cover; /* Ensures the image covers the space properly */
-    border-radius: 4px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px; /* Match card corners */
 }
 
-/* Titles in Cards */
+/* Game Titles */
 .scrolling-game-title {
-    color: white;
-    margin-top: 5px; /* Adjust spacing from image */
+    position: absolute; /* Overlay on the card */
+    bottom: 0;
+    width: 100%; /* Full width */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
+    color: white; /* Text color */
+    text-align: center;
     font-size: 12px;
+    font-weight: bold;
+    padding: 5px 0;
+    opacity: 0; /* Hidden initially */
+    transition: opacity 0.3s ease; /* Smooth fade-in */
 }
 
+.scrolling-game-card:hover .scrolling-game-title {
+    opacity: 1; /* Show title on hover */
+}
 
-
-/* Animation for scrolling */
+/* Keyframes for Scrolling */
 @keyframes scroll {
     0% {
-        transform: translateX(100%);
+        transform: translateX(100%); /* Start off-screen */
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%); /* Scroll off-screen */
     }
 }
 
 /* Adjust Padding for Larger Screens */
 @media (min-width: 1024px) {
     .scrolling-games {
-        padding: 15px 0; /* Larger padding for PC */
+        padding: 15px 0; /* Adjust padding for larger screens */
     }
 
     .scrolling-game-card {
-        width: 150px; /* Increase size */
-        margin-right: 30px; /* Larger gap for PC */
-    }
-
-    .scrolling-game-title {
-        font-size: 14px; /* Larger text for visibility */
+        width: 120px; /* Increase size */
+        height: 120px;
     }
 }
+
 
        /* Header Configuration */
 header {

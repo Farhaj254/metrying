@@ -164,10 +164,13 @@ function searchGames() {
     // Display or hide the "No Results" message
     noResults.style.display = hasResults ? "none" : "block";
 }
-
-// Debounce function
 let debounceTimer;
 function debounceSearch(callback, delay) {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(callback, delay);
 }
+document.getElementById("search-input").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        searchGames();
+    }
+});

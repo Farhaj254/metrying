@@ -9,10 +9,10 @@ body {
 }
 .main-container {
     display: grid;
-    grid-template-rows: auto 1fr; /* Header + Content */
-    grid-template-columns: 1fr 3fr 1fr; /* Desktop: Left - Center - Right */
-    gap: 0;
-    flex-grow: 1;
+    grid-template-columns: 1fr 3fr 1fr; /* Left, Center, Right */
+    grid-template-rows: auto 1fr; /* Header and Content */
+    gap: 10px; /* Add spacing between sections */
+    height: 100vh; /* Full viewport height */
 }
 
 /* Responsive Grid for Mobile */
@@ -20,13 +20,10 @@ body {
     .main-container {
         grid-template-columns: 1fr; /* Single column layout */
         grid-template-rows: auto auto auto; /* Stack rows vertically */
-    }
-
-    .game-section {
-        height: auto;
-        padding: 15px; /* Reduce padding for smaller screens */
+        gap: 20px;
     }
 }
+
 
 /* Dark Mode Body */
 body.dark-mode {
@@ -230,25 +227,27 @@ header .dark-mode-toggle:hover {
     }
 }
 
-        #iframe-container {
-            position: relative;
-            padding: 20px;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
+      #iframe-container {
+    grid-column: 2 / 3; /* Center section */
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    height: calc(100vh - 100px); /* Full height minus header */
+}
 
-        body.dark-mode #iframe-container {
-            background-color: #2c2c2c;
-        }
+iframe {
+    width: 100%;
+    height: 600px; /* Adjust based on design preference */
+    border: none;
+}
 
-        iframe {
-            width: 100%;
-            height: 700px;
-            border: none;
-        }
+body.dark-mode #iframe-container {
+    background-color: #2c2c2c;
+}
+
 
         .game-info {
             display: flex;
@@ -300,26 +299,26 @@ body.dark-mode .button-container button:hover {
     color: #ffffff;
 }
 
-        .game-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-            overflow-y: auto;
-            height: 100vh;
-        }
+       .game-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px; /* Reduce padding */
+    background-color: #f4f4f4;
+    height: calc(100vh - 100px); /* Account for header height */
+    overflow-y: auto; /* Enable scrolling */
+}
 
         body.dark-mode .game-section {
             background-color: #333;
         }
 
-      .grid-section {
+     .grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Dynamically adjust card columns */
-    gap: 15px; /* Spacing between cards */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive columns */
+    gap: 15px; /* Consistent spacing */
     justify-content: center; /* Center align the grid */
-    padding: 20px; /* Add some padding to the section */
+    padding: 10px; /* Add spacing */
 }
 
 
@@ -349,54 +348,49 @@ body.dark-mode .button-container button:hover {
 
    /* Game Card Styling */
 .game-card {
-    position: relative; /* Allows absolute positioning of the title */
-    overflow: hidden; /* Prevent overflow of content */
+    position: relative;
+    width: 120px; /* Fixed square size */
+    height: 120px;
+    overflow: hidden; /* Prevent overflow */
     border-radius: 8px; /* Smooth rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    cursor: pointer;
-    width: 150px; /* Fixed width */
-    height: 150px; /* Make it square */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Align title at the bottom */
-    align-items: center;
-    background-color: #333; /* Default card background */
+    align-items: flex-end; /* Align title at the bottom */
+    justify-content: center;
+    background-color: #333;
+    cursor: pointer;
     transition: transform 0.3s ease; /* Smooth scaling on hover */
 }
 
+.game-card img {
+    width: 100%; /* Full width of the card */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Maintain aspect ratio without distortion */
+    border-radius: 8px;
+}
 
-
-/* Title Styling */
 .game-card .game-title {
     position: absolute; /* Overlay the image */
     bottom: 0;
-    width: 100%; /* Full width of the card */
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
-    color: white; /* Bright text for contrast */
-    font-size: 14px;
+    color: white;
+    font-size: 12px;
     font-weight: bold;
     text-align: center;
     padding: 5px 0;
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.3s ease; /* Fade-in on hover */
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Card Image Styling */
-.game-card img {
-    width: 100%; /* Full width of the card */
-    height: 100%; /* Full height of the card */
-    object-fit: cover; /* Maintain aspect ratio without stretching */
-    border-radius: 8px; /* Match the card's rounded corners */
-}
-
-/* Hover Effects */
 .game-card:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: scale(1.05);
 }
 
 .game-card:hover .game-title {
-    opacity: 1; /* Make title visible on hover */
+    opacity: 1;
 }
+
 
 /* Dark Mode Adjustments */
 body.dark-mode .game-card {
@@ -412,26 +406,23 @@ body.dark-mode .game-card .game-title {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .grid-section {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller columns */
-        gap: 10px; /* Reduce spacing */
+        grid-template-columns: repeat(2, 1fr); /* Smaller columns for mobile */
+        gap: 10px;
     }
 
     .game-card {
-        max-width: 150px; /* Smaller width for mobile */
-        height: 250px; /* Adjust height */
+        width: 100px; /* Smaller size for mobile */
+        height: 100px;
     }
 
-    .game-card img {
-        height: 70%; /* Adjust image height */
+    iframe {
+        height: 400px; /* Reduce iframe height */
     }
 
-    .game-card .game-title {
-        font-size: 12px; /* Smaller font size */
-        padding: 5px; /* Adjust padding */
+    .ad-container {
+        height: 150px;
     }
 }
-
-
 
         body.dark-mode .game-title {
             color: #ddd;

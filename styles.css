@@ -314,12 +314,12 @@ body.dark-mode .button-container button:hover {
             background-color: #333;
         }
 
-        .grid-section {
+      .grid-section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between cards */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Dynamically adjust card columns */
+    gap: 15px; /* Spacing between cards */
+    justify-content: center; /* Center align the grid */
     padding: 20px; /* Add some padding to the section */
-    justify-items: center; /* Center cards within each column */
 }
 
 
@@ -354,9 +354,8 @@ body.dark-mode .button-container button:hover {
     border-radius: 8px; /* Smooth rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
     cursor: pointer;
-    width: 100%; /* Dynamic width based on grid column */
-    max-width: 200px; /* Limit card width */
-    height: 300px; /* Fixed height */
+    width: 150px; /* Fixed width */
+    height: 150px; /* Make it square */
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Align title at the bottom */
@@ -364,6 +363,7 @@ body.dark-mode .button-container button:hover {
     background-color: #333; /* Default card background */
     transition: transform 0.3s ease; /* Smooth scaling on hover */
 }
+
 
 
 /* Title Styling */
@@ -384,11 +384,10 @@ body.dark-mode .button-container button:hover {
 /* Card Image Styling */
 .game-card img {
     width: 100%; /* Full width of the card */
-    height: 80%; /* Ensure image occupies a proportional space */
-    object-fit: cover; /* Maintain aspect ratio */
-    border-radius: 8px 8px 0 0; /* Rounded corners for the top */
+    height: 100%; /* Full height of the card */
+    object-fit: cover; /* Maintain aspect ratio without stretching */
+    border-radius: 8px; /* Match the card's rounded corners */
 }
-
 
 /* Hover Effects */
 .game-card:hover {

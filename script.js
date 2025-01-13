@@ -141,7 +141,7 @@ document.addEventListener('keydown', function (e) {
         }
     }
 });
-
+// download functionality 
 function addToHomeScreen() {
     if ('beforeinstallprompt' in window) {
         window.addEventListener('beforeinstallprompt', (e) => {
@@ -162,3 +162,41 @@ function addToHomeScreen() {
         alert('Add to Home Screen is not supported in this browser.');
     }
 }
+// Add the new function to register the service worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(
+            (registration) => {
+                console.log('ServiceWorker registration successful: ', registration);
+            },
+            (error) => {
+                console.log('ServiceWorker registration failed: ', error);
+            }
+        );
+    });
+}
+
+// Modify or add the addToHomeScreen function if needed
+function addToHomeScreen() {
+    if ('beforeinstallprompt' in window) {
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            const deferredPrompt = e;
+
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    } else {
+        alert('Add to Home Screen is not supported in this browser.');
+    }
+}
+
+// Event listener for the download button
+document.getElementById('download-button').addEventListener('click', addToHomeScreen);

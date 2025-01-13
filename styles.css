@@ -898,40 +898,80 @@ body.dark-mode .fifty-games-section .game-card .game-title {
 #download-button:hover {
     background-color: #0056b3;
 }
-/*Action Games*/
-
-.action-games-section .grid-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+/* Action Games Section */
+.action-games-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4; /* Optional background color */
 }
 
+/* Grid Section for Game Cards */
+.action-games-section .grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Center align grid if necessary */
+}
+
+/* Individual Game Cards */
 .action-games-section .game-card {
     position: relative;
     overflow: hidden;
-    width: 150px;
-    height: 150px;
-    background-color: #333;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
     cursor: pointer;
-    transition: transform 0.3s ease;
+    width: 150px; /* Fixed dimensions for cards */
+    height: 150px;
+    background-color: #333; /* Default card background */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align title at the bottom */
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Game Card Hover Effect */
+.action-games-section .game-card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+}
+
+/* Game Card Image */
 .action-games-section .game-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+    object-fit: cover; /* Ensure proper scaling without distortion */
+    border-radius: 8px; /* Match the card's rounded corners */
 }
 
+/* Game Card Title */
 .action-games-section .game-card .game-title {
-    position: absolute;
+    position: absolute; /* Overlay the image */
     bottom: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    text-align: center;
+    width: 100%; /* Full width of the card */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    color: white; /* Bright text for contrast */
     font-size: 14px;
-    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Fade-in effect */
+}
+
+/* Show Title on Hover */
+.action-games-section .game-card:hover .game-title {
+    opacity: 1; /* Make the title visible */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .action-games-section .grid-section {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller cards for mobile */
+    }
+
+    .action-games-section .game-card {
+        width: 120px;
+        height: 120px;
+    }
 }

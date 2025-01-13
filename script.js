@@ -123,16 +123,20 @@ function toggleSearchOverlay() {
     const overlay = document.getElementById('search-overlay');
     const input = document.getElementById('search-input');
 
-    // Toggle 'active' class
-    overlay.classList.toggle('active');
+    if (overlay) {
+        overlay.classList.toggle('active');
 
-    // Focus input field if active
-    if (overlay.classList.contains('active')) {
-        input.focus();
+        // Focus input field if active
+        if (overlay.classList.contains('active')) {
+            input.focus();
+        } else {
+            input.value = ''; // Clear input when closing
+        }
     } else {
-        input.value = ''; // Clear input when closing
+        console.error('Search overlay not found.');
     }
 }
+
 
 
 // Event listener to close overlay when Escape is pressed
@@ -140,9 +144,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchIcon = document.querySelector('.search-icon');
     const closeSearchButton = document.getElementById('close-search');
 
-    // Attach event listeners
-    searchIcon.addEventListener('click', toggleSearchOverlay);
-    closeSearchButton.addEventListener('click', toggleSearchOverlay);
+    if (searchIcon) {
+        searchIcon.addEventListener('click', toggleSearchOverlay);
+    } else {
+        console.error('Search icon button not found.');
+    }
+
+    if (closeSearchButton) {
+        closeSearchButton.addEventListener('click', toggleSearchOverlay);
+    } else {
+        console.error('Close search button not found.');
+    }
 });
 
 

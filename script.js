@@ -142,3 +142,23 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+function addToHomeScreen() {
+    if ('beforeinstallprompt' in window) {
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
+            const deferredPrompt = e;
+
+            deferredPrompt.prompt(); // Show the install prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    } else {
+        alert('Add to Home Screen is not supported in this browser.');
+    }
+}

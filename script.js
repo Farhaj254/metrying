@@ -120,20 +120,22 @@ function toggleMenu() {
 
 // Search Bar Toggle
 function toggleSearchOverlay() {
+    console.log('Toggle Search Overlay Triggered');
     const overlay = document.getElementById('search-overlay');
     const input = document.getElementById('search-input');
 
-    if (overlay) {
-        overlay.classList.toggle('active');
-
-        // Focus input field if active
-        if (overlay.classList.contains('active')) {
-            input.focus();
-        } else {
-            input.value = ''; // Clear input when closing
-        }
-    } else {
+    if (!overlay) {
         console.error('Search overlay not found.');
+        return;
+    }
+
+    overlay.classList.toggle('active');
+    console.log('Search overlay active:', overlay.classList.contains('active'));
+
+    if (overlay.classList.contains('active')) {
+        input.focus();
+    } else {
+        input.value = '';
     }
 }
 

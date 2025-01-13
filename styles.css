@@ -884,3 +884,17 @@ body.dark-mode .fifty-games-section .game-card .game-title {
 .fifty-games-section .game-card:hover .game-title {
     opacity: 1; /* Show title on hover */
 }
+/* Download Button */
+#download-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#download-button:hover {
+    background-color: #0056b3;
+}

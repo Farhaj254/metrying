@@ -977,7 +977,7 @@ body.dark-mode .fifty-games-section .game-card .game-title {
 }
 /* Reduce h1 size for Game Title */
 #game-title h1 {
-    font-size: 24px; /* Adjust size as needed */
+    font-size: 36px; /* Adjust size as needed */
     font-weight: bold; /* Keep it prominent but less intrusive */
     line-height: 1.2; /* Adjust line height for compactness */
     margin: 10px 0; /* Control spacing around the title */

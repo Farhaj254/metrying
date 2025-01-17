@@ -197,6 +197,25 @@ function addToHomeScreen() {
         alert('Add to Home Screen is not supported in this browser.');
     }
 }
+function loadGameInfo(gameCard, gameUrl) {
+    const gameTitle = gameCard.getAttribute("data-title");
+    const gameDescription = gameCard.getAttribute("data-description");
+    const gameInstructions = gameCard.getAttribute("data-instructions");
+
+    // Update the game title in <h1>
+    document.getElementById("game-title").innerHTML = `<h1>${gameTitle}</h1>`;
+
+    // Update the description and instructions
+    document.getElementById("game-description").textContent = gameDescription;
+    document.getElementById("game-instructions").textContent = gameInstructions;
+
+    // Update the iframe source
+    const iframe = document.querySelector("iframe");
+    iframe.src = gameUrl;
+
+    // Update the URL without reloading the page
+    window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}`);
+}
 
 // Event listener for the download button
 document.getElementById('download-button').addEventListener('click', addToHomeScreen);

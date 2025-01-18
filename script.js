@@ -3,27 +3,36 @@
         let isLiked = false;
         let isDisliked = false;
 
-       function loadGameAndRedirect(gameCard, mainPageUrl, gameUrl) {
-    // Extract data from the game card
+     function loadGameInfo(gameCard, gameUrl) {
     const gameTitle = gameCard.getAttribute("data-title");
     const gameDescription = gameCard.getAttribute("data-description");
     const gameInstructions = gameCard.getAttribute("data-instructions");
 
-    // Save the game data in localStorage
-    localStorage.setItem("gameTitle", gameTitle);
-    localStorage.setItem("gameDescription", gameDescription);
-    localStorage.setItem("gameInstructions", gameInstructions);
-    localStorage.setItem("gameUrl", gameUrl);
+    // Update the game title in <h1>
+    document.getElementById("game-title").innerHTML = `<h1>${gameTitle}</h1>`;
 
-    // Redirect to the main page
-    window.location.href = mainPageUrl;
+    // Update the description and instructions
+    document.getElementById("game-description").textContent = gameDescription;
+    document.getElementById("game-instructions").textContent = gameInstructions;
+
+    // Update the iframe source
+    const iframe = document.querySelector("iframe");
+    iframe.src = gameUrl;
+
+    // Update the browser title
+    document.title = `${gameTitle} | Game Website`; // Customize as needed
+
+    // Update the URL without reloading the page
+    window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(gameTitle)}`);
 }
+
 
 
 // Load game based on URL when the page loads or reloads
 window.onload = function () {
     const params = new URLSearchParams(window.location.search);
     const gameUrlFromQuery = params.get("game");
+    const gameTitleFromQuery = params.get("title");
 
     // Check for game data in localStorage
     const gameTitle = localStorage.getItem("gameTitle");
@@ -40,18 +49,28 @@ window.onload = function () {
         document.getElementById("game-description").textContent = gameDescription;
         document.getElementById("game-instructions").textContent = gameInstructions;
 
+        // Update the browser title
+        document.title = `${gameTitle} | Game Website`;
+
         // Clear the localStorage data after use (optional)
         localStorage.removeItem("gameTitle");
         localStorage.removeItem("gameDescription");
         localStorage.removeItem("gameInstructions");
         localStorage.removeItem("gameUrl");
-    } else if (gameUrlFromQuery) {
+    } else if (gameUrlFromQuery && gameTitleFromQuery) {
         // If URL query parameters exist, use them as fallback
         const iframe = document.querySelector("iframe");
         iframe.src = gameUrlFromQuery;
 
         const gameTitleElement = document.getElementById("game-title");
-        gameTitleElement.textContent = "Game"; // Optional default name
+        gameTitleElement.innerHTML = `<h1>${gameTitleFromQuery}</h1>`;
+
+        // Update the browser title
+        document.title = `${gameTitleFromQuery} | Game Website`;
+
+        // Optional: Set placeholder for description and instructions
+        document.getElementById("game-description").textContent = "Description not available.";
+        document.getElementById("game-instructions").textContent = "Instructions not available.";
     }
 };
 

@@ -1,9 +1,10 @@
- let likeCount = 0;
-        let dislikeCount = 0;
-        let isLiked = false;
-        let isDisliked = false;
+let likeCount = 0;
+let dislikeCount = 0;
+let isLiked = false;
+let isDisliked = false;
 
-     function loadGameInfo(gameCard, gameUrl) {
+// Function to load game information and update the portal
+function loadGameInfo(gameCard, gameUrl) {
     const gameTitle = gameCard.getAttribute("data-title");
     const gameDescription = gameCard.getAttribute("data-description");
     const gameInstructions = gameCard.getAttribute("data-instructions");
@@ -20,13 +21,11 @@
     iframe.src = gameUrl;
 
     // Update the browser title
-    document.title = `${gameTitle} | Game Website`; // Customize as needed
+    document.title = `${gameTitle} | Game Website`;
 
     // Update the URL without reloading the page
     window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(gameTitle)}`);
 }
-
-
 
 // Load game based on URL when the page loads or reloads
 window.onload = function () {
@@ -72,91 +71,84 @@ window.onload = function () {
         document.getElementById("game-description").textContent = "Description not available.";
         document.getElementById("game-instructions").textContent = "Instructions not available.";
     }
-};
+}
 
-
-
-        function toggleLike() {
-            const likeButton = document.getElementById("like-button");
-            const dislikeButton = document.getElementById("dislike-button");
-            if (isLiked) {
-                likeButton.style.backgroundColor = '#333';
-                likeCount--;
-                isLiked = false;
-            } else {
-                likeButton.style.backgroundColor = '#00FF00';  // Green for like
-                likeCount++;
-                isLiked = true;
-                if (isDisliked) {
-                    dislikeButton.style.backgroundColor = '#333';  // Reset dislike
-                    dislikeCount--;
-                    isDisliked = false;
-                }
-            }
-            updateButtonCounts();
+// Like/Dislike Functions
+function toggleLike() {
+    const likeButton = document.getElementById("like-button");
+    const dislikeButton = document.getElementById("dislike-button");
+    if (isLiked) {
+        likeButton.style.backgroundColor = '#333';
+        likeCount--;
+        isLiked = false;
+    } else {
+        likeButton.style.backgroundColor = '#00FF00'; // Green for like
+        likeCount++;
+        isLiked = true;
+        if (isDisliked) {
+            dislikeButton.style.backgroundColor = '#333'; // Reset dislike
+            dislikeCount--;
+            isDisliked = false;
         }
+    }
+    updateButtonCounts();
+}
 
-        function toggleDislike() {
-            const likeButton = document.getElementById("like-button");
-            const dislikeButton = document.getElementById("dislike-button");
-            if (isDisliked) {
-                dislikeButton.style.backgroundColor = '#333';
-                dislikeCount--;
-                isDisliked = false;
-            } else {
-                dislikeButton.style.backgroundColor = '#FF0000';  // Red for dislike
-                dislikeCount++;
-                isDisliked = true;
-                if (isLiked) {
-                    likeButton.style.backgroundColor = '#333';  // Reset like
-                    likeCount--;
-                    isLiked = false;
-                }
-            }
-            updateButtonCounts();
+function toggleDislike() {
+    const likeButton = document.getElementById("like-button");
+    const dislikeButton = document.getElementById("dislike-button");
+    if (isDisliked) {
+        dislikeButton.style.backgroundColor = '#333';
+        dislikeCount--;
+        isDisliked = false;
+    } else {
+        dislikeButton.style.backgroundColor = '#FF0000'; // Red for dislike
+        dislikeCount++;
+        isDisliked = true;
+        if (isLiked) {
+            likeButton.style.backgroundColor = '#333'; // Reset like
+            likeCount--;
+            isLiked = false;
         }
+    }
+    updateButtonCounts();
+}
 
-        function updateButtonCounts() {
-            document.getElementById("like-count").textContent = likeCount;
-            document.getElementById("dislike-count").textContent = dislikeCount;
-        }
+function updateButtonCounts() {
+    document.getElementById("like-count").textContent = likeCount;
+    document.getElementById("dislike-count").textContent = dislikeCount;
+}
 
-        function toggleFullscreen() {
-            const iframe = document.querySelector("iframe");
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
-                iframe.msRequestFullscreen();
-            }
-        }
-// Dark Mode Toggle Function
+// Fullscreen Toggle
+function toggleFullscreen() {
+    const iframe = document.querySelector("iframe");
+    if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) {
+        iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+    }
+}
+
+// Dark Mode Toggle
 function toggleDarkMode() {
     const body = document.body;
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
-
-    // Toggle dark mode class on body
     body.classList.toggle('dark-mode');
-
-    // Update button icon dynamically
-    darkModeToggle.textContent = body.classList.contains('dark-mode') ? "☀️" : "🌙"; // Sun/Moon toggle
+    darkModeToggle.textContent = body.classList.contains('dark-mode') ? "☀️" : "🌙";
 }
 
 // Initialize Dark Mode on Page Load
 document.addEventListener('DOMContentLoaded', function () {
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
-    
-    // Set initial icon based on mode
     darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? "☀️" : "🌙";
-
-    // Add event listener to the button
     darkModeToggle.addEventListener('click', toggleDarkMode);
 });
 
-// Toggle Hamburger Menu
+// Hamburger Menu Toggle
 function toggleMenu() {
     const menuOverlay = document.getElementById('menu-overlay');
     menuOverlay.classList.toggle('show');
@@ -166,19 +158,14 @@ function toggleMenu() {
 function toggleSearchOverlay() {
     const overlay = document.getElementById('search-overlay');
     const input = document.getElementById('search-input');
-
-    // Toggle 'active' class
     overlay.classList.toggle('active');
-
-    // Focus input field if active
     if (overlay.classList.contains('active')) {
         input.focus();
     } else {
-        input.value = ''; // Clear input when closing
+        input.value = '';
     }
 }
 
-// Event listener to close overlay when Escape is pressed
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         const overlay = document.getElementById('search-overlay');
@@ -187,48 +174,13 @@ document.addEventListener('keydown', function (e) {
         }
     }
 });
-// download functionality 
-function addToHomeScreen() {
-    if ('beforeinstallprompt' in window) {
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault(); // Prevent the mini-infobar from appearing on mobile
-            const deferredPrompt = e;
 
-            deferredPrompt.prompt(); // Show the install prompt
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('User accepted the A2HS prompt');
-                } else {
-                    console.log('User dismissed the A2HS prompt');
-                }
-                deferredPrompt = null;
-            });
-        });
-    } else {
-        alert('Add to Home Screen is not supported in this browser.');
-    }
-}
-// Add the new function to register the service worker
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js').then(
-            (registration) => {
-                console.log('ServiceWorker registration successful: ', registration);
-            },
-            (error) => {
-                console.log('ServiceWorker registration failed: ', error);
-            }
-        );
-    });
-}
-
-// Modify or add the addToHomeScreen function if needed
+// Download Functionality
 function addToHomeScreen() {
     if ('beforeinstallprompt' in window) {
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             const deferredPrompt = e;
-
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
@@ -243,25 +195,20 @@ function addToHomeScreen() {
         alert('Add to Home Screen is not supported in this browser.');
     }
 }
-function loadGameInfo(gameCard, gameUrl) {
-    const gameTitle = gameCard.getAttribute("data-title");
-    const gameDescription = gameCard.getAttribute("data-description");
-    const gameInstructions = gameCard.getAttribute("data-instructions");
 
-    // Update the game title in <h1>
-    document.getElementById("game-title").innerHTML = `<h1>${gameTitle}</h1>`;
-
-    // Update the description and instructions
-    document.getElementById("game-description").textContent = gameDescription;
-    document.getElementById("game-instructions").textContent = gameInstructions;
-
-    // Update the iframe source
-    const iframe = document.querySelector("iframe");
-    iframe.src = gameUrl;
-
-    // Update the URL without reloading the page
-    window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}`);
+// Register Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').then(
+            (registration) => {
+                console.log('ServiceWorker registration successful: ', registration);
+            },
+            (error) => {
+                console.log('ServiceWorker registration failed: ', error);
+            }
+        );
+    });
 }
 
-// Event listener for the download button
+// Add Event Listener for Download Button
 document.getElementById('download-button').addEventListener('click', addToHomeScreen);

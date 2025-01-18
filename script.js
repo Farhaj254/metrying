@@ -3,7 +3,7 @@
         let isLiked = false;
         let isDisliked = false;
 
-       function loadGameAndRedirect(gameCard, mainPageUrl, gameUrl) {
+      function loadGameAndRedirect(gameCard, mainPageUrl, gameUrl) {
     // Extract data from the game card
     const gameTitle = gameCard.getAttribute("data-title");
     const gameDescription = gameCard.getAttribute("data-description");
@@ -18,6 +18,7 @@
     // Redirect to the main page
     window.location.href = mainPageUrl;
 }
+
 
 
 // Load game based on URL when the page loads or reloads

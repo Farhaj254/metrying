@@ -3,31 +3,57 @@
         let isLiked = false;
         let isDisliked = false;
 
-        function loadGame(gameTitle, gameUrl) {
-    const iframe = document.querySelector("iframe");
-    const gameTitleElement = document.getElementById("game-title");
+       function loadGameAndRedirect(gameCard, mainPageUrl, gameUrl) {
+    // Extract data from the game card
+    const gameTitle = gameCard.getAttribute("data-title");
+    const gameDescription = gameCard.getAttribute("data-description");
+    const gameInstructions = gameCard.getAttribute("data-instructions");
 
-    // Update the iframe source and title
-    gameTitleElement.textContent = gameTitle;
-    iframe.src = gameUrl;
+    // Save the game data in localStorage
+    localStorage.setItem("gameTitle", gameTitle);
+    localStorage.setItem("gameDescription", gameDescription);
+    localStorage.setItem("gameInstructions", gameInstructions);
+    localStorage.setItem("gameUrl", gameUrl);
 
-    // Update the URL without reloading the page
-    window.history.pushState(null, "", `?game=${encodeURIComponent(gameUrl)}`);
+    // Redirect to the main page
+    window.location.href = mainPageUrl;
 }
 
 // Load game based on URL when the page loads or reloads
 window.onload = function () {
     const params = new URLSearchParams(window.location.search);
-    const gameUrl = params.get("game");
+    const gameUrlFromQuery = params.get("game");
 
-    if (gameUrl) {
+    // Check for game data in localStorage
+    const gameTitle = localStorage.getItem("gameTitle");
+    const gameDescription = localStorage.getItem("gameDescription");
+    const gameInstructions = localStorage.getItem("gameInstructions");
+    const gameUrl = localStorage.getItem("gameUrl");
+
+    // If data exists in localStorage, use it to update the game info
+    if (gameTitle && gameDescription && gameInstructions && gameUrl) {
         const iframe = document.querySelector("iframe");
         iframe.src = gameUrl;
+
+        document.getElementById("game-title").innerHTML = `<h1>${gameTitle}</h1>`;
+        document.getElementById("game-description").textContent = gameDescription;
+        document.getElementById("game-instructions").textContent = gameInstructions;
+
+        // Clear the localStorage data after use (optional)
+        localStorage.removeItem("gameTitle");
+        localStorage.removeItem("gameDescription");
+        localStorage.removeItem("gameInstructions");
+        localStorage.removeItem("gameUrl");
+    } else if (gameUrlFromQuery) {
+        // If URL query parameters exist, use them as fallback
+        const iframe = document.querySelector("iframe");
+        iframe.src = gameUrlFromQuery;
 
         const gameTitleElement = document.getElementById("game-title");
         gameTitleElement.textContent = "Game"; // Optional default name
     }
 };
+
 
 
         function toggleLike() {

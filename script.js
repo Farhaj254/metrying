@@ -3,54 +3,47 @@
         let isLiked = false;
         let isDisliked = false;
 
-       function loadGameAndRedirect(gameCard, mainPageUrl, gameUrl) {
-    // Extract data from the game card
+       async function loadGame(gameCard, mainPageUrl, gameUrl) {
     const gameTitle = gameCard.getAttribute("data-title");
-    const gameDescription = gameCard.getAttribute("data-description");
-    const gameInstructions = gameCard.getAttribute("data-instructions");
 
-    // Save the game data in localStorage
-    localStorage.setItem("gameTitle", gameTitle);
-    localStorage.setItem("gameDescription", gameDescription);
-    localStorage.setItem("gameInstructions", gameInstructions);
-    localStorage.setItem("gameUrl", gameUrl);
+    // Fetch the game's HTML file
+    try {
+        const response = await fetch(gameUrl);
+        const gameHtml = await response.text();
 
-    // Redirect to the main page
-    window.location.href = mainPageUrl;
+        // Extract the <title> tag and <iframe> from the fetched HTML
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(gameHtml, "text/html");
+        const iframe = doc.querySelector("iframe");
+        const fetchedTitle = doc.querySelector("title").textContent;
+
+        // Save the game data in localStorage
+        localStorage.setItem("gameTitle", fetchedTitle || gameTitle);
+        localStorage.setItem("iframeSrc", iframe ? iframe.getAttribute("src") : "");
+
+        // Redirect to the main page
+        window.location.href = mainPageUrl;
+    } catch (error) {
+        console.error("Failed to load game data:", error);
+    }
 }
+
 
 // Load game based on URL when the page loads or reloads
 window.onload = function () {
-    const params = new URLSearchParams(window.location.search);
-    const gameUrlFromQuery = params.get("game");
-
-    // Check for game data in localStorage
     const gameTitle = localStorage.getItem("gameTitle");
-    const gameDescription = localStorage.getItem("gameDescription");
-    const gameInstructions = localStorage.getItem("gameInstructions");
-    const gameUrl = localStorage.getItem("gameUrl");
+    const iframeSrc = localStorage.getItem("iframeSrc");
 
-    // If data exists in localStorage, use it to update the game info
-    if (gameTitle && gameDescription && gameInstructions && gameUrl) {
+    if (gameTitle && iframeSrc) {
+        document.title = gameTitle; // Update the page title
+        document.getElementById("game-title").textContent = gameTitle;
+
         const iframe = document.querySelector("iframe");
-        iframe.src = gameUrl;
+        iframe.src = iframeSrc;
 
-        document.getElementById("game-title").innerHTML = `<h1>${gameTitle}</h1>`;
-        document.getElementById("game-description").textContent = gameDescription;
-        document.getElementById("game-instructions").textContent = gameInstructions;
-
-        // Clear the localStorage data after use (optional)
+        // Clear localStorage data to prevent stale data
         localStorage.removeItem("gameTitle");
-        localStorage.removeItem("gameDescription");
-        localStorage.removeItem("gameInstructions");
-        localStorage.removeItem("gameUrl");
-    } else if (gameUrlFromQuery) {
-        // If URL query parameters exist, use them as fallback
-        const iframe = document.querySelector("iframe");
-        iframe.src = gameUrlFromQuery;
-
-        const gameTitleElement = document.getElementById("game-title");
-        gameTitleElement.textContent = "Game"; // Optional default name
+        localStorage.removeItem("iframeSrc");
     }
 };
 

@@ -9,16 +9,19 @@
     // Fetch the game's HTML file
     try {
         const response = await fetch(gameUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const gameHtml = await response.text();
 
-        // Extract the <title> tag and <iframe> from the fetched HTML
+        // Parse the fetched HTML
         const parser = new DOMParser();
         const doc = parser.parseFromString(gameHtml, "text/html");
         const iframe = doc.querySelector("iframe");
-        const fetchedTitle = doc.querySelector("title").textContent;
+        const fetchedTitle = doc.querySelector("title") ? doc.querySelector("title").textContent : gameTitle;
 
-        // Save the game data in localStorage
-        localStorage.setItem("gameTitle", fetchedTitle || gameTitle);
+        // Save data to localStorage
+        localStorage.setItem("gameTitle", fetchedTitle);
         localStorage.setItem("iframeSrc", iframe ? iframe.getAttribute("src") : "");
 
         // Redirect to the main page
@@ -29,19 +32,22 @@
 }
 
 
+
 // Load game based on URL when the page loads or reloads
 window.onload = function () {
     const gameTitle = localStorage.getItem("gameTitle");
     const iframeSrc = localStorage.getItem("iframeSrc");
 
     if (gameTitle && iframeSrc) {
-        document.title = gameTitle; // Update the page title
-        document.getElementById("game-title").textContent = gameTitle;
+        // Update page title
+        document.title = gameTitle;
 
-        const iframe = document.querySelector("iframe");
+        // Update the game's information
+        document.getElementById("game-title").textContent = gameTitle;
+        const iframe = document.querySelector("#game-frame");
         iframe.src = iframeSrc;
 
-        // Clear localStorage data to prevent stale data
+        // Clear localStorage to prevent stale data
         localStorage.removeItem("gameTitle");
         localStorage.removeItem("iframeSrc");
     }

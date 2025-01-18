@@ -19,6 +19,7 @@
     window.location.href = mainPageUrl;
 }
 
+
 // Load game based on URL when the page loads or reloads
 window.onload = function () {
     const params = new URLSearchParams(window.location.search);
@@ -53,6 +54,7 @@ window.onload = function () {
         gameTitleElement.textContent = "Game"; // Optional default name
     }
 };
+
 
 
 

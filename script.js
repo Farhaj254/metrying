@@ -1,18 +1,33 @@
+// Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Game Hub is ready!');
-    // Add future scripts here
+
+    // Populate the game grid dynamically
+    populateGames();
+
+    // Add real-time search functionality
+    addSearchFunctionality();
+
+    // Automatically update meta description based on game title
+    updateMetaDescription();
 });
+
+/**
+ * Game data
+ */
 const games = [
-    { title: "Angry Birds", thumbnail: "images/angry-birds-thumbnail.jpg", link: "angry-birds.html" },
-    { title: "Candy Crush", thumbnail: "images/candy-crush-thumbnail.jpg", link: "candy-crush.html" },
+    { title: "Angry Birds", thumbnail: "images/angry-birds-thumbnail.jpg", link: "game/angry-birds.html" },
+    { title: "Candy Crush", thumbnail: "images/candy-crush-thumbnail.jpg", link: "game/candy-crush.html" },
     // Add more games here
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * Populate the game grid dynamically
+ */
+function populateGames() {
     const gameGrid = document.querySelector('.game-grid');
-
     if (gameGrid) {
-        games.forEach(game => {
+        games.forEach((game) => {
             const gameCard = document.createElement('a');
             gameCard.href = game.link;
             gameCard.classList.add('game-card');
@@ -25,83 +40,69 @@ document.addEventListener('DOMContentLoaded', () => {
             gameGrid.appendChild(gameCard);
         });
     }
-});
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const metaDescription = document.querySelector('meta[name="description"]');
-        const gameTitle = document.querySelector('h1').innerText;
+}
 
-        if (metaDescription) {
-            metaDescription.content = `Play ${gameTitle} on Game Hub! Enjoy this exciting game and explore more.`;
-        }
-    });
-</script>
-
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * Add search functionality
+ */
+function addSearchFunctionality() {
     const searchBar = document.getElementById('search-bar');
-    const gameGrid = document.getElementById('game-grid');
-    const gameCards = document.querySelectorAll('.game-card');
+    const gameGrid = document.querySelector('.game-grid');
 
-    searchBar.addEventListener('input', (e) => {
-        const searchText = e.target.value.toLowerCase();
-
-        gameCards.forEach((card) => {
-            const title = card.querySelector('.game-title').textContent.toLowerCase();
-            if (title.includes(searchText)) {
-                card.style.display = 'block'; // Show matching cards
-            } else {
-                card.style.display = 'none'; // Hide non-matching cards
-            }
-        });
-    });
-});
-
-searchBar.addEventListener('input', (e) => {
-    const searchText = e.target.value.toLowerCase();
-
-    gameCards.forEach((card) => {
-        const titleElement = card.querySelector('.game-title');
-        const titleText = titleElement.textContent;
-
-        if (titleText.toLowerCase().includes(searchText)) {
-            card.style.display = 'block';
-
-            // Highlight matching text
-            const regex = new RegExp(`(${searchText})`, 'gi');
-            titleElement.innerHTML = titleText.replace(regex, '<span class="highlight">$1</span>');
-        } else {
-            card.style.display = 'none';
-        }
-
+    // Check if the grid exists
+    if (searchBar && gameGrid) {
         searchBar.addEventListener('input', (e) => {
-    const searchText = e.target.value.toLowerCase();
-    let hasResults = false;
+            const searchText = e.target.value.toLowerCase();
+            const gameCards = gameGrid.querySelectorAll('.game-card');
+            let hasResults = false;
 
-    gameCards.forEach((card) => {
-        const title = card.querySelector('.game-title').textContent.toLowerCase();
-        if (title.includes(searchText)) {
-            card.style.display = 'block';
-            hasResults = true;
-        } else {
-            card.style.display = 'none';
-        }
-    });
+            gameCards.forEach((card) => {
+                const title = card.querySelector('.game-title').textContent.toLowerCase();
+                if (title.includes(searchText)) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
 
-    // Show/hide "No Results Found"
-    const noResults = document.getElementById('no-results');
+            // Show/hide "No Results Found" message
+            toggleNoResultsMessage(hasResults, gameGrid);
+        });
+    }
+}
+
+/**
+ * Show or hide the "No Results Found" message
+ */
+function toggleNoResultsMessage(hasResults, gameGrid) {
+    const noResultsMessageId = 'no-results';
+    let noResults = document.getElementById(noResultsMessageId);
+
     if (!hasResults) {
         if (!noResults) {
-            const message = document.createElement('p');
-            message.id = 'no-results';
-            message.textContent = 'No games found.';
-            gameGrid.appendChild(message);
+            noResults = document.createElement('p');
+            noResults.id = noResultsMessageId;
+            noResults.textContent = 'No games found.';
+            noResults.style.color = 'red';
+            noResults.style.textAlign = 'center';
+            gameGrid.appendChild(noResults);
         }
     } else {
         if (noResults) {
             noResults.remove();
         }
     }
-});
+}
 
-    });
-});
+/**
+ * Automatically update the meta description
+ */
+function updateMetaDescription() {
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const gameTitleElement = document.querySelector('h1');
+    if (metaDescription && gameTitleElement) {
+        const gameTitle = gameTitleElement.innerText;
+        metaDescription.content = `Play ${gameTitle} on Game Hub! Enjoy this exciting game and explore more.`;
+    }
+}

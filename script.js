@@ -116,3 +116,23 @@ document.getElementById('dark-mode-toggle').addEventListener('click', () => {
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const gameCards = document.querySelectorAll('.game-card');
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+
+            gameCards.forEach((card) => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});

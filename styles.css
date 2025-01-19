@@ -61,7 +61,7 @@ nav {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .game-card:hover {
@@ -69,7 +69,29 @@ nav {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 .game-card img {
     width: 100%;
     border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    #search-bar {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller screens */
+        gap: 10px;
+    }
+
+    .game-card {
+        padding: 5px;
+        font-size: 14px;
+    }
 }

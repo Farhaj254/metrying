@@ -1,65 +1,20 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-}
-
-.logo img {
-    width: 100px;
-}
-
-main {
-    padding: 20px;
-}
-
-.game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-}
-
-.game-card {
-    text-decoration: none;
-    color: #333;
-    text-align: center;
-    background: #fff;
+/* Search Bar */
+#search-bar {
+    width: 80%;
+    max-width: 400px;
+    margin: 10px auto;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.game-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.game-card img {
-    width: 100%;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    display: block;
+    font-size: 16px;
 }
 
-footer {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    margin-top: 20px;
-}
-
+/* Navigation Menu */
 nav {
     background-color: #333;
-    padding: 10px 0;
     text-align: center;
+    padding: 10px 0;
 }
 
 .nav-links {
@@ -88,13 +43,31 @@ nav {
     border-radius: 4px;
 }
 
-#search-bar {
-    width: 80%;
-    max-width: 400px;
-    margin: 10px auto;
+/* Game Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-card {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    background: #fff;
     padding: 10px;
-    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-card img {
+    width: 100%;
     border-radius: 4px;
-    display: block;
-    font-size: 16px;
 }

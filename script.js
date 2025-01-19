@@ -106,3 +106,13 @@ function updateMetaDescription() {
         metaDescription.content = `Play ${gameTitle} on Game Hub! Enjoy this exciting game and explore more.`;
     }
 }
+
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+});
+
+// Persist Dark Mode
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+}

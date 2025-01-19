@@ -72,5 +72,36 @@ searchBar.addEventListener('input', (e) => {
         } else {
             card.style.display = 'none';
         }
+
+        searchBar.addEventListener('input', (e) => {
+    const searchText = e.target.value.toLowerCase();
+    let hasResults = false;
+
+    gameCards.forEach((card) => {
+        const title = card.querySelector('.game-title').textContent.toLowerCase();
+        if (title.includes(searchText)) {
+            card.style.display = 'block';
+            hasResults = true;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // Show/hide "No Results Found"
+    const noResults = document.getElementById('no-results');
+    if (!hasResults) {
+        if (!noResults) {
+            const message = document.createElement('p');
+            message.id = 'no-results';
+            message.textContent = 'No games found.';
+            gameGrid.appendChild(message);
+        }
+    } else {
+        if (noResults) {
+            noResults.remove();
+        }
+    }
+});
+
     });
 });

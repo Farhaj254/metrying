@@ -8,16 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add real-time search functionality
     addSearchFunctionality();
 
+    // Add category filter functionality
+    addCategoryFiltering();
+
     // Automatically update meta description based on game title
     updateMetaDescription();
+
+    // Add dark mode toggle functionality
+    initializeDarkMode();
 });
 
 /**
  * Game data
  */
 const games = [
-    { title: "Angry Birds", thumbnail: "images/angry-birds-thumbnail.jpg", link: "game/angry-birds.html" },
-    { title: "Candy Crush", thumbnail: "images/candy-crush-thumbnail.jpg", link: "game/candy-crush.html" },
+    { title: "Angry Birds", thumbnail: "images/angry-birds-thumbnail.jpg", link: "game/angry-birds.html", category: "action" },
+    { title: "Candy Crush", thumbnail: "images/candy-crush-thumbnail.jpg", link: "game/candy-crush.html", category: "puzzle" },
     // Add more games here
 ];
 
@@ -31,6 +37,7 @@ function populateGames() {
             const gameCard = document.createElement('a');
             gameCard.href = game.link;
             gameCard.classList.add('game-card');
+            gameCard.setAttribute('data-category', game.category);
 
             gameCard.innerHTML = `
                 <img src="${game.thumbnail}" alt="${game.title}">
@@ -49,7 +56,6 @@ function addSearchFunctionality() {
     const searchBar = document.getElementById('search-bar');
     const gameGrid = document.querySelector('.game-grid');
 
-    // Check if the grid exists
     if (searchBar && gameGrid) {
         searchBar.addEventListener('input', (e) => {
             const searchText = e.target.value.toLowerCase();
@@ -107,18 +113,26 @@ function updateMetaDescription() {
     }
 }
 
-document.getElementById('dark-mode-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-});
+/**
+ * Add dark mode toggle functionality
+ */
+function initializeDarkMode() {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    });
 
-// Persist Dark Mode
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
+    // Persist Dark Mode
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * Add category filtering functionality
+ */
+function addCategoryFiltering() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const gameCards = document.querySelectorAll('.game-card');
 
@@ -133,6 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.style.display = 'none';
                 }
             });
+
+            // Highlight the active filter button
+            filterButtons.forEach((btn) => btn.classList.remove('active'));
+            button.classList.add('active');
         });
     });
-});
+}

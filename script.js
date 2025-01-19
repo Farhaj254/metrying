@@ -39,13 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.getElementById('search-bar');
+    const gameGrid = document.getElementById('game-grid');
     const gameCards = document.querySelectorAll('.game-card');
 
     searchBar.addEventListener('input', (e) => {
         const searchText = e.target.value.toLowerCase();
+
         gameCards.forEach((card) => {
             const title = card.querySelector('.game-title').textContent.toLowerCase();
-            card.style.display = title.includes(searchText) ? 'block' : 'none';
+            if (title.includes(searchText)) {
+                card.style.display = 'block'; // Show matching cards
+            } else {
+                card.style.display = 'none'; // Hide non-matching cards
+            }
         });
     });
 });
+

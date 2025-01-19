@@ -95,3 +95,17 @@ nav {
         font-size: 14px;
     }
 }
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header.dark-mode {
+    background-color: #1e1e1e;
+}
+
+.game-card.dark-mode {
+    background-color: #333;
+    color: #fff;
+}

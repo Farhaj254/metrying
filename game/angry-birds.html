@@ -3,34 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Angry Birds</title>
-    <meta name="description" content="Play Angry Birds on Game Hub! Enjoy exciting levels and sling-shot action.">
-    <link rel="stylesheet" href="../styles.css"> <!-- Adjusted path -->
-    <script src="../script.js" defer></script> <!-- Adjusted path -->
+    <title>Game Hub - Angry Birds</title>
+    <meta name="description" content="Play Angry Birds on Game Hub! Enjoy this exciting game and explore more.">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../images/logo.png" alt="Game Hub Logo"> <!-- Adjusted path -->
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Game Hub Logo">
+            </a>
         </div>
         <h1>Angry Birds</h1>
-        <a href="../index.html">Back to Home</a> <!-- Adjusted path -->
+        <a href="../index.html" class="back-link">Back to Home</a>
     </header>
     
     <main>
-        <iframe src="https://www.crazygames.com/embed/ragdoll-archers" frameborder="0" width="100%" height="600px"></iframe>
+        <section class="game-section">
+            <!-- Add iframe or embed for the game -->
+            <iframe src="https://play.crazygames.com/game/angry-birds" title="Angry Birds Game" allowfullscreen></iframe>
+        </section>
+
         <h2>Other Games</h2>
         <div class="game-grid">
-            <a class="game-card" href="candy-crush.html">
-                <img src="../images/candy-crush-thumbnail.jpg" alt="Candy Crush"> <!-- Adjusted path -->
-                <div class="game-title">Candy Crush</div>
-            </a>
-            <!-- Add more games -->
+            <!-- Dynamically populated game cards -->
         </div>
     </main>
     
     <footer>
         <p>&copy; 2025 Game Hub. All rights reserved.</p>
     </footer>
+
+    <script src="../script.js"></script>
 </body>
 </html>

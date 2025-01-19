@@ -56,3 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+searchBar.addEventListener('input', (e) => {
+    const searchText = e.target.value.toLowerCase();
+
+    gameCards.forEach((card) => {
+        const titleElement = card.querySelector('.game-title');
+        const titleText = titleElement.textContent;
+
+        if (titleText.toLowerCase().includes(searchText)) {
+            card.style.display = 'block';
+
+            // Highlight matching text
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            titleElement.innerHTML = titleText.replace(regex, '<span class="highlight">$1</span>');
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});

@@ -1,5 +1,4 @@
 /* Search Bar */
-/* Search Bar */
 #search-bar {
     width: 80%;
     max-width: 400px;
@@ -10,7 +9,6 @@
     display: block;
     font-size: 16px;
 }
-
 
 /* Navigation Menu */
 .nav-links {
@@ -41,8 +39,6 @@
     background-color: #007bff;
     color: #fff;
 }
- border-radius: 4px;
-}
 
 /* Game Grid */
 .game-grid {
@@ -68,12 +64,29 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 .game-card img {
     width: 100%;
-    border-radius: 4px;
+    border-radius: 8px 8px 0 0; /* Ensures the image corners match the card's */
+    object-fit: cover; /* Ensures consistent image scaling */
+    height: 150px; /* Fixed height for uniformity */
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header.dark-mode {
+    background-color: #1e1e1e;
+}
+
+.game-card.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     header {
         text-align: center;
@@ -93,18 +106,8 @@
         padding: 5px;
         font-size: 14px;
     }
-}
 
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-header.dark-mode {
-    background-color: #1e1e1e;
-}
-
-.game-card.dark-mode {
-    background-color: #333;
-    color: #fff;
+    .game-card img {
+        height: 120px; /* Smaller height for mobile view */
+    }
 }

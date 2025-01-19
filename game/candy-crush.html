@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Candy Crush</title>
-    <meta name="description" content="Play Candy Crush on Game Hub! Match candies and score high in this fun puzzle game.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Game Hub - Angry Birds</title>
+    <meta name="description" content="Play Angry Birds on Game Hub! Enjoy this exciting game and explore more.">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.png" alt="Game Hub Logo">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Game Hub Logo">
+            </a>
         </div>
-        <h1>Candy Crush</h1>
-        <a href="index.html">Back to Home</a>
+        <h1>Angry Birds</h1>
+        <a href="../index.html" class="back-link">Back to Home</a>
     </header>
     
     <main>
-        <iframe src="path-to-candy-crush-game" frameborder="0" width="100%" height="600px"></iframe>
+        <section class="game-section">
+            <!-- Add iframe or embed for the game -->
+            <iframe src="https://play.crazygames.com/game/angry-birds" title="Angry Birds Game" allowfullscreen></iframe>
+        </section>
+
         <h2>Other Games</h2>
         <div class="game-grid">
-            <a class="game-card" href="angry-birds.html">
-                <img src="images/angry-birds-thumbnail.jpg" alt="Angry Birds">
-                <div class="game-title">Angry Birds</div>
-            </a>
-            <!-- Add more games here -->
+            <!-- Dynamically populated game cards -->
         </div>
     </main>
     
@@ -32,6 +34,6 @@
         <p>&copy; 2025 Game Hub. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

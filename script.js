@@ -2,8 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Game Hub is ready!');
 
-    // Populate the game grid dynamically
-    populateGames();
+    // Dynamically populate the game grid only on game pages
+    if (!isIndexPage()) {
+        populateGames();
+    }
 
     // Add real-time search functionality
     addSearchFunctionality();
@@ -28,7 +30,14 @@ const games = [
 ];
 
 /**
- * Populate the game grid dynamically
+ * Check if the current page is the index page
+ */
+function isIndexPage() {
+    return document.body.classList.contains('index-page');
+}
+
+/**
+ * Populate the game grid dynamically (for game pages)
  */
 function populateGames() {
     const gameGrid = document.querySelector('.game-grid');

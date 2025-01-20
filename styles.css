@@ -202,46 +202,32 @@ footer {
     justify-content: center;
     margin: 20px 0;
 }
-
-/* Container for the game title */
-.game-title-container {
-    position: absolute; /* Relative to the iframe-container */
-    bottom: 10px; /* Align to the bottom */
-    left: 10px; /* Align to the left */
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
+/* Container for game title and buttons */
+.game-info-container {
+    display: flex;
+    justify-content: space-between; /* Space between title and buttons */
+    align-items: center; /* Align items vertically */
+    margin-top: 10px;
+    width: 80%; /* Match the iframe width */
+    max-width: 1000px; /* Match the iframe's max-width */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto;
     padding: 5px 10px;
-    border-radius: 8px; /* Optional: Rounded corners */
-    color: #00FFFF; /* Title text color */
-    font-size: 16px; /* Adjust font size as needed */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Background for contrast */
+    border-radius: 8px; /* Rounded corners for a clean look */
+}
+
+/* Game title */
+.game-title {
+    color: #00FFFF; /* Cyan color */
+    font-size: 16px; /* Adjust font size */
     font-weight: bold;
 }
 
-/* Align buttons and title */
-.iframe-container {
-    position: relative; /* Establish positioning context for absolute elements */
-    display: inline-block;
-    width: 80%; /* Ensure the width matches the iframe */
-    max-width: 1000px; /* Optional: Set a maximum width */
-    margin: 0 auto; /* Center the iframe-container horizontally */
-}
-
-.iframe-container iframe {
-    width: 100%; /* Full width within the container */
-    height: 500px; /* Adjust height as needed */
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add shadow for styling */
-    border-radius: 8px; /* Optional: Rounded corners */
-}
-
+/* Game buttons */
 .game-buttons {
-    position: absolute; /* Position relative to the .iframe-container */
-    bottom: 10px; /* Align 10px from the bottom of the iframe */
-    right: 10px; /* Align 10px from the right of the iframe */
     display: flex;
     gap: 10px; /* Space between icons */
-    background: rgba(0, 0, 0, 0.5); /* Optional: Background for contrast */
-    padding: 5px;
-    border-radius: 8px; /* Optional: Rounded corners */
 }
 
 .fullscreen-icon,

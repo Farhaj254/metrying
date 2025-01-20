@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dynamically populate the game grid only on game pages
     if (!isIndexPage()) {
-        populateGames();
+        populateGamesFromIndex();
     }
 
     // Add real-time search functionality
@@ -37,23 +37,27 @@ function isIndexPage() {
 }
 
 /**
- * Populate the game grid dynamically (for game pages)
+ * Populate the game grid dynamically from the index and exclude the current game
  */
-function populateGames() {
+function populateGamesFromIndex() {
     const gameGrid = document.querySelector('.game-grid');
+    const currentGameTitle = document.querySelector('h1').innerText.trim();
+
     if (gameGrid) {
         games.forEach((game) => {
-            const gameCard = document.createElement('a');
-            gameCard.href = game.link;
-            gameCard.classList.add('game-card');
-            gameCard.setAttribute('data-category', game.category);
+            if (game.title !== currentGameTitle) {
+                const gameCard = document.createElement('a');
+                gameCard.href = game.link;
+                gameCard.classList.add('game-card');
+                gameCard.setAttribute('data-category', game.category);
 
-            gameCard.innerHTML = `
-                <img src="${game.thumbnail}" alt="${game.title}">
-                <div class="game-title">${game.title}</div>
-            `;
+                gameCard.innerHTML = `
+                    <img src="../${game.thumbnail}" alt="${game.title}">
+                    <div class="game-title">${game.title}</div>
+                `;
 
-            gameGrid.appendChild(gameCard);
+                gameGrid.appendChild(gameCard);
+            }
         });
     }
 }

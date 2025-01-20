@@ -7,12 +7,13 @@ body {
     padding: 0;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #0f3460; /* Dark blue theme */
+    background-color: #0f3460;
     border-bottom: 3px solid #007bff;
 }
 
@@ -86,14 +87,14 @@ header .controls {
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    gap: 10px; /* Reduced gap for tighter spacing */
     padding: 20px;
-    justify-content: center;
+    justify-content: center; /* Centers the grid */
 }
 
 .game-card {
     position: relative;
-    background: #27293d; /* Dark gray for cards */
+    background: #27293d;
     color: #fff;
     text-align: center;
     border-radius: 8px;
@@ -101,7 +102,7 @@ header .controls {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 150px; /* Square dimensions */
+    width: 150px;
     height: 150px;
 }
 
@@ -119,7 +120,7 @@ header .controls {
 }
 
 .game-card:hover img {
-    opacity: 0.3; /* Dim image on hover */
+    opacity: 0.3;
 }
 
 .game-card .game-title {
@@ -149,21 +150,6 @@ footer {
     padding: 10px;
     font-size: 14px;
     border-top: 3px solid #007bff;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: #eaeaea;
-}
-
-header.dark-mode {
-    background-color: #1e1e1e;
-}
-
-.game-card.dark-mode {
-    background-color: #333;
-    color: #fff;
 }
 
 /* Responsive Design */

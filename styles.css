@@ -221,13 +221,14 @@ footer {
 
 .game-buttons {
     position: absolute; /* Position relative to the .iframe-container */
-    bottom: 10px; /* Align 10px from the bottom of the iframe */
-    right: 10px; /* Align 10px from the right of the iframe */
+    top: 100%; /* Align directly below the iframe */
+    right: 10px; /* Align 10px from the right of the iframe container */
     display: flex;
     gap: 10px; /* Space between icons */
     background: rgba(0, 0, 0, 0.5); /* Optional: Background for contrast */
     padding: 5px;
     border-radius: 8px; /* Optional: Rounded corners */
+    transform: translateY(10px); /* Add a small gap below the iframe */
 }
 
 .fullscreen-icon,

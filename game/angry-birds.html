@@ -6,8 +6,7 @@
     <title>Game Hub - Angry Birds</title>
     <meta name="description" content="Play Angry Birds on Game Hub! Enjoy this exciting game and explore more.">
     <link rel="stylesheet" href="../styles.css">
-    <link rel="manifest" href="manifest.json">
-
+    <link rel="manifest" href="../manifest.json">
 </head>
 <body>
     <header>
@@ -31,31 +30,27 @@
     </header>
     
     <main>
-  <section class="game-section">
-    <iframe src="https://play.crazygames.com/game/angry-birds" 
-            title="Angry Birds Game" 
-            allowfullscreen>
-    </iframe>
-   <div class="game-buttons">
-    <button class="fullscreen-button" onclick="makeFullscreen()">Full Screen</button>
-    <button class="share-button" onclick="shareGame()">Share</button>
-    <button class="add-shortcut-button" onclick="addShortcut()">Add Shortcut</button>
-</div>
+        <section class="game-section">
+            <iframe src="https://play.crazygames.com/game/angry-birds" 
+                    title="Angry Birds Game" 
+                    allowfullscreen>
+            </iframe>
+            <div class="game-buttons">
+                <button class="fullscreen-button" onclick="makeFullscreen()">Full Screen</button>
+                <button class="share-button" onclick="shareGame()">Share</button>
+                <button class="add-shortcut-button" onclick="addShortcut()">Add Shortcut</button>
+            </div>
+        </section>
 
-</section>
+        <h2>Other Games</h2>
+        <div class="game-grid" id="game-grid">
+            <a class="game-card" href="candy-crush.html" data-category="puzzle">
+                <img src="../images/candy-crush-thumbnail.jpg" alt="Candy Crush">
+                <div class="game-title">Candy Crush</div>
+            </a>
+        </div>
+    </main>
 
-
-    <h2>Other Games</h2>
-    <div class="game-grid" id="game-grid">
-        <a class="game-card" href="candy-crush.html" data-category="puzzle">
-            <img src="../images/candy-crush-thumbnail.jpg" alt="Candy Crush">
-            <div class="game-title">Candy Crush</div>
-        </a>
-        <!-- Add more game cards as needed -->
-    </div>
-</main>
-
-    
     <footer>
         <p>&copy; 2025 Game Hub. All rights reserved.</p>
     </footer>

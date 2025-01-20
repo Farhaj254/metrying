@@ -13,7 +13,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #0f3460;
+    background-color: #00FFFF; /* Updated to cyan */
     border-bottom: 3px solid #007bff;
 }
 
@@ -144,7 +144,7 @@ header .controls {
 
 /* Footer */
 footer {
-    background-color: #0f3460;
+    background-color: #00FFFF; /* Updated to cyan */
     color: #eaeaea;
     text-align: center;
     padding: 10px;

@@ -212,58 +212,23 @@ footer {
     border-radius: 8px; /* Optional: Rounded corners */
 }
 
-.fullscreen-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #00FFFF; /* Cyan button */
-    color: #000; /* Black text */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.fullscreen-button:hover {
-    background-color: #007bff; /* Change to blue on hover */
-    color: #fff; /* White text on hover */
-    transform: scale(1.05);
-}
 .game-buttons {
     display: flex;
-    gap: 10px; /* Space between buttons */
+    gap: 20px; /* Space between icons */
+    justify-content: center; /* Center align */
     margin-top: 10px;
 }
 
-.share-button {
-    padding: 10px 20px;
-    background-color: #00FFFF; /* Cyan color */
-    color: #000; /* Black text */
-    border: none;
-    border-radius: 5px;
+.fullscreen-icon,
+.share-icon {
+    font-size: 24px; /* Adjust icon size */
+    color: #00FFFF; /* Cyan color */
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.share-button:hover {
-    background-color: #007bff; /* Blue on hover */
-    color: #fff; /* White text on hover */
-    transform: scale(1.05);
-}
-.add-shortcut-button {
-    padding: 10px 20px;
-    background-color: #00FFFF; /* Cyan */
-    color: #000; /* Black text */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.add-shortcut-button:hover {
-    background-color: #007bff; /* Blue on hover */
-    color: #fff; /* White text on hover */
-    transform: scale(1.05);
+.fullscreen-icon:hover,
+.share-icon:hover {
+    color: #007bff; /* Blue on hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
 }

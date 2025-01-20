@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dynamically populate the game grid only on game pages
     if (!isIndexPage()) {
-        populateGamesFromIndex();
+        populateGames();
     }
 
     // Add real-time search functionality
@@ -37,31 +37,26 @@ function isIndexPage() {
 }
 
 /**
- * Populate the game grid dynamically from the index and exclude the current game
+ * Populate the game grid dynamically (for game pages)
  */
-function populateGamesFromIndex() {
+function populateGames() {
     const gameGrid = document.querySelector('.game-grid');
-    const currentGameTitle = document.querySelector('h1').innerText.trim();
-
     if (gameGrid) {
         games.forEach((game) => {
-            if (game.title !== currentGameTitle) {
-                const gameCard = document.createElement('a');
-                gameCard.href = game.link;
-                gameCard.classList.add('game-card');
-                gameCard.setAttribute('data-category', game.category);
+            const gameCard = document.createElement('a');
+            gameCard.href = game.link;
+            gameCard.classList.add('game-card');
+            gameCard.setAttribute('data-category', game.category);
 
-                gameCard.innerHTML = `
-                    <img src="${game.thumbnail}" alt="${game.title}">
-                    <div class="game-title">${game.title}</div>
-                `;
+            gameCard.innerHTML = 
+                <img src="${game.thumbnail}" alt="${game.title}">
+                <div class="game-title">${game.title}</div>
+            ;
 
-                gameGrid.appendChild(gameCard);
-            }
+            gameGrid.appendChild(gameCard);
         });
     }
 }
-
 
 /**
  * Add search functionality
@@ -123,7 +118,7 @@ function updateMetaDescription() {
     const gameTitleElement = document.querySelector('h1');
     if (metaDescription && gameTitleElement) {
         const gameTitle = gameTitleElement.innerText;
-        metaDescription.content = `Play ${gameTitle} on Game Hub! Enjoy this exciting game and explore more.`;
+        metaDescription.content = Play ${gameTitle} on Game Hub! Enjoy this exciting game and explore more.;
     }
 }
 
@@ -142,7 +137,6 @@ function initializeDarkMode() {
         document.body.classList.add('dark-mode');
     }
 }
-
 
 /**
  * Add category filtering functionality

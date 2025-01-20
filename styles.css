@@ -229,3 +229,25 @@ footer {
     color: #fff; /* White text on hover */
     transform: scale(1.05);
 }
+.game-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px;
+}
+
+.share-button {
+    padding: 10px 20px;
+    background-color: #00FFFF; /* Cyan color */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.share-button:hover {
+    background-color: #007bff; /* Blue on hover */
+    color: #fff; /* White text on hover */
+    transform: scale(1.05);
+}

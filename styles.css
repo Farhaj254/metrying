@@ -1,13 +1,28 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a2e; /* Dark gaming background */
+    color: #eaeaea;
+    margin: 0;
+    padding: 0;
+}
+
 /* Search Bar */
 #search-bar {
     width: 80%;
     max-width: 400px;
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 4px;
-    display: block;
+    background-color: #2a2a3b;
+    color: #fff;
     font-size: 16px;
+    display: block;
+}
+
+#search-bar::placeholder {
+    color: #ccc;
 }
 
 /* Navigation Menu */
@@ -18,21 +33,24 @@
     gap: 15px;
     padding: 10px;
     margin: 0;
+    background-color: #0f3460; /* Dark blue theme */
+    border-bottom: 3px solid #007bff;
 }
 
 .nav-links button {
-    background-color: #333;
+    background-color: #1a1a2e;
     color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links button:hover {
-    background-color: #555;
+    background-color: #007bff;
+    transform: scale(1.1);
 }
 
 .nav-links button.active {
@@ -49,32 +67,69 @@
 }
 
 .game-card {
-    text-decoration: none;
-    color: #333;
+    position: relative;
+    background: #27293d; /* Dark gray for cards */
+    color: #fff;
     text-align: center;
-    background: #fff;
-    padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.game-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 150px; /* Square dimensions */
+    height: 150px;
 }
 
 .game-card img {
     width: 100%;
-    border-radius: 8px 8px 0 0; /* Ensures the image corners match the card's */
-    object-fit: cover; /* Ensures consistent image scaling */
-    height: 150px; /* Fixed height for uniformity */
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover Effect */
+.game-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.game-card:hover img {
+    opacity: 0.3; /* Dim image on hover */
+}
+
+.game-card .game-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.game-card:hover .game-title {
+    opacity: 1;
+}
+
+/* Footer */
+footer {
+    background-color: #0f3460;
+    color: #eaeaea;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-top: 3px solid #007bff;
 }
 
 /* Dark Mode */
 body.dark-mode {
     background-color: #121212;
-    color: #e0e0e0;
+    color: #eaeaea;
 }
 
 header.dark-mode {
@@ -98,16 +153,12 @@ header.dark-mode {
     }
 
     .game-grid {
-        grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller screens */
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
     .game-card {
-        padding: 5px;
-        font-size: 14px;
-    }
-
-    .game-card img {
-        height: 120px; /* Smaller height for mobile view */
+        width: 120px;
+        height: 120px;
     }
 }

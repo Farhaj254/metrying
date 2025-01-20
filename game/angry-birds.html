@@ -29,24 +29,24 @@
     </header>
     
     <main>
-        <section class="game-section">
-            <iframe src="https://play.crazygames.com/game/angry-birds" 
-                    title="Angry Birds Game" 
-                    allowfullscreen 
-                    style="width: 100%; height: 600px; border: none;">
-            </iframe>
-        </section>
+    <section class="game-section">
+        <iframe src="https://play.crazygames.com/game/angry-birds" 
+                title="Angry Birds Game" 
+                allowfullscreen>
+        </iframe>
+        <button class="fullscreen-button" onclick="makeFullscreen()">Full Screen</button>
+    </section>
 
-        <h2>Other Games</h2>
-        <div class="game-grid" id="game-grid">
-            <!-- Manually added game cards -->
-            <a class="game-card" href="candy-crush.html" data-category="puzzle">
-                <img src="../images/candy-crush-thumbnail.jpg" alt="Candy Crush">
-                <div class="game-title">Candy Crush</div>
-            </a>
-            <!-- Add more game cards as needed -->
-        </div>
-    </main>
+    <h2>Other Games</h2>
+    <div class="game-grid" id="game-grid">
+        <a class="game-card" href="candy-crush.html" data-category="puzzle">
+            <img src="../images/candy-crush-thumbnail.jpg" alt="Candy Crush">
+            <div class="game-title">Candy Crush</div>
+        </a>
+        <!-- Add more game cards as needed -->
+    </div>
+</main>
+
     
     <footer>
         <p>&copy; 2025 Game Hub. All rights reserved.</p>

@@ -147,3 +147,28 @@ function shareGame() {
         alert('Sharing is not supported in this browser.');
     }
 }
+
+let deferredPrompt;
+
+// Listen for the `beforeinstallprompt` event
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+});
+
+// Function to trigger the install prompt
+function addShortcut() {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('Shortcut added to home screen');
+            } else {
+                console.log('User dismissed the shortcut addition');
+            }
+            deferredPrompt = null;
+        });
+    } else {
+        alert('Shortcut feature is not available on this browser.');
+    }
+}

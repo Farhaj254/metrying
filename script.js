@@ -52,7 +52,7 @@ function populateGamesFromIndex() {
                 gameCard.setAttribute('data-category', game.category);
 
                 gameCard.innerHTML = `
-                    <img src="../${game.thumbnail}" alt="${game.title}">
+                    <img src="${game.thumbnail}" alt="${game.title}">
                     <div class="game-title">${game.title}</div>
                 `;
 
@@ -61,6 +61,7 @@ function populateGamesFromIndex() {
         });
     }
 }
+
 
 /**
  * Add search functionality
@@ -141,6 +142,7 @@ function initializeDarkMode() {
         document.body.classList.add('dark-mode');
     }
 }
+
 
 /**
  * Add category filtering functionality

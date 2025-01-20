@@ -203,35 +203,31 @@ footer {
     margin: 20px 0;
 }
 
-.game-section iframe {
-    width: 80%; /* Adjust width as needed */
-    height: 500px; /* Adjust height as needed */
-    border: none;
-    max-width: 1000px; /* Optional: Set a maximum width */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a shadow for styling */
-    border-radius: 8px; /* Optional: Rounded corners */
-}
-
 .iframe-container {
-    position: relative; /* Relative positioning for child absolute elements */
+    position: relative; /* Establish a positioning context for absolute elements */
     display: inline-block;
+    width: 80%; /* Ensure the width matches the iframe */
+    max-width: 1000px; /* Optional: Set a maximum width */
+    margin: 0 auto; /* Center the iframe-container horizontally */
 }
 
-.game-section iframe {
-    width: 80%; /* Adjust width as needed */
+.iframe-container iframe {
+    width: 100%; /* Full width within the container */
     height: 500px; /* Adjust height as needed */
     border: none;
-    max-width: 1000px; /* Optional: Set a maximum width */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a shadow for styling */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add shadow for styling */
     border-radius: 8px; /* Optional: Rounded corners */
 }
 
 .game-buttons {
-    position: absolute; /* Position relative to the iframe container */
-    bottom: 10px; /* Distance from the bottom of the iframe container */
-    right: 10px; /* Distance from the right of the iframe container */
+    position: absolute; /* Position relative to the .iframe-container */
+    bottom: 10px; /* Align 10px from the bottom of the iframe */
+    right: 10px; /* Align 10px from the right of the iframe */
     display: flex;
     gap: 10px; /* Space between icons */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Background for contrast */
+    padding: 5px;
+    border-radius: 8px; /* Optional: Rounded corners */
 }
 
 .fullscreen-icon,

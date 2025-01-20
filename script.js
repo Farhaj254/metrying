@@ -156,7 +156,15 @@ window.addEventListener('beforeinstallprompt', (e) => {
     deferredPrompt = e;
 });
 
-// Function to trigger the install prompt
+
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(() => console.log("Service Worker Registered"))
+    .catch((err) => console.error("Service Worker Registration Failed", err));
+}
+
 function addShortcut() {
     if (deferredPrompt) {
         deferredPrompt.prompt();
@@ -169,15 +177,13 @@ function addShortcut() {
             deferredPrompt = null;
         });
     } else {
-        alert('Shortcut feature is not available on this browser.');
+        alert('Shortcut feature is not available or supported on this browser.');
     }
 }
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register('/service-worker.js')
-    .then(() => console.log("Service Worker Registered"))
-    .catch((err) => console.error("Service Worker Registration Failed", err));
-}
-
+window.addEventListener('beforeinstallprompt', (e) => {
+    console.log("beforeinstallprompt event triggered");
+    e.preventDefault();
+    deferredPrompt = e;
+});
 

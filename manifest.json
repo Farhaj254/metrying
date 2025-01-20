@@ -1,18 +1,19 @@
 {
   "name": "Game Hub",
   "short_name": "GameHub",
+  "description": "Play amazing games on Game Hub!",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#1a1a2e",
-  "theme_color": "#1a1a2e",
+  "theme_color": "#00FFFF",
   "icons": [
     {
-      "src": "images/logo-192x192.png",
+      "src": "/images/logo-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/logo-512x512.png",
+      "src": "/images/logo-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

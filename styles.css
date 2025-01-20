@@ -95,6 +95,7 @@ header .controls {
     justify-content: center; /* Centers the grid */
 }
 
+/* Game Card */
 .game-card {
     position: relative;
     background: #27293d;
@@ -103,10 +104,11 @@ header .controls {
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     width: 150px;
     height: 150px;
+    border: 2px solid transparent; /* Default border is transparent */
 }
 
 .game-card img {
@@ -120,7 +122,13 @@ header .controls {
 .game-card:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    border: 2px solid #00FFFF; /* Thin cyan border on hover */
 }
+
+.game-card:hover img {
+    opacity: 0.3; /* Dim image on hover */
+}
+
 
 .game-card:hover img {
     opacity: 0.3;

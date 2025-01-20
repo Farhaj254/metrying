@@ -14,8 +14,18 @@
                 <img src="../images/logo.png" alt="Game Hub Logo">
             </a>
         </div>
-        <h1>Angry Birds</h1>
-        <a href="../index.html" class="back-link">Back to Home</a>
+        <nav>
+            <ul class="nav-links">
+                <li><button class="filter-btn" data-category="all">All Games</button></li>
+                <li><button class="filter-btn" data-category="action">Action</button></li>
+                <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
+                <li><button class="filter-btn" data-category="sports">Sports</button></li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search games...">
+            <button id="dark-mode-toggle">🌙</button>
+        </div>
     </header>
     
     <main>
@@ -28,7 +38,7 @@
         </section>
 
         <h2>Other Games</h2>
-        <div class="game-grid">
+        <div class="game-grid" id="game-grid">
             <!-- Dynamically populated game cards -->
         </div>
     </main>

@@ -2,11 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Game Hub is ready!');
 
-    // Dynamically populate the game grid only on game pages
-    if (!isIndexPage()) {
-        populateGames();
-    }
-
     // Add real-time search functionality
     addSearchFunctionality();
 

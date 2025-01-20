@@ -13,9 +13,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #000000; /* Updated to black */
-    border-bottom: 3px solid #007bff;
+    background-color: #000000; /* Black background for header */
+    border-bottom: 3px solid #00FFFF; /* Updated to cyan */
 }
+
 
 header .logo img {
     width: 150px;

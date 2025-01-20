@@ -193,3 +193,39 @@ footer {
         height: 120px;
     }
 }
+
+/* Game Section */
+.game-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the iframe horizontally */
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.game-section iframe {
+    width: 80%; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+    border: none;
+    max-width: 1000px; /* Optional: Set a maximum width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a shadow for styling */
+    border-radius: 8px; /* Optional: Rounded corners */
+}
+
+.fullscreen-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #00FFFF; /* Cyan button */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.fullscreen-button:hover {
+    background-color: #007bff; /* Change to blue on hover */
+    color: #fff; /* White text on hover */
+    transform: scale(1.05);
+}

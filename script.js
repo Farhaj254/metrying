@@ -150,21 +150,14 @@ function shareGame() {
 
 let deferredPrompt;
 
-// Listen for the `beforeinstallprompt` event
+// Listen for the `beforeinstallprompt` event only on game pages
 window.addEventListener('beforeinstallprompt', (e) => {
+    console.log("beforeinstallprompt event triggered on game page");
     e.preventDefault();
     deferredPrompt = e;
 });
 
-
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register('/service-worker.js')
-    .then(() => console.log("Service Worker Registered"))
-    .catch((err) => console.error("Service Worker Registration Failed", err));
-}
-
+// Function to trigger the install prompt
 function addShortcut() {
     if (deferredPrompt) {
         deferredPrompt.prompt();
@@ -180,10 +173,22 @@ function addShortcut() {
         alert('Shortcut feature is not available or supported on this browser.');
     }
 }
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register('service-worker.js')
+    .then(() => console.log("Service Worker Registered"))
+    .catch((err) => console.error("Service Worker Registration Failed", err));
+}
 
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log("beforeinstallprompt event triggered");
-    e.preventDefault();
-    deferredPrompt = e;
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.game-section')) {
+        console.log('Game page detected, initializing Add Shortcut feature');
+
+        // Listen for the `beforeinstallprompt` event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            console.log("beforeinstallprompt event triggered on game page");
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+    }
 });
-

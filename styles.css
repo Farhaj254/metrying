@@ -134,24 +134,28 @@ header .controls {
     opacity: 0.3;
 }
 
+/* Game Card Title */
 .game-card .game-title {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    color: #00FFFF; /* Updated title color to cyan */
     font-size: 14px;
     font-weight: bold;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
     text-transform: uppercase;
 }
 
+/* Hover Effect for Title */
 .game-card:hover .game-title {
     opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly more transparent on hover */
 }
+
 
 /* Footer */
 footer {

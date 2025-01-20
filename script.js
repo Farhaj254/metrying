@@ -16,44 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Game data
- */
-const games = [
-    { title: "Angry Birds", thumbnail: "images/angry-birds-thumbnail.jpg", link: "game/angry-birds.html", category: "action" },
-    { title: "Candy Crush", thumbnail: "images/candy-crush-thumbnail.jpg", link: "game/candy-crush.html", category: "puzzle" },
-    // Add more games here
-];
-
-/**
- * Check if the current page is the index page
- */
-function isIndexPage() {
-    return document.body.classList.contains('index-page');
-}
-
-/**
- * Populate the game grid dynamically (for game pages)
- */
-function populateGames() {
-    const gameGrid = document.querySelector('.game-grid');
-    if (gameGrid) {
-        games.forEach((game) => {
-            const gameCard = document.createElement('a');
-            gameCard.href = game.link;
-            gameCard.classList.add('game-card');
-            gameCard.setAttribute('data-category', game.category);
-
-            gameCard.innerHTML = `
-                <img src="${game.thumbnail}" alt="${game.title}">
-                <div class="game-title">${game.title}</div>
-            `;
-
-            gameGrid.appendChild(gameCard);
-        });
-    }
-}
-
-/**
  * Add search functionality
  */
 function addSearchFunctionality() {

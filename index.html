@@ -1,56 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Hub - Home</title>
-    <meta name="description" content="Welcome to Game Hub! Explore and play exciting games like Angry Birds, Candy Crush, and more.">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="index-page">
-   <header>
-    <div class="logo">
-        <a href="index.html">
-            <img src="images/logo.png" alt="Game Hub Logo">
-        </a>
-    </div>
-    <nav>
-        <ul class="nav-links">
-            <li><button class="filter-btn" data-category="all">All Games</button></li>
-            <li><button class="filter-btn" data-category="action">Action</button></li>
-            <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
-            <li><button class="filter-btn" data-category="sports">Sports</button></li>
-        </ul>
-    </nav>
-    <div class="controls">
-        <input type="text" id="search-bar" placeholder="Search games...">
-        <button id="dark-mode-toggle">🌙</button>
-    </div>
-</header>
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Game Hub is ready!');
 
+    // Dynamically populate the game grid only on game pages
+    if (!isIndexPage()) {
+        populateGamesFromIndex();
+    }
 
-    
-    <main>
-        <h2>Games</h2>
-        <div class="game-grid" id="game-grid">
-            <!-- Each game card links to its respective page -->
-            <a class="game-card" href="game/angry-birds.html" data-category="action">
-                <img src="images/War Robots Battle Mech Arena-512x384.jpg" alt="Angry Birds">
-                <div class="game-title">Angry Birds</div>
-            </a>
-            <a class="game-card" href="game/candy-crush.html" data-category="puzzle">
-                <img src="images/candy-crush-thumbnail.jpg" alt="Candy Crush">
-                <div class="game-title">Candy Crush</div>
-            </a>
-            <!-- Add more game cards -->
-        </div>
-        <p id="no-results" style="display: none; text-align: center; color: red;">No games found.</p>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Game Hub. All rights reserved.</p>
-    </footer>
+    // Add real-time search functionality
+    addSearchFunctionality();
 
-    <script src="script.js"></script>
-</body>
-</html>
+    // Add category filter functionality
+    addCategoryFiltering();
+
+    // Automatically update meta description based on game title
+    updateMetaDescription();
+
+    // Add dark mode toggle functionality
+    initializeDarkMode();
+});
+
+/**
+ * Game data
+ */
+const games = [
+    { title: "Angry Birds", thumbnail: "images/angry-birds-thumbnail.jpg", link: "game/angry-birds.html", category: "action" },
+    { title: "Candy Crush", thumbnail: "images/candy-crush-thumbnail.jpg", link: "game/candy-crush.html", category: "puzzle" },
+    // Add more games here
+];
+
+/**
+ * Check if the current page is the index page
+ */
+function isIndexPage() {
+    return document.body.classList.contains('index-page');
+}
+
+/**
+ * Populate the game grid dynamically from the index and exclude the current game
+ */
+function populateGamesFromIndex() {
+    const gameGrid = document.querySelector('.game-grid');
+    const currentGameTitle = document.querySelector('h1').innerText.trim();
+
+    if (gameGrid) {
+        games.forEach((game) => {
+            if (game.title !== currentGameTitle) {
+                const gameCard = document.createElement('a');
+                gameCard.href = game.link;
+                gameCard.classList.add('game-card');
+                gameCard.setAttribute('data-category', game.category);
+
+                gameCard.innerHTML = `
+                    <img src="../${game.thumbnail}" alt="${game.title}">
+                    <div class="game-title">${game.title}</div>
+                `;
+
+                gameGrid.appendChild(gameCard);
+            }
+        });
+    }
+}
+
+/**
+ * Add search functionality
+ */
+function addSearchFunctionality() {
+    const searchBar = document.getElementById('search-bar');
+    const gameGrid = document.querySelector('.game-grid');
+
+    if (searchBar && gameGrid) {
+        searchBar.addEventListener('input', (e) => {
+            const searchText = e.target.value.toLowerCase();
+            const gameCards = gameGrid.querySelectorAll('.game-card');
+            let hasResults = false;
+
+            gameCards.forEach((card) => {
+                const title = card.querySelector('.game-title').textContent.toLowerCase();
+                if (title.includes(searchText)) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide "No Results Found" message
+            toggleNoResultsMessage(hasResults, gameGrid);
+        });
+    }
+}
+
+/**
+ * Show or hide the "No Results Found" message
+ */
+function toggleNoResultsMessage(hasResults, gameGrid) {
+    const noResultsMessageId = 'no-results';
+    let noResults = document.getElementById(noResultsMessageId);
+
+    if (!hasResults) {
+        if (!noResults) {
+            noResults = document.createElement('p');
+            noResults.id = noResultsMessageId;
+            noResults.textContent = 'No games found.';
+            noResults.style.color = 'red';
+            noResults.style.textAlign = 'center';
+            gameGrid.appendChild(noResults);
+        }
+    } else {
+        if (noResults) {
+            noResults.remove();
+        }
+    }
+}
+
+/**
+ * Automatically update the meta description
+ */
+function updateMetaDescription() {
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const gameTitleElement = document.querySelector('h1');
+    if (metaDescription && gameTitleElement) {
+        const gameTitle = gameTitleElement.innerText;
+        metaDescription.content = `Play ${gameTitle} on Game Hub! Enjoy this exciting game and explore more.`;
+    }
+}
+
+/**
+ * Add dark mode toggle functionality
+ */
+function initializeDarkMode() {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    });
+
+    // Persist Dark Mode
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+/**
+ * Add category filtering functionality
+ */
+function addCategoryFiltering() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const gameCards = document.querySelectorAll('.game-card');
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const category = button.getAttribute('data-category');
+
+            gameCards.forEach((card) => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Highlight the active filter button
+            filterButtons.forEach((btn) => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+}

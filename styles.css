@@ -202,6 +202,22 @@ footer {
     justify-content: center;
     margin: 20px 0;
 }
+.iframe-container {
+    position: relative; /* Establish positioning context for absolute elements */
+    display: inline-block;
+    width: 80%; /* Ensure the width matches the iframe */
+    max-width: 1000px; /* Optional: Set a maximum width */
+    margin: 0 auto; /* Center the iframe-container horizontally */
+}
+
+.iframe-container iframe {
+    width: 100%; /* Full width within the container */
+    height: 500px; /* Adjust height as needed */
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add shadow for styling */
+    border-radius: 8px; /* Optional: Rounded corners */
+}
+
 /* Container for game title and buttons */
 .game-info-container {
     display: flex;

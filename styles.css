@@ -65,24 +65,26 @@ header .controls {
 
 .nav-links button {
     background-color: #1a1a2e;
-    color: #fff;
+    color: #00FFFF; /* Initial color is cyan */
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links button:hover {
-    background-color: #00FFFF; /* Updated hover color to cyan */
+    background-color: #00FFFF; /* Hover background changes to cyan */
+    color: #000; /* Text changes to black on hover */
     transform: scale(1.1);
 }
 
 .nav-links button.active {
-    background-color: #007bff;
+    background-color: #007bff; /* Active button background color */
     color: #fff;
 }
+
 
 /* Game Grid */
 .game-grid {

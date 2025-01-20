@@ -251,3 +251,19 @@ footer {
     color: #fff; /* White text on hover */
     transform: scale(1.05);
 }
+.add-shortcut-button {
+    padding: 10px 20px;
+    background-color: #00FFFF; /* Cyan */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-shortcut-button:hover {
+    background-color: #007bff; /* Blue on hover */
+    color: #fff; /* White text on hover */
+    transform: scale(1.05);
+}

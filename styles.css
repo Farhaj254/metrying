@@ -153,7 +153,7 @@ header .controls {
 /* Hover Effect for Title */
 .game-card:hover .game-title {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.5); /* Slightly more transparent on hover */
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent on hover */
 }
 
 

@@ -13,7 +13,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #00FFFF; /* Updated to cyan */
+    background-color: #000000; /* Updated to black */
     border-bottom: 3px solid #007bff;
 }
 
@@ -74,7 +74,7 @@ header .controls {
 }
 
 .nav-links button:hover {
-    background-color: #007bff;
+    background-color: #00FFFF; /* Updated hover color to cyan */
     transform: scale(1.1);
 }
 
@@ -144,7 +144,7 @@ header .controls {
 
 /* Footer */
 footer {
-    background-color: #00FFFF; /* Updated to cyan */
+    background-color: #00FFFF; /* Footer remains cyan */
     color: #eaeaea;
     text-align: center;
     padding: 10px;

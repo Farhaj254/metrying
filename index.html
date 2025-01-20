@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub - Home</title>
+    <meta name="description" content="Welcome to Game Hub! Explore and play exciting games like Angry Birds, Candy Crush, and more.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="index-page">
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Game Hub Logo">
+            </a>
+        </div>
+        <h1>Game Hub</h1>
+        <input type="text" id="search-bar" placeholder="Search games...">
+        <nav>
+            <ul class="nav-links">
+                <li><button class="filter-btn" data-category="all">All Games</button></li>
+                <li><button class="filter-btn" data-category="action">Action</button></li>
+                <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
+                <li><button class="filter-btn" data-category="sports">Sports</button></li>
+                <!-- Add more categories as needed -->
+            </ul>
+        </nav>
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
+    </header>
+    
+    <main>
+        <h2>Games</h2>
+        <div class="game-grid" id="game-grid">
+            <!-- Each game card links to its respective page -->
+            <a class="game-card" href="game/angry-birds.html" data-category="action">
+                <img src="images/angry-birds-thumbnail.jpg" alt="Angry Birds">
+                <div class="game-title">Angry Birds</div>
+            </a>
+            <a class="game-card" href="game/candy-crush.html" data-category="puzzle">
+                <img src="images/candy-crush-thumbnail.jpg" alt="Candy Crush">
+                <div class="game-title">Candy Crush</div>
+            </a>
+            <!-- Add more game cards -->
+        </div>
+        <p id="no-results" style="display: none; text-align: center; color: red;">No games found.</p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Game Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

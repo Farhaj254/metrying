@@ -212,11 +212,26 @@ footer {
     border-radius: 8px; /* Optional: Rounded corners */
 }
 
+.iframe-container {
+    position: relative; /* Relative positioning for child absolute elements */
+    display: inline-block;
+}
+
+.game-section iframe {
+    width: 80%; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+    border: none;
+    max-width: 1000px; /* Optional: Set a maximum width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add a shadow for styling */
+    border-radius: 8px; /* Optional: Rounded corners */
+}
+
 .game-buttons {
+    position: absolute; /* Position relative to the iframe container */
+    bottom: 10px; /* Distance from the bottom of the iframe container */
+    right: 10px; /* Distance from the right of the iframe container */
     display: flex;
-    gap: 20px; /* Space between icons */
-    justify-content: center; /* Center align */
-    margin-top: 10px;
+    gap: 10px; /* Space between icons */
 }
 
 .fullscreen-icon,

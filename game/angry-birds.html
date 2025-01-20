@@ -32,16 +32,18 @@
     
     <main>
         <section class="game-section">
-            <iframe src="https://play.crazygames.com/game/angry-birds" 
-                    title="Angry Birds Game" 
-                    allowfullscreen>
-            </iframe>
-            <div class="game-buttons">
-    <i class="fas fa-share-alt share-icon" onclick="shareGame()" title="Share"></i>
-    <i class="fas fa-expand fullscreen-icon" onclick="makeFullscreen()" title="Full Screen"></i>           
-</div>
+    <div class="iframe-container">
+        <iframe src="https://play.crazygames.com/game/angry-birds" 
+                title="Angry Birds Game" 
+                allowfullscreen>
+        </iframe>
+        <div class="game-buttons">
+            <i class="fas fa-share-alt share-icon" onclick="shareGame()" title="Share"></i>
+            <i class="fas fa-expand fullscreen-icon" onclick="makeFullscreen()" title="Full Screen"></i>
+        </div>
+    </div>
+</section>
 
-        </section>
 
         <h2>Other Games</h2>
         <div class="game-grid" id="game-grid">

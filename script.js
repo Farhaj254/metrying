@@ -133,3 +133,17 @@ function makeFullscreen() {
         iframe.msRequestFullscreen();
     }
 }
+
+function shareGame() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title, // Use the current page title
+            text: "Check out this amazing game on Game Hub!",
+            url: window.location.href // Current page URL
+        })
+        .then(() => console.log('Game shared successfully'))
+        .catch((error) => console.error('Error sharing the game:', error));
+    } else {
+        alert('Sharing is not supported in this browser.');
+    }
+}

@@ -6,8 +6,8 @@
     <title>Game Hub - Angry Birds</title>
     <meta name="description" content="Play Angry Birds on Game Hub! Enjoy this exciting game and explore more.">
     <link rel="stylesheet" href="../styles.css">
+    <!-- Font Awesome CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
 </head>
 <body>
     <header>
@@ -37,10 +37,19 @@
                     allowfullscreen>
             </iframe>
             <div class="game-buttons">
-    <i class="fas fa-expand fullscreen-icon" onclick="makeFullscreen()" title="Full Screen"></i>
-    <i class="fas fa-share-alt share-icon" onclick="shareGame()" title="Share"></i>
-</div>
-
+                <!-- Full Screen Icon -->
+                <i class="fas fa-expand fullscreen-icon" onclick="makeFullscreen()" title="Full Screen"></i>
+                <!-- Inline SVG fallback for Full Screen -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="fullscreen-icon" onclick="makeFullscreen()" title="Full Screen" viewBox="0 0 24 24" width="24" height="24" fill="#00FFFF">
+                    <path d="M6 2h6v2H8v4H6V2zm12 0v6h-2V4h-4V2h6zm-6 16h6v6h-6v-2h4v-4h2v6zm-6 6H2v-6h2v4h4v2z"/>
+                </svg>
+                <!-- Share Icon -->
+                <i class="fas fa-share-alt share-icon" onclick="shareGame()" title="Share"></i>
+                <!-- Inline SVG fallback for Share -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="share-icon" onclick="shareGame()" title="Share" viewBox="0 0 24 24" width="24" height="24" fill="#00FFFF">
+                    <path d="M13 5.06A7.007 7.007 0 0 0 5 12H3l4 4 4-4H7a5.006 5.006 0 0 1 9.9-1H20a7.007 7.007 0 0 0-7-6.94z"/>
+                </svg>
+            </div>
         </section>
 
         <h2>Other Games</h2>

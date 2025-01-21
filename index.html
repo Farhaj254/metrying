@@ -29,11 +29,15 @@
             <li><button class="filter-btn" data-category="sports">Sports</button></li>
         </ul>
     </nav>
-   <div class="controls">
+  <div class="controls">
     <i id="search-icon" class="fas fa-search" onclick="toggleSearchBar()"></i>
-    <input type="text" id="search-bar" placeholder="Search games...">
+    <div id="search-container" style="display: none;">
+        <input type="text" id="search-bar" placeholder="Search games...">
+        <i id="close-search" class="fas fa-times" onclick="closeSearchBar()"></i>
+    </div>
     <button id="dark-mode-toggle">🌙</button>
 </div>
+
 </header>
 
 <!-- Sliding Menu -->

@@ -447,3 +447,30 @@ footer a:hover {
         display: block; /* Show search icon on mobile */
     }
 }
+#search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#close-search {
+    font-size: 20px;
+    color: #00FFFF;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+
+@media (max-width: 768px) {
+    #search-icon {
+        display: block; /* Show search icon on mobile */
+    }
+
+    #search-container {
+        display: none; /* Hidden initially */
+    }
+
+    #close-search {
+        display: block; /* Show when search bar is open */
+    }
+}
+

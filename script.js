@@ -146,4 +146,14 @@ function shareGame() {
     } else {
         alert('Sharing is not supported in this browser.');
     }
+
+    function toggleMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu.style.left === '0px') {
+        mobileMenu.style.left = '-100%'; // Close menu
+    } else {
+        mobileMenu.style.left = '0'; // Open menu
+    }
+}
+
 }

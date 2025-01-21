@@ -165,13 +165,25 @@ header .controls {
 
 /* Footer */
 footer {
-    background-color: #00FFFF; /* Footer remains cyan */
-    color: #eaeaea;
+    background-color: #000000; /* Black background */
+    color: #00FFFF; /* Cyan text */
     text-align: center;
     padding: 10px;
     font-size: 14px;
-    border-top: 3px solid #007bff;
+    border-top: 3px solid #00FFFF; /* Cyan border to match theme */
 }
+
+footer a {
+    color: #00FFFF; /* Cyan links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+footer a:hover {
+    color: #007bff; /* Light blue hover color */
+    text-decoration: underline; /* Underline on hover */
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

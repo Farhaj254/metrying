@@ -44,19 +44,23 @@ function addSearchFunctionality() {
     }
 }
 function toggleSearchBar() {
-    const searchBar = document.getElementById('search-bar');
+    const searchContainer = document.getElementById('search-container');
     const searchIcon = document.getElementById('search-icon');
 
-    if (searchBar.style.display === 'block') {
-        // Hide the search bar and show the icon
-        searchBar.style.display = 'none';
-        searchIcon.style.display = 'block';
-    } else {
-        // Show the search bar and hide the icon
-        searchBar.style.display = 'block';
-        searchIcon.style.display = 'none';
-    }
+    // Show the search bar and hide the search icon
+    searchContainer.style.display = 'flex';
+    searchIcon.style.display = 'none';
 }
+
+function closeSearchBar() {
+    const searchContainer = document.getElementById('search-container');
+    const searchIcon = document.getElementById('search-icon');
+
+    // Hide the search bar and show the search icon
+    searchContainer.style.display = 'none';
+    searchIcon.style.display = 'block';
+}
+
 
 /**
  * Show or hide the "No Results Found" message

@@ -3,32 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Hub - Angry Birds</title>
-    <meta name="description" content="Play Angry Birds on Game Hub! Enjoy this exciting game and explore more.">
-    <link rel="stylesheet" href="../styles.css">
+    <title>Game Hub - Home</title>
+    <meta name="description" content="Welcome to Game Hub! Explore and play exciting games like Angry Birds, Candy Crush, and more.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
+<style>
+@media (max-width: 768px) {
+    header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger-menu {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        z-index: 20;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .controls {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+</style>
+
+
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../images/logo.png" alt="Game Hub Logo">
-            </a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><button class="filter-btn" data-category="all">All Games</button></li>
-                <li><button class="filter-btn" data-category="action">Action</button></li>
-                <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
-                <li><button class="filter-btn" data-category="sports">Sports</button></li>
-            </ul>
-        </nav>
-        <div class="controls">
-            <input type="text" id="search-bar" placeholder="Search games...">
-            <button id="dark-mode-toggle">🌙</button>
-        </div>
-    </header>
+<body class="index-page">
+   <header>
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+    </div>
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Game Hub Logo">
+        </a>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><button class="filter-btn" data-category="all">All Games</button></li>
+            <li><button class="filter-btn" data-category="action">Action</button></li>
+            <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
+            <li><button class="filter-btn" data-category="sports">Sports</button></li>
+        </ul>
+    </nav>
+  <div class="controls">
+    <i id="search-icon" class="fas fa-search" onclick="toggleSearchBar()"></i>
+    <div id="search-container" style="display: none;">
+        <input type="text" id="search-bar" placeholder="Search games...">
+        <i id="close-search" class="fas fa-times" onclick="closeSearchBar()"></i>
+    </div>
+    <button id="dark-mode-toggle">🌙</button>
+</div>
+
+</header>
+
+<!-- Sliding Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <div class="menu-header">
+        <button class="close-menu" onclick="toggleMenu()">✖</button>
+    </div>
+    <ul class="mobile-menu-links">
+        <li><button class="filter-btn" data-category="all" onclick="toggleMenu()">All Games</button></li>
+        <li><button class="filter-btn" data-category="action" onclick="toggleMenu()">Action</button></li>
+        <li><button class="filter-btn" data-category="puzzle" onclick="toggleMenu()">Puzzle</button></li>
+        <li><button class="filter-btn" data-category="sports" onclick="toggleMenu()">Sports</button></li>
+    </ul>
+    <div class="mobile-menu-socials">
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
     
     <main>
        <section class="game-section">

@@ -292,12 +292,20 @@ footer a:hover {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    max-height: 200px; /* Adjust this based on the word limit */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .game-description h3 {
     margin-top: 0;
     color: #00FFFF;
+    position: sticky;
+    top: 0; /* Keep headers visible while scrolling */
+    background-color: #27293d; /* Match the background */
+    z-index: 10;
+    padding: 5px 0;
 }
+
 
 .game-description p {
     margin: 10px 0;

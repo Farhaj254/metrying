@@ -43,6 +43,20 @@ function addSearchFunctionality() {
         });
     }
 }
+function toggleSearchBar() {
+    const searchBar = document.getElementById('search-bar');
+    const searchIcon = document.getElementById('search-icon');
+
+    if (searchBar.style.display === 'block') {
+        // Hide the search bar and show the icon
+        searchBar.style.display = 'none';
+        searchIcon.style.display = 'block';
+    } else {
+        // Show the search bar and hide the icon
+        searchBar.style.display = 'block';
+        searchIcon.style.display = 'none';
+    }
+}
 
 /**
  * Show or hide the "No Results Found" message

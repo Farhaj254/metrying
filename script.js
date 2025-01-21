@@ -155,3 +155,4 @@ function toggleMenu() {
         mobileMenu.style.left = '0'; // Open menu
     }
 }
+

@@ -81,9 +81,11 @@ header .controls {
 }
 
 .nav-links button.active {
-    background-color: #007bff; /* Active button background color */
-    color: #fff;
+    background-color: #00FFFF; /* Cyan color for selected button */
+    color: #000; /* Black text */
+    transform: scale(1.1); /* Optional: Keep the slight scale effect */
 }
+
 
 
 /* Game Grid */

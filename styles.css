@@ -92,7 +92,7 @@ header .controls {
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid columns */
-    gap: 10px; /* Space between cards */
+    gap: 20px; /* Space between cards */
     padding: 20px;
     margin: 0; /* Remove centering margin */
     width: 100%; /* Full width */

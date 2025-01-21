@@ -360,7 +360,9 @@ footer a:hover {
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+    overflow-y: auto; /* Add scroll in case of overflow */
 }
+
 
 .menu-header {
     display: flex;
@@ -407,18 +409,23 @@ footer a:hover {
 
 .mobile-menu-socials {
     display: flex;
-    justify-content: space-evenly;
-    gap: 10px;
-    margin-top: auto; /* Push socials to the bottom */
+    justify-content: center; /* Center align the icons */
+    align-items: center; /* Vertically center the icons */
+    gap: 15px; /* Space between the icons */
+    margin-top: auto; /* Push the icons to the bottom of the menu */
+    padding-bottom: 20px; /* Add padding at the bottom for better spacing */
+    position: relative; /* Ensure proper placement */
 }
 
 .mobile-menu-socials a {
     color: #00FFFF;
-    font-size: 24px;
+    font-size: 24px; /* Adjust size for better visibility */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .mobile-menu-socials a:hover {
     color: #007bff;
+    transform: scale(1.2); /* Add a hover zoom effect */
 }
+

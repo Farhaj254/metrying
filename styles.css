@@ -489,33 +489,33 @@ footer a:hover {
 /* Mobile-specific header adjustments */
 @media (max-width: 768px) {
     header {
-        position: relative; /* Ensure child elements align properly */
+        position: relative;
         display: flex;
-        flex-direction: column; /* Stack items */
-        justify-content: center;
+        justify-content: center; /* Center content */
         align-items: center;
-        text-align: center; /* Center text/logo */
         padding: 10px 0;
+        text-align: center;
     }
 
     .hamburger-menu {
         position: absolute;
-        top: 15px; /* Align vertically */
-        left: 10px; /* Align horizontally */
-        z-index: 20; /* Ensure it is above other elements */
+        top: 50%; /* Vertically center */
+        left: 10px; /* Adjust distance from the left */
+        transform: translateY(-50%); /* Ensure proper centering */
+        z-index: 20;
     }
 
     .logo {
-        margin: 0 auto; /* Center the logo */
+        text-align: center;
     }
 
     .controls {
         position: absolute;
-        top: 15px;
-        right: 10px; /* Align controls (search/dark mode) to the right */
+        top: 50%; /* Vertically center */
+        right: 10px; /* Adjust distance from the right */
+        transform: translateY(-50%); /* Ensure proper centering */
         display: flex;
         align-items: center;
         gap: 10px;
     }
 }
-

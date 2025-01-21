@@ -47,7 +47,7 @@ function toggleSearchBar() {
     const searchContainer = document.getElementById('search-container');
     const searchIcon = document.getElementById('search-icon');
 
-    // Show the search bar and hide the search icon
+    // Show the search bar and the close button, hide the search icon
     searchContainer.style.display = 'flex';
     searchIcon.style.display = 'none';
 }
@@ -60,6 +60,7 @@ function closeSearchBar() {
     searchContainer.style.display = 'none';
     searchIcon.style.display = 'block';
 }
+
 
 
 /**

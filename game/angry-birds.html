@@ -45,25 +45,52 @@
 </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="../index.html">
-                <img src="../images/logo.png" alt="Game Hub Logo">
-            </a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><button class="filter-btn" data-category="all">All Games</button></li>
-                <li><button class="filter-btn" data-category="action">Action</button></li>
-                <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
-                <li><button class="filter-btn" data-category="sports">Sports</button></li>
-            </ul>
-        </nav>
-        <div class="controls">
-            <input type="text" id="search-bar" placeholder="Search games...">
-            <button id="dark-mode-toggle">🌙</button>
-        </div>
-    </header>
+   <header>
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+    </div>
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Game Hub Logo">
+        </a>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><button class="filter-btn" data-category="all">All Games</button></li>
+            <li><button class="filter-btn" data-category="action">Action</button></li>
+            <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
+            <li><button class="filter-btn" data-category="sports">Sports</button></li>
+        </ul>
+    </nav>
+  <div class="controls">
+    <i id="search-icon" class="fas fa-search" onclick="toggleSearchBar()"></i>
+    <div id="search-container" style="display: none;">
+        <input type="text" id="search-bar" placeholder="Search games...">
+        <i id="close-search" class="fas fa-times" onclick="closeSearchBar()"></i>
+    </div>
+    <button id="dark-mode-toggle">🌙</button>
+</div>
+
+</header>
+
+<!-- Sliding Menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <div class="menu-header">
+        <button class="close-menu" onclick="toggleMenu()">✖</button>
+    </div>
+    <ul class="mobile-menu-links">
+        <li><button class="filter-btn" data-category="all" onclick="toggleMenu()">All Games</button></li>
+        <li><button class="filter-btn" data-category="action" onclick="toggleMenu()">Action</button></li>
+        <li><button class="filter-btn" data-category="puzzle" onclick="toggleMenu()">Puzzle</button></li>
+        <li><button class="filter-btn" data-category="sports" onclick="toggleMenu()">Sports</button></li>
+    </ul>
+    <div class="mobile-menu-socials">
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+
     
     <main>
        <section class="game-section">

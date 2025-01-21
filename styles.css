@@ -486,4 +486,36 @@ footer a:hover {
 }
 
 }
+/* Mobile-specific header adjustments */
+@media (max-width: 768px) {
+    header {
+        position: relative; /* Ensure child elements align properly */
+        display: flex;
+        flex-direction: column; /* Stack items */
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* Center text/logo */
+        padding: 10px 0;
+    }
+
+    .hamburger-menu {
+        position: absolute;
+        top: 15px; /* Align vertically */
+        left: 10px; /* Align horizontally */
+        z-index: 20; /* Ensure it is above other elements */
+    }
+
+    .logo {
+        margin: 0 auto; /* Center the logo */
+    }
+
+    .controls {
+        position: absolute;
+        top: 15px;
+        right: 10px; /* Align controls (search/dark mode) to the right */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
 

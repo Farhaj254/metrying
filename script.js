@@ -175,3 +175,17 @@ function toggleMenu() {
     }
 }
 
+/** scrollable Description */
+document.addEventListener('DOMContentLoaded', () => {
+    const descriptionSection = document.querySelector('.game-description');
+    if (descriptionSection) {
+        const wordLimit = 400;
+        const words = descriptionSection.innerText.split(/\s+/).length;
+
+        // Check if the word count exceeds the limit
+        if (words > wordLimit) {
+            descriptionSection.style.maxHeight = '200px'; // Set max height
+            descriptionSection.style.overflowY = 'auto'; // Enable scrolling
+        }
+    }
+});

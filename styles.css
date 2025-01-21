@@ -91,15 +91,14 @@ header .controls {
 /* Game Grid */
 .game-grid {
     display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px; /* Reduced gap for tighter spacing */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid columns */
+    gap: 10px; /* Space between cards */
     padding: 20px;
-    justify-content: center; /* Centers the grid */
-    max-width: 800px; /* Adjust to fit your design */
-    margin: 0 auto; /* Center the grid */
-
-
+    margin: 0; /* Remove centering margin */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
+
 
 /* Game Card */
 .game-card {

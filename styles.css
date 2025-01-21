@@ -89,12 +89,12 @@ header .controls {
 
 
 /* Game Grid */
-/* Game Grid */
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid for larger screens */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid columns */
     gap: 10px; /* Space between cards */
     padding: 20px;
+    margin: 0; /* Remove centering margin */
     width: 100%; /* Full width */
     box-sizing: border-box; /* Include padding in width calculation */
 }
@@ -110,22 +110,25 @@ header .controls {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 150px;
+    height: 150px;
     border: 2px solid transparent; /* Default border is transparent */
-    aspect-ratio: 1; /* Maintain square aspect ratio */
 }
 
-/* Adjusting for Smaller Screens */
+/* Responsive Design */
 @media (max-width: 768px) {
     .game-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adapt columns for smaller screens */
-        gap: 10px; /* Maintain proper spacing */
-        padding: 10px; /* Reduced padding */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Maintain consistency with larger screens */
+        gap: 10px; /* Same gap as larger screens */
+        padding: 20px; /* Same padding as larger screens */
     }
 
     .game-card {
-        aspect-ratio: 1; /* Ensure square cards */
+        width: 150px; /* Keep card width consistent */
+        height: 150px; /* Keep card height consistent */
     }
 }
+
 
 
 .game-card img {

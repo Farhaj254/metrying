@@ -319,7 +319,6 @@ footer a:hover {
     cursor: pointer;
     user-select: none;
 }
-
 /* Mobile Menu */
 .mobile-menu {
     position: fixed;
@@ -338,39 +337,54 @@ footer a:hover {
     padding: 20px;
 }
 
-.mobile-menu-header {
-    text-align: center;
-    margin-bottom: 20px;
+.menu-header {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.mobile-logo {
-    width: 120px;
+.close-menu {
+    background: none;
+    border: none;
+    color: #00FFFF;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-menu:hover {
+    color: #007bff;
 }
 
 .mobile-menu-links {
     list-style: none;
     padding: 0;
+    margin: 20px 0; /* Add margin to push items down */
 }
 
 .mobile-menu-links li {
     margin: 10px 0;
+    text-align: left; /* Align text to the left */
 }
 
-.mobile-menu-links li a {
-    text-decoration: none;
+.mobile-menu-links li button {
+    background: none;
+    border: none;
     color: #00FFFF;
     font-size: 18px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
     transition: color 0.3s ease;
 }
 
-.mobile-menu-links li a:hover {
+.mobile-menu-links li button:hover {
     color: #007bff;
 }
 
 .mobile-menu-socials {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-top: auto; /* Push socials to the bottom */
 }
 
 .mobile-menu-socials a {
@@ -382,23 +396,4 @@ footer a:hover {
 
 .mobile-menu-socials a:hover {
     color: #007bff;
-}
-
-/* Show hamburger icon and adjust header for mobile */
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block;
-    }
-
-    .logo {
-        text-align: center;
-    }
-
-    nav {
-        display: none; /* Hide the desktop menu in mobile */
-    }
-
-    .controls {
-        display: none; /* Optionally hide controls for mobile */
-    }
 }

@@ -304,14 +304,39 @@ footer a:hover {
     line-height: 1.5;
 }
 
-/* Hide the hamburger icon and mobile menu by default */
+/* Ensure hamburger menu is visible on mobile */
 .hamburger-menu {
-    display: none;
+    display: none; /* Default: hidden for larger screens */
     position: absolute;
     left: 20px;
-    top: 10px;
+    top: 15px;
     z-index: 10;
 }
+
+.hamburger-icon {
+    font-size: 24px;
+    color: #00FFFF;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Show the hamburger menu on mobile screens */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Visible on screens smaller than 768px */
+    }
+
+    nav {
+        display: none; /* Hide the desktop navigation */
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
 
 .hamburger-icon {
     font-size: 24px;

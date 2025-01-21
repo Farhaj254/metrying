@@ -486,12 +486,11 @@ footer a:hover {
 }
 
 }
-/* Mobile-specific header adjustments */
 @media (max-width: 768px) {
     header {
         position: relative;
         display: flex;
-        justify-content: center; /* Center content */
+        justify-content: center;
         align-items: center;
         padding: 10px 0;
         text-align: center;
@@ -499,9 +498,9 @@ footer a:hover {
 
     .hamburger-menu {
         position: absolute;
-        top: 50%; /* Vertically center */
-        left: 10px; /* Adjust distance from the left */
-        transform: translateY(-50%); /* Ensure proper centering */
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
         z-index: 20;
     }
 
@@ -511,9 +510,9 @@ footer a:hover {
 
     .controls {
         position: absolute;
-        top: 50%; /* Vertically center */
-        right: 10px; /* Adjust distance from the right */
-        transform: translateY(-50%); /* Ensure proper centering */
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
         display: flex;
         align-items: center;
         gap: 10px;

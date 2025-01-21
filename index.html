@@ -35,14 +35,14 @@
 
 <!-- Sliding Menu -->
 <div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-header">
-        <img src="images/logo.png" alt="Game Hub Logo" class="mobile-logo">
+    <div class="menu-header">
+        <button class="close-menu" onclick="toggleMenu()">✖</button>
     </div>
     <ul class="mobile-menu-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#games">Games</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><button class="filter-btn" data-category="all" onclick="toggleMenu()">All Games</button></li>
+        <li><button class="filter-btn" data-category="action" onclick="toggleMenu()">Action</button></li>
+        <li><button class="filter-btn" data-category="puzzle" onclick="toggleMenu()">Puzzle</button></li>
+        <li><button class="filter-btn" data-category="sports" onclick="toggleMenu()">Sports</button></li>
     </ul>
     <div class="mobile-menu-socials">
         <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
@@ -50,6 +50,7 @@
         <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
 </div>
+
 
 
     

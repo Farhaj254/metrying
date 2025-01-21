@@ -304,3 +304,101 @@ footer a:hover {
     line-height: 1.5;
 }
 
+/* Hide the hamburger icon and mobile menu by default */
+.hamburger-menu {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    z-index: 10;
+}
+
+.hamburger-icon {
+    font-size: 24px;
+    color: #00FFFF;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 250px;
+    background-color: #1a1a2e;
+    color: #eaeaea;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.mobile-menu-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mobile-logo {
+    width: 120px;
+}
+
+.mobile-menu-links {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-menu-links li {
+    margin: 10px 0;
+}
+
+.mobile-menu-links li a {
+    text-decoration: none;
+    color: #00FFFF;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-links li a:hover {
+    color: #007bff;
+}
+
+.mobile-menu-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.mobile-menu-socials a {
+    color: #00FFFF;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-socials a:hover {
+    color: #007bff;
+}
+
+/* Show hamburger icon and adjust header for mobile */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    nav {
+        display: none; /* Hide the desktop menu in mobile */
+    }
+
+    .controls {
+        display: none; /* Optionally hide controls for mobile */
+    }
+}

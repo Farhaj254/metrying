@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub - Angry Birds</title>
+    <meta name="description" content="Play Angry Birds on Game Hub! Enjoy this exciting game and explore more.">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Game Hub Logo">
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><button class="filter-btn" data-category="all">All Games</button></li>
+                <li><button class="filter-btn" data-category="action">Action</button></li>
+                <li><button class="filter-btn" data-category="puzzle">Puzzle</button></li>
+                <li><button class="filter-btn" data-category="sports">Sports</button></li>
+            </ul>
+        </nav>
+        <div class="controls">
+            <input type="text" id="search-bar" placeholder="Search games...">
+            <button id="dark-mode-toggle">🌙</button>
+        </div>
+    </header>
+    
+    <main>
+       <section class="game-section">
+    <div class="iframe-container">
+        <iframe src="https://html5.gamemonetize.co/j8ckmmlaa4hsqknbzbrvft9mqhvfdakx/" 
+                title="Angry Birds Game" 
+                allowfullscreen>
+        </iframe>
+    </div>
+    <div class="game-info-container">
+        <div class="game-title">Angry Birds</div>
+        <div class="game-buttons">
+            <i class="fas fa-share-alt share-icon" onclick="shareGame()" title="Share"></i>
+            <i class="fas fa-expand fullscreen-icon" onclick="makeFullscreen()" title="Full Screen"></i>
+        </div>
+    </div>
+    <div class="game-description">
+        <h3>Description</h3>
+        <p>Angry Birds is a fun and addictive game where you catapult birds to destroy enemy structures. Use your skill and strategy to complete each level!</p>
+        <h3>Instructions</h3>
+        <p>Use the mouse or touch controls to aim and launch the birds. Each bird has unique abilities, so plan your moves carefully!</p>
+    </div>
+</section>
+
+
+        <h2>Other Games</h2>
+        <div class="game-grid" id="game-grid">
+            <a class="game-card" href="candy-crush.html" data-category="puzzle">
+                <img src="../images/candy-crush-thumbnail.jpg" alt="Candy Crush">
+                <div class="game-title">Candy Crush</div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Game Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

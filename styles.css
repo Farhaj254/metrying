@@ -483,3 +483,64 @@ footer a:hover {
 }
 
 }
+/* left and right sections */
+/* Ad Container */
+.ad-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 150px;
+    margin: 10px;
+}
+
+.ad-box {
+    background-color: #2a2a3b;
+    color: #eaeaea;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+}
+
+/* Game Grid for Right Side */
+.game-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 150px;
+}
+
+.game-card {
+    background: #27293d;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.game-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ad-container, .game-grid {
+        display: none; /* Hide sidebars on small screens */
+    }
+
+    .iframe-container iframe {
+        width: 100%;
+    }
+}

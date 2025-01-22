@@ -462,12 +462,15 @@ footer a:hover {
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
-    flex-direction: row; /* Changed from column to row for horizontal alignment */
-    justify-content: space-between; /* Add space between cards */
+    flex-direction: row; /* Set to row for horizontal alignment */
+    justify-content: center; /* Center-align cards within the section */
     align-items: center; /* Vertically center cards */
-    gap: 10px; /* Space between game cards */
-    width: auto; /* Adjust width as needed */
+    gap: 20px; /* Add spacing between cards */
+    flex-wrap: wrap; /* Allow wrapping if space is limited */
+    width: 100%; /* Ensure the section spans the full width */
+    max-width: 300px; /* Adjust based on your layout needs */
 }
+
 
 
 /* Game Card Styling */

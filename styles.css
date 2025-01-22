@@ -214,13 +214,13 @@ footer a:hover {
 /* Game Section */
 .game-section {
     display: flex;
-    flex-direction: row; /* Arrange children side by side */
-    justify-content: center; /* Center the entire layout */
+    justify-content: space-between; /* Add spacing between sections */
     align-items: flex-start; /* Align items to the top */
-    gap: 20px; /* Space between the sections */
-    margin: 20px auto;
-    max-width: 1200px;
+    gap: 20px; /* Space between left, center, and right sections */
+    max-width: 1200px; /* Ensure enough space for all sections */
+    margin: 0 auto; /* Center the entire section */
 }
+
 
 .iframe-container {
     position: relative;

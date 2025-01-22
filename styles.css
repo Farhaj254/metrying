@@ -496,21 +496,6 @@ footer a:hover {
 }
 
 
-h2 {
-    text-align: left; /* Align the heading to the left */
-    margin-left: 20px; /* Adjust this value to match the padding/margin of the game grid */
-    font-size: 24px; /* Set a font size that fits your design */
-    color: #eaeaea; /* Keep it consistent with your theme */
-    margin-bottom: 10px; /* Space between the heading and the game grid */
-}
-
-@media (max-width: 768px) {
-    h2 {
-        text-align: center; /* Center align on mobile if needed */
-        margin-left: 0; /* Reset margin for smaller screens */
-    }
-}
-
 
 
 

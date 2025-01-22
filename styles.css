@@ -536,7 +536,7 @@ footer a:hover {
 .game-title {
     font-size: 24px;
     font-weight: bold;
-    color: #eaeaea;
+    color: #00FFFF;
 }
 
 .game-buttons {
@@ -560,7 +560,7 @@ footer a:hover {
 .game-description {
     width: 100%;
     background-color: #27293d;
-    color: #eaeaea;
+    color: #00FFFF;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);

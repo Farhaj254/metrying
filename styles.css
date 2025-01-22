@@ -462,10 +462,13 @@ footer a:hover {
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 150px; /* Width for game cards column */
+    flex-direction: row; /* Changed from column to row for horizontal alignment */
+    justify-content: space-between; /* Add space between cards */
+    align-items: center; /* Vertically center cards */
+    gap: 10px; /* Space between game cards */
+    width: auto; /* Adjust width as needed */
 }
+
 
 /* Game Card Styling */
 .game-card {

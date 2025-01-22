@@ -214,11 +214,14 @@ footer a:hover {
 /* Game Section */
 .game-section {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers the iframe horizontally */
-    justify-content: center;
-    margin: 20px 0;
+    flex-direction: row; /* Arrange children side by side */
+    justify-content: center; /* Center the entire layout */
+    align-items: flex-start; /* Align items to the top */
+    gap: 20px; /* Space between the sections */
+    margin: 20px auto;
+    max-width: 1200px;
 }
+
 .iframe-container {
     position: relative;
     display: inline-block;
@@ -483,18 +486,6 @@ footer a:hover {
 }
 
 }
-/* left and right sections */
-
-/* Game Section Layout */
-.game-section {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    margin: 20px auto;
-    max-width: 1200px;
-}
-
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;

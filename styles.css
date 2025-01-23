@@ -716,3 +716,20 @@ footer a:hover {
     }
 }
 
+/* Banner Ad Section */
+.banner-ad {
+    width: 100%; /* Full width */
+    background-color: #27293d; /* Match the website's theme */
+    display: flex;
+    justify-content: center; /* Center the ad */
+    align-items: center;
+    padding: 10px 0; /* Add padding for spacing */
+    margin-bottom: 20px; /* Space below the ad */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for effect */
+}
+
+.banner-ad img {
+    max-width: 100%; /* Make the ad responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounded corners */
+}

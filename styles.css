@@ -494,10 +494,4 @@ footer a:hover {
     }
 }
 
-@media (min-width: 1440px) {
-    .game-content {
-        max-width: 1600px; /* Increase the maximum width on extra-large screens */
-        padding: 20px; /* Add padding for spacing */
-    }
-}
 

@@ -492,10 +492,6 @@ footer a:hover {
       .left-section, .right-section {
         display: none; /* Hide the sections on smaller screens */
     }
-    .game-content {
-        width: 80%;
-        max-width: 1400px; /* Larger width for big screens */
-    }
 }
 
 /* Game Content Section */
@@ -505,13 +501,21 @@ footer a:hover {
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center align all elements */
     gap: 20px; /* Add spacing between child elements */
-    width: 100%; /* Increased width */
-    max-width: 1200px; /* Allow more space for larger screens */
+    width: 100%; /* Default width */
+    max-width: 1400px; /* Allow full expansion on larger screens */
     margin: 20px auto; /* Center the section on the page */
     background-color: #1a1a2e; /* Match the theme background */
-    padding: 10px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+}
+
+/* Adjust the game content for larger screens */
+@media (min-width: 1440px) {
+    .game-content {
+        max-width: 1600px; /* Increase the maximum width on extra-large screens */
+        padding: 20px; /* Add padding for spacing */
+    }
 }
 
 .iframe-container iframe {

@@ -460,61 +460,56 @@ footer a:hover {
 /* Game Section For Left and Right Section */
 .game-section {
     display: flex;
-    justify-content: space-between; /* Distribute sections evenly */
-    align-items: center; /* Vertically align all child elements */
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 20px;
     width: 90%; /* Use 90% of the viewport width */
     max-width: 1400px; /* Allow more space for larger screens */
-    margin: 0 auto; /* Center the section */
+    margin: 0 auto;
 }
-
 
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
-    flex-direction: column; /* Stack cards vertically */
-    justify-content: center; /* Center align cards */
+    flex-direction: row;
+    justify-content: flex-start; /* Align cards to the start */
     align-items: center;
     gap: 20px;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* Prevent wrapping */
     width: 20%; /* Take 20% of the `.game-section` */
     max-width: 300px; /* Restrict maximum size */
-    height: 500px; /* Match the `.game-content` height */
 }
-
 
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .game-section {
-        flex-direction: column; /* Stack sections vertically */
+        flex-direction: column;
         align-items: center;
         gap: 20px;
     }
     .left-section, .right-section {
-        display: none; /* Hide side sections on smaller screens */
+        display: none; /* Hide on smaller screens */
     }
     .game-content {
         width: 100%;
     }
 }
 
-
 /* Game Content Section */
 .game-content {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align all elements */
+    gap: 20px; /* Add spacing between child elements */
     width: 80%;
     max-width: 1000px;
-    margin: 20px auto;
-    background-color: #1a1a2e;
+    margin: 20px auto; /* Center the section on the page */
+    background-color: #1a1a2e; /* Match the theme background */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    height: 500px; /* Ensure the height matches the iframe or content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
 }
 
 .iframe-container iframe {

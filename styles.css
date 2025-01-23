@@ -463,8 +463,8 @@ footer a:hover {
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    width: 90%; /* Keep responsive behavior */
-    max-width: 1000px; /* Allow more space for larger screens */
+    width: 80%; /* Keep responsive behavior */
+    max-width: 1800px; /* Allow more space for larger screens */
     margin: 0 auto;
 }
 
@@ -503,7 +503,7 @@ footer a:hover {
     align-items: center;
     gap: 20px;
     width: auto; /* Prevent fixed width */
-    max-width: 1000px; /* Match the increased limit of `.game-section` */
+    max-width: 1600px; /* Match the increased limit of `.game-section` */
     margin: 20px auto;
     background-color: #1a1a2e;
     padding: 20px;

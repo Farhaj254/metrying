@@ -463,7 +463,7 @@ footer a:hover {
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    width: 50%; /* Keep responsive behavior */
+    width: 90%; /* Keep responsive behavior */
     max-width: 1800px; /* Allow more space for larger screens */
     margin: 0 auto;
 }

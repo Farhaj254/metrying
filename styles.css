@@ -493,7 +493,8 @@ footer a:hover {
         display: none; /* Hide the sections on smaller screens */
     }
     .game-content {
-        width: 100%;
+        width: 80%;
+        max-width: 1400px; /* Larger width for big screens */
     }
 }
 

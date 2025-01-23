@@ -503,7 +503,7 @@ footer a:hover {
     align-items: center;
     gap: 20px;
     width: auto; /* Prevent fixed width */
-    max-width: 1600px; /* Match the increased limit of `.game-section` */
+    max-width: 1200px; /* Match the increased limit of `.game-section` */
     margin: 20px auto;
     background-color: #1a1a2e;
     padding: 20px;

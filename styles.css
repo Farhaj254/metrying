@@ -472,61 +472,31 @@ footer a:hover {
 
 
 /* Left and Right Sections */
-.left-section, .right-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 200px; /* Adjust width as needed */
-}
-
-.game-cards {
+/* Game Grid (2x2 layout) */
+.game-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px; /* Spacing between cards */
+    margin-bottom: 20px; /* Space between grid and ad container */
 }
 
-.game-card {
-    background: #27293d;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.game-card img {
-    width: 100%;
-    height: auto;
-    border-bottom: 2px solid #1a1a2e;
-}
-
+/* Ad Container */
 .ad-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the ad image */
     align-items: center;
-    background: #2a2a3b;
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    height: 150px; /* Adjust ad height as needed */
+    background-color: #27293d; /* Match the design */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
 }
 
 .ad-container img {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
-@media (max-width: 768px) {
-    .left-section, .right-section {
-        display: none; /* Hide on smaller screens */
-    }
-}
 
 
 

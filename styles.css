@@ -474,12 +474,58 @@ footer a:hover {
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: flex-start; /* Align items to the top */
-    gap: 20px; /* Add space between elements */
-    margin-top: 20px;
-    width: auto;
-    max-width: 250px; /* Limit the width */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 200px; /* Adjust width as needed */
+}
+
+.game-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.game-card {
+    background: #27293d;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #1a1a2e;
+}
+
+.ad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2a2a3b;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 150px; /* Adjust ad height as needed */
+}
+
+.ad-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .left-section, .right-section {
+        display: none; /* Hide on smaller screens */
+    }
 }
 
 
@@ -611,18 +657,5 @@ footer a:hover {
         padding: 15px;
     }
 }
-/* Ad Section Styles */
-.ad-container {
-    margin-top: 20px; /* Space between the game cards and the ad */
-    text-align: center; /* Center the ad content */
-    width: 100%; /* Take full width of the container */
-}
 
-.ad-container .ad-image {
-    width: 100%; /* Ensure the ad fits */
-    max-width: 250px; /* Limit the ad size */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: Rounded corners for the ad */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
-}
 

@@ -471,14 +471,15 @@ footer a:hover {
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
-    flex-direction: column; /* Stack the game cards vertically */
-    justify-content: flex-start; /* Align the cards to the top */
-    align-items: center; /* Center the cards horizontally */
-    gap: 20px; /* Space between the cards */
-    width: 20%; /* Width based on the `.game-section` */
-    max-width: 300px; /* Limit the maximum width */
-    margin-top: 20px; /* Adjust to align with the top of `.game-content` */
+    flex-direction: row; /* Keep horizontal alignment */
+    justify-content: center; /* Center the game cards horizontally */
+    align-items: flex-start; /* Align to the top */
+    gap: 20px; /* Space between the game cards */
+    margin-top: 20px; /* Adjust this to match the alignment with the `.game-content` */
+    width: auto; /* Maintain the section's width */
+    max-width: 300px; /* Optional: Restrict max width */
 }
+
 
 
 /* Responsive Design */

@@ -474,14 +474,26 @@ footer a:hover {
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
-    flex-direction: row; /* Keep horizontal alignment */
-    justify-content: center; /* Center the game cards horizontally */
-    align-items: flex-start; /* Align to the top */
-    gap: 20px; /* Space between the game cards */
-    margin-top: 20px; /* Adjust this to match the alignment with the `.game-content` */
-    width: auto; /* Maintain the section's width */
-    max-width: 250px; /* Shrink these to allow `.game-content` more space */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align to the top */
+    gap: 20px; /* Space between game cards and ad */
+    margin-top: 20px;
+    max-width: 250px; /* Optional: limit the section width */
 }
+
+.ad-section {
+    margin-top: 20px; /* Space between game cards and ad */
+    text-align: center;
+}
+
+.ad-section .ad-image {
+    width: 100%; /* Ensure the ad image fits */
+    max-width: 250px;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 
 
 
@@ -611,20 +623,6 @@ footer a:hover {
         width: 95%; /* Match other elements */
         padding: 15px;
     }
-}
-/* Ad Section Styles */
-.ad-section {
-    margin-top: 20px; /* Space between the game cards and the ad */
-    text-align: center; /* Center the ad content */
-    width: 100%; /* Take full width of the container */
-}
-
-.ad-section .ad-image {
-    width: 100%; /* Ensure it fits within the container */
-    max-width: 250px; /* Limit the maximum width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: match the style of game cards */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
 }
 
 

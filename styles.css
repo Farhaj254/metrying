@@ -471,13 +471,13 @@ footer a:hover {
 /* Left and Right Sections */
 .left-section, .right-section {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start; /* Align cards to the start */
-    align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    width: 20%; /* Take 20% of the `.game-section` */
-    max-width: 300px; /* Restrict maximum size */
+    flex-direction: column; /* Stack the game cards vertically */
+    justify-content: flex-start; /* Align the cards to the top */
+    align-items: center; /* Center the cards horizontally */
+    gap: 20px; /* Space between the cards */
+    width: 20%; /* Width based on the `.game-section` */
+    max-width: 300px; /* Limit the maximum width */
+    margin-top: 20px; /* Adjust to align with the top of `.game-content` */
 }
 
 
@@ -488,8 +488,8 @@ footer a:hover {
         align-items: center;
         gap: 20px;
     }
-    .left-section, .right-section {
-        display: none; /* Hide on smaller screens */
+      .left-section, .right-section {
+        display: none; /* Hide the sections on smaller screens */
     }
     .game-content {
         width: 100%;

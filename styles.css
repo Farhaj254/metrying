@@ -504,11 +504,11 @@ footer a:hover {
     flex-direction: column; /* Stack elements vertically */
     align-items: center; /* Center align all elements */
     gap: 20px; /* Add spacing between child elements */
-    width: 90%; /* Increased width */
+    width: 100%; /* Increased width */
     max-width: 1200px; /* Allow more space for larger screens */
     margin: 20px auto; /* Center the section on the page */
     background-color: #1a1a2e; /* Match the theme background */
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
 }

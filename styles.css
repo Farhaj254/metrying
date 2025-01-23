@@ -220,58 +220,6 @@ footer a:hover {
     max-width: 1200px; /* Ensure enough space for all sections */
     margin: 0 auto; /* Center the entire section */
 }
-.iframe-container {
-    position: relative;
-    display: inline-block;
-    width: 80%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.iframe-container iframe {
-    width: 100%;
-    height: 500px;
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-}
-
-.game-info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px auto;
-    width: 80%;
-    max-width: 1000px;
-}
-
-.game-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: #eaeaea;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 8px;
-}
-
-.game-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.fullscreen-icon,
-.share-icon {
-    font-size: 24px;
-    color: #00FFFF;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.fullscreen-icon:hover,
-.share-icon:hover {
-    color: #007bff;
-    transform: scale(1.2);
-}
 
 
 

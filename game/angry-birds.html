@@ -43,6 +43,97 @@
         gap: 10px;
     }
 }
+    /* Game Content Section */
+.game-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align all elements */
+    gap: 20px; /* Add spacing between child elements */
+    width: 100%; /* Default width */
+    max-width: 1400px; /* Allow full expansion on larger screens */
+    margin: 20px auto; /* Center the section on the page */
+    background-color: #1a1a2e; /* Match the theme background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+}
+
+/* Adjust the game content for larger screens */
+@media (min-width: 1440px) {
+    .game-content {
+        max-width: 1600px; /* Increase the maximum width on extra-large screens */
+        padding: 20px; /* Add padding for spacing */
+    }
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+.game-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Make it full-width of the parent container */
+}
+
+.game-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00FFFF;
+}
+
+.game-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.fullscreen-icon,
+.share-icon {
+    font-size: 24px;
+    color: #00FFFF;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.fullscreen-icon:hover,
+.share-icon:hover {
+    color: #007bff;
+    transform: scale(1.2);
+}
+.game-description {
+    width: 100%;
+    background-color: #27293d;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    max-height: 400px; /* Adjust based on your needs */
+    overflow-y: hidden; /* Default: hide overflow */
+    transition: overflow-y 0.3s ease; /* Smooth transition */
+}
+
+/* Heading style */
+.game-description h3 {
+    color: #00FFFF; /* Cyan for headings */
+    margin-top: 0;
+}
+
+/* Paragraph style */
+.game-description p {
+    color: #eaeaea; /* White for text */
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+/* Enable scrolling if content exceeds max-height */
+.game-description:hover {
+    overflow-y: auto;
+}
 </style>
 </head>
 <body>

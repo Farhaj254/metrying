@@ -463,10 +463,11 @@ footer a:hover {
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
-    width: 90%; /* Use 90% of the viewport width */
-    max-width: 1400px; /* Allow more space for larger screens */
+    width: 90%; /* Keep responsive behavior */
+    max-width: 1800px; /* Allow more space for larger screens */
     margin: 0 auto;
 }
+
 
 /* Left and Right Sections */
 .left-section, .right-section {
@@ -477,7 +478,7 @@ footer a:hover {
     gap: 20px; /* Space between the game cards */
     margin-top: 20px; /* Adjust this to match the alignment with the `.game-content` */
     width: auto; /* Maintain the section's width */
-    max-width: 300px; /* Optional: Restrict max width */
+    max-width: 250px; /* Shrink these to allow `.game-content` more space */
 }
 
 
@@ -496,25 +497,28 @@ footer a:hover {
 
  /* Game Content Section */
 .game-content {
-    flex: 1;
+    flex-grow: 1; /* Allow the content to grow */
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center align all elements */
-    gap: 20px; /* Add spacing between child elements */
-    width: 100%; /* Default width */
-    max-width: 1400px; /* Allow full expansion on larger screens */
-    margin: 20px auto; /* Center the section on the page */
-    background-color: #1a1a2e; /* Match the theme background */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: auto; /* Prevent fixed width */
+    max-width: 1600px; /* Match the increased limit of `.game-section` */
+    margin: 20px auto;
+    background-color: #1a1a2e;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Add subtle shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
+
 
 /* Adjust the game content for larger screens */
 @media (min-width: 1440px) {
+    .game-section {
+        max-width: 2000px; /* Extra space for large screens */
+    }
     .game-content {
-        max-width: 1600px; /* Increase the maximum width on extra-large screens */
-        padding: 20px; /* Add padding for spacing */
+        max-width: 1800px; /* Grow to match increased parent width */
     }
 }
 

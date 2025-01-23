@@ -106,11 +106,12 @@ header .controls {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid columns */
     gap: 20px; /* Space between cards */
-    padding: 20px;
-    margin: 0; /* Remove centering margin */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+    padding: 20px; /* Internal padding */
+    margin: 0 auto; /* Center the grid */
+    width: 95%; /* Add some buffer space */
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
+
 
 /* Game Card */
 .game-card {
@@ -219,6 +220,58 @@ footer a:hover {
     gap: 20px; /* Space between left, center, and right sections */
     max-width: 1200px; /* Ensure enough space for all sections */
     margin: 0 auto; /* Center the entire section */
+}
+.iframe-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.game-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.game-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #eaeaea;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.game-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.fullscreen-icon,
+.share-icon {
+    font-size: 24px;
+    color: #00FFFF;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.fullscreen-icon:hover,
+.share-icon:hover {
+    color: #007bff;
+    transform: scale(1.2);
 }
 
 
@@ -412,8 +465,9 @@ footer a:hover {
     align-items: flex-start;
     gap: 20px;
     width: 90%; /* Keep responsive behavior */
-    max-width: 1800px; /* Allow more space for larger screens */
+    max-width: 1400px; /* Allow more space for larger screens */
     margin: 0 auto;
+    padding: 20;
 }
 
 
@@ -445,19 +499,20 @@ footer a:hover {
 
  /* Game Content Section */
 .game-content {
-    flex-grow: 1; /* Allow the content to grow */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: auto; /* Prevent fixed width */
-    max-width: 1600px; /* Match the increased limit of `.game-section` */
+    width: 80%; /* Reduced from 90% */
+    max-width: 1200px; /* Reduce the maximum width */
     margin: 20px auto;
-    background-color: #1a1a2e;
     padding: 20px;
+    background-color: #1a1a2e;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
+
 
 
 /* Adjust the game content for larger screens */
@@ -536,4 +591,24 @@ footer a:hover {
 /* Enable scrolling if content exceeds max-height */
 .game-description:hover {
     overflow-y: auto;
+}
+.game-section, .game-content, .left-section, .right-section {
+    margin: 20px auto;
+    padding: 20px;
+}
+@media (max-width: 768px) {
+    .game-grid {
+        padding: 15px;
+        width: 90%; /* Add space on smaller screens */
+    }
+
+    .game-content {
+        width: 95%;
+        max-width: 100%; /* Allow full width on small screens */
+    }
+
+    .game-section {
+        width: 95%; /* Match other elements */
+        padding: 15px;
+    }
 }

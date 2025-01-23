@@ -480,15 +480,67 @@ footer a:hover {
     margin-bottom: 20px; /* Space between grid and ad container */
 }
 
-/* Ad Container */
+/* Game Card Hover and Clickable Style */
+.game-card {
+    position: relative;
+    background: #27293d;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+    text-decoration: none; /* Remove underline for clickable cards */
+}
+
+.game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    border: 2px solid #00FFFF;
+}
+
+.game-card:hover img {
+    opacity: 0.3; /* Dim the image on hover */
+}
+
+.game-card .game-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: #00FFFF;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover .game-title {
+    opacity: 1; /* Show title on hover */
+}
+
+/* Ad Container Style */
 .ad-container {
     display: flex;
-    justify-content: center; /* Center the ad image */
+    justify-content: center;
     align-items: center;
-    padding: 10px;
-    background-color: #27293d; /* Match the design */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    padding: 15px;
+    background-color: #27293d;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 20px; /* Add spacing between the grid and ad container */
 }
 
 .ad-container img {
@@ -496,6 +548,20 @@ footer a:hover {
     height: auto;
     border-radius: 8px;
 }
+
+/* Adjustments for Responsive Design */
+@media (max-width: 768px) {
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr); /* Maintain 2x2 grid */
+        gap: 10px;
+    }
+
+    .ad-container {
+        padding: 10px;
+        margin-top: 10px; /* Adjust spacing for smaller screens */
+    }
+}
+
 
 
 

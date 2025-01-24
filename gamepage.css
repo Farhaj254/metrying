@@ -102,7 +102,7 @@ header .controls {
 
 
 /* Game Grid */
-/* Game Grid */
+
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Automatically adjust based on screen size */

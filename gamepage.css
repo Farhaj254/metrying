@@ -696,3 +696,24 @@ footer a:hover {
         padding: 15px;
     }
 }
+/* Responsive Design for Medium Screens */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .game-section {
+        gap: 15px; /* Reduce the gap between sections for medium screens */
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2x2 layout for game cards */
+        gap: 15px; /* Slightly reduce spacing between cards */
+    }
+
+    .game-card {
+        width: 120px; /* Shrink the card width for better fit */
+        height: 120px; /* Maintain square shape */
+        font-size: 12px; /* Adjust font size for smaller cards */
+    }
+
+    .ad-container {
+        padding: 10px; /* Adjust padding for medium screens */
+    }
+}

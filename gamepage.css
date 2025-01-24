@@ -543,6 +543,7 @@ footer a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     margin-top: 20px; /* Add spacing between the grid and ad container */
+    margin-bottom: 20px; /* Add spacing between the grid and ad container */
 }
 
 .ad-container img {

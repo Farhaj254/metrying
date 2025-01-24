@@ -236,16 +236,3 @@ document.addEventListener("DOMContentLoaded", function () {
     // Start the scrolling
     startScrolling();
 });
-
-
- document.addEventListener("DOMContentLoaded", function () {
-        const scrollingGames = document.querySelector(".scrolling-container");
-
-        scrollingGames.addEventListener("mouseenter", () => {
-            scrollingGames.style.animationPlayState = "paused"; // Pause animation
-        });
-
-        scrollingGames.addEventListener("mouseleave", () => {
-            scrollingGames.style.animationPlayState = "running"; // Resume animation
-        });
-    });

@@ -190,6 +190,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollingContainer = document.querySelector(".scrolling-container");
+    const cards = Array.from(scrollingContainer.children);
+
+    // Set the initial scrolling speed
+    const speed = 1; // Speed in pixels per frame
+    let interval;
+
+    // Function to handle the continuous scrolling
+    function scrollCards() {
+        const firstCard = scrollingContainer.children[0];
+        const firstCardRect = firstCard.getBoundingClientRect();
+
+        // If the first card is completely out of the viewport, move it to the end
+        if (firstCardRect.right < 0) {
+            scrollingContainer.appendChild(firstCard);
+            scrollingContainer.style.transition = "none"; // Disable transition for repositioning
+            scrollingContainer.style.transform = `translateX(0)`;
+        }
+
+        // Continue moving the container to the left
+        scrollingContainer.style.transition = "transform 0.1s linear";
+        const currentTransform = parseFloat(
+            getComputedStyle(scrollingContainer).transform.split(",")[4] || 0
+        );
+        scrollingContainer.style.transform = `translateX(${currentTransform - speed}px)`;
+    }
+
+    // Start the scrolling interval
+    function startScrolling() {
+        interval = setInterval(scrollCards, 16); // Run every ~16ms (60fps)
+    }
+
+    // Pause scrolling on hover
+    scrollingContainer.addEventListener("mouseenter", () => {
+        clearInterval(interval);
+    });
+
+    // Resume scrolling when the mouse leaves
+    scrollingContainer.addEventListener("mouseleave", () => {
+        startScrolling();
+    });
+
+    // Start the scrolling
+    startScrolling();
+});
+
+
  document.addEventListener("DOMContentLoaded", function () {
         const scrollingGames = document.querySelector(".scrolling-container");
 

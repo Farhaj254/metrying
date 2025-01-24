@@ -612,15 +612,3 @@ footer a:hover {
         padding: 15px;
     }
 }
-/* Ad Section Styles */
-.ad-section {
-    margin-top: 20px; /* Space between the game cards and the ad */
-    text-align: center; /* Center the ad image */
-}
-
-.ad-section .ad-image {
-    width: 100%; /* Ensure it fits within the container */
-    max-width: 250px; /* Limit the maximum width */
-    border-radius: 8px; /* Optional: match the style of game cards */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
-}

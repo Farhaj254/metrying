@@ -719,7 +719,6 @@ footer a:hover {
 }
 
 /* Scrolling Games Section */
-
 .scrolling-games {
     width: 100%;
     background-color: #1a1a2e; /* Match the theme */
@@ -730,7 +729,7 @@ footer a:hover {
 
 .scrolling-container {
     display: flex;
-    gap: 0; /* Remove space between cards */
+    gap: 20px; /* Space between cards */
     animation: scroll-left 15s linear infinite; /* Infinite scrolling animation */
     will-change: transform;
 }
@@ -791,10 +790,10 @@ footer a:hover {
     background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent on hover */
 }
 
-/* Continuous Scrolling Animation */
+/* Animation for scrolling */
 @keyframes scroll-left {
     0% {
-        transform: translateX(0);
+        transform: translateX(100%);
     }
     100% {
         transform: translateX(-100%);
@@ -808,6 +807,7 @@ footer a:hover {
         height: 120px;
     }
     .scrolling-container {
+        gap: 10px;
         animation-duration: 20s; /* Slower scrolling on smaller screens */
     }
 }

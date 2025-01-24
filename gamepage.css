@@ -722,7 +722,7 @@ footer a:hover {
 .scrolling-games {
     width: 100%;
     background-color: #1a1a2e; /* Match the theme */
-    padding: 20px 0;
+    padding: 10px 0;
     overflow: hidden; /* Hide overflow content */
     position: relative;
 }

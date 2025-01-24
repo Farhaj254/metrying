@@ -722,15 +722,15 @@ footer a:hover {
 .scrolling-games {
     width: 100%;
     background-color: #1a1a2e; /* Match the theme */
-    padding: 10px 0;
+    padding: 20px 0;
     overflow: hidden; /* Hide overflow content */
     position: relative;
 }
 
 .scrolling-container {
     display: flex;
-    gap: 20px; /* Space between cards */
-    animation: scroll-left 1s linear infinite; /* Infinite scrolling animation */
+    gap: 30px; /* Space between cards */
+    animation: scroll-left 15s linear infinite; /* Infinite scrolling animation */
     will-change: transform;
 }
 

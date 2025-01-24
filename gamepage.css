@@ -475,7 +475,7 @@ footer a:hover {
 
 /* Left and Right Sections */
 /* Game Grid (2x2 layout) */
-.game-grid {
+.leftright-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     gap: 10px; /* Spacing between cards */
@@ -553,7 +553,7 @@ footer a:hover {
 
 /* Adjustments for Responsive Design */
 @media (max-width: 768px) {
-    .game-grid {
+    .leftright-grid {
         grid-template-columns: repeat(2, 1fr); /* Maintain 2x2 grid */
         gap: 10px;
     }

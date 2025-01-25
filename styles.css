@@ -68,10 +68,10 @@ header .controls {
     background: rgba(0, 0, 0, 0.95); /* Sticky header with same background */
     padding: 10px 0;
     z-index: 1001; /* Ensure it stays above content */
+    position: relative; /* Ensure children can be positioned absolutely */
 }
 
 /* Search Bar */
-/* Search Bar with Close Button Inside */
 #overlay-search-bar {
     width: 50%; /* Default desktop width */
     padding: 8px 12px; /* Adjust padding */
@@ -83,63 +83,61 @@ header .controls {
     color: #fff;
     box-sizing: border-box; /* Ensure padding is included in width */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* Allow relative positioning for child elements */
-    padding-right: 40px; /* Add space for the close button */
+    padding-right: 40px; /* Space for close button */
 }
 
 /* Close Button Inside the Search Bar */
 #close-search-overlay {
-    position: absolute; /* Position inside the search bar */
-    top: 50%; /* Align vertically */
-    right: 10px; /* Distance from the right */
-    transform: translateY(-50%); /* Adjust for perfect centering */
+    position: absolute;
+    top: 50%;
+    right: calc(25% + 15px); /* Align to the right of the search bar */
+    transform: translateY(-50%);
     background-color: transparent;
     border: none;
-    color: #ff00ff; /* Purple text color for visibility */
-    font-size: 16px; /* Font size */
+    color: #00FFFF; /* Cyan color */
+    font-size: 18px;
     cursor: pointer;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Close Button Hover Effect */
 #close-search-overlay:hover {
-    color: #ff00ff; /* Highlight on hover */
-    transform: translateY(-50%) scale(1.2); /* Slightly enlarge */
+    color: #ff00ff; /* Change color on hover */
+    transform: translateY(-50%) scale(1.2); /* Slight hover effect */
+}
+
+/* Focus Effect for Search Bar */
+#overlay-search-bar:focus {
+    border-color: #00FFFF;
+    box-shadow: 0 0 5px #00FFFF; /* Subtle glow effect */
 }
 
 /* Responsive Adjustments for Mobile */
 @media (max-width: 768px) {
-    #overlay-search-bar {
-        width: 90%; /* Full-width on mobile */
-        padding-right: 40px; /* Add space for the close button */
-        font-size: 16px; /* Slightly larger font */
-    }
-}
-
-
-    /* Mobile Search Bar */
-    #overlay-search-bar {
-        width: 90%; /* Full-width on mobile */
-        margin-right: 0; /* Remove right margin */
-        font-size: 16px; /* Slightly larger font */
+    .search-header {
+        flex-direction: row; /* Keep search bar and close button aligned */
+        justify-content: center;
     }
 
-    /* Mobile Close Button */
+    #overlay-search-bar {
+        width: 90%; /* Full-width on mobile */
+        margin-right: 0;
+        font-size: 16px; /* Slightly larger font */
+        padding-right: 40px;
+    }
+
     #close-search-overlay {
-        margin-top: 10px; /* Add spacing below the search bar */
+        right: 5%; /* Adjust position for mobile view */
     }
 }
 
-/* Search Results Grid */
+/* Game Cards Grid */
 .search-results-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive grid */
     gap: 15px; /* Space between items */
     width: 100%; /* Full width */
-    padding: 10px; /* Add padding */
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -150,8 +148,7 @@ header .controls {
     text-align: center;
     border-radius: 8px;
     overflow: hidden;
-    width: 100%; /* Full width for mobile */
-    height: auto;
+    width: 100%; /* Full width for grid */
     aspect-ratio: 1; /* Maintain square ratio */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -175,6 +172,7 @@ header .controls {
     text-transform: uppercase;
     font-weight: bold;
 }
+
 
 #dark-mode-toggle {
     background-color: transparent;

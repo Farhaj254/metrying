@@ -18,31 +18,42 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * Add search functionality
  */
-function addSearchFunctionality() {
+function filterGames() {
     const searchBar = document.getElementById('search-bar');
-    const gameGrid = document.querySelector('.game-grid');
+    const searchResults = document.getElementById('search-results');
+    const searchText = searchBar.value.toLowerCase();
+    const gameCards = document.querySelectorAll('.game-card');
 
-    if (searchBar && gameGrid) {
-        searchBar.addEventListener('input', (e) => {
-            const searchText = e.target.value.toLowerCase();
-            const gameCards = gameGrid.querySelectorAll('.game-card');
-            let hasResults = false;
+    searchResults.innerHTML = ''; // Clear previous results
 
-            gameCards.forEach((card) => {
-                const title = card.querySelector('.game-title').textContent.toLowerCase();
-                if (title.includes(searchText)) {
-                    card.style.display = 'block';
-                    hasResults = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            // Show/hide "No Results Found" message
-            toggleNoResultsMessage(hasResults, gameGrid);
-        });
+    if (searchText.trim() === '') {
+        searchResults.style.display = 'none'; // Hide results when search is empty
+        return;
     }
+
+    let hasResults = false;
+
+    gameCards.forEach((card) => {
+        const title = card.querySelector('.game-title').textContent.toLowerCase();
+        if (title.includes(searchText)) {
+            const resultItem = document.createElement('a');
+            resultItem.href = card.href; // Link to the game
+            resultItem.textContent = card.querySelector('.game-title').textContent;
+            searchResults.appendChild(resultItem);
+            hasResults = true;
+        }
+    });
+
+    if (!hasResults) {
+        const noResultsItem = document.createElement('div');
+        noResultsItem.classList.add('no-results');
+        noResultsItem.textContent = 'No games found.';
+        searchResults.appendChild(noResultsItem);
+    }
+
+    searchResults.style.display = 'block'; // Show the dropdown
 }
+
 function toggleSearchBar() {
     const searchContainer = document.getElementById('search-container');
     const searchIcon = document.getElementById('search-icon');

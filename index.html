@@ -12,13 +12,13 @@
 <style>
     /* Responsive Design */
     @media (max-width: 768px) {
-        /* Header */
         header {
             position: relative;
             display: flex;
-            justify-content: space-between; /* Proper spacing between elements */
+            justify-content: space-between;
             align-items: center;
-            padding: 10px 20px; /* Consistent padding */
+            padding: 10px 20px;
+            text-align: center;
         }
 
         .hamburger-menu {
@@ -26,10 +26,10 @@
             top: 50%;
             left: 10px;
             transform: translateY(-50%);
-            z-index: 20;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            z-index: 20;
         }
 
         .hamburger-icon {
@@ -53,6 +53,7 @@
             gap: 10px;
         }
 
+        /* Adjust search icon */
         #search-icon {
             font-size: 24px;
             color: #00FFFF;
@@ -61,20 +62,27 @@
 
         /* Search Overlay */
         #search-section {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.95); /* Semi-transparent black */
+            background-color: rgba(0, 0, 0, 0.95);
             z-index: 1000;
-            overflow-y: auto; /* Allow scrolling for longer content */
+            overflow-y: auto;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #search-section.open {
+            display: block;
+            opacity: 1;
+            visibility: visible;
         }
 
         .search-header {
             display: flex;
-            flex-direction: column; /* Stack search bar and button vertically */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 10px;
@@ -82,15 +90,19 @@
         }
 
         #overlay-search-bar {
-            width: 90%; /* Full-width for smaller screens */
+            width: 90%;
             padding: 8px 12px;
             font-size: 16px;
-            border: 2px solid #00FFFF; /* Cyan border */
-            border-radius: 20px; /* Rounded corners */
+            border: 2px solid #00FFFF;
+            border-radius: 20px;
             outline: none;
             background-color: #2a2a3b;
             color: #fff;
-            box-sizing: border-box; /* Include padding in width */
+            box-sizing: border-box;
+        }
+
+        #overlay-search-bar:focus {
+            box-shadow: 0 0 5px #00FFFF;
         }
 
         #close-search-overlay {
@@ -108,6 +120,7 @@
         }
     }
 </style>
+
 
 
 

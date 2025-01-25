@@ -15,17 +15,17 @@
         header {
             position: relative;
             display: flex;
-            justify-content: center; /* Center items horizontally */
+            justify-content: space-between; /* Space between hamburger and controls */
             align-items: center;
-            padding: 10px 0; /* Keep consistent with the original */
+            padding: 10px 20px; /* Consistent spacing */
             text-align: center;
         }
 
         .hamburger-menu {
-            position: absolute; /* Restore absolute positioning */
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%); /* Center vertically */
+            position: absolute; /* Absolute positioning for alignment */
+            top: 50%; /* Center vertically */
+            left: 10px; /* Slightly to the left */
+            transform: translateY(-50%);
             z-index: 20;
         }
 
@@ -37,17 +37,18 @@
 
         .logo {
             text-align: center;
-            margin: 0 auto; /* Ensure the logo stays centered */
+            margin: 0 auto;
+            flex-grow: 1; /* Allow the logo to take center stage */
         }
 
         .controls {
-            position: absolute; /* Restore absolute positioning */
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%); /* Align vertically */
+            position: absolute; /* Fix to absolute for alignment */
+            top: 50%; /* Center vertically */
+            right: 10px; /* Align to the right */
+            transform: translateY(-50%);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 10px; /* Space between controls */
         }
 
         /* Adjust search icon */

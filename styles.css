@@ -458,4 +458,58 @@ footer a:hover {
     color: #007bff;
     transform: scale(1.2); /* Add a hover zoom effect */
 }
+/* Ensure search icon is styled */
+#search-icon {
+    font-size: 24px;
+    color: #00FFFF;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
 
+/* Mobile styles for search */
+@media (max-width: 768px) {
+    #search-bar {
+        display: none; /* Hide search bar initially */
+    }
+
+    #search-icon {
+        display: block; /* Show search icon on mobile */
+    }
+}
+#search-container {
+    display: none; /* Initially hidden */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#search-bar {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2a2a3b;
+    color: #fff;
+    font-size: 16px;
+    width: 100%; /* Full width */
+}
+
+#close-search {
+    font-size: 20px;
+    color: #00FFFF;
+    cursor: pointer;
+    display: block; /* Visible when search is open */
+}
+
+#search-icon {
+    font-size: 20px;
+    color: #00FFFF;
+    cursor: pointer;
+    display: block; /* Visible when search is closed */
+}
+
+@media (max-width: 768px) {
+    #search-bar {
+        width: auto; /* Adjust width for mobile */
+    }
+}

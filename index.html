@@ -9,7 +9,7 @@
     <link rel="manifest" href="manifest.json">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-<style> 
+<style>
     /* Responsive Design */
     @media (max-width: 768px) {
         header {
@@ -19,13 +19,13 @@
             align-items: center; /* Ensure vertical centering */
             padding: 10px 20px; /* Consistent padding */
             text-align: center;
-            height: 60px; /* Ensure a fixed height for alignment consistency */
+            height: 60px; /* Uniform header height */
         }
 
         .hamburger-menu {
             display: flex;
             justify-content: center;
-            align-items: center; /* Ensure vertical alignment */
+            align-items: center; /* Align vertically with the rest */
             z-index: 20;
         }
 
@@ -36,24 +36,28 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center; /* Center the logo vertically */
+            justify-content: center;
             text-align: center;
             margin: 0 auto;
-            display: flex;
-            align-items: center; /* Align the logo vertically */
         }
 
         .controls {
             display: flex;
             justify-content: flex-end; /* Align controls to the right */
-            align-items: center; /* Ensure vertical alignment */
+            align-items: center; /* Center vertically */
             gap: 10px;
         }
 
-        /* Adjust search icon */
-        #search-icon {
+        /* Adjust search icon and moon icon */
+        #search-icon,
+        #dark-mode-toggle {
             font-size: 24px;
             color: #00FFFF;
             cursor: pointer;
+            display: flex;
+            align-items: center; /* Align vertically */
         }
 
         /* Ensure search bar and close button are responsive */
@@ -100,6 +104,7 @@
         }
     }
 </style>
+
 
 
 

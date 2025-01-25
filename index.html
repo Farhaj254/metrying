@@ -11,39 +11,95 @@
 
 <style>
     /* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-        text-align: center;
-    }
+    @media (max-width: 768px) {
+        header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Ensure consistent padding */
+            text-align: center;
+        }
 
-    .hamburger-menu {
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
-        z-index: 20;
-    }
+        .hamburger-menu {
+            position: relative; /* Adjusted from absolute */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
 
-    .logo {
-        text-align: center;
-    }
+        .hamburger-icon {
+            font-size: 24px;
+            color: #00FFFF;
+            cursor: pointer;
+        }
 
-    .controls {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        .logo {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .controls {
+            position: relative; /* Adjusted from absolute */
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Adjust search icon */
+        #search-icon {
+            font-size: 24px;
+            color: #00FFFF;
+            cursor: pointer;
+        }
+
+        /* Ensure search bar and close button are responsive */
+        #search-section {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95); /* Semi-transparent black */
+            z-index: 1000;
+            overflow-y: auto; /* Allow scrolling */
+        }
+
+        .search-header {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        #overlay-search-bar {
+            width: 90%; /* Full-width for smaller screens */
+            padding: 8px 12px;
+            font-size: 16px; /* Adjusted font size */
+            border: 2px solid #00FFFF; /* Cyan border */
+            border-radius: 20px; /* Rounded corners */
+            outline: none;
+            background-color: #2a2a3b;
+            color: #fff;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        #close-search-overlay {
+            background-color: transparent;
+            border: 2px solid #00FFFF;
+            color: #00FFFF;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
     }
-}
 </style>
+
 
 
 </head>

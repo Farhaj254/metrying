@@ -71,6 +71,7 @@ header .controls {
 }
 
 /* Search Bar */
+/* Search Bar with Close Button Inside */
 #overlay-search-bar {
     width: 50%; /* Default desktop width */
     padding: 8px 12px; /* Adjust padding */
@@ -78,45 +79,46 @@ header .controls {
     border: 2px solid #00FFFF; /* Cyan border */
     border-radius: 20px; /* Rounded corners */
     outline: none;
-    margin-right: 10px;
     background-color: #2a2a3b;
     color: #fff;
     box-sizing: border-box; /* Ensure padding is included in width */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Allow relative positioning for child elements */
+    padding-right: 40px; /* Add space for the close button */
 }
 
-/* Focus Effect for Search Bar */
-#overlay-search-bar:focus {
-    border-color: #00FFFF;
-    box-shadow: 0 0 5px #00FFFF; /* Subtle glow effect */
-}
-
-/* Close Button */
+/* Close Button Inside the Search Bar */
 #close-search-overlay {
+    position: absolute; /* Position inside the search bar */
+    top: 50%; /* Align vertically */
+    right: 10px; /* Distance from the right */
+    transform: translateY(-50%); /* Adjust for perfect centering */
     background-color: transparent;
-    border: 2px solid #00FFFF; /* Cyan border */
-    color: #00FFFF; /* Cyan text */
-    padding: 8px;
-    border-radius: 100%; /* Fully circular */
+    border: none;
+    color: #ff00ff; /* Purple text color for visibility */
     font-size: 16px; /* Font size */
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Close Button Hover Effect */
 #close-search-overlay:hover {
-    background-color: #00FFFF; /* Cyan background */
-    color: #000; /* Black text */
+    color: #ff00ff; /* Highlight on hover */
+    transform: translateY(-50%) scale(1.2); /* Slightly enlarge */
 }
 
 /* Responsive Adjustments for Mobile */
 @media (max-width: 768px) {
-    /* Mobile Header */
-    .search-header {
-        flex-direction: column; /* Stack search bar and close button */
-        gap: 10px; /* Add spacing */
-        padding: 10px;
+    #overlay-search-bar {
+        width: 90%; /* Full-width on mobile */
+        padding-right: 40px; /* Add space for the close button */
+        font-size: 16px; /* Slightly larger font */
     }
+}
+
 
     /* Mobile Search Bar */
     #overlay-search-bar {

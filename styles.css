@@ -42,7 +42,6 @@ header .controls {
 }
 
 /* Search Overlay */
-/* Search Overlay */
 .search-overlay {
     display: none; /* Initially hidden */
     position: fixed;
@@ -59,7 +58,7 @@ header .controls {
 
 .search-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center-align the search bar */
     align-items: center;
     margin-bottom: 20px;
     position: sticky;
@@ -70,16 +69,22 @@ header .controls {
 }
 
 #overlay-search-bar {
-    flex: 1;
-    padding: 8px 12px; /* Reduced padding for smaller size */
+    width: 50%; /* Reduced the width of the search bar */
+    padding: 8px 12px; /* Adjusted padding */
     font-size: 14px; /* Smaller font size */
     border: 2px solid #00FFFF; /* Added cyan border */
-    border-radius: 5px;
+    border-radius: 20px; /* More rounded corners */
     outline: none;
     margin-right: 10px;
     background-color: #2a2a3b;
     color: #fff;
     box-sizing: border-box; /* Ensure padding and border are included in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+#overlay-search-bar:focus {
+    border-color: #00FFFF; /* Highlight border on focus */
+    box-shadow: 0 0 5px #00FFFF; /* Subtle glow effect */
 }
 
 /* Updated Close Button */
@@ -89,7 +94,7 @@ header .controls {
     color: #00FFFF; /* Cyan text color */
     padding: 8px;
     border-radius: 50%;
-    font-size: 16px; /* Reduced font size */
+    font-size: 16px; /* Adjusted font size */
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
 }

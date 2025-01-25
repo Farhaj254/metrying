@@ -54,6 +54,7 @@ function filterGamesOverlay() {
     }
 }
 
+
 // Dark Mode Toggle
 function initializeDarkMode() {
     const darkModeToggle = document.getElementById("dark-mode-toggle");

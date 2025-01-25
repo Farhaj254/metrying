@@ -69,7 +69,7 @@ header .controls {
 }
 
 #overlay-search-bar {
-    width: 50%; /* Reduced the width of the search bar */
+    width: 50%; /* Default desktop width */
     padding: 8px 12px; /* Adjusted padding */
     font-size: 14px; /* Smaller font size */
     border: 2px solid #00FFFF; /* Added cyan border */
@@ -85,6 +85,24 @@ header .controls {
 #overlay-search-bar:focus {
     border-color: #00FFFF; /* Highlight border on focus */
     box-shadow: 0 0 5px #00FFFF; /* Subtle glow effect */
+}
+
+/* Responsive for Mobile Screens */
+@media (max-width: 768px) {
+    .search-header {
+        flex-direction: column; /* Stack the search bar and button vertically */
+        padding: 10px; /* Add padding for a clean layout */
+    }
+
+    #overlay-search-bar {
+        width: 90%; /* Full-width on mobile */
+        margin-right: 0; /* Remove margin for mobile layout */
+        font-size: 16px; /* Slightly larger font for better readability */
+    }
+
+    #close-search-overlay {
+        margin-top: 10px; /* Add spacing between the search bar and close button */
+    }
 }
 
 /* Updated Close Button */
@@ -111,6 +129,7 @@ header .controls {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 20px;
     width: 100%;
+    padding: 0 10px; /* Add padding for better spacing on smaller screens */
 }
 
 .search-results-grid .game-card {
@@ -151,6 +170,17 @@ header .controls {
     color: red;
     font-size: 18px;
     margin-top: 20px;
+}
+
+/* Adjustments for Mobile */
+@media (max-width: 768px) {
+    #no-results {
+        font-size: 16px; /* Slightly smaller text for mobile */
+    }
+
+    .search-results-grid .game-card {
+        width: 100%; /* Adjust the card width to fit the grid */
+    }
 }
 
 

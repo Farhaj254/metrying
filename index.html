@@ -9,7 +9,7 @@
     <link rel="manifest" href="manifest.json">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-<style> 
+<style>
     /* Responsive Design */
     @media (max-width: 768px) {
         header {
@@ -56,7 +56,6 @@
             gap: 10px; /* Space between search and moon icons */
         }
 
-        /* Adjust search and moon icons */
         #search-icon,
         #dark-mode-toggle {
             font-size: 20px;
@@ -81,35 +80,88 @@
 
         .search-header {
             display: flex;
-            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Align items horizontally */
             align-items: center;
-            justify-content: center;
-            padding: 10px;
-            gap: 10px;
+            padding: 10px 20px;
+            position: relative;
         }
 
         #overlay-search-bar {
-            width: 90%; /* Full-width for smaller screens */
-            padding: 8px 12px;
-            font-size: 16px; /* Adjusted font size */
+            width: 90%; /* Full width on mobile */
+            padding: 8px 12px; /* Adjust padding */
+            font-size: 16px; /* Adjust font size */
             border: 2px solid #00FFFF; /* Cyan border */
             border-radius: 20px; /* Rounded corners */
             outline: none;
             background-color: #2a2a3b;
             color: #fff;
             box-sizing: border-box; /* Include padding in width */
+            padding-right: 40px; /* Space for close button */
         }
 
         #close-search-overlay {
+            position: absolute;
+            top: 50%;
+            right: 10%; /* Align close button to the right of the search bar */
+            transform: translateY(-50%);
             background-color: transparent;
-            border: 2px solid #00FFFF;
+            border: none;
             color: #00FFFF;
-            padding: 10px;
-            border-radius: 50%;
+            font-size: 18px; /* Font size for close button */
             cursor: pointer;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        #close-search-overlay:hover {
+            color: #ff00ff; /* Change color on hover */
+            transform: translateY(-50%) scale(1.2); /* Slight hover effect */
+        }
+
+        /* Game Cards Grid */
+        .search-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive grid */
+            gap: 15px; /* Space between items */
+            width: 100%; /* Full width */
+            padding: 10px; /* Add padding */
+            box-sizing: border-box;
+        }
+
+        .search-results-grid .game-card {
+            position: relative;
+            background: #27293d;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 100%; /* Full width for grid */
+            aspect-ratio: 1; /* Maintain square ratio */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .search-results-grid .game-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .search-results-grid .game-card .game-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            padding: 10px;
+            font-size: 14px;
+            color: #00FFFF; /* Cyan text */
+            text-transform: uppercase;
+            font-weight: bold;
         }
     }
 </style>
+
 
 
 

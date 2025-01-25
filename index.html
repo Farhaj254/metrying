@@ -10,39 +10,45 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 <style>
-     /* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 0;
-        text-align: center;
-    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Ensure consistent padding */
+            text-align: center;
+        }
 
-    .hamburger-menu {
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
-        z-index: 20;
-    }
+        .hamburger-menu {
+            position: relative; /* Adjusted from absolute */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
 
-    .logo {
-        text-align: center;
-    }
+        .hamburger-icon {
+            font-size: 24px;
+            color: #00FFFF;
+            cursor: pointer;
+        }
 
-    .controls {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    /* Adjust search icon */
+        .logo {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .controls {
+            position: relative; /* Adjusted from absolute */
+            display: flex;
+            justify-content: flex-end; /* Align to the right */
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Adjust search icon */
         #search-icon {
             font-size: 24px;
             color: #00FFFF;
@@ -91,8 +97,7 @@
             border-radius: 50%;
             cursor: pointer;
         }
-}
-   
+    }
 </style>
 
 

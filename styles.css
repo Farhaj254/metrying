@@ -93,7 +93,7 @@ header .controls {
     border: 2px solid #00FFFF; /* Added cyan border */
     color: #00FFFF; /* Cyan text color */
     padding: 8px;
-    border-radius: 50%;
+    border-radius: 100%;
     font-size: 16px; /* Adjusted font size */
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */

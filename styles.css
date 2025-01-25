@@ -42,6 +42,7 @@ header .controls {
 }
 
 /* Search Overlay */
+/* Search Overlay */
 .search-overlay {
     display: none; /* Initially hidden */
     position: fixed;
@@ -65,28 +66,38 @@ header .controls {
     top: 0;
     background: rgba(0, 0, 0, 0.95); /* Sticky header with same background */
     padding: 10px 0;
+    z-index: 1001; /* Ensure it stays above other content */
 }
 
 #overlay-search-bar {
     flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
+    padding: 8px 12px; /* Reduced padding for smaller size */
+    font-size: 14px; /* Smaller font size */
+    border: 2px solid #00FFFF; /* Added cyan border */
     border-radius: 5px;
     outline: none;
     margin-right: 10px;
     background-color: #2a2a3b;
     color: #fff;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
+/* Updated Close Button */
 #close-search-overlay {
-    background-color: #ff4c4c;
-    border: none;
-    color: #fff;
-    padding: 10px;
+    background-color: transparent; /* Removed background color */
+    border: 2px solid #00FFFF; /* Added cyan border */
+    color: #00FFFF; /* Cyan text color */
+    padding: 8px;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 16px; /* Reduced font size */
     cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover Effect for Close Button */
+#close-search-overlay:hover {
+    background-color: #00FFFF; /* Cyan background on hover */
+    color: #000; /* Black text on hover */
 }
 
 /* Search Results Grid */
@@ -136,6 +147,7 @@ header .controls {
     font-size: 18px;
     margin-top: 20px;
 }
+
 
 #dark-mode-toggle {
     background-color: transparent;

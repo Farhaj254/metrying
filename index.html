@@ -66,14 +66,25 @@
         </ul>
     </nav>
   <div class="controls">
-    <i id="search-icon" class="fas fa-search" onclick="openSearchSection()"></i>
-    <div id="search-section" class="search-overlay">
+  <div id="search-section" class="search-overlay">
     <div class="search-header">
-        <input type="text" id="overlay-search-bar" placeholder="Search a game to play..." oninput="filterGamesOverlay()">
-        <button id="close-search-overlay" onclick="closeSearchSection()">✖</button>
+        <input
+            type="text"
+            id="overlay-search-bar"
+            placeholder="Search a game to play..."
+            oninput="filterGamesOverlay()"
+        />
+        <button
+            id="close-search-overlay"
+            onclick="closeSearchSection()"
+        >
+            ✖
+        </button>
     </div>
+    <h2>Games</h2>
     <div class="search-results-grid" id="search-results-grid"></div>
 </div>
+
 
 
     <button id="dark-mode-toggle">🌙</button>

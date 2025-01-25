@@ -41,7 +41,7 @@ header .controls {
     gap: 15px;
 }
 
-/* Search Overlay */
+/* General Search Overlay */
 .search-overlay {
     display: none; /* Initially hidden */
     position: fixed;
@@ -52,11 +52,12 @@ header .controls {
     background-color: rgba(0, 0, 0, 0.95); /* Semi-transparent black */
     z-index: 1000;
     padding: 20px;
-    overflow-y: auto; /* Enable scrolling for long content */
+    overflow-y: auto; /* Allow scrolling on long results */
     color: #eaeaea;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box; /* Include padding in width/height calculations */
 }
 
+/* Search Header - Desktop */
 .search-header {
     display: flex;
     justify-content: center; /* Center-align the search bar */
@@ -66,59 +67,67 @@ header .controls {
     top: 0;
     background: rgba(0, 0, 0, 0.95); /* Sticky header with same background */
     padding: 10px 0;
-    z-index: 1001; /* Ensure it stays above other content */
+    z-index: 1001; /* Ensure it stays above content */
 }
 
+/* Search Bar */
 #overlay-search-bar {
     width: 50%; /* Default desktop width */
-    padding: 8px 12px; /* Adjusted padding */
-    font-size: 14px; /* Smaller font size */
-    border: 2px solid #00FFFF; /* Added cyan border */
-    border-radius: 20px; /* More rounded corners */
+    padding: 8px 12px; /* Adjust padding */
+    font-size: 14px; /* Font size */
+    border: 2px solid #00FFFF; /* Cyan border */
+    border-radius: 20px; /* Rounded corners */
     outline: none;
     margin-right: 10px;
     background-color: #2a2a3b;
     color: #fff;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Focus Effect for Search Bar */
 #overlay-search-bar:focus {
-    border-color: #00FFFF; /* Highlight border on focus */
+    border-color: #00FFFF;
     box-shadow: 0 0 5px #00FFFF; /* Subtle glow effect */
 }
 
+/* Close Button */
 #close-search-overlay {
-    background-color: transparent; /* Removed background color */
-    border: 2px solid #00FFFF; /* Added cyan border */
-    color: #00FFFF; /* Cyan text color */
+    background-color: transparent;
+    border: 2px solid #00FFFF; /* Cyan border */
+    color: #00FFFF; /* Cyan text */
     padding: 8px;
-    border-radius: 100%;
-    font-size: 16px; /* Adjusted font size */
+    border-radius: 100%; /* Fully circular */
+    font-size: 16px; /* Font size */
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Close Button Hover Effect */
 #close-search-overlay:hover {
-    background-color: #00FFFF; /* Cyan background on hover */
-    color: #000; /* Black text on hover */
+    background-color: #00FFFF; /* Cyan background */
+    color: #000; /* Black text */
 }
 
 /* Responsive Adjustments for Mobile */
 @media (max-width: 768px) {
+    /* Mobile Header */
     .search-header {
-        flex-direction: column; /* Stack search bar and close button vertically */
-        gap: 10px; /* Add spacing between search bar and button */
+        flex-direction: column; /* Stack search bar and close button */
+        gap: 10px; /* Add spacing */
+        padding: 10px;
     }
 
+    /* Mobile Search Bar */
     #overlay-search-bar {
         width: 90%; /* Full-width on mobile */
-        margin-right: 0; /* Remove margin for mobile layout */
-        font-size: 16px; /* Slightly larger font for better readability */
+        margin-right: 0; /* Remove right margin */
+        font-size: 16px; /* Slightly larger font */
     }
 
+    /* Mobile Close Button */
     #close-search-overlay {
-        margin-top: 10px; /* Add spacing for better layout on mobile */
+        margin-top: 10px; /* Add spacing below the search bar */
     }
 }
 
@@ -126,10 +135,10 @@ header .controls {
 .search-results-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive grid */
-    gap: 15px;
-    width: 100%;
-    padding: 10px; /* Add padding for spacing */
-    box-sizing: border-box; /* Ensure padding is included */
+    gap: 15px; /* Space between items */
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    box-sizing: border-box;
 }
 
 .search-results-grid .game-card {
@@ -139,7 +148,7 @@ header .controls {
     text-align: center;
     border-radius: 8px;
     overflow: hidden;
-    width: 100%; /* Make cards responsive */
+    width: 100%; /* Full width for mobile */
     height: auto;
     aspect-ratio: 1; /* Maintain square ratio */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -157,14 +166,13 @@ header .controls {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
     padding: 10px;
     font-size: 14px;
-    color: #00FFFF;
+    color: #00FFFF; /* Cyan text */
     text-transform: uppercase;
     font-weight: bold;
 }
-
 
 #dark-mode-toggle {
     background-color: transparent;

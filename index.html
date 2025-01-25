@@ -15,17 +15,17 @@
         header {
             position: relative;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center items horizontally */
             align-items: center;
-            padding: 10px 20px; /* Ensure consistent padding */
+            padding: 10px 0; /* Keep consistent with the original */
             text-align: center;
         }
 
         .hamburger-menu {
-            position: relative; /* Adjusted from absolute */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: absolute; /* Restore absolute positioning */
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%); /* Center vertically */
             z-index: 20;
         }
 
@@ -37,13 +37,15 @@
 
         .logo {
             text-align: center;
-            margin: 0 auto;
+            margin: 0 auto; /* Ensure the logo stays centered */
         }
 
         .controls {
-            position: relative; /* Adjusted from absolute */
+            position: absolute; /* Restore absolute positioning */
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%); /* Align vertically */
             display: flex;
-            justify-content: flex-end; /* Align to the right */
             align-items: center;
             gap: 10px;
         }
@@ -99,6 +101,7 @@
         }
     }
 </style>
+
 
 
 </head>

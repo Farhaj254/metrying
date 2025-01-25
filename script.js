@@ -32,7 +32,7 @@ function closeSearchSection() {
     document.body.style.overflow = 'auto'; // Restore background scroll
 }
 
-// Filter Games in Overlay
+// Filter Games in Overlay (Real-Time Search)
 function filterGamesOverlay() {
     const searchBar = document.getElementById('overlay-search-bar');
     const searchText = searchBar.value.toLowerCase();
@@ -40,10 +40,6 @@ function filterGamesOverlay() {
     const searchResultsGrid = document.getElementById('search-results-grid');
 
     searchResultsGrid.innerHTML = ''; // Clear previous results
-
-    if (searchText.trim() === '') {
-        return; // Stop filtering if search is empty
-    }
 
     let hasResults = false;
 
@@ -56,11 +52,15 @@ function filterGamesOverlay() {
         }
     });
 
+    // Show "No Results Found" message if no matches
     if (!hasResults) {
-        const noResultsMessage = document.createElement('div');
+        const noResultsMessage = document.createElement('p');
+        noResultsMessage.id = 'no-results';
         noResultsMessage.textContent = 'No games found.';
-        noResultsMessage.style.color = '#fff';
-        noResultsMessage.style.textAlign = 'center';
+        searchResultsGrid.appendChild(noResultsMessage);
+    }
+}
+       noResultsMessage.style.textAlign = 'center';
         searchResultsGrid.appendChild(noResultsMessage);
     }
 }

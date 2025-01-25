@@ -52,8 +52,9 @@ header .controls {
     background-color: rgba(0, 0, 0, 0.95); /* Semi-transparent black */
     z-index: 1000;
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: auto; /* Enable scrolling for long content */
     color: #eaeaea;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .search-header {
@@ -87,25 +88,6 @@ header .controls {
     box-shadow: 0 0 5px #00FFFF; /* Subtle glow effect */
 }
 
-/* Responsive for Mobile Screens */
-@media (max-width: 768px) {
-    .search-header {
-        flex-direction: column; /* Stack the search bar and button vertically */
-        padding: 10px; /* Add padding for a clean layout */
-    }
-
-    #overlay-search-bar {
-        width: 90%; /* Full-width on mobile */
-        margin-right: 0; /* Remove margin for mobile layout */
-        font-size: 16px; /* Slightly larger font for better readability */
-    }
-
-    #close-search-overlay {
-        margin-top: 10px; /* Add spacing between the search bar and close button */
-    }
-}
-
-/* Updated Close Button */
 #close-search-overlay {
     background-color: transparent; /* Removed background color */
     border: 2px solid #00FFFF; /* Added cyan border */
@@ -117,19 +99,37 @@ header .controls {
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
 }
 
-/* Hover Effect for Close Button */
 #close-search-overlay:hover {
     background-color: #00FFFF; /* Cyan background on hover */
     color: #000; /* Black text on hover */
 }
 
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    .search-header {
+        flex-direction: column; /* Stack search bar and close button vertically */
+        gap: 10px; /* Add spacing between search bar and button */
+    }
+
+    #overlay-search-bar {
+        width: 90%; /* Full-width on mobile */
+        margin-right: 0; /* Remove margin for mobile layout */
+        font-size: 16px; /* Slightly larger font for better readability */
+    }
+
+    #close-search-overlay {
+        margin-top: 10px; /* Add spacing for better layout on mobile */
+    }
+}
+
 /* Search Results Grid */
 .search-results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive grid */
+    gap: 15px;
     width: 100%;
-    padding: 0 10px; /* Add padding for better spacing on smaller screens */
+    padding: 10px; /* Add padding for spacing */
+    box-sizing: border-box; /* Ensure padding is included */
 }
 
 .search-results-grid .game-card {
@@ -139,8 +139,9 @@ header .controls {
     text-align: center;
     border-radius: 8px;
     overflow: hidden;
-    width: 150px;
-    height: 150px;
+    width: 100%; /* Make cards responsive */
+    height: auto;
+    aspect-ratio: 1; /* Maintain square ratio */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
@@ -159,28 +160,9 @@ header .controls {
     background: rgba(0, 0, 0, 0.5);
     padding: 10px;
     font-size: 14px;
-    color: #00ffff;
+    color: #00FFFF;
     text-transform: uppercase;
     font-weight: bold;
-}
-
-/* "No Results" Message */
-#no-results {
-    text-align: center;
-    color: red;
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-/* Adjustments for Mobile */
-@media (max-width: 768px) {
-    #no-results {
-        font-size: 16px; /* Slightly smaller text for mobile */
-    }
-
-    .search-results-grid .game-card {
-        width: 100%; /* Adjust the card width to fit the grid */
-    }
 }
 
 

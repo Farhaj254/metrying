@@ -9,7 +9,7 @@
     <link rel="manifest" href="manifest.json">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-<style>
+<style> 
     /* Responsive Design */
     @media (max-width: 768px) {
         header {
@@ -17,13 +17,13 @@
             display: flex;
             justify-content: space-between; /* Space between hamburger and controls */
             align-items: center;
-            padding: 10px 20px; /* Consistent spacing */
+            padding: 10px 20px; /* Consistent padding */
             text-align: center;
         }
 
         .hamburger-menu {
-            position: absolute; /* Absolute positioning for alignment */
-            top: 50%; /* Center vertically */
+            position: absolute; /* Maintain correct alignment */
+            top: 50%; /* Vertically center */
             left: 10px; /* Slightly to the left */
             transform: translateY(-50%);
             z-index: 20;
@@ -38,17 +38,16 @@
         .logo {
             text-align: center;
             margin: 0 auto;
-            flex-grow: 1; /* Allow the logo to take center stage */
         }
 
         .controls {
-            position: absolute; /* Fix to absolute for alignment */
-            top: 50%; /* Center vertically */
+            position: absolute; /* Keep controls positioned */
+            top: 50%;
             right: 10px; /* Align to the right */
             transform: translateY(-50%);
             display: flex;
             align-items: center;
-            gap: 10px; /* Space between controls */
+            gap: 10px;
         }
 
         /* Adjust search icon */
@@ -58,7 +57,7 @@
             cursor: pointer;
         }
 
-        /* Ensure search bar and close button are responsive */
+        /* Search Overlay */
         #search-section {
             display: none; /* Initially hidden */
             position: fixed;

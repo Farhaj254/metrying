@@ -9,23 +9,23 @@
     <link rel="manifest" href="manifest.json">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-<style>
+<style> 
     /* Responsive Design */
     @media (max-width: 768px) {
         header {
             position: relative;
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Ensure vertical centering */
-            padding: 10px 20px; /* Consistent padding */
-            text-align: center;
-            height: 60px; /* Uniform header height */
+            align-items: center;
+            padding: 5px 10px; /* Adjust padding for compact design */
+            background-color: #000; /* Keep background consistent */
+            height: 50px; /* Consistent header height */
         }
 
         .hamburger-menu {
             display: flex;
             justify-content: center;
-            align-items: center; /* Align vertically with the rest */
+            align-items: center;
             z-index: 20;
         }
 
@@ -36,31 +36,37 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center; /* Center the logo vertically */
-            justify-content: center;
+            flex: 1; /* Allow logo to take available space */
             text-align: center;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            height: 30px; /* Adjust size for logo */
+            object-fit: contain; /* Ensure logo fits within space */
         }
 
         .controls {
             display: flex;
             justify-content: flex-end; /* Align controls to the right */
-            align-items: center; /* Center vertically */
-            gap: 10px;
+            align-items: center;
+            gap: 10px; /* Space between search and moon icons */
         }
 
-        /* Adjust search icon and moon icon */
+        /* Adjust search and moon icons */
         #search-icon,
         #dark-mode-toggle {
-            font-size: 24px;
+            font-size: 20px;
             color: #00FFFF;
             cursor: pointer;
             display: flex;
-            align-items: center; /* Align vertically */
+            align-items: center;
         }
 
-        /* Ensure search bar and close button are responsive */
+        /* Search Overlay */
         #search-section {
             display: none; /* Initially hidden */
             position: fixed;
@@ -104,6 +110,7 @@
         }
     }
 </style>
+
 
 
 

@@ -732,6 +732,7 @@ footer a:hover {
     position: relative;
     height: 150px; /* Match card height */
     overflow: hidden; /* Hide overflow content */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 .scrolling-game-card {

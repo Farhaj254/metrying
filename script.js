@@ -96,3 +96,43 @@ function addCategoryFiltering() {
         });
     });
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollingContainer = document.querySelector('.scrolling-container');
+    const cards = [...document.querySelectorAll('.scrolling-game-card')];
+
+    let speed = 2; // Adjust the speed here
+
+    function loop() {
+        // Move each card left
+        cards.forEach((card) => {
+            const currentLeft = parseFloat(card.style.left || card.offsetLeft);
+            const newLeft = currentLeft - speed;
+
+            // If the card moves completely out of view, reposition it to the right
+            if (newLeft + card.offsetWidth < 0) {
+                const containerWidth = scrollingContainer.offsetWidth;
+                const rightmostCard = cards.reduce((prev, curr) => {
+                    const currLeft = parseFloat(curr.style.left || curr.offsetLeft);
+                    return currLeft > parseFloat(prev.style.left || prev.offsetLeft) ? curr : prev;
+                });
+                const rightmostPosition = parseFloat(rightmostCard.style.left || rightmostCard.offsetLeft);
+                card.style.left = `${rightmostPosition + rightmostCard.offsetWidth + 30}px`; // Add gap between cards
+            } else {
+                card.style.left = `${newLeft}px`;
+            }
+        });
+
+        requestAnimationFrame(loop);
+    }
+
+    // Initialize positions of cards
+    let initialLeft = 0;
+    cards.forEach((card) => {
+        card.style.position = 'absolute';
+        card.style.left = `${initialLeft}px`;
+        initialLeft += card.offsetWidth + 30; // Add gap
+    });
+
+    // Start the animation loop
+    loop();
+});

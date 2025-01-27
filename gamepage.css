@@ -725,6 +725,7 @@ footer a:hover {
     padding: 10px 0;
     overflow: hidden; /* Keep this to hide out-of-view cards */
     position: relative;
+    
 }
 
 .scrolling-container {
@@ -733,7 +734,7 @@ footer a:hover {
     height: 180px; /* Increase height to allow space for hover scaling */
     overflow: visible; /* Allow hover effects to extend beyond the container */
     white-space: nowrap; /* Prevent wrapping */
-    marjin-top: 10px;
+    margin-top: 10px;
 }
 
 .scrolling-game-card {

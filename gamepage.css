@@ -729,9 +729,10 @@ footer a:hover {
 
 .scrolling-container {
     display: flex;
-    gap: 30px; /* Space between cards */
-    animation: scroll-left 15s linear infinite; /* Infinite scrolling animation */
-    will-change: transform;
+    position: relative;
+    height: 150px; /* Match card height */
+    overflow: hidden; /* Hide overflow content */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 

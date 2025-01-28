@@ -3,49 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Action Games</title>
-    <link rel="stylesheet" href="../../styles.css">
-    <script src="../../script.js" defer></script>
+    <title>Game Hub - Category</title>
+    <meta name="description" content="Browse exciting games in this category.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="manifest" href="../manifest.json">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+
+<body class="category-page">
     <header>
         <div class="logo">
-            <a href="../../index.html">
-                <img src="../../images/logo.png" alt="Logo">
-                <span>Eggy Car</span>
+            <a href="../index.html">
+                <img src="../images/logo.png" alt="Game Hub Logo">
             </a>
         </div>
-        <nav id="nav-menu">
-            <a href="../../index.html">Home</a>
-            <a href="../Action/index.html">Action</a>
-            <a href="../Skill/index.html">Skill</a>
-            <a href="#">Car</a>
-            <a href="#">Shooting</a>
-            <a href="#">Sport</a>
-            <a href="#">Idle</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../category/car/index.html">Car</a></li>
+                <li><a href="../category/action/index.html">Action</a></li>
+                <li><a href="../category/skill/index.html">Skill</a></li>
+            </ul>
         </nav>
-    </header>
-    
-   <div class="action-games-section">
-    <h1>Action Games</h1>
-    <div class="grid-section">
-        <div class="game-card"
-     data-title="Angrybirds"
-     data-description="Guide the Angry Birds to destroy the pigs!"
-     data-instructions="Use the mouse to aim and shoot."
-     onclick="loadGameAndRedirect(this, '../../index.html', 'Category/Action/angrybirds.html')">
-    <img src="game1-thumbnail.jpg" alt="Angrybirds">
-    <div class="game-title">Angrybirds</div>
-</div>
-
-        <div class="game-card" data-title="Game2" onclick="window.location.href = '../../index.html?game=game2.html&title=Game+2'">
-            <img src="game2-thumbnail.jpg" alt="Game 2">
-            <div class="game-title">Game 2</div>
+        <div class="controls">
+            <i id="search-icon" class="fas fa-search" onclick="openSearchSection()"></i>
+            <button id="dark-mode-toggle">🌙</button>
         </div>
-        <!-- Add more cards as needed -->
-    </div>
-</div>
+    </header>
 
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> » <span id="category-name">Category</span>
+    </div>
+
+    <!-- Category Section with Filters -->
+    <div class="category-section">
+        <h2>🔥 Trending Categories</h2>
+        <div class="category-filters">
+            <button class="filter-btn" onclick="redirectToCategory('all')">All</button>
+            <button class="filter-btn" onclick="redirectToCategory('car')">🚗 Car</button>
+            <button class="filter-btn" onclick="redirectToCategory('action')">🎮 Action</button>
+            <button class="filter-btn" onclick="redirectToCategory('skill')">⚡ Skill</button>
+            <button class="filter-btn" onclick="redirectToCategory('shooting')">🔫 Shooting</button>
+            <button class="filter-btn" onclick="redirectToCategory('sport')">🏆 Sport</button>
+            <button class="filter-btn" onclick="redirectToCategory('idle')">⏳ Idle</button>
+        </div>
+    </div>
+
+    <main>
+        <h2 id="category-title">Category Games</h2>
+
+        <!-- Game Grid for the selected category -->
+        <div class="game-grid" id="game-grid">
+            <!-- Games will be dynamically added here -->
+        </div>
+
+        <p id="no-results" style="display: none; text-align: center; color: red;">No games found.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Game Hub. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank">Facebook</a> |
+            <a href="https://twitter.com" target="_blank">Twitter</a> |
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        // Function to get category from URL
+        function getCategoryFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("category") || "all"; // Default to 'all' if no category is specified
+        }
+
+        // Function to redirect to a category page
+        function redirectToCategory(category) {
+            window.location.href = `category.html?category=${category}`;
+        }
+
+        // Function to load games dynamically
+        function loadCategoryGames() {
+            const category = getCategoryFromURL();
+            document.getElementById("category-title").innerText = category.charAt(0).toUpperCase() + category.slice(1) + " Games";
+            document.getElementById("category-name").innerText = category.charAt(0).toUpperCase() + category.slice(1);
+
+            const games = [
+                { title: "Candy Crush", category: "puzzle", image: "../images/candy-crush-thumbnail.jpg", link: "../game/candy-crush.html" },
+                { title: "Moto X3M", category: "car", image: "../images/moto-x3m-thumbnail.jpg", link: "../game/moto-x3m.html" },
+                { title: "Ragdoll Archers", category: "action", image: "../images/ragdoll-archers-thumbnail.jpg", link: "../game/ragdoll-archers.html" },
+                { title: "Traffic Rush", category: "car", image: "../images/traffic-rush-thumbnail.jpg", link: "../game/traffic-rush.html" }
+            ];
+
+            const gameGrid = document.getElementById("game-grid");
+            gameGrid.innerHTML = "";
+
+            let found = false;
+            games.forEach(game => {
+                if (category === "all" || game.category === category) {
+                    found = true;
+                    const gameCard = document.createElement("a");
+                    gameCard.classList.add("game-card");
+                    gameCard.href = game.link;
+                    gameCard.innerHTML = `
+                        <img src="${game.image}" alt="${game.title}">
+                        <div class="game-title">${game.title}</div>
+                    `;
+                    gameGrid.appendChild(gameCard);
+                }
+            });
+
+            document.getElementById("no-results").style.display = found ? "none" : "block";
+        }
+
+        // Load category games when page loads
+        window.onload = loadCategoryGames;
+    </script>
 
 </body>
 </html>

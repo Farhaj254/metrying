@@ -69,56 +69,5 @@
             <a href="https://instagram.com" target="_blank">Instagram</a>
         </div>
     </footer>
-
-    <script>
-        // Function to get category from URL
-        function getCategoryFromURL() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get("category") || "all"; // Default to 'all' if no category is specified
-        }
-
-        // Function to redirect to a category page
-        function redirectToCategory(category) {
-            window.location.href = `category.html?category=${category}`;
-        }
-
-        // Function to load games dynamically
-        function loadCategoryGames() {
-            const category = getCategoryFromURL();
-            document.getElementById("category-title").innerText = category.charAt(0).toUpperCase() + category.slice(1) + " Games";
-            document.getElementById("category-name").innerText = category.charAt(0).toUpperCase() + category.slice(1);
-
-            const games = [
-                { title: "Candy Crush", category: "puzzle", image: "../images/candy-crush-thumbnail.jpg", link: "../game/candy-crush.html" },
-                { title: "Moto X3M", category: "car", image: "../images/moto-x3m-thumbnail.jpg", link: "../game/moto-x3m.html" },
-                { title: "Ragdoll Archers", category: "action", image: "../images/ragdoll-archers-thumbnail.jpg", link: "../game/ragdoll-archers.html" },
-                { title: "Traffic Rush", category: "car", image: "../images/traffic-rush-thumbnail.jpg", link: "../game/traffic-rush.html" }
-            ];
-
-            const gameGrid = document.getElementById("game-grid");
-            gameGrid.innerHTML = "";
-
-            let found = false;
-            games.forEach(game => {
-                if (category === "all" || game.category === category) {
-                    found = true;
-                    const gameCard = document.createElement("a");
-                    gameCard.classList.add("game-card");
-                    gameCard.href = game.link;
-                    gameCard.innerHTML = `
-                        <img src="${game.image}" alt="${game.title}">
-                        <div class="game-title">${game.title}</div>
-                    `;
-                    gameGrid.appendChild(gameCard);
-                }
-            });
-
-            document.getElementById("no-results").style.display = found ? "none" : "block";
-        }
-
-        // Load category games when page loads
-        window.onload = loadCategoryGames;
-    </script>
-
 </body>
 </html>

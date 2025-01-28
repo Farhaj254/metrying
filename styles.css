@@ -513,3 +513,41 @@ footer a:hover {
         width: auto; /* Adjust width for mobile */
     }
 }
+/* Category Filters */
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 0;
+    background-color: #000; /* Same as header */
+    border-bottom: 3px solid #00FFFF; /* Cyan underline for separation */
+}
+
+.category-filters button {
+    background-color: #1a1a2e;
+    color: #00FFFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.category-filters button:hover {
+    background-color: #00FFFF;
+    color: #000;
+    transform: scale(1.1);
+}
+
+.category-filters button.active {
+    background-color: #00FFFF;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Add space between the header and scrolling games */
+.scrolling-games {
+    margin-top: 20px; /* Space between category filter and scrolling games */
+}
+

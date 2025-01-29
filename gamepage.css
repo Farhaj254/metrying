@@ -801,6 +801,11 @@ footer a:hover {
     }
 }
 
+.scrolling-container {
+    animation: scroll-left 30s linear infinite;
+}
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .scrolling-game-card {

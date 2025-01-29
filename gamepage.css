@@ -732,10 +732,22 @@ footer a:hover {
 .scrolling-container {
     display: flex;
     position: relative;
-    height: 180px; /* Increase height to allow space for hover scaling */
-    overflow: visible; /* Allow hover effects to extend beyond the container */
-    white-space: nowrap; /* Prevent wrapping */
+    height: 180px;
+    overflow-x: auto; /* Enable manual horizontal scrolling */
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
 }
+
+.scrolling-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+.dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
 
 .scrolling-game-card {
     flex-shrink: 0; /* Prevent cards from shrinking */

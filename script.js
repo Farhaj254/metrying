@@ -97,7 +97,6 @@ function addCategoryFiltering() {
     });
 }
 // scroll continuity 
-
 document.addEventListener("DOMContentLoaded", () => {
     const scrollingContainer = document.querySelector(".scrolling-container");
     const cards = [...document.querySelectorAll(".scrolling-game-card")];
@@ -109,9 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let speed = 2; // Adjust scrolling speed
     let isPaused = false; // Flag for pausing scrolling
     let isDragging = false, startX, scrollLeft; // Dragging variables
+    let isSwiping = false;
 
     function loop() {
-        if (!isPaused && !isDragging) { // Only move when not paused or dragging
+        if (!isPaused && !isDragging) { // Auto-scroll only when not paused or dragging
             cards.forEach((card) => {
                 const currentLeft = parseFloat(card.style.left || card.offsetLeft);
                 const newLeft = currentLeft - speed;
@@ -134,10 +134,8 @@ document.addEventListener("DOMContentLoaded", () => {
         initialLeft += cardWidth + gap;
     });
 
-    // Start the animation loop (Only for desktop users)
-    if (!("ontouchstart" in window)) {
-        loop();
-    }
+    // Start the animation loop for auto-scrolling
+    loop();
 
     // Stop scrolling when hovering over a game card (for desktop)
     cards.forEach((card) => {
@@ -150,9 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Enable touch-drag scrolling for mobile users
+    // Enable touch-drag scrolling for mobile users (while keeping auto-scroll)
     scrollingContainer.addEventListener("touchstart", (e) => {
         isDragging = true;
+        isSwiping = true;
         startX = e.touches[0].pageX;
         scrollLeft = scrollingContainer.scrollLeft;
     });
@@ -162,36 +161,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const x = e.touches[0].pageX;
         const walk = startX - x;
         scrollingContainer.scrollLeft = scrollLeft + walk;
+        isSwiping = true;
     });
 
     scrollingContainer.addEventListener("touchend", () => {
         isDragging = false;
+        setTimeout(() => {
+            isSwiping = false;
+        }, 200); // Allow a slight delay before resuming auto-scroll
     });
 
-    // Enable drag scrolling for desktop users (optional)
-    let isMouseDown = false;
-    scrollingContainer.addEventListener("mousedown", (e) => {
-        isMouseDown = true;
-        startX = e.pageX;
-        scrollLeft = scrollingContainer.scrollLeft;
-        scrollingContainer.classList.add("dragging");
-    });
-
-    scrollingContainer.addEventListener("mousemove", (e) => {
-        if (!isMouseDown) return;
-        const x = e.pageX;
-        const walk = startX - x;
-        scrollingContainer.scrollLeft = scrollLeft + walk;
-    });
-
-    scrollingContainer.addEventListener("mouseup", () => {
-        isMouseDown = false;
-        scrollingContainer.classList.remove("dragging");
-    });
-
-    scrollingContainer.addEventListener("mouseleave", () => {
-        isMouseDown = false;
-    });
+    // Auto-resume scrolling if no swiping is happening
+    setInterval(() => {
+        if (!isSwiping) {
+            isPaused = false;
+        }
+    }, 1000); // Check every 1 second
 });
 
 

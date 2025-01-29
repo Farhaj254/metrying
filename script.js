@@ -107,12 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let speed = 2; // Auto-scroll speed
     let isPaused = false; // Flag for auto-scroll pause
-    let isSwiping = false; // Flag for user swipe action
+    let isUserInteracting = false; // Track if user is interacting (hover/swipe)
     let startX, scrollLeft; // Touch/swipe variables
-    let lastInteractionTime = Date.now(); // Track user interaction time
+    let interactionTimeout; // Store timeout reference
 
     function loop() {
-        if (!isPaused && !isSwiping) { // Only move when not paused or swiping
+        if (!isPaused && !isUserInteracting) { // Only move when no interaction
             cards.forEach((card) => {
                 const currentLeft = parseFloat(card.style.left || card.offsetLeft);
                 const newLeft = currentLeft - speed;
@@ -141,18 +141,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // **Pause auto-scroll when hovering over a game card (for desktop)**
     cards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
-            isPaused = true;
+            isUserInteracting = true;
+            clearTimeout(interactionTimeout); // Prevent premature restart
         });
 
         card.addEventListener("mouseleave", () => {
-            isPaused = false;
+            restartAutoScrollAfterDelay();
         });
     });
 
-    // **Detect swipe action and stop auto-scroll for 3 seconds**
+    // **Detect swipe action and stop auto-scroll properly**
     scrollingContainer.addEventListener("touchstart", (e) => {
-        isSwiping = true; // Stop auto-scroll immediately
-        lastInteractionTime = Date.now(); // Update interaction time
+        isUserInteracting = true; // Stop auto-scroll immediately
+        clearTimeout(interactionTimeout);
         startX = e.touches[0].pageX;
         scrollLeft = scrollingContainer.scrollLeft;
     });
@@ -164,21 +165,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     scrollingContainer.addEventListener("touchend", () => {
-        isSwiping = true; // Ensure auto-scroll stops
-        lastInteractionTime = Date.now();
-
-        // **Set a 3-second timeout before auto-scroll resumes**
-        setTimeout(() => {
-            isSwiping = false;
-        }, 3000);
+        restartAutoScrollAfterDelay();
     });
 
-    // **Ensure auto-scroll resumes after 3 seconds of no swipe**
-    setInterval(() => {
-        if (!isSwiping && Date.now() - lastInteractionTime > 3000) {
-            isPaused = false;
-        }
-    }, 500); // Check every 500ms
+    // **Function to restart auto-scroll after 3 seconds of no interaction**
+    function restartAutoScrollAfterDelay() {
+        clearTimeout(interactionTimeout); // Reset existing timeout
+        interactionTimeout = setTimeout(() => {
+            isUserInteracting = false; // Resume auto-scroll
+        }, 3000); // Wait 3 seconds
+    }
 });
 
 

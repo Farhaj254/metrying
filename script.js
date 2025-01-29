@@ -97,6 +97,43 @@ function addCategoryFiltering() {
     });
 }
 // scroll continuity 
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollingContainer = document.querySelector('.scrolling-container');
+    const cards = [...document.querySelectorAll('.scrolling-game-card')];
+
+    const cardWidth = cards[0].offsetWidth; // Width of a single card
+    const gap = 30; // Gap between cards
+    const totalWidth = (cardWidth + gap) * cards.length; // Total width of all cards with gaps
+
+    let speed = 2; // Adjust scrolling speed
+
+    function loop() {
+        cards.forEach((card) => {
+            const currentLeft = parseFloat(card.style.left || card.offsetLeft);
+            const newLeft = currentLeft - speed;
+
+            // If the card moves completely out of view on the left, reposition it to the right side
+            if (newLeft + cardWidth < 0) {
+                card.style.left = `${currentLeft + totalWidth}px`;
+            } else {
+                card.style.left = `${newLeft}px`;
+            }
+        });
+
+        requestAnimationFrame(loop);
+    }
+
+    // Initialize card positions
+    let initialLeft = 0;
+    cards.forEach((card) => {
+        card.style.position = 'absolute';
+        card.style.left = `${initialLeft}px`;
+        initialLeft += cardWidth + gap; // Increment by card width + gap
+    });
+
+    // Start the animation
+    loop();
+});
 
 
 //scroll pause function

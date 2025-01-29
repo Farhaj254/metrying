@@ -107,19 +107,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalWidth = (cardWidth + gap) * cards.length; // Total width of all cards with gaps
 
     let speed = 2; // Adjust scrolling speed
+    let isPaused = false; // Flag to track pause state
 
     function loop() {
-        cards.forEach((card) => {
-            const currentLeft = parseFloat(card.style.left || card.offsetLeft);
-            const newLeft = currentLeft - speed;
+        if (!isPaused) {  // Only move when not paused
+            cards.forEach((card) => {
+                const currentLeft = parseFloat(card.style.left || card.offsetLeft);
+                const newLeft = currentLeft - speed;
 
-            // If the card moves completely out of view on the left, reposition it to the right side
-            if (newLeft + cardWidth < 0) {
-                card.style.left = `${currentLeft + totalWidth}px`;
-            } else {
-                card.style.left = `${newLeft}px`;
-            }
-        });
+                // If the card moves completely out of view on the left, reposition it to the right side
+                if (newLeft + cardWidth < 0) {
+                    card.style.left = `${currentLeft + totalWidth}px`;
+                } else {
+                    card.style.left = `${newLeft}px`;
+                }
+            });
+        }
 
         requestAnimationFrame(loop);
     }
@@ -134,6 +137,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start the animation
     loop();
+
+    // Event listeners for **each** scrolling game card (stop movement on hover)
+    cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            isPaused = true; // Stop movement when hovering over a card
+        });
+
+        card.addEventListener("mouseleave", () => {
+            isPaused = false; // Resume movement when leaving the card
+        });
+    });
 });
+
 
 //scroll pause function

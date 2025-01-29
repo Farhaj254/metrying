@@ -149,9 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // **Detect swipe action and stop auto-scroll while swiping**
+    // **Detect swipe action and stop auto-scroll for 3 seconds**
     scrollingContainer.addEventListener("touchstart", (e) => {
-        isSwiping = true; // Stop auto-scroll on swipe
+        isSwiping = true; // Stop auto-scroll immediately
         lastInteractionTime = Date.now(); // Update interaction time
         startX = e.touches[0].pageX;
         scrollLeft = scrollingContainer.scrollLeft;
@@ -164,16 +164,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     scrollingContainer.addEventListener("touchend", () => {
-        isSwiping = false; // Allow auto-scroll after swipe ends
+        isSwiping = true; // Ensure auto-scroll stops
         lastInteractionTime = Date.now();
+
+        // **Set a 3-second timeout before auto-scroll resumes**
+        setTimeout(() => {
+            isSwiping = false;
+        }, 3000);
     });
 
-    // **Ensure auto-scroll resumes after inactivity**
+    // **Ensure auto-scroll resumes after 3 seconds of no swipe**
     setInterval(() => {
-        if (!isSwiping && Date.now() - lastInteractionTime > 1500) { // 1.5 sec delay
+        if (!isSwiping && Date.now() - lastInteractionTime > 3000) {
             isPaused = false;
         }
-    }, 500);
+    }, 500); // Check every 500ms
 });
 
 

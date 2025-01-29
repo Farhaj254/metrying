@@ -721,25 +721,33 @@ footer a:hover {
 /* Scrolling Games Section */
 .scrolling-games {
     width: 100%;
-    background-color: #1a1a2e; /* Match the theme */
+    background-color: #1a1a2e;
     padding: 10px 0;
-    overflow: hidden; /* Keep this to hide out-of-view cards */
+    overflow: hidden;
     position: relative;
     margin-top: 20px;
-    
 }
 
+/* Scrolling container with animation */
 .scrolling-container {
     display: flex;
     position: relative;
-    height: 180px; /* Increase height to allow space for hover scaling */
-    overflow: visible; /* Allow hover effects to extend beyond the container */
-    white-space: nowrap; /* Prevent wrapping */
+    height: 180px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    animation: scroll-left 20s linear infinite; /* Continuous scrolling */
 }
 
+/* Pause animation on hover for PC users */
+.scrolling-container:hover {
+    animation-play-state: paused;
+}
+
+/* Scrolling game card styles */
 .scrolling-game-card {
-    flex-shrink: 0; /* Prevent cards from shrinking */
-    position: relative; /* Ensure child elements are positioned relative to this */
+    flex-shrink: 0;
     background: #27293d;
     color: #fff;
     text-align: center;
@@ -748,27 +756,21 @@ footer a:hover {
     width: 150px;
     height: 150px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: 2px solid transparent; /* Default border is transparent */
+    border: 2px solid transparent;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    cursor: pointer; /* Indicate interactivity */
+    cursor: pointer;
+    margin-right: 10px; /* Space between game cards */
 }
 
-.scrolling-game-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease; /* Add smooth fade effect */
-}
-
-/* Hover Effect for Scrolling Cards */
+/* Game card hover effects */
 .scrolling-game-card:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    border: 2px solid #00FFFF; /* Thin cyan border on hover */
+    border: 2px solid #00FFFF;
 }
 
 .scrolling-game-card:hover img {
-    opacity: 0.3; /* Dim the image on hover */
+    opacity: 0.3;
 }
 
 /* Title for Scrolling Cards */
@@ -778,11 +780,11 @@ footer a:hover {
     left: 0;
     right: 0;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
-    color: #00FFFF; /* Cyan title color */
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #00FFFF;
     font-size: 14px;
     font-weight: bold;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     transition: opacity 0.3s ease, background-color 0.3s ease;
     text-transform: uppercase;
 }
@@ -790,27 +792,34 @@ footer a:hover {
 /* Show Title on Hover */
 .scrolling-game-card:hover .game-title {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent on hover */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Animation for scrolling */
+/* Auto-scroll animation */
 @keyframes scroll-left {
-    0% {
+    from {
         transform: translateX(100%);
     }
-    100% {
+    to {
         transform: translateX(-100%);
     }
 }
 
-/* Responsive Adjustments */
+/* Mobile specific styles */
 @media (max-width: 768px) {
+    .scrolling-container {
+        animation: none; /* Disable automatic scrolling */
+        overflow-x: scroll; /* Enable touch scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth touch scrolling */
+        scroll-snap-type: x mandatory;
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+    }
+
     .scrolling-game-card {
         width: 120px;
         height: 120px;
-    }
-    .scrolling-container {
-        gap: 10px;
-        animation-duration: 20s; /* Slower scrolling on smaller screens */
+        scroll-snap-align: start;
     }
 }

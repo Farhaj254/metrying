@@ -133,3 +133,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start the animation
     loop();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollingContainer = document.querySelector(".scrolling-container");
+    
+    let isScrolling;
+    
+    // Detect when user scrolls manually on mobile
+    scrollingContainer.addEventListener("scroll", function () {
+        clearTimeout(isScrolling);
+        scrollingContainer.style.animation = "none"; // Stop auto-scroll when user interacts
+
+        isScrolling = setTimeout(() => {
+            scrollingContainer.style.animation = "scroll-left 20s linear infinite"; // Resume auto-scroll after inactivity
+        }, 2000); // Resume scrolling after 2 seconds of inactivity
+    });
+});

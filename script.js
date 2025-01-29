@@ -97,6 +97,7 @@ function addCategoryFiltering() {
     });
 }
 // scroll continuity 
+
 document.addEventListener('DOMContentLoaded', () => {
     const scrollingContainer = document.querySelector('.scrolling-container');
     const cards = [...document.querySelectorAll('.scrolling-game-card')];
@@ -106,22 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalWidth = (cardWidth + gap) * cards.length; // Total width of all cards with gaps
 
     let speed = 2; // Adjust scrolling speed
-    let isPaused = false; // Flag to track pause state
 
     function loop() {
-        if (!isPaused) {  // Only move when not paused
-            cards.forEach((card) => {
-                const currentLeft = parseFloat(card.style.left || card.offsetLeft);
-                const newLeft = currentLeft - speed;
+        cards.forEach((card) => {
+            const currentLeft = parseFloat(card.style.left || card.offsetLeft);
+            const newLeft = currentLeft - speed;
 
-                // If the card moves completely out of view on the left, reposition it to the right side
-                if (newLeft + cardWidth < 0) {
-                    card.style.left = `${currentLeft + totalWidth}px`;
-                } else {
-                    card.style.left = `${newLeft}px`;
-                }
-            });
-        }
+            // If the card moves completely out of view on the left, reposition it to the right side
+            if (newLeft + cardWidth < 0) {
+                card.style.left = `${currentLeft + totalWidth}px`;
+            } else {
+                card.style.left = `${newLeft}px`;
+            }
+        });
 
         requestAnimationFrame(loop);
     }
@@ -136,16 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start the animation
     loop();
-
-    // Event listeners to pause and resume scrolling
-    scrollingContainer.addEventListener("mouseenter", () => {
-        isPaused = true; // Pause movement
-    });
-
-    scrollingContainer.addEventListener("mouseleave", () => {
-        isPaused = false; // Resume movement
-    });
 });
-
 
 //scroll pause function

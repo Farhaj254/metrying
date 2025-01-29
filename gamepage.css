@@ -723,18 +723,15 @@ footer a:hover {
     width: 100%;
     background-color: #1a1a2e; /* Match the theme */
     padding: 10px 0;
-    overflow: hidden; /* Keep this to hide out-of-view cards */
+    overflow: hidden; /* Hide overflow content */
     position: relative;
-    margin-top: 20px;
-    
 }
 
 .scrolling-container {
     display: flex;
-    position: relative;
-    height: 180px; /* Increase height to allow space for hover scaling */
-    overflow: visible; /* Allow hover effects to extend beyond the container */
-    white-space: nowrap; /* Prevent wrapping */
+    gap: 30px; /* Space between cards */
+    animation: scroll-left 15s linear infinite; /* Infinite scrolling animation */
+    will-change: transform;
 }
 
 .scrolling-game-card {

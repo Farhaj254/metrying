@@ -138,8 +138,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const scrollingContainer = document.querySelector(".scrolling-container");
     
     let isScrolling;
-    
-    // Detect when user scrolls manually on mobile
+
+    // Pause auto-scroll when hovering (PC)
+    scrollingContainer.addEventListener("mouseenter", function () {
+        scrollingContainer.style.animationPlayState = "paused";
+    });
+
+    // Resume auto-scroll when mouse leaves (PC)
+    scrollingContainer.addEventListener("mouseleave", function () {
+        scrollingContainer.style.animationPlayState = "running";
+    });
+
+    // Allow touch scrolling on mobile
     scrollingContainer.addEventListener("scroll", function () {
         clearTimeout(isScrolling);
         scrollingContainer.style.animation = "none"; // Stop auto-scroll when user interacts
@@ -149,3 +159,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2000); // Resume scrolling after 2 seconds of inactivity
     });
 });
+

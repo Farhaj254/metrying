@@ -105,13 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const gap = 30; // Gap between cards
     const totalWidth = (cardWidth + gap) * cards.length; // Total width of all cards with gaps
 
-    let speed = 2; // Adjust scrolling speed
-    let isPaused = false; // Flag for pausing scrolling
-    let isDragging = false, startX, scrollLeft; // Dragging variables
-    let isSwiping = false;
+    let speed = 2; // Auto-scroll speed
+    let isPaused = false; // Flag for auto-scroll pause
+    let isSwiping = false; // Flag for user swipe action
+    let startX, scrollLeft; // Touch/swipe variables
+    let lastInteractionTime = Date.now(); // Track user interaction time
 
     function loop() {
-        if (!isPaused && !isDragging) { // Auto-scroll only when not paused or dragging
+        if (!isPaused && !isSwiping) { // Only move when not paused or swiping
             cards.forEach((card) => {
                 const currentLeft = parseFloat(card.style.left || card.offsetLeft);
                 const newLeft = currentLeft - speed;
@@ -134,10 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
         initialLeft += cardWidth + gap;
     });
 
-    // Start the animation loop for auto-scrolling
+    // Start auto-scrolling
     loop();
 
-    // Stop scrolling when hovering over a game card (for desktop)
+    // **Pause auto-scroll when hovering over a game card (for desktop)**
     cards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
             isPaused = true;
@@ -148,35 +149,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Enable touch-drag scrolling for mobile users (while keeping auto-scroll)
+    // **Detect swipe action and stop auto-scroll while swiping**
     scrollingContainer.addEventListener("touchstart", (e) => {
-        isDragging = true;
-        isSwiping = true;
+        isSwiping = true; // Stop auto-scroll on swipe
+        lastInteractionTime = Date.now(); // Update interaction time
         startX = e.touches[0].pageX;
         scrollLeft = scrollingContainer.scrollLeft;
     });
 
     scrollingContainer.addEventListener("touchmove", (e) => {
-        if (!isDragging) return;
         const x = e.touches[0].pageX;
         const walk = startX - x;
         scrollingContainer.scrollLeft = scrollLeft + walk;
-        isSwiping = true;
     });
 
     scrollingContainer.addEventListener("touchend", () => {
-        isDragging = false;
-        setTimeout(() => {
-            isSwiping = false;
-        }, 200); // Allow a slight delay before resuming auto-scroll
+        isSwiping = false; // Allow auto-scroll after swipe ends
+        lastInteractionTime = Date.now();
     });
 
-    // Auto-resume scrolling if no swiping is happening
+    // **Ensure auto-scroll resumes after inactivity**
     setInterval(() => {
-        if (!isSwiping) {
+        if (!isSwiping && Date.now() - lastInteractionTime > 1500) { // 1.5 sec delay
             isPaused = false;
         }
-    }, 1000); // Check every 1 second
+    }, 500);
 });
 
 

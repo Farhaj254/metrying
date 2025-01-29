@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styles */ 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #1a1a2e; /* Dark gaming background */
@@ -717,6 +717,7 @@ footer a:hover {
         padding: 10px; /* Adjust padding for medium screens */
     }
 }
+
 /* Scrolling Games Section */
 .scrolling-games {
     width: 100%;
@@ -725,6 +726,7 @@ footer a:hover {
     overflow: hidden; /* Keep this to hide out-of-view cards */
     position: relative;
     margin-top: 20px;
+    
 }
 
 .scrolling-container {
@@ -801,7 +803,6 @@ footer a:hover {
     }
 }
 
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .scrolling-game-card {
@@ -813,4 +814,3 @@ footer a:hover {
         animation-duration: 20s; /* Slower scrolling on smaller screens */
     }
 }
-

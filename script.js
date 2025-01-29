@@ -107,17 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalWidth = (cardWidth + gap) * cards.length; // Total width of all cards with gaps
 
     let speed = 2; // Adjust scrolling speed
-    let isPaused = false; // Flag to track pause state
-    let isDragging = false;
-    let startX, scrollLeft;
+    let isPaused = false; // Flag for pausing scrolling
+    let isDragging = false, startX, scrollLeft; // Dragging variables
 
     function loop() {
-        if (!isPaused && !isDragging) {  // Only move when not paused or dragging
+        if (!isPaused && !isDragging) { // Only move when not paused or dragging
             cards.forEach((card) => {
                 const currentLeft = parseFloat(card.style.left || card.offsetLeft);
                 const newLeft = currentLeft - speed;
 
-                // If the card moves completely out of view on the left, reposition it to the right side
                 if (newLeft + cardWidth < 0) {
                     card.style.left = `${currentLeft + totalWidth}px`;
                 } else {
@@ -125,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         }
-
         requestAnimationFrame(loop);
     }
 
@@ -134,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cards.forEach((card) => {
         card.style.position = "absolute";
         card.style.left = `${initialLeft}px`;
-        initialLeft += cardWidth + gap; // Increment by card width + gap
+        initialLeft += cardWidth + gap;
     });
 
     // Start the animation loop (Only for desktop users)
@@ -145,46 +142,46 @@ document.addEventListener("DOMContentLoaded", () => {
     // Stop scrolling when hovering over a game card (for desktop)
     cards.forEach((card) => {
         card.addEventListener("mouseenter", () => {
-            isPaused = true; // Stop movement when hovering over a card
+            isPaused = true;
         });
 
         card.addEventListener("mouseleave", () => {
-            isPaused = false; // Resume movement when leaving the card
+            isPaused = false;
         });
     });
 
-    // Enable touch-based scrolling for mobile users
+    // Enable touch-drag scrolling for mobile users
     scrollingContainer.addEventListener("touchstart", (e) => {
         isDragging = true;
-        startX = e.touches[0].pageX - scrollingContainer.offsetLeft;
+        startX = e.touches[0].pageX;
         scrollLeft = scrollingContainer.scrollLeft;
     });
 
     scrollingContainer.addEventListener("touchmove", (e) => {
         if (!isDragging) return;
-        const x = e.touches[0].pageX - scrollingContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Multiply by 2 for faster scrolling
-        scrollingContainer.scrollLeft = scrollLeft - walk;
+        const x = e.touches[0].pageX;
+        const walk = startX - x;
+        scrollingContainer.scrollLeft = scrollLeft + walk;
     });
 
     scrollingContainer.addEventListener("touchend", () => {
         isDragging = false;
     });
 
-    // Enable click-and-drag scrolling for desktop users
+    // Enable drag scrolling for desktop users (optional)
     let isMouseDown = false;
     scrollingContainer.addEventListener("mousedown", (e) => {
         isMouseDown = true;
-        scrollingContainer.classList.add("dragging");
-        startX = e.pageX - scrollingContainer.offsetLeft;
+        startX = e.pageX;
         scrollLeft = scrollingContainer.scrollLeft;
+        scrollingContainer.classList.add("dragging");
     });
 
     scrollingContainer.addEventListener("mousemove", (e) => {
         if (!isMouseDown) return;
-        const x = e.pageX - scrollingContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        scrollingContainer.scrollLeft = scrollLeft - walk;
+        const x = e.pageX;
+        const walk = startX - x;
+        scrollingContainer.scrollLeft = scrollLeft + walk;
     });
 
     scrollingContainer.addEventListener("mouseup", () => {

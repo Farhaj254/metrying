@@ -743,11 +743,6 @@ footer a:hover {
     display: none; /* Hide scrollbar */
 }
 
-.dragging {
-    cursor: grabbing;
-    user-select: none;
-}
-
 
 .scrolling-game-card {
     flex-shrink: 0; /* Prevent cards from shrinking */

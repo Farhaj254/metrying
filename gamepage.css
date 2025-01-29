@@ -724,6 +724,7 @@ footer a:hover {
     padding: 10px 0;
     overflow: hidden; /* Keep this to hide out-of-view cards */
     position: relative;
+    margin-top: 20px;
 }
 
 .scrolling-container {

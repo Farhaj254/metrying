@@ -106,13 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalWidth = (cardWidth + gap) * cards.length; // Total width of all cards with gaps
 
     let speed = 2; // Auto-scroll speed
-    let isPaused = false; // Flag for auto-scroll pause
-    let isUserInteracting = false; // Track if user is interacting (hover/swipe)
-    let startX, scrollLeft; // Touch/swipe variables
-    let interactionTimeout; // Store timeout reference
+    let isPaused = false; // Controls auto-scrolling
+    let isUserInteracting = false; // Detects if the user is interacting
+    let startX, scrollLeft; // For touch gestures
+    let interactionTimeout; // Timeout reference for mobile auto-resume
+    let isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0; // Detect mobile
 
     function loop() {
-        if (!isPaused && !isUserInteracting) { // Only move when no interaction
+        if (!isPaused && !isUserInteracting) { 
             cards.forEach((card) => {
                 const currentLeft = parseFloat(card.style.left || card.offsetLeft);
                 const newLeft = currentLeft - speed;
@@ -138,44 +139,42 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start auto-scrolling
     loop();
 
-    // **Pause auto-scroll when hovering over a game card (for desktop)**
-    cards.forEach((card) => {
-        card.addEventListener("mouseenter", () => {
-            isUserInteracting = true;
-            clearTimeout(interactionTimeout); // Prevent premature restart
+    // **Desktop Hover Behavior: Stop auto-scroll on hover, resume when mouse leaves**
+    if (!isMobile) {
+        cards.forEach((card) => {
+            card.addEventListener("mouseenter", () => {
+                isPaused = true; // Stop auto-scroll when hovering
+            });
+
+            card.addEventListener("mouseleave", () => {
+                isPaused = false; // Resume auto-scroll when mouse leaves
+            });
+        });
+    }
+
+    // **Mobile Swipe Behavior: Stop auto-scroll for 3 seconds on swipe**
+    if (isMobile) {
+        scrollingContainer.addEventListener("touchstart", (e) => {
+            isUserInteracting = true; // Stop auto-scroll immediately
+            clearTimeout(interactionTimeout);
+            startX = e.touches[0].pageX;
+            scrollLeft = scrollingContainer.scrollLeft;
         });
 
-        card.addEventListener("mouseleave", () => {
-            restartAutoScrollAfterDelay();
+        scrollingContainer.addEventListener("touchmove", (e) => {
+            const x = e.touches[0].pageX;
+            const walk = startX - x;
+            scrollingContainer.scrollLeft = scrollLeft + walk;
         });
-    });
 
-    // **Detect swipe action and stop auto-scroll properly**
-    scrollingContainer.addEventListener("touchstart", (e) => {
-        isUserInteracting = true; // Stop auto-scroll immediately
-        clearTimeout(interactionTimeout);
-        startX = e.touches[0].pageX;
-        scrollLeft = scrollingContainer.scrollLeft;
-    });
-
-    scrollingContainer.addEventListener("touchmove", (e) => {
-        const x = e.touches[0].pageX;
-        const walk = startX - x;
-        scrollingContainer.scrollLeft = scrollLeft + walk;
-    });
-
-    scrollingContainer.addEventListener("touchend", () => {
-        restartAutoScrollAfterDelay();
-    });
-
-    // **Function to restart auto-scroll after 3 seconds of no interaction**
-    function restartAutoScrollAfterDelay() {
-        clearTimeout(interactionTimeout); // Reset existing timeout
-        interactionTimeout = setTimeout(() => {
-            isUserInteracting = false; // Resume auto-scroll
-        }, 3000); // Wait 3 seconds
+        scrollingContainer.addEventListener("touchend", () => {
+            interactionTimeout = setTimeout(() => {
+                isUserInteracting = false; // Resume auto-scroll after 3 sec
+            }, 3000);
+        });
     }
 });
+
 
 
 //scroll pause function

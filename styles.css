@@ -284,11 +284,9 @@ header .controls {
         width: 100%; /* Ensure it takes full width */
     }
 
-    .game-card {
-        width: 100%; /* Make the card width flexible */
-        height: auto; /* Allow height to adjust properly */
-        max-width: 150px; /* Set a max width to prevent excessive stretching */
-        margin: 0 auto; /* Center the cards properly */
+     .game-card {
+        width: 130px; /* Keep card width consistent */
+        height: 130px; /* Keep card height consistent */
     }
 }
 

@@ -1,4 +1,8 @@
 /* General Styles */ 
+ {
+    box-sizing: border-box;
+    max-width: 100%;
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #1a1a2e; /* Dark gaming background */
@@ -831,3 +835,4 @@ footer a:hover {
         animation-duration: 20s; /* Slower scrolling on smaller screens */
     }
 }
+ }

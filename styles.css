@@ -269,8 +269,8 @@ header .controls {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     border: 2px solid transparent; /* Default border is transparent */
 }
 

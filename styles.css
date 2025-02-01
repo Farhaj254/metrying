@@ -248,7 +248,7 @@ header .controls {
 
 /* Game Grid */
 .game-grid {
-    display:flexable;
+    display:rows;
    grid-template-rows: repeat(auto-fit, minmax(150px, auto)); /* Flexible row height */
     gap: 20px; /* Space between cards */
     padding: 20px; /* Internal padding */

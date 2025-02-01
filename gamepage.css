@@ -103,7 +103,7 @@ header .controls {
 
 /* Game Grid */
 
-/* Game Grid */
+
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create multiple columns */
@@ -143,7 +143,7 @@ header .controls {
 
     .game-card {
         width: 100%; /* Allow grid to control the width */
-        height: auto; /* Prevent fixed height issues */
+        height: 150px; /* Prevent fixed height issues */
         max-width: 150px; /* Set a max width to prevent excessive stretching */
         margin: 0 auto; /* Center the cards properly */
     }

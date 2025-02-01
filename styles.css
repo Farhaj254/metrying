@@ -269,8 +269,8 @@ header .controls {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     border: 2px solid transparent; /* Default border is transparent */
 }
 
@@ -285,8 +285,8 @@ header .controls {
     }
 
      .game-card {
-        width: 140px; /* Keep card width consistent */
-        height: 140px; /* Keep card height consistent */
+        width: 150px; /* Keep card width consistent */
+        height: 150px; /* Keep card height consistent */
     }
 }
 

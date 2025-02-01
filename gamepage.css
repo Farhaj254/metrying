@@ -105,10 +105,10 @@ header .controls {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid columns */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create multiple columns */
     gap: 20px; /* Space between cards */
     padding: 20px; /* Internal padding */
-    margin: 0 auto; /* Center the grid */
+    margin:0 auto; /* Center the grid */
     width: 95%; /* Add some buffer space */
     box-sizing: border-box; /* Ensure padding is included in width */
 }

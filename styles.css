@@ -249,7 +249,7 @@ header .controls {
 /* Game Grid */
 .game-grid {
     display: grid;
-    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr)); /* Flexible grid columns */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create multiple columns */
     gap: 20px; /* Space between cards */
     padding: 20px; /* Internal padding */
     margin: 0 auto; /* Center the grid */
@@ -277,16 +277,17 @@ header .controls {
 /* Responsive Design */
 @media (max-width: 768px) {
     .game-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Maintain consistency with larger screens */
-        gap: 10px; /* Same gap as larger screens */
-        padding: 20px; /* Same padding as larger screens */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive stacking */
+        gap: 10px;
+        padding: 10px;
     }
 
     .game-card {
-        width: 100px; /* Keep card width consistent */
-        height: 100px; /* Keep card height consistent */
+        width: 100%; /* Ensure full width within the column */
+        height: auto; /* Adjust height automatically */
     }
 }
+
 
 
 

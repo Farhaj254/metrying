@@ -133,17 +133,18 @@ header .controls {
 /* Responsive Design */
 @media (max-width: 768px) {
     .game-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Maintain consistency with larger screens */
-        gap: 10px; /* Same gap as larger screens */
-        padding: 20px; /* Same padding as larger screens */
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Create multiple columns */
+        gap: 10px; /* Reduce gap for better spacing */
+        padding: 10px;
+        width: 100%; /* Ensure it takes full width */
     }
 
-    .game-card {
+     .game-card {
         width: 150px; /* Keep card width consistent */
         height: 150px; /* Keep card height consistent */
     }
 }
-
 
 
 .game-card img {

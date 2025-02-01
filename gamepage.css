@@ -136,13 +136,13 @@ header .controls {
     .game-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Create responsive columns */
-        gap: 10px; /* Reduce gap for better spacing */
-        padding: 10px;
+        gap: 15px; /* Reduce gap for better spacing */
+        padding: 20px;
         width: 100%; /* Ensure it takes full width */
     }
 
     .game-card {
-        
+        width: 100%; /* Allow grid to control the width */
         height: 150px; /* Prevent fixed height issues */
         max-width: 150px; /* Set a max width to prevent excessive stretching */
         margin: 0 auto; /* Center the cards properly */

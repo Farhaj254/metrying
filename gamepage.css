@@ -1,5 +1,5 @@
 /* General Styles */ 
- {
+ 
     box-sizing: border-box;
     max-width: 100%;
 
@@ -835,4 +835,19 @@ footer a:hover {
         animation-duration: 20s; /* Slower scrolling on smaller screens */
     }
 }
- }
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden !important; /* Force remove horizontal scrolling */
+    }
+
+    .game-section, .game-content, .iframe-container {
+        width: 100vw; /* Prevents any element from exceeding screen width */
+        max-width: 100%;
+        padding: 0 5px; /* Reduce extra space */
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2x2 grid */
+        padding: 10px;
+    }
+}

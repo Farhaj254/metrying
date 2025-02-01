@@ -475,14 +475,17 @@ footer a:hover {
 /* Game Section For Left and Right Section */
 .game-section {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center;
     gap: 20px;
-    width: 90%; /* Keep responsive behavior */
-    max-width: 1400px; /* Allow more space for larger screens */
+    width: 100%; /* Ensures it does not exceed screen width */
+    max-width: 100%; /* Prevents overflow */
     margin: 0 auto;
-    padding: 20;
+    padding: 20px;
+    overflow-x: hidden; /* Ensure no horizontal scrolling */
 }
+
+
 
 
 /* Left and Right Sections */
@@ -567,7 +570,7 @@ footer a:hover {
 /* Adjustments for Responsive Design */
 @media (max-width: 768px) {
     .leftright-grid {
-        grid-template-columns: repeat(2, 1fr); /* Maintain 2x2 grid */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjusts dynamically */
         gap: 10px;
     }
 
@@ -594,22 +597,22 @@ footer a:hover {
 }
 
  /* Game Content Section */
+
 .game-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 80%; /* Reduced from 90% */
-    max-width: 1200px; /* Reduce the maximum width */
-    overflow-x: hidden; /* Stops horizontal scrolling */
+    width: 100%; /* Prevents overflow */
+    max-width: 100%; /* Ensures content does not exceed screen */
+    overflow-x: hidden;
     margin: 20px auto;
     padding: 20px;
     background-color: #1a1a2e;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
-
 
 
 /* Adjust the game content for larger screens */

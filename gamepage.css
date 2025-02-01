@@ -145,7 +145,7 @@ header .controls {
         width: 100%; /* Allow grid to control the width */
         height: 150px; /* Prevent fixed height issues */
         max-width: 150px; /* Set a max width to prevent excessive stretching */
-        margin: 0 auto; /* Center the cards properly */
+        
     }
 }
 

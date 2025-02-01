@@ -135,17 +135,20 @@ header .controls {
 @media (max-width: 768px) {
     .game-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Create multiple columns */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Create responsive columns */
         gap: 10px; /* Reduce gap for better spacing */
         padding: 10px;
         width: 100%; /* Ensure it takes full width */
     }
 
-     .game-card {
-        width: 150px; /* Keep card width consistent */
-        height: 150px; /* Keep card height consistent */
+    .game-card {
+        width: 100%; /* Allow grid to control the width */
+        height: auto; /* Prevent fixed height issues */
+        max-width: 150px; /* Set a max width to prevent excessive stretching */
+        margin: 0 auto; /* Center the cards properly */
     }
 }
+
 
 
 

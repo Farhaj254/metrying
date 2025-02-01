@@ -103,6 +103,7 @@ header .controls {
 
 /* Game Grid */
 
+/* Game Grid */
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create multiple columns */
@@ -145,6 +146,8 @@ header .controls {
         height: 150px; /* Keep card height consistent */
     }
 }
+
+
 
 
 .game-card img {
@@ -191,7 +194,6 @@ header .controls {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent on hover */
 }
-
 
 
 /* Footer */

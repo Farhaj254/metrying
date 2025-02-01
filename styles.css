@@ -252,7 +252,7 @@ header .controls {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create multiple columns */
     gap: 20px; /* Space between cards */
     padding: 20px; /* Internal padding */
-    margin: 0 auto; /* Center the grid */
+    margin: 40px auto; /* Center the grid */
     width: 95%; /* Add some buffer space */
     box-sizing: border-box; /* Ensure padding is included in width */
 }
@@ -269,8 +269,8 @@ header .controls {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     border: 2px solid transparent; /* Default border is transparent */
 }
 
@@ -285,8 +285,8 @@ header .controls {
     }
 
      .game-card {
-        width: 130px; /* Keep card width consistent */
-        height: 130px; /* Keep card height consistent */
+        width: 140px; /* Keep card width consistent */
+        height: 140px; /* Keep card height consistent */
     }
 }
 

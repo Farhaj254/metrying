@@ -206,7 +206,7 @@ footer a:hover {
     align-items: flex-start; /* Align items to the top */
     gap: 20px; /* Space between left, center, and right sections */
     width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Ensure enough space for all sections */
+    max-width: 1400px; /* Ensure enough space for all sections */
     margin: 0 auto; /* Center the entire section */
     padding: 20px; /* Add padding for spacing */
 }
@@ -442,7 +442,7 @@ footer a:hover {
 .right-section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     width: 100%; /* Ensure it takes full width */
 }
 
@@ -559,7 +559,7 @@ footer a:hover {
     align-items: center;
     gap: 20px;
     width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Reduce the maximum width */
+    max-width: 1400px; /* Reduce the maximum width */
     margin: 20px auto;
     padding: 20px;
     background-color: #1a1a2e;

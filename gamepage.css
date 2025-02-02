@@ -600,10 +600,10 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 80%; /* Reduced from 90% */
+    width: 60%; /* Reduced from 90% */
     max-width: 1200px; /* Reduce the maximum width */
     overflow-x: hidden; /* Stops horizontal scrolling */
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 20px;
     background-color: #1a1a2e;
     border-radius: 8px;
@@ -625,7 +625,7 @@ footer a:hover {
 }
 
 .iframe-container iframe {
-    width: 100%;
+    width: 80%;
     height: 500px;
     border: none;
     border-radius: 8px;

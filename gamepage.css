@@ -226,6 +226,7 @@ footer a:hover {
 /* Game Section */
 .game-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between; /* Add spacing between sections */
     align-items: flex-start; /* Align items to the top */
     gap: 20px; /* Space between left, center, and right sections */
@@ -472,13 +473,14 @@ footer a:hover {
 /* Game Section For Left and Right Section */
 .game-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
     width: 90%; /* Keep responsive behavior */
     max-width: 1400px; /* Allow more space for larger screens */
     margin: 0 auto;
-    padding: 20;
+    padding: 20px;
 }
 
 
@@ -597,8 +599,8 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 80%; /* Reduced from 90% */
-    max-width: 1200px; /* Reduce the maximum width */
+    width: 100%; /* Reduced from 90% */
+    max-width: 100%; /* Reduce the maximum width */
     margin: 20px auto;
     padding: 20px;
     background-color: #1a1a2e;
@@ -742,7 +744,7 @@ footer a:hover {
     display: flex;
     position: relative;
     height: 180px;
-    overflow-x: auto; /* Enable manual horizontal scrolling */
+    overflow-x: hidden; /* Enable manual horizontal scrolling */
     white-space: nowrap;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */

@@ -228,7 +228,7 @@ footer a:hover {
 
 /* Game Section */
 .game-section {
-    display: flex;
+    display: block;
     justify-content: space-between; /* Add spacing between sections */
     align-items: flex-start; /* Align items to the top */
     gap: 20px; /* Space between left, center, and right sections */
@@ -474,9 +474,9 @@ footer a:hover {
 }
 /* Game Section For Left and Right Section */
 .game-section {
-    display: flex;
+    display: block;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: block-start;
     gap: 20px;
     width: 90%; /* Keep responsive behavior */
     max-width: 1400px; /* Allow more space for larger screens */
@@ -595,8 +595,8 @@ footer a:hover {
 
  /* Game Content Section */
 .game-content {
-    flex-grow: 1;
-    flex-direction: column;
+    block-grow: 1;
+    block-direction: column;
     justify-content: center; /* Ensure everything is centered */
     align-items: center;
     gap: 20px;
@@ -630,7 +630,7 @@ footer a:hover {
 }
 
 .game-info-container {
-    display: flex;
+    display: block;
     justify-content: space-between;
     align-items: center;
     width: 90%; /* Make it full-width of the parent container */
@@ -827,8 +827,8 @@ footer a:hover {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .scrolling-game-card {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     .scrolling-container {
         gap: 10px;

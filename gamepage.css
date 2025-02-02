@@ -596,8 +596,8 @@ footer a:hover {
  /* Game Content Section */
 .game-content {
     flex-grow: 1;
-    display: flex;
     flex-direction: column;
+    justify-content: center; /* Ensure everything is centered */
     align-items: center;
     gap: 20px;
     width: 80%; /* Reduced from 90% */
@@ -614,10 +614,10 @@ footer a:hover {
 /* Adjust the game content for larger screens */
 @media (min-width: 1440px) {
     .game-section {
-        max-width: 1500px; /* Extra space for large screens */
+        max-width: 2000px; /* Extra space for large screens */
     }
     .game-content {
-        max-width: 1200px; /* Grow to match increased parent width */
+        max-width: 1800px; /* Grow to match increased parent width */
     }
 }
 
@@ -661,7 +661,7 @@ footer a:hover {
     transform: scale(1.2);
 }
 .game-description {
-    width: 80%;
+    width: 95%;
     background-color: #27293d;
     padding: 15px;
     border-radius: 8px;

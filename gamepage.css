@@ -1,4 +1,8 @@
-/* General Styles */ 
+/* General Styles */
+* {
+    box-sizing: border-box; /* Ensure padding and borders are included in element width */
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #1a1a2e; /* Dark gaming background */
@@ -8,6 +12,7 @@ body {
     width: 100%;
     overflow-x: hidden; /* Prevents horizontal scrolling */
 }
+
 h2 {
     text-align: left; /* Align the heading to the left */
     margin-left: 20px; /* Adjust this value to match the padding/margin of the game grid */
@@ -15,6 +20,7 @@ h2 {
     color: #eaeaea; /* Keep it consistent with your theme */
     margin-bottom: 10px; /* Space between the heading and the game grid */
 }
+
 @media (max-width: 768px) {
     h2 {
         text-align: center; /* Center align on mobile if needed */
@@ -30,8 +36,8 @@ header {
     padding: 10px 20px;
     background-color: #000000; /* Black background for header */
     border-bottom: 3px solid #00FFFF; /* Updated to cyan */
+    width: 100%; /* Ensure header doesn't overflow */
 }
-
 
 header .logo img {
     width: 150px;
@@ -50,6 +56,7 @@ header .controls {
     background-color: #2a2a3b;
     color: #fff;
     font-size: 16px;
+    width: 100%; /* Ensure search bar doesn't overflow */
 }
 
 #search-bar::placeholder {
@@ -76,6 +83,7 @@ header .controls {
     list-style: none;
     gap: 15px;
     margin: 0;
+    padding: 0; /* Remove default padding */
 }
 
 .nav-links button {
@@ -101,21 +109,16 @@ header .controls {
     transform: scale(1.1); /* Optional: Keep the slight scale effect */
 }
 
-
-
 /* Game Grid */
-
-
 .game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create multiple columns */
     gap: 20px; /* Space between cards */
     padding: 20px; /* Internal padding */
-    margin:0 auto; /* Center the grid */
-    width: 95%; /* Add some buffer space */
+    margin: 0 auto; /* Center the grid */
+    width: 100%; /* Ensure it takes full width */
     box-sizing: border-box; /* Ensure padding is included in width */
 }
-
 
 /* Game Card */
 .game-card {
@@ -128,33 +131,11 @@ header .controls {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    width: 150px;
+    width: 100%; /* Allow grid to control the width */
     height: 150px;
-    border: 2px solid transparent; /* Default border is transparent */
+    max-width: 150px; /* Set a max width to prevent excessive stretching */
+    margin: 0 auto; /* Center the cards properly */
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .game-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Create responsive columns */
-        gap: 15px; /* Reduce gap for better spacing */
-        padding: 20px;
-        width: 100%; /* Ensure it takes full width */
-    }
-
-    .game-card {
-        width: 100%; /* Allow grid to control the width */
-        height: 150px; /* Prevent fixed height issues */
-        max-width: 150px; /* Set a max width to prevent excessive stretching */
-        margin: 0 auto; /* Center the cards properly */
-        
-    }
-}
-
-
-
-
 
 .game-card img {
     width: 100%;
@@ -172,11 +153,6 @@ header .controls {
 
 .game-card:hover img {
     opacity: 0.3; /* Dim image on hover */
-}
-
-
-.game-card:hover img {
-    opacity: 0.3;
 }
 
 /* Game Card Title */
@@ -201,7 +177,6 @@ header .controls {
     background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent on hover */
 }
 
-
 /* Footer */
 footer {
     background-color: #000000; /* Black background */
@@ -210,6 +185,7 @@ footer {
     padding: 10px;
     font-size: 14px;
     border-top: 3px solid #00FFFF; /* Cyan border to match theme */
+    width: 100%; /* Ensure footer doesn't overflow */
 }
 
 footer a {
@@ -229,9 +205,12 @@ footer a:hover {
     justify-content: space-between; /* Add spacing between sections */
     align-items: flex-start; /* Align items to the top */
     gap: 20px; /* Space between left, center, and right sections */
+    width: 100%; /* Ensure it takes full width */
     max-width: 1200px; /* Ensure enough space for all sections */
     margin: 0 auto; /* Center the entire section */
+    padding: 20px; /* Add padding for spacing */
 }
+
 /* Adjust the iframe container to match the game content width */
 .iframe-container {
     width: 100%; /* Take the full width of the parent container */
@@ -247,13 +226,12 @@ footer a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
 }
 
-
 .game-info-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px auto;
-    width: 80%;
+    width: 100%; /* Ensure it takes full width */
     max-width: 1000px;
 }
 
@@ -284,8 +262,6 @@ footer a:hover {
     color: #007bff;
     transform: scale(1.2);
 }
-
-
 
 /* Ensure hamburger menu is visible on mobile */
 .hamburger-menu {
@@ -320,13 +296,6 @@ footer a:hover {
     }
 }
 
-
-.hamburger-icon {
-    font-size: 24px;
-    color: #00FFFF;
-    cursor: pointer;
-    user-select: none;
-}
 /* Mobile Menu */
 .mobile-menu {
     position: fixed;
@@ -345,7 +314,6 @@ footer a:hover {
     padding: 20px;
     overflow-y: auto; /* Add scroll in case of overflow */
 }
-
 
 .menu-header {
     display: flex;
@@ -430,6 +398,7 @@ footer a:hover {
         display: block; /* Show search icon on mobile */
     }
 }
+
 #search-container {
     display: none; /* Initially hidden */
     flex-direction: row;
@@ -468,21 +437,15 @@ footer a:hover {
     }
 }
 
-}
 /* Game Section For Left and Right Section */
-.game-section {
+.left-section,
+.right-section {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 20px;
-    width: 90%; /* Keep responsive behavior */
-    max-width: 1400px; /* Allow more space for larger screens */
-    margin: 0 auto;
-    padding: 20;
+    width: 100%; /* Ensure it takes full width */
 }
 
-
-/* Left and Right Sections */
 /* Game Grid (2x2 layout) */
 .leftright-grid {
     display: grid;
@@ -574,10 +537,6 @@ footer a:hover {
     }
 }
 
-
-
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .game-section {
@@ -585,19 +544,21 @@ footer a:hover {
         align-items: center;
         gap: 20px;
     }
-      .left-section, .right-section {
+
+    .left-section,
+    .right-section {
         display: none; /* Hide the sections on smaller screens */
     }
 }
 
- /* Game Content Section */
+/* Game Content Section */
 .game-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 80%; /* Reduced from 90% */
+    width: 100%; /* Ensure it takes full width */
     max-width: 1200px; /* Reduce the maximum width */
     margin: 20px auto;
     padding: 20px;
@@ -605,8 +566,6 @@ footer a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
-
-
 
 /* Adjust the game content for larger screens */
 @media (min-width: 1440px) {

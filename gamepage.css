@@ -600,9 +600,8 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 60%; /* Reduced from 90% */
+    width: 80%; /* Reduced from 90% */
     max-width: 1200px; /* Reduce the maximum width */
-    overflow-x: hidden; /* Stops horizontal scrolling */
     margin: 10px auto;
     padding: 20px;
     background-color: #1a1a2e;
@@ -617,10 +616,8 @@ footer a:hover {
     .game-section {
         max-width: 2000px; /* Extra space for large screens */
     }
-     .game-content {
-        width: 100vw; /* Force full width */
-        max-width: 80%;
-        padding: 15px;
+    .game-content {
+        max-width: 1800px; /* Grow to match increased parent width */
     }
 }
 

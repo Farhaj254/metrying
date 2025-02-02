@@ -232,7 +232,7 @@ footer a:hover {
     justify-content: space-between; /* Add spacing between sections */
     align-items: flex-start; /* Align items to the top */
     gap: 20px; /* Space between left, center, and right sections */
-    max-width: 1200px; /* Ensure enough space for all sections */
+    max-width: 1000px; /* Ensure enough space for all sections */
     margin: 0 auto; /* Center the entire section */
 }
 /* Adjust the iframe container to match the game content width */
@@ -614,15 +614,15 @@ footer a:hover {
 /* Adjust the game content for larger screens */
 @media (min-width: 1440px) {
     .game-section {
-        max-width: 2000px; /* Extra space for large screens */
+        max-width: 1500px; /* Extra space for large screens */
     }
     .game-content {
-        max-width: 1800px; /* Grow to match increased parent width */
+        max-width: 1200px; /* Grow to match increased parent width */
     }
 }
 
 .iframe-container iframe {
-    width: 95%;
+    width: 100%;
     height: 500px;
     border: none;
     border-radius: 8px;
@@ -633,7 +633,7 @@ footer a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%; /* Make it full-width of the parent container */
+    width: 95%; /* Make it full-width of the parent container */
 }
 
 .game-title {

@@ -202,11 +202,10 @@ footer a:hover {
 /* Game Section */
 .game-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the content */
     align-items: flex-start;
     gap: 20px;
     width: 100%; /* Ensure it takes full width */
-    max-width: 1400px; /* Increase this value to make the section wider */
     margin: 0 auto; /* Center the section */
     padding: 20px; /* Add padding for spacing */
 }
@@ -559,7 +558,7 @@ footer a:hover {
     align-items: center;
     gap: 20px;
     width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Increase this value to make it wider */
+    max-width: none; /* Remove max-width constraint */
     margin: 20px auto; /* Center the content */
     padding: 20px;
     background-color: #1a1a2e;

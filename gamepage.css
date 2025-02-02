@@ -572,6 +572,7 @@ footer a:hover {
     .game-section {
         max-width: 2000px; /* Extra space for large screens */
     }
+
     .game-content {
         max-width: 1800px; /* Grow to match increased parent width */
     }
@@ -616,6 +617,7 @@ footer a:hover {
     color: #007bff;
     transform: scale(1.2);
 }
+
 .game-description {
     width: 100%;
     background-color: #27293d;
@@ -644,10 +646,12 @@ footer a:hover {
 .game-description:hover {
     overflow-y: auto;
 }
+
 .game-section, .game-content, .left-section, .right-section {
     margin: 20px auto;
     padding: 20px;
 }
+
 @media (max-width: 768px) {
     .game-grid {
         padding: 15px;
@@ -664,6 +668,7 @@ footer a:hover {
         padding: 15px;
     }
 }
+
 /* Responsive Design for Medium Screens */
 @media (min-width: 769px) and (max-width: 1200px) {
     .game-section {
@@ -694,7 +699,6 @@ footer a:hover {
     overflow: hidden; /* Keep this to hide out-of-view cards */
     position: relative;
     margin-top: 20px;
-    
 }
 
 .scrolling-container {
@@ -710,8 +714,6 @@ footer a:hover {
 .scrolling-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar */
 }
-
-
 
 .scrolling-game-card {
     flex-shrink: 0; /* Prevent cards from shrinking */
@@ -785,6 +787,7 @@ footer a:hover {
         width: 120px;
         height: 120px;
     }
+
     .scrolling-container {
         gap: 10px;
         animation-duration: 20s; /* Slower scrolling on smaller screens */

@@ -440,8 +440,8 @@ footer a:hover {
 /* Game Section For Left and Right Section */
 .left-section,
 .right-section {
-    flex: 0 0 250px; /* Shrink to 250px */
-    max-width: 250px; /* Prevent them from growing */
+    flex: 0 0 400px; /* Shrink to 250px */
+    max-width: 450px; /* Prevent them from growing */
 }
 
 /* Game Grid (2x2 layout) */

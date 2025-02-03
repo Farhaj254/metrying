@@ -558,8 +558,8 @@ footer a:hover {
     gap: 20px;
     width: 100%; /* Ensure it takes full width */
     max-width: 1400px; /* Reduce the maximum width */
-    margin: 5px auto;
-    padding: 5px;
+    margin: 20px auto;
+    padding: 20px;
     background-color: #1a1a2e;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -645,8 +645,8 @@ footer a:hover {
 }
 
 .game-section, .game-content, .left-section, .right-section {
-    margin: 20px auto;
-    padding: 20px;
+    margin: 5px auto;
+    padding: 5px;
 }
 
 @media (max-width: 768px) {

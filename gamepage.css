@@ -202,20 +202,44 @@ footer a:hover {
 /* Game Section */
 .game-section {
     display: flex;
-    justify-content: space-between; /* Add spacing between sections */
-    align-items: flex-start; /* Align items to the top */
-    gap: 20px; /* Space between left, center, and right sections */
+    justify-content: space-between; /* Distribute space between sections */
+    align-items: flex-start;
+    gap: 20px; /* Space between sections */
     width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Ensure enough space for all sections */
-    margin: 0 auto; /* Center the entire section */
+    max-width: 1400px; /* Increase this value if needed */
+    margin: 0 auto; /* Center the section */
     padding: 20px; /* Add padding for spacing */
 }
 
-/* Adjust the iframe container to match the game content width */
+/* Left and Right Sections */
+.left-section,
+.right-section {
+    flex: 0 0 20%; /* Fixed width for left and right sections */
+    max-width: 20%; /* Ensure they don't grow beyond 20% */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Game Content Section */
+.game-content {
+    flex: 1; /* Take up remaining space */
+    max-width: 60%; /* Ensure it doesn't exceed 60% */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #1a1a2e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Iframe Container */
 .iframe-container {
-    width: 100%; /* Take the full width of the parent container */
+    width: 100%; /* Ensure it takes full width */
     max-width: 100%; /* Ensure it doesn't exceed the parent width */
-    margin: 0 auto;
+    margin: 0 auto; /* Center the iframe */
 }
 
 .iframe-container iframe {
@@ -226,366 +250,7 @@ footer a:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
 }
 
-.game-info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px auto;
-    width: 100%; /* Ensure it takes full width */
-    max-width: 1000px;
-}
-
-.game-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: #eaeaea;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 8px;
-}
-
-.game-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.fullscreen-icon,
-.share-icon {
-    font-size: 24px;
-    color: #00FFFF;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.fullscreen-icon:hover,
-.share-icon:hover {
-    color: #007bff;
-    transform: scale(1.2);
-}
-
-/* Ensure hamburger menu is visible on mobile */
-.hamburger-menu {
-    display: none; /* Default: hidden for larger screens */
-    position: absolute;
-    left: 20px;
-    top: 15px;
-    z-index: 10;
-}
-
-.hamburger-icon {
-    font-size: 24px;
-    color: #00FFFF;
-    cursor: pointer;
-    user-select: none;
-}
-
-/* Show the hamburger menu on mobile screens */
-@media (max-width: 768px) {
-    .hamburger-menu {
-        display: block; /* Visible on screens smaller than 768px */
-    }
-
-    nav {
-        display: none; /* Hide the desktop navigation */
-    }
-
-    header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-/* Mobile Menu */
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 250px;
-    background-color: #1a1a2e;
-    color: #eaeaea;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    transition: left 0.3s ease;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    overflow-y: auto; /* Add scroll in case of overflow */
-}
-
-.menu-header {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.close-menu {
-    background: none;
-    border: none;
-    color: #00FFFF;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.close-menu:hover {
-    color: #007bff;
-}
-
-.mobile-menu-links {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0; /* Add margin to push items down */
-}
-
-.mobile-menu-links li {
-    margin: 10px 0;
-    text-align: left; /* Align text to the left */
-}
-
-.mobile-menu-links li button {
-    background: none;
-    border: none;
-    color: #00FFFF;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: left;
-    width: 100%;
-    transition: color 0.3s ease;
-}
-
-.mobile-menu-links li button:hover {
-    color: #007bff;
-}
-
-.mobile-menu-socials {
-    display: flex;
-    justify-content: center; /* Center align the icons */
-    align-items: center; /* Vertically center the icons */
-    gap: 15px; /* Space between the icons */
-    margin-top: auto; /* Push the icons to the bottom of the menu */
-    padding-bottom: 20px; /* Add padding at the bottom for better spacing */
-    position: relative; /* Ensure proper placement */
-}
-
-.mobile-menu-socials a {
-    color: #00FFFF;
-    font-size: 24px; /* Adjust size for better visibility */
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.mobile-menu-socials a:hover {
-    color: #007bff;
-    transform: scale(1.2); /* Add a hover zoom effect */
-}
-
-/* Ensure search icon is styled */
-#search-icon {
-    font-size: 24px;
-    color: #00FFFF;
-    cursor: pointer;
-    display: none; /* Hidden by default */
-}
-
-/* Mobile styles for search */
-@media (max-width: 768px) {
-    #search-bar {
-        display: none; /* Hide search bar initially */
-    }
-
-    #search-icon {
-        display: block; /* Show search icon on mobile */
-    }
-}
-
-#search-container {
-    display: none; /* Initially hidden */
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-}
-
-#search-bar {
-    display: inline-block;
-    padding: 8px 12px;
-    border: 1px solid #444;
-    border-radius: 4px;
-    background-color: #2a2a3b;
-    color: #fff;
-    font-size: 16px;
-    width: 100%; /* Full width */
-}
-
-#close-search {
-    font-size: 20px;
-    color: #00FFFF;
-    cursor: pointer;
-    display: block; /* Visible when search is open */
-}
-
-#search-icon {
-    font-size: 20px;
-    color: #00FFFF;
-    cursor: pointer;
-    display: block; /* Visible when search is closed */
-}
-
-@media (max-width: 768px) {
-    #search-bar {
-        width: auto; /* Adjust width for mobile */
-    }
-}
-
-/* Game Section For Left and Right Section */
-.left-section,
-.right-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%; /* Ensure it takes full width */
-}
-
-/* Game Grid (2x2 layout) */
-.leftright-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 10px; /* Spacing between cards */
-    margin-bottom: 20px; /* Space between grid and ad container */
-}
-
-/* Game Card Hover and Clickable Style */
-.game-card {
-    position: relative;
-    background: #27293d;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: 2px solid transparent;
-    text-decoration: none; /* Remove underline for clickable cards */
-}
-
-.game-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease;
-}
-
-.game-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    border: 2px solid #00FFFF;
-}
-
-.game-card:hover img {
-    opacity: 0.3; /* Dim the image on hover */
-}
-
-.game-card .game-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    color: #00FFFF;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.game-card:hover .game-title {
-    opacity: 1; /* Show title on hover */
-}
-
-/* Ad Container Style */
-.ad-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background-color: #27293d;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    margin-top: 20px; /* Add spacing between the grid and ad container */
-    margin-bottom: 20px; /* Add spacing between the grid and ad container */
-}
-
-.ad-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Adjustments for Responsive Design */
-@media (max-width: 768px) {
-    .leftright-grid {
-        grid-template-columns: repeat(2, 1fr); /* Maintain 2x2 grid */
-        gap: 10px;
-    }
-
-    .ad-container {
-        padding: 10px;
-        margin-top: 10px; /* Adjust spacing for smaller screens */
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .game-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .left-section,
-    .right-section {
-        display: none; /* Hide the sections on smaller screens */
-    }
-}
-
-/* Game Content Section */
-.game-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Reduce the maximum width */
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #1a1a2e;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-}
-
-/* Adjust the game content for larger screens */
-@media (min-width: 1440px) {
-    .game-section {
-        max-width: 2000px; /* Extra space for large screens */
-    }
-
-    .game-content {
-        max-width: 1800px; /* Grow to match increased parent width */
-    }
-}
-
-.iframe-container iframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
-}
-
+/* Game Info Container */
 .game-info-container {
     display: flex;
     justify-content: space-between;
@@ -598,6 +263,7 @@ footer a:hover {
     font-weight: bold;
     color: #00FFFF;
 }
+
 .game-buttons {
     display: flex;
     gap: 10px;
@@ -617,6 +283,7 @@ footer a:hover {
     transform: scale(1.2);
 }
 
+/* Game Description */
 .game-description {
     width: 100%;
     background-color: #27293d;
@@ -628,65 +295,37 @@ footer a:hover {
     transition: overflow-y 0.3s ease; /* Smooth transition */
 }
 
-/* Heading style */
 .game-description h3 {
     color: #00FFFF; /* Cyan for headings */
     margin-top: 0;
 }
 
-/* Paragraph style */
 .game-description p {
     color: #eaeaea; /* White for text */
     margin: 10px 0;
     line-height: 1.5;
 }
 
-/* Enable scrolling if content exceeds max-height */
 .game-description:hover {
     overflow-y: auto;
 }
 
-.game-section, .game-content, .left-section, .right-section {
-    margin: 20px auto;
-    padding: 20px;
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .game-grid {
-        padding: 15px;
-        width: 90%; /* Add space on smaller screens */
+    .game-section {
+        flex-direction: column; /* Stack sections vertically on mobile */
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left-section,
+    .right-section {
+        display: none; /* Hide left and right sections on mobile */
     }
 
     .game-content {
-        width: 95%;
-        max-width: 100%; /* Allow full width on small screens */
-    }
-
-    .game-section {
-        width: 95%; /* Match other elements */
-        padding: 15px;
-    }
-}
-
-/* Responsive Design for Medium Screens */
-@media (min-width: 769px) and (max-width: 1200px) {
-    .game-section {
-        gap: 15px; /* Reduce the gap between sections for medium screens */
-    }
-
-    .game-grid {
-        grid-template-columns: repeat(2, 1fr); /* Keep 2x2 layout for game cards */
-        gap: 15px; /* Slightly reduce spacing between cards */
-    }
-
-    .game-card {
-        width: 120px; /* Shrink the card width for better fit */
-        height: 120px; /* Maintain square shape */
-        font-size: 12px; /* Adjust font size for smaller cards */
-    }
-
-    .ad-container {
-        padding: 10px; /* Adjust padding for medium screens */
+        width: 100%; /* Take full width on mobile */
+        max-width: 100%; /* Ensure it doesn't exceed the viewport */
     }
 }
 
@@ -737,7 +376,6 @@ footer a:hover {
     transition: opacity 0.3s ease; /* Add smooth fade effect */
 }
 
-/* Hover Effect for Scrolling Cards */
 .scrolling-game-card:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
@@ -748,7 +386,6 @@ footer a:hover {
     opacity: 0.3; /* Dim the image on hover */
 }
 
-/* Title for Scrolling Cards */
 .scrolling-game-card .game-title {
     position: absolute;
     bottom: 0;
@@ -764,20 +401,9 @@ footer a:hover {
     text-transform: uppercase;
 }
 
-/* Show Title on Hover */
 .scrolling-game-card:hover .game-title {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.3); /* Slightly more transparent on hover */
-}
-
-/* Animation for scrolling */
-@keyframes scroll-left {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
 }
 
 /* Responsive Adjustments */

@@ -142,7 +142,7 @@ header .controls {
     .game-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Create multiple columns */
-        gap: 10px; /* Reduce gap for better spacing */
+        gap: 30px; /* Reduce gap for better spacing */
         padding: 10px;
         width: 100%; /* Ensure it takes full width */
     }

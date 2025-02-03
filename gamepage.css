@@ -204,9 +204,9 @@ footer a:hover {
     display: flex;
     justify-content: space-between; /* Add spacing between sections */
     align-items: flex-start; /* Align items to the top */
-    gap: 20px; /* Space between left, center, and right sections */
+    gap: 10px; /* Space between left, center, and right sections */
     width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Ensure enough space for all sections */
+    max-width: 1800px; /* Ensure enough space for all sections */
     margin: 0 auto; /* Center the entire section */
     padding: 20px; /* Add padding for spacing */
 }
@@ -440,10 +440,8 @@ footer a:hover {
 /* Game Section For Left and Right Section */
 .left-section,
 .right-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%; /* Ensure it takes full width */
+    flex: 0 0 250px; /* Shrink to 250px */
+    max-width: 250px; /* Prevent them from growing */
 }
 
 /* Game Grid (2x2 layout) */
@@ -559,7 +557,7 @@ footer a:hover {
     align-items: center;
     gap: 20px;
     width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Reduce the maximum width */
+    max-width: 1400px; /* Reduce the maximum width */
     margin: 20px auto;
     padding: 20px;
     background-color: #1a1a2e;
